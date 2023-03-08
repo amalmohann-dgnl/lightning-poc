@@ -3,7 +3,7 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    es6: true,
+    es6: true
   },
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'prettier'],
@@ -12,7 +12,7 @@ module.exports = {
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
-    'prettier',
+    'prettier'
   ],
   rules: {
     quotes: [2, 'single', 'avoid-escape'],
@@ -22,24 +22,25 @@ module.exports = {
       1,
       {
         ignoreRestSiblings: true,
-        argsIgnorePattern: 'res|next|^err',
-      },
+        argsIgnorePattern: 'res|next|^err'
+      }
     ],
     '@typescript-eslint/no-non-null-assertion': 'off',
+    '@typescript-eslint/no-unused-vars': 2,
     'prettier/prettier': [
       'error',
       {
-        trailingComma: 'all',
+        trailingComma: 'false',
         singleQuote: true,
         tabWidth: 2,
         semi: false,
-        printWidth: 100,
-      },
-    ],
+        printWidth: 100
+      }
+    ]
   },
   parserOptions: {
     parser: 'babel-eslint',
     ecmaVersion: 2018,
-    sourceType: 'module',
-  },
+    sourceType: 'module'
+  }
 }

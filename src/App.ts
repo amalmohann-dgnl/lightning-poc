@@ -1,129 +1,126 @@
-/*
- * If not stated otherwise in this file or this component's LICENSE file the
- * following copyright and licenses apply:
- *
- * Copyright 2022 Metrological
- *
- * Licensed under the Apache License, Version 2.0 (the License);
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-import { Lightning, Utils } from '@lightningjs/sdk'
+import { Lightning, Log, Utils } from '@lightningjs/sdk';
+import { Rail } from './components';
+import { theme } from './configs';
+import { AppTemplateSpec } from './models/template-specs';
 
-interface AppTemplateSpec extends Lightning.Component.TemplateSpec {
-  Background: {
-    Logo: object
-    Mystery: object
-    Text: object
-  }
-}
-
+// App component
 export class App
   extends Lightning.Component<AppTemplateSpec>
   implements Lightning.Component.ImplementTemplateSpec<AppTemplateSpec>
 {
-  /*
-   * The following properties exist to make it more convenient to access elements
-   * below in a type-safe way. They are optional.
-   *
-   * See https://lightningjs.io/docs/#/lightning-core-reference/TypeScript/Components/TemplateSpecs?id=using-a-template-spec
-   * for more information.
-   */
-  readonly Background = this.getByRef('Background')!
-  readonly Logo = this.Background.getByRef('Logo')!
-  readonly Text = this.Background.getByRef('Text')!
-  readonly Mystery = this.Background.getByRef('Mystery')!
+  index: number = 0;
+  rowLength: number = 1000;
 
+  readonly Wrapper = this.getByRef('Background.Slider.Wrapper' as any)!
+
+  /**
+   * This function is responsible for the creation and return of the UI template. This function takes  no parameters
+   * and returns the template.
+   * 
+   * @returns Template for the Application
+   * 
+   */
   static override _template(): Lightning.Component.Template<AppTemplateSpec> {
     return {
-      w: 1920,
-      h: 1080,
       Background: {
-        w: 1920,
-        h: 1080,
-        color: 0xfffbb03b,
-        src: Utils.asset('images/background.png'),
-        Logo: {
-          mountX: 0.5,
-          mountY: 1,
-          x: 960,
-          y: 600,
-          src: Utils.asset('images/logo.png'),
-        },
-        Mystery: {
-          x: 930,
-          y: 400,
-          w: 150,
-          h: 150,
-          scale: 0,
-          src: Utils.asset('images/mystery.png'),
-        },
-        Text: {
-          mount: 0.5,
-          x: 960,
-          y: 720,
-          text: {
-            text: "Let's start Building!",
-            fontFace: 'Regular',
-            fontSize: 64,
-            textColor: 0xbbffffff,
-          },
-        },
-      },
-    }
+        w: 1920, h: 1080,
+        color: theme.colors.background,
+        rect: true,
+        Slider: {
+          w: 800, h: (h: number) => h, x: 400, y: 550, mount: 0.5,
+          Wrapper: {
+          }
+        }
+
+      }
+    };
   }
 
-  static getFonts() {
-    return [
-      {
-        family: 'Regular',
-        url: Utils.asset('fonts/Roboto-Regular.ttf') as string,
-      },
-    ]
-  }
-
-  override _handleEnter() {
-    this.Logo.setSmooth('scale', 2, {
-      duration: 2.5,
-    })
-    this.Text.setSmooth('y', 800, {
-      duration: 2.5,
-    })
-    this.Text.setSmooth('alpha', 0, {
-      duration: 2.5,
-      timingFunction: 'ease-out',
-    })
-    this.Mystery.smooth = {
-      x: 1025,
-      y: 550,
-      scale: 1,
-    }
-  }
 
   override _init() {
-    this.stage.transitions.defaultTransitionSettings.duration = 3
-    this.Background.animation({
-      duration: 15,
-      repeat: -1,
-      delay: 1,
-      actions: [
-        {
-          p: 'color',
-          v: {
-            0: { v: 0xfffbb03b },
-            0.5: { v: 0xfff46730 },
-            0.8: { v: 0xfffbb03b },
-          },
-        },
-      ],
-    }).start()
+    const rails = [];
+    for (let i = 0; i < this.rowLength; i++) {
+      rails.push({ type: Rail, x: 0, y: i * (400 + 50) })
+    }
+    this.tag('Background.Slider.Wrapper' as any).children = rails;
+  }
+
+  repositionWrapper() {
+    const wrapper = this.tag('Background.Slider.Wrapper' as any);
+    const sliderH = this.tag('Background.Slider' as any).h;
+    const currentWrapperY = wrapper.transition('y').targetvalue || wrapper.y;
+    const currentFocus = wrapper.children[this.index];
+    const currentFocusY = currentFocus.y + currentWrapperY;
+    const currentFocusOuterHeight = currentFocus.y + currentFocus.h;
+    if (currentFocusY < 0) {
+      wrapper.setSmooth('y', -currentFocus.y);
+    }
+    else if (currentFocusOuterHeight > sliderH) {
+      wrapper.setSmooth('y', sliderH - (currentFocusOuterHeight));
+    }
+  }
+
+
+
+  override _handleUp() {
+    if (this.index > 0) {
+      this.index -= 1;
+      this.repositionWrapper();
+    }
+
+  }
+
+  override _handleDown() {
+    if (this.index < this.rowLength - 1) {
+      this.index += 1;
+      this.repositionWrapper();
+    }
+  }
+
+  /**
+     * This function will override the default behavior of the getFocused() method
+     * 
+     * @returns Return the child Component that this Component wishes to receive focus. Returning null 
+     * or undefined tells the focus engine to not set focus on this Component at all.By default,
+     * this Component's own instance is returned.
+     */
+
+  override _getFocused(): any {
+    return this.tag('Background.Slider.Wrapper' as any).children[this.index];
+  }
+
+}
+
+
+// template button left and right
+class ExampleButton extends Lightning.Component {
+  buttonText: any;
+
+  static override _template() {
+    return {
+      color: 0xff1f1f1f,
+      texture: Lightning.Tools.getRoundRect(150, 40, 4),
+      Label: {
+        x: 75,
+        y: 22,
+        mount: 0.5,
+        color: 0xffffffff,
+        text: { fontSize: 20 },
+      },
+    };
+  }
+  override _init() {
+    this.tag('Label').patch({ text: { text: this.buttonText } });
+  }
+
+
+  override _focus() {
+    this.color = 0xffffffff;
+    this.tag('Label').color = 0xff1f1f1f;
+  }
+
+  override _unfocus() {
+    this.color = 0xff1f1f1f;
+    this.tag('Label').color = 0xffffffff;
   }
 }
