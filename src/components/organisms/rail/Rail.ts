@@ -3,11 +3,13 @@ import { RailTemplateSpec } from "../../../models/template-specs";
 import RailItem from '../../molecules/rail-item/RailItem';
 import { AxiosRequester } from '../../../services';
 import { RailDataResponse, Content, Image } from '../../../models/api-request-response';
+import { endpoint, theme } from '../../../configs';
+import { railName } from '../../../data';
 
 class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Component.ImplementTemplateSpec<RailTemplateSpec> {
     index: number = 0;
     dataLength: number = 0;
-    endPoint: string = '';
+    railIndex: number = 0;
     axiosRequester: AxiosRequester = new AxiosRequester();
     responseData: RailDataResponse = {} as RailDataResponse;
     data: Content[] = [];
@@ -22,8 +24,14 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
 
     static override _template() {
         return {
+            Header: {
+                x: 50,
+                y: 20,
+                color: theme.colors.white,
+                text: { text: "", fontSize: 35 }
+            },
             Slider: {
-                w: 800, h: 350, x: 480, y: 270, mount: 0.5,
+                w: 800, h: 350, x: 480, y: 280, mount: 0.5,
                 Wrapper: {}
             }
         }
@@ -34,10 +42,8 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
     * attached for the first time. This function takes  no parameters and has no return.
     */
     override _init() {
-        Log.debug("init", this.endPoint);
-
-        const buttons: { type: typeof RailItem; x: number; item: { label: string; src: string; }; }[] = [];
-        this.axiosRequester.fetch(this.endPoint).then((response) => {
+        const rail: { type: typeof RailItem; x: number; item: { label: string; src: string; }; }[] = [];
+        this.axiosRequester.fetch(endpoint[this.railIndex]!).then((response) => {
             if (response) {
                 this.responseData = response[0]?.data;
                 this.dataLength = this.responseData.totalElements || 0;
@@ -45,14 +51,17 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
                 for (let i = 0; i < this.dataLength; i++) {
                     let label = this.data[i]?.title!;
                     let img_src = this.data[i]?.images.find((img: Image) => img.width === 288)?.url
-                    buttons.push({
+                    rail.push({
                         type: RailItem,
                         x: i * (300 + 30),
                         item: { label: label, src: img_src || "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/249/oyPcsfGWL5Se6RGW1JCVgpHlASH_288x432_13635141800.jpg" }
                     });
                 }
             }
-            this.tag('Wrapper' as any).children = buttons;
+            this.patch({
+                Header: { text: railName[this.railIndex]! }
+            })
+            this.tag('Wrapper' as any).children = rail;
         })
     }
 

@@ -22,6 +22,7 @@ interface RailItemTemplateSpec extends Lightning.Component.TemplateSpec {
      */
     Image: object;
     Label: object;
+    Rectangle?: object;
 
 }
 

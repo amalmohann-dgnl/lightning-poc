@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "vendor": "My Company",
   "type": "web",
-  "main": "./dist/es6/index.html",
+  "main": "./dist/es5/index.html",
   "title": "Pure Lightning",
   "icon": "icon.png",
   "largeIcon": "largeIcon.png"

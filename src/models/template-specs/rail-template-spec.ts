@@ -22,7 +22,7 @@ interface RailTemplateSpec extends Lightning.Component.TemplateSpec {
      */
     index: number;
     dataLength: number;
-    endPoint: string;
+    railIndex: number;
     axiosRequester: AxiosRequester;
     responseData: RailDataResponse;
     repositionWrapper: () => void;
@@ -30,6 +30,7 @@ interface RailTemplateSpec extends Lightning.Component.TemplateSpec {
     /**
      * children of the Rail component
      */
+    Header: object;
     Slider: {
         Wrapper: object;
     };

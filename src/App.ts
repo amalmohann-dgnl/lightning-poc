@@ -30,7 +30,6 @@ export class App
           w: 800, h: (h: number) => h, x: 400, y: 550, mount: 0.5,
           Wrapper: {}
         }
-
       }
     };
   }
@@ -39,7 +38,7 @@ export class App
   override _init() {
     const rails = [];
     for (let i = 0; i < this.rowLength; i++) {
-      rails.push({ type: Rail, x: 0, y: i * (500 + 50), endPoint: endpoint[i] })
+      rails.push({ type: Rail, x: 0, y: i * (600 + 50), railIndex: i })
     }
     this.tag('Background.Slider.Wrapper' as any).children = rails;
   }

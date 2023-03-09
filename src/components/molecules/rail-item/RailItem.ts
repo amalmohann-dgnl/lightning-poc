@@ -33,8 +33,8 @@ class RailItem
                 x: 10,
                 y: 435,
                 w: (w: number) => w,
-                color: theme.colors.white,
-                text: { fontSize: 32 }
+                color: theme.colors.accentGrey.light,
+                text: { fontSize: 30 }
             }
         }
     }
@@ -65,8 +65,9 @@ class RailItem
         this.patch({
             smooth: { color: theme.colors.secondary, scale: 1.1 },
             Label: {
-                smooth: { color: theme.colors.secondary }
-            }
+                smooth: { color: theme.colors.white }
+            },
+            Rectangle: { color: theme.colors.yellow, x: 10, y: (y: number) => y + 72, w: (w: number) => w - 20, h: 5, rect: true }
         })
     }
 
@@ -80,8 +81,9 @@ class RailItem
         this.patch({
             smooth: { color: theme.colors.primary, scale: 1.0 },
             Label: {
-                smooth: { color: theme.colors.white }
-            }
+                smooth: { color: theme.colors.accentGrey.light }
+            },
+            Rectangle: undefined
         })
     }
 }
