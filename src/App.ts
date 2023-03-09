@@ -1,6 +1,6 @@
 import { Lightning, Log, Utils } from '@lightningjs/sdk';
 import { Rail } from './components';
-import { theme } from './configs';
+import { endpoint, theme } from './configs';
 import { AppTemplateSpec } from './models/template-specs';
 
 // App component
@@ -9,7 +9,7 @@ export class App
   implements Lightning.Component.ImplementTemplateSpec<AppTemplateSpec>
 {
   index: number = 0;
-  rowLength: number = 1000;
+  rowLength: number = endpoint.length;
 
   readonly Wrapper = this.getByRef('Background.Slider.Wrapper' as any)!
 
@@ -28,8 +28,7 @@ export class App
         rect: true,
         Slider: {
           w: 800, h: (h: number) => h, x: 400, y: 550, mount: 0.5,
-          Wrapper: {
-          }
+          Wrapper: {}
         }
 
       }
@@ -40,7 +39,7 @@ export class App
   override _init() {
     const rails = [];
     for (let i = 0; i < this.rowLength; i++) {
-      rails.push({ type: Rail, x: 0, y: i * (400 + 50) })
+      rails.push({ type: Rail, x: 0, y: i * (500 + 50), endPoint: endpoint[i] })
     }
     this.tag('Background.Slider.Wrapper' as any).children = rails;
   }
@@ -89,38 +88,4 @@ export class App
     return this.tag('Background.Slider.Wrapper' as any).children[this.index];
   }
 
-}
-
-
-// template button left and right
-class ExampleButton extends Lightning.Component {
-  buttonText: any;
-
-  static override _template() {
-    return {
-      color: 0xff1f1f1f,
-      texture: Lightning.Tools.getRoundRect(150, 40, 4),
-      Label: {
-        x: 75,
-        y: 22,
-        mount: 0.5,
-        color: 0xffffffff,
-        text: { fontSize: 20 },
-      },
-    };
-  }
-  override _init() {
-    this.tag('Label').patch({ text: { text: this.buttonText } });
-  }
-
-
-  override _focus() {
-    this.color = 0xffffffff;
-    this.tag('Label').color = 0xff1f1f1f;
-  }
-
-  override _unfocus() {
-    this.color = 0xff1f1f1f;
-    this.tag('Label').color = 0xffffffff;
-  }
 }

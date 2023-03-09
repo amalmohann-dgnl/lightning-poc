@@ -1,10 +1,16 @@
-import { Lightning, Log } from "@lightningjs/sdk";
+import { Lightning, Log, Utils } from '@lightningjs/sdk';
 import { RailTemplateSpec } from "../../../models/template-specs";
 import RailItem from '../../molecules/rail-item/RailItem';
+import { AxiosRequester } from '../../../services';
+import { RailDataResponse, Content, Image } from '../../../models/api-request-response';
 
 class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Component.ImplementTemplateSpec<RailTemplateSpec> {
     index: number = 0;
-    dataLength: number = 27;
+    dataLength: number = 0;
+    endPoint: string = '';
+    axiosRequester: AxiosRequester = new AxiosRequester();
+    responseData: RailDataResponse = {} as RailDataResponse;
+    data: Content[] = [];
 
     /**
    * This function is responsible for the creation and return of the UI template. This 
@@ -27,18 +33,29 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
     * This function is responsible for setting up the initial states of the component when
     * attached for the first time. This function takes  no parameters and has no return.
     */
-
     override _init() {
-        const buttons = [];
-        for (let i = 0; i < this.dataLength; i++) {
-            buttons.push({
-                type: RailItem,
-                x: i * (300 + 30),
-                item: { label: `Content ${i + 1}`, src: `../../../../static/images/rails/${i + 1}.jpg` }
-            });
-        }
-        this.tag('Wrapper' as any).children = buttons;
+        Log.debug("init", this.endPoint);
+
+        const buttons: { type: typeof RailItem; x: number; item: { label: string; src: string; }; }[] = [];
+        this.axiosRequester.fetch(this.endPoint).then((response) => {
+            if (response) {
+                this.responseData = response[0]?.data;
+                this.dataLength = this.responseData.totalElements || 0;
+                this.data = this.responseData.content || [];
+                for (let i = 0; i < this.dataLength; i++) {
+                    let label = this.data[i]?.title!;
+                    let img_src = this.data[i]?.images.find((img: Image) => img.width === 288)?.url
+                    buttons.push({
+                        type: RailItem,
+                        x: i * (300 + 30),
+                        item: { label: label, src: img_src || "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/249/oyPcsfGWL5Se6RGW1JCVgpHlASH_288x432_13635141800.jpg" }
+                    });
+                }
+            }
+            this.tag('Wrapper' as any).children = buttons;
+        })
     }
+
 
     /**
      * To repostion the wrapper on the focused element. Function does not take any parameters 
@@ -48,8 +65,6 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
     repositionWrapper() {
         const wrapper = this.tag('Wrapper' as any);
         const sliderW = this.tag('Slider' as any).w;
-        Log.debug('Slider Width:', sliderW);
-        Log.debug('Wrapper:', wrapper.w);
         const currentWrapperX = wrapper.transition('x').targetvalue || wrapper.x;
         const currentFocus = wrapper.children[this.index];
         const currentFocusX = currentFocus.x + currentWrapperX;

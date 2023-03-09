@@ -4,6 +4,8 @@
  */
 
 import { Lightning } from "@lightningjs/sdk";
+import { AxiosRequester } from '../../services';
+import { RailDataResponse } from '../api-request-response';
 
 /**
  * properties of the Rail component
@@ -20,6 +22,9 @@ interface RailTemplateSpec extends Lightning.Component.TemplateSpec {
      */
     index: number;
     dataLength: number;
+    endPoint: string;
+    axiosRequester: AxiosRequester;
+    responseData: RailDataResponse;
     repositionWrapper: () => void;
 
     /**

@@ -16,22 +16,23 @@ class RailItem
 
     static override _template() {
         return {
-            w: 300,
-            h: 350,
+            w: 288,
+            h: 432,
             rect: true,
             color: theme.colors.primary,
             shader: { type: Lightning.shaders.RoundedRectangle, radius: 20 },
             Image: {
                 w: (w: any) => w,
-                h: (h: any) => h - 50,
+                h: (h: any) => h,
                 shader: {
                     type: Lightning.shaders.RoundedRectangle,
-                    radius: [20, 20, 0, 0]
+                    radius: 20
                 }
             },
             Label: {
                 x: 10,
-                y: 302,
+                y: 435,
+                w: (w: number) => w,
                 color: theme.colors.white,
                 text: { fontSize: 32 }
             }
@@ -47,8 +48,10 @@ class RailItem
     set item(obj: { label: any; src: any }) {
         const { label, src } = obj
         this.patch({
-            Image: { src },
-            Label: { text: label.toString() }
+            Image: {
+                src: src
+            },
+            Label: { text: label?.toString() }
         })
     }
 
@@ -62,7 +65,7 @@ class RailItem
         this.patch({
             smooth: { color: theme.colors.secondary, scale: 1.1 },
             Label: {
-                smooth: { color: theme.colors.accent }
+                smooth: { color: theme.colors.secondary }
             }
         })
     }
