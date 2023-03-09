@@ -3,7 +3,8 @@
   "homepage": ".",
   "description": "Lighting POC",
   "scripts": {
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "dev": "LNG_SERVE_PORT=3000 lng dev"
   },
   "dependencies": {
     "@lightningjs/sdk": "^5.3.1",
