@@ -4,7 +4,15 @@
   "description": "Lighting POC",
   "scripts": {
     "prepare": "husky install",
-    "dev": "LNG_SERVE_PORT=3000 lng dev"
+    "dev": "LNG_SERVE_PORT=3000 lng dev",
+    "rm-dist-webos": "rm -rf ./platforms/WebOs/dist || rm -r ./platforms/WebOs/dist || rmdir ./platforms/WebOs/dist",
+    "rm-dist-tizen": "rm -rf ./platforms/Tizen/www || rm -r ./platforms/Tizen/www || rmdir ./platforms/Tizen/www",
+    "cp-dist-webos-es5": "cp -r ./dist/es5/ ./platforms/WebOS/dist/ || copy ./dist/es5/ ./platforms/WebOS/dist/",
+    "cp-dist-tizen-es5": "cp -r ./dist/es5/ ./platforms/Tizen/www/ || copy ./dist/es5 ./platforms/Tizen/www/",
+    "cp-dist-webos-es6": "cp -r ./dist/es6/ ./platforms/WebOS/dist || copy ./dist/es6/ ./platforms/WebOS/",
+    "cp-dist-tizen-es6": "cp -r ./dist/es6/ ./platforms/Tizen/www/ || copy ./dist/es6/ ./platforms/Tizen/www/",
+    "build-es5": "npm run rm-dist-webos && npm run rm-dist-tizen && lng dist --es5 && npm run cp-dist-webos-es5 && npm run cp-dist-tizen-es5",
+    "build-es6": "npm run rm-dist-webos && npm run rm-dist-tizen && lng dist && npm run cp-dist-webos-es6 && npm run cp-dist-tizen-es6"
   },
   "dependencies": {
     "@lightningjs/sdk": "^5.3.1",
