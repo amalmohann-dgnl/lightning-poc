@@ -9,8 +9,8 @@ const theme = {
         warning: 0xff35557A,
         info: 0xff35557A,
         white: 0xffF1F1F1,
-        yellow: 0xffF2DB59
-        , accentGrey: {
+        yellow: 0xffF2DB59,
+        accentGrey: {
             light: 0xffA1A8B2,
             dark: 0xff455160
         }

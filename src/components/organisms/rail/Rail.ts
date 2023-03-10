@@ -7,7 +7,7 @@ import { endpoint, theme } from '../../../configs';
 import { railName } from '../../../data';
 
 class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Component.ImplementTemplateSpec<RailTemplateSpec> {
-    index: number = 0;
+    index: number = -1;
     dataLength: number = 0;
     railIndex: number = 0;
     axiosRequester: AxiosRequester = new AxiosRequester();
@@ -62,6 +62,8 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
                 Header: { text: railName[this.railIndex]! }
             })
             this.tag('Wrapper' as any).children = rail;
+            this.index = 0;
+            this._setState("RowItem")
         })
     }
 
@@ -95,10 +97,7 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
      */
 
     override _handleLeft() {
-        if (this.index > 0) {
-            this.index -= 1;
-            this.repositionWrapper();
-        }
+        this._setState("RowItem")
     }
 
     /**
@@ -109,10 +108,7 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
      */
 
     override _handleRight() {
-        if (this.index < this.dataLength - 1) {
-            this.index += 1;
-            this.repositionWrapper();
-        }
+        this._setState("RowItem")
     }
 
     /**
@@ -123,8 +119,34 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
      * this Component's own instance is returned.
      */
 
-    override _getFocused(): any {
-        return this.tag('Slider.Wrapper' as any).children[this.index];
+    // override _getFocused(): any {
+    //     return this.tag('Slider.Wrapper' as any).children[this.index];
+    // }
+
+
+    static override _states(): Lightning.Component.Constructor<Lightning.Component<Lightning.Component.TemplateSpecLoose, Lightning.Component.TypeConfig>>[] {
+        return [
+            class RowItem extends this {
+
+                override _handleRight() {
+                    if (this.index < this.dataLength - 1) {
+                        this.index += 1;
+                        this.repositionWrapper();
+                    }
+                }
+
+                override _handleLeft() {
+                    if (this.index > 0) {
+                        this.index -= 1;
+                        this.repositionWrapper();
+                    }
+                }
+
+                override _getFocused(): any {
+                    return this.tag('Slider.Wrapper' as any).children[this.index];
+                }
+            }
+        ]
     }
 
 

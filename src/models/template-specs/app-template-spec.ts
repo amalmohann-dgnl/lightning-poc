@@ -4,6 +4,7 @@
 */
 
 import { Lightning } from '@lightningjs/sdk';
+import TopNav from '../../components/organisms/top-nav/TopNav';
 
 
 /**
@@ -14,18 +15,20 @@ import { Lightning } from '@lightningjs/sdk';
  * @function repositionWrapper : to reposition the rail
  *
  */
-interface AppTemplateSpec extends Lightning.Component.TemplateSpec {
+interface AppTemplateSpec extends Lightning.Component.TemplateSpecLoose {
     /**
      * properties of the App component
      */
     index: number;
     rowLength: number;
+    hideNav: boolean;
 
 
     /**
      * children of the App component
      */
     Background: {
+        TopNav: object;
         Slider: {
             Wrapper: {
                 Widgets: {
