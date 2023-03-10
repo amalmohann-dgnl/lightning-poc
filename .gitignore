@@ -7,3 +7,4 @@ build-ts
 releases
 .tmp
 .env
+.ipk
