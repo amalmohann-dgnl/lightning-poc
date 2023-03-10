@@ -3,7 +3,7 @@
  * SDK version: 5.3.1
  * CLI version: 2.10.0
  *
- * Generated: Fri, 10 Mar 2023 10:26:27 GMT
+ * Generated: Fri, 10 Mar 2023 11:03:09 GMT
  */
 
 var APP_com_diagnal_app_lightningpoc = (function () {
@@ -10467,7 +10467,7 @@ var APP_com_diagnal_app_lightningpoc = (function () {
     return Rail;
   }(Lightning$1.Component);
 
-  var TopNav = /*#__PURE__*/function (_Lightning$Component) {
+  /*#__PURE__*/(function (_Lightning$Component) {
     _inherits(TopNav, _Lightning$Component);
     var _super = _createSuper(TopNav);
     function TopNav() {
@@ -10600,7 +10600,7 @@ var APP_com_diagnal_app_lightningpoc = (function () {
       }
     }]);
     return TopNav;
-  }(Lightning$1.Component);
+  })(Lightning$1.Component);
 
   var NavTextItem = /*#__PURE__*/function (_ref) {
     _inherits(NavTextItem, _ref);
@@ -10716,9 +10716,8 @@ var APP_com_diagnal_app_lightningpoc = (function () {
         args[_key] = arguments[_key];
       }
       _this = _super.call.apply(_super, [this].concat(args));
-      _defineProperty(_assertThisInitialized(_this), "index", -1);
+      _defineProperty(_assertThisInitialized(_this), "index", 0);
       _defineProperty(_assertThisInitialized(_this), "rowLength", endp.length);
-      _defineProperty(_assertThisInitialized(_this), "hideNav", false);
       _defineProperty(_assertThisInitialized(_this), "Wrapper", _this.getByRef('Background.Slider.Wrapper'));
       return _this;
     }
@@ -10735,40 +10734,37 @@ var APP_com_diagnal_app_lightningpoc = (function () {
           });
         }
         this.tag('Background.Slider.Wrapper').children = rails;
-        this.index = 0;
-        this._setState('Row');
-        this._refocus();
       }
     }, {
       key: "repositionWrapper",
       value: function repositionWrapper() {
-        if (this._getState() === 'Row') {
-          var wrapper = this.tag('Background.Slider.Wrapper');
-          var sliderH = this.tag('Background.Slider').h;
-          var currentWrapperY = wrapper.transition('y').targetvalue || wrapper.y;
-          var currentFocus = wrapper.children[this.index];
-          var currentFocusY = currentFocus.y + currentWrapperY;
-          var currentFocusOuterHeight = currentFocus.y + currentFocus.h;
-          if (currentFocusY < 0) {
-            wrapper.setSmooth('y', -currentFocus.y);
-          } else if (currentFocusOuterHeight > sliderH) {
-            wrapper.setSmooth('y', sliderH - currentFocusOuterHeight);
-          }
+        var wrapper = this.tag('Background.Slider.Wrapper');
+        var sliderH = this.tag('Background.Slider').h;
+        var currentWrapperY = wrapper.transition('y').targetvalue || wrapper.y;
+        var currentFocus = wrapper.children[this.index];
+        var currentFocusY = currentFocus.y + currentWrapperY;
+        var currentFocusOuterHeight = currentFocus.y + currentFocus.h;
+        if (currentFocusY < 0) {
+          wrapper.setSmooth('y', -currentFocus.y);
+        } else if (currentFocusOuterHeight > sliderH) {
+          wrapper.setSmooth('y', sliderH - currentFocusOuterHeight);
         }
       }
     }, {
       key: "_handleUp",
       value: function _handleUp() {
         if (this.index > 0) {
-          this._setState('Row');
-        } else {
-          this._setState('TopNav');
+          this.index -= 1;
+          this.repositionWrapper();
         }
       }
     }, {
       key: "_handleDown",
       value: function _handleDown() {
-        this._setState('Row');
+        if (this.index < this.rowLength - 1) {
+          this.index += 1;
+          this.repositionWrapper();
+        }
       }
 
       /**
@@ -10798,7 +10794,7 @@ var APP_com_diagnal_app_lightningpoc = (function () {
           Background: {
             w: 1920,
             h: 1080,
-            color: theme.colors.primary,
+            color: theme.colors.background,
             rect: true,
             Slider: {
               w: 800,
@@ -10806,38 +10802,12 @@ var APP_com_diagnal_app_lightningpoc = (function () {
                 return _h;
               },
               x: 400,
-              y: 550 + 100,
+              y: 550,
               mount: 0.5,
               Wrapper: {}
             }
-          },
-          TopNav: {
-            type: TopNav,
-            x: 0,
-            y: 0
           }
         };
-      }
-    }, {
-      key: "_states",
-      value: function _states() {
-        return [/*#__PURE__*/function (_this2) {
-          _inherits(TopNav, _this2);
-          var _super2 = _createSuper(TopNav);
-          function TopNav() {
-            _classCallCheck(this, TopNav);
-            return _super2.apply(this, arguments);
-          }
-          return _createClass(TopNav);
-        }(this), /*#__PURE__*/function (_this3) {
-          _inherits(Row, _this3);
-          var _super3 = _createSuper(Row);
-          function Row() {
-            _classCallCheck(this, Row);
-            return _super3.apply(this, arguments);
-          }
-          return _createClass(Row);
-        }(this)];
       }
     }]);
     return App;
