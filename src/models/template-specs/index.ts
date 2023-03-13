@@ -8,6 +8,8 @@ import TopNavTemplateSpec from './components/top-nav-template-spec';
 import NavTextItemTemplateSpec from './components/nav-text-item-template-spec';
 import NavProfileItemTemplateSpec from './components/nav-profile-item-template-spec';
 import HomeTemplateSpec from './pages/home-template-spec';
+import RouterTemplateSpec from './router-template-spec';
+import SearchTemplateSpec from './pages/search-template-spec';
 
 /**
  * Exporting all the template specs from a single location
@@ -19,5 +21,7 @@ export {
     TopNavTemplateSpec,
     NavTextItemTemplateSpec,
     NavProfileItemTemplateSpec,
-    HomeTemplateSpec
+    HomeTemplateSpec,
+    RouterTemplateSpec,
+    SearchTemplateSpec
 };

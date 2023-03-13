@@ -3,8 +3,10 @@
 */
 import theme from './theme';
 import urls from './endpoint-url';
+import railName from './rail-name';
+import routes from './routes';
 
 /**
  * Exporting all the configs from a single location
 */
-export { theme, urls as endpoint };
+export { theme, railName, routes, urls as endpoint };

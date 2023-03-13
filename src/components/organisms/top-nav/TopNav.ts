@@ -12,7 +12,6 @@ class TopNav extends Lightning.Component<TopNavTemplateSpec> implements Lightnin
 
     static override _template(): Lightning.Component.Template<Lightning.Component.TemplateSpecLoose> {
         return {
-            // shader: { type: Lightning.shaders.RadialGradient, outerColor: 0xffff0000, innerColor: 0xff0000ff },
             Navbar: {
                 w: 1920, h: 1080, rect: true,
                 zIndex: 1,

@@ -1,6 +1,6 @@
 /** 
  * Template specs for the App.ts.
- * This iterface decides the structure of the app's template structure.
+ * This iterface decides the properties, functions and structure of the app's template structure.
 */
 
 import { Lightning } from '@lightningjs/sdk';
@@ -8,9 +8,9 @@ import { Home } from '../../pages';
 
 
 /**
- * properties of the Rail component
+ * properties of the  component
  * @property index: To get the index of current focused element
- * @property dataLength: To get the length of the rail Items array.
+ * @property dataLength: To get the length of the  Items array.
  *
  */
 interface AppTemplateSpec extends Lightning.Component.TemplateSpecLoose {

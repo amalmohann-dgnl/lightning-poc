@@ -4,7 +4,7 @@ import RailItem from '../../molecules/rail-item/RailItem';
 import { AxiosRequester } from '../../../services';
 import { RailDataResponse, Content, Image } from '../../../models/api-request-response';
 import { endpoint, theme } from '../../../configs';
-import { railName } from '../../../data';
+import { railName } from '../../../configs';
 
 class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Component.ImplementTemplateSpec<RailTemplateSpec> {
     index: number = -1;
