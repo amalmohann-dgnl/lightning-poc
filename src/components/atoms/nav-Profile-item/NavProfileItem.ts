@@ -1,10 +1,10 @@
 import { Lightning } from '@lightningjs/sdk'
 import { theme } from '../../../configs'
-import { NavTextItemTemplateSpec } from '../../../models/template-specs'
+import NavProfileItemTemplateSpec from '../../../models/template-specs/components/nav-profile-item-template-spec';
 
-class NavTextItem
-    extends Lightning.Component<NavTextItemTemplateSpec>
-    implements Lightning.Component.ImplementTemplateSpec<NavTextItemTemplateSpec>
+class NavProfileItem
+    extends Lightning.Component<NavProfileItemTemplateSpec>
+    implements Lightning.Component.ImplementTemplateSpec<NavProfileItemTemplateSpec>
 {
 
     /**
@@ -16,13 +16,10 @@ class NavTextItem
      */
 
     static override _template() {
-
         return {
-            NavText: {
-                w: 120,
-                color: theme.colors.accentGrey.light,
-                text: { fontSize: 35 }
-            },
+            w: 50, h: 50,
+            src: "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/808/289/5qtySjfuJfOLvVrVXuwNo2BIVPH.jpg",
+            shader: { type: Lightning.shaders.RoundedRectangle, radius: 10, stroke: 5, strokeColor: theme.colors.white },
         }
     }
 
@@ -48,11 +45,8 @@ class NavTextItem
      */
     override _focus() {
         this.patch({
-            smooth: { scale: 1.1 },
-            NavText: {
-                smooth: { color: theme.colors.white }
-            },
-            Rectangle: { color: theme.colors.yellow, x: 2, y: (y: number) => y + 50, w: 100, h: 5, rect: true }
+            smooth: { scale: 1.1, },
+            shader: { strokeColor: theme.colors.yellow }
         })
     }
 
@@ -64,13 +58,10 @@ class NavTextItem
      */
     override _unfocus() {
         this.patch({
-            smooth: { color: theme.colors.primary, scale: 1.0 },
-            NavText: {
-                smooth: { color: theme.colors.accentGrey.light }
-            },
-            Rectangle: undefined
+            smooth: { scale: 1.0 },
+            shader: { strokeColor: theme.colors.white },
         })
     }
 }
 
-export default NavTextItem
+export default NavProfileItem;

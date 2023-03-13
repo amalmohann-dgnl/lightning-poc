@@ -2,6 +2,7 @@ import { Lightning, Log, Utils } from '@lightningjs/sdk';
 import { Rail } from './components';
 import { endpoint, theme } from './configs';
 import { AppTemplateSpec } from './models/template-specs';
+import TopNav from './components/organisms/top-nav/TopNav';
 
 // App component
 export class App
@@ -10,6 +11,7 @@ export class App
 {
   index: number = 0;
   rowLength: number = endpoint.length;
+  hideNav: boolean = false;
 
   readonly Wrapper = this.getByRef('Background.Slider.Wrapper' as any)!
 
@@ -22,15 +24,17 @@ export class App
    */
   static override _template(): Lightning.Component.Template<AppTemplateSpec> {
     return {
+      Navbar: { type: TopNav },
       Background: {
         w: 1920, h: 1080,
-        color: theme.colors.background,
+        color: theme.colors.primaryLight,
         rect: true,
         Slider: {
-          w: 800, h: (h: number) => h, x: 400, y: 550, mount: 0.5,
+          zIndex: 2,
+          w: 800, h: (h: number) => h, x: 400, y: 630, mount: 0.5,
           Wrapper: {}
         }
-      }
+      },
     };
   }
 
@@ -61,9 +65,11 @@ export class App
 
 
   override _handleUp() {
-    if (this.index > 0) {
+    if (this.index > -1) {
       this.index -= 1;
-      this.repositionWrapper();
+      if (this.index >= 0) {
+        this.repositionWrapper();
+      }
     }
 
   }
@@ -84,7 +90,26 @@ export class App
      */
 
   override _getFocused(): any {
-    return this.tag('Background.Slider.Wrapper' as any).children[this.index];
+    if (this.index <= 0) {
+      this.patch({
+        Navbar: {
+          visible: true,
+        }
+      })
+    }
+    else {
+      this.patch({
+        Navbar: {
+          visible: false,
+        }
+      })
+    }
+    if (this.index >= 0) {
+      return this.tag('Background.Slider.Wrapper' as any).children[this.index];
+    }
+    else {
+      return this.tag('Navbar' as any);
+    }
   }
 
 }

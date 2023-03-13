@@ -1,7 +1,8 @@
 import { Lightning } from '@lightningjs/sdk';
 import { theme } from '../../../configs';
-import TopNavTemplateSpec from '../../../models/template-specs/top-nav-template-spec';
+import TopNavTemplateSpec from '../../../models/template-specs/components/top-nav-template-spec';
 import { NavTextItem } from '../../';
+import NavProfileItem from '../../atoms/nav-Profile-item/NavProfileItem';
 
 
 class TopNav extends Lightning.Component<TopNavTemplateSpec> implements Lightning.Component.ImplementTemplateSpec<TopNavTemplateSpec>{
@@ -11,17 +12,18 @@ class TopNav extends Lightning.Component<TopNavTemplateSpec> implements Lightnin
 
     static override _template(): Lightning.Component.Template<Lightning.Component.TemplateSpecLoose> {
         return {
+            // shader: { type: Lightning.shaders.RadialGradient, outerColor: 0xffff0000, innerColor: 0xff0000ff },
             Navbar: {
-                w: 1920, h: 170, rect: true,
-                color: theme.colors.background,
+                w: 1920, h: 1080, rect: true,
                 zIndex: 1,
-                shader: { type: Lightning.shaders.FadeOut, top: 0, right: 0, bottom: 90, left: 0 },
-                Profile: {
-                    x: (x: number) => x - 100, y: 20,
-                    w: 50, h: 50,
-                    src: "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/249/oyPcsfGWL5Se6RGW1JCVgpHlASH_288x432_13635141800.jpg"
-                },
-                NavMenu: {}
+                shader: { x: 100, y: -100, pivot: 0.5, type: Lightning.shaders.RadialGradient, outerColor: theme.colors.primaryLight, innerColor: theme.colors.dark, radius: 800 },
+                NavItems: {
+                    x: 10, y: 10,
+                    NavMenu: {
+                        shader: null,
+                    }
+                }
+
             }
         }
     }
@@ -35,13 +37,17 @@ class TopNav extends Lightning.Component<TopNavTemplateSpec> implements Lightnin
         const menus = {
             Home: {
                 type: NavTextItem,
-                x: 30, y: 20,
+                x: 20, y: 12,
                 navtext: "Home"
             },
             Search: {
                 type: NavTextItem,
-                x: 160, y: 20,
+                x: 140, y: 12,
                 navtext: "Search"
+            },
+            Profile: {
+                x: 1840, y: 15,
+                type: NavProfileItem,
             },
             // Exit: {
             //     type: NavTextItem,
@@ -49,9 +55,17 @@ class TopNav extends Lightning.Component<TopNavTemplateSpec> implements Lightnin
             //     navtext: "Exit"
             // }
         }
-        this.tag('Navbar.NavMenu' as any).children = menus;
-        this._setState("NavItems")
+        this.tag('Navbar.NavItems.NavMenu' as any).children = menus;
+
+        // animating the shader background
+        this.tag('Navbar')?.animation({
+            duration: 8, repeat: -1, delay: 2,
+            actions: [
+                { p: 'shader.radius' as '$$number', v: { 0: { v: 800 }, 0.5: { v: 400 }, 1: { v: 800 } } }
+            ]
+        }).start();
     }
+
 
     /**
      * This function overrides the default behaviour of keypress 'Left'.
@@ -61,7 +75,9 @@ class TopNav extends Lightning.Component<TopNavTemplateSpec> implements Lightnin
      */
 
     override _handleLeft() {
-        this._setState("NavItems")
+        if (this.index > 0) {
+            this.index -= 1;
+        }
     }
 
     /**
@@ -72,32 +88,34 @@ class TopNav extends Lightning.Component<TopNavTemplateSpec> implements Lightnin
      */
 
     override _handleRight() {
-        this._setState("NavItems")
+        if (this.index < 2) {
+            this.index += 1;
+        }
     }
 
 
-
-    static override _states(): Lightning.Component.Constructor<Lightning.Component<Lightning.Component.TemplateSpecLoose, Lightning.Component.TypeConfig>>[] {
-        return [
-            class NavItems extends this {
-                override _handleLeft() {
-                    if (this.index > 0) {
-                        this.index -= 1;
-                    }
-                }
-
-                override _handleRight() {
-                    if (this.index < 1) {
-                        this.index += 1;
-                    }
-                }
-
-                override _getFocused(): any {
-                    return this.tag('Navbar.NavMenu' as any).children[this.index];
-                }
-            }
-        ]
+    override _getFocused(): any {
+        return this.tag('Navbar.NavItems.NavMenu' as any).children[this.index];
     }
+
+    /**
+     * This function overrides the default behavior of the component when come in focus.
+     * We can add all the changes / updates that needs to be made to the component when
+     * it comes to the focus.
+     *
+     */
+    override _focus() { }
+
+    /**
+     * This function overrides the default behavior of the component when goes out of focus.
+     * We can add all the changes / updates that needs to be made to the component when
+     * it goes out of the focus.
+     *
+     */
+    override _unfocus() {
+        this.index = 0;
+    }
+
 
 }
 

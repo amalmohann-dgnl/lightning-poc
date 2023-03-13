@@ -10,8 +10,10 @@ interface TopNavTemplateSpec extends Lightning.Component.TemplateSpec {
      * children of the Rail component
      */
     Navbar: {
-        Profile: object;
-        NavMenu: object;
+        NavItems: {
+            Profile: object;
+            NavMenu: object;
+        };
     }
 }
 
