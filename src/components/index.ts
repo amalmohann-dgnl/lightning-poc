@@ -16,5 +16,5 @@ export {
     RailItem,
     TopNav,
     NavTextItem,
-    NavProfileItem
+    NavProfileItem,
 };

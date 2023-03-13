@@ -1,7 +1,7 @@
 import { Lightning } from '@lightningjs/sdk';
 import { theme } from '../../../configs';
 import TopNavTemplateSpec from '../../../models/template-specs/components/top-nav-template-spec';
-import { NavTextItem } from '../../';
+import NavTextItem from '../../atoms/nav-text-item/NavTextItem';
 import NavProfileItem from '../../atoms/nav-Profile-item/NavProfileItem';
 
 

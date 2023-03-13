@@ -2,16 +2,15 @@ import { Lightning } from "@lightningjs/sdk";
 
 interface TopNavTemplateSpec extends Lightning.Component.TemplateSpec {
     /**
-     * properties and functions of the Rail component
+     * properties and functions of the component
      */
 
 
     /**
-     * children of the Rail component
+     * children of the component
      */
     Navbar: {
         NavItems: {
-            Profile: object;
             NavMenu: object;
         };
     }

@@ -7,6 +7,7 @@ import RailItemTemplateSpec from './components/rail-item-template-spec';
 import TopNavTemplateSpec from './components/top-nav-template-spec';
 import NavTextItemTemplateSpec from './components/nav-text-item-template-spec';
 import NavProfileItemTemplateSpec from './components/nav-profile-item-template-spec';
+import HomeTemplateSpec from './pages/home-template-spec';
 
 /**
  * Exporting all the template specs from a single location
@@ -17,5 +18,6 @@ export {
     RailItemTemplateSpec,
     TopNavTemplateSpec,
     NavTextItemTemplateSpec,
-    NavProfileItemTemplateSpec
+    NavProfileItemTemplateSpec,
+    HomeTemplateSpec
 };

@@ -4,7 +4,7 @@
 */
 
 import { Lightning } from '@lightningjs/sdk';
-import TopNav from '../../components/organisms/top-nav/TopNav';
+import { Home } from '../../pages';
 
 
 /**
@@ -12,34 +12,16 @@ import TopNav from '../../components/organisms/top-nav/TopNav';
  * @property index: To get the index of current focused element
  * @property dataLength: To get the length of the rail Items array.
  *
- * @function repositionWrapper : to reposition the rail
- *
  */
 interface AppTemplateSpec extends Lightning.Component.TemplateSpecLoose {
     /**
      * properties of the App component
      */
-    index: number;
-    rowLength: number;
-    hideNav: boolean;
-
 
     /**
      * children of the App component
      */
-    Background: {
-        TopNav: object;
-        Slider: {
-            Wrapper: {
-                Widgets: {
-                    Carousel: object;
-                    Rails: object;
-                }
-            }
-        }
-
-    }
-    Navbar: typeof TopNav;
+    Home: typeof Home
 }
 
 export default AppTemplateSpec;
