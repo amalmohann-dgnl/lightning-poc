@@ -150,6 +150,7 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
     }
 
 
+
 }
 
 export default Rail;

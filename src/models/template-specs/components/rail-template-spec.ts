@@ -4,8 +4,8 @@
  */
 
 import { Lightning } from "@lightningjs/sdk";
-import { AxiosRequester } from '../../services';
-import { RailDataResponse } from '../api-request-response';
+import { AxiosRequester } from '../../../services';
+import { RailDataResponse } from '../../api-request-response';
 
 /**
  * properties of the Rail component

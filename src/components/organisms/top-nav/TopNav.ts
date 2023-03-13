@@ -120,5 +120,3 @@ class TopNav extends Lightning.Component<TopNavTemplateSpec> implements Lightnin
 }
 
 export default TopNav;
-
-

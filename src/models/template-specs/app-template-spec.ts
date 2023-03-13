@@ -39,6 +39,7 @@ interface AppTemplateSpec extends Lightning.Component.TemplateSpecLoose {
         }
 
     }
+    Navbar: typeof TopNav;
 }
 
 export default AppTemplateSpec;
