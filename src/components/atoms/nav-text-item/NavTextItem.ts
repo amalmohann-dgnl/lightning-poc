@@ -9,9 +9,9 @@ class NavTextItem
 
     /**
      * This function is responsible for the creation and return of the UI template. This
-     * function takes  no parameters and returns the template of the Rail Item component.
+     * function takes  no parameters and returns the template of the component.
      *
-     * @returns Template for the Rail Item Component.
+     * @returns Template for the Component.
      *
      */
 
