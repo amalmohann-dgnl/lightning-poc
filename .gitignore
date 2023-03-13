@@ -7,4 +7,11 @@ build-ts
 releases
 .tmp
 .env
+<<<<<<< Updated upstream
 .ipk
+=======
+platforms/WebOs/dist
+platforms/WebOs/build
+platforms/Tizen/dist
+platforms/Tizen/build
+>>>>>>> Stashed changes
