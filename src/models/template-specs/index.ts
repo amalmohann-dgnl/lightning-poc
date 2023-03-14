@@ -10,6 +10,8 @@ import NavProfileItemTemplateSpec from './components/nav-profile-item-template-s
 import HomeTemplateSpec from './pages/home-template-spec';
 import RouterTemplateSpec from './router-template-spec';
 import SearchTemplateSpec from './pages/search-template-spec';
+import BackButtonTemplateSpec from './components/back-button-template-spec';
+import ContentDetailsTemplateSpec from './pages/content-details-template-spec';
 
 /**
  * Exporting all the template specs from a single location
@@ -23,5 +25,7 @@ export {
     NavProfileItemTemplateSpec,
     HomeTemplateSpec,
     RouterTemplateSpec,
-    SearchTemplateSpec
+    SearchTemplateSpec,
+    BackButtonTemplateSpec,
+    ContentDetailsTemplateSpec,
 };

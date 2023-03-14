@@ -16,8 +16,8 @@ export class Home
     readonly Wrapper = this.getByRef('Background.Slider.Wrapper' as any)!
 
     /**
-     * This function is responsible for the creation and return of the UI template. This function takes  no parameters
-     * and returns the template.
+     * This function is responsible for the creation and return of the UI template. This function 
+     * takes  no parameters and returns the template.
      * 
      * @returns Template for the Application
      * 
@@ -39,6 +39,7 @@ export class Home
     }
 
 
+    // initializing the component
     override _init() {
         const rails = [];
         for (let i = 0; i < this.rowLength; i++) {
@@ -47,6 +48,8 @@ export class Home
         this.tag('Background.Slider.Wrapper' as any).children = rails;
     }
 
+
+    // repositioning the wrapper
     repositionWrapper() {
         const wrapper = this.tag('Background.Slider.Wrapper' as any);
         const sliderH = this.tag('Background.Slider' as any).h;
@@ -64,6 +67,7 @@ export class Home
 
 
 
+    // handling up button click
     override _handleUp() {
         if (this.index > -1) {
             this.index -= 1;
@@ -74,6 +78,7 @@ export class Home
 
     }
 
+    // handling down button click
     override _handleDown() {
         if (this.index < this.rowLength - 1) {
             this.index += 1;

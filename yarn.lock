@@ -278,7 +278,7 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
-"@lightningjs/core@^2.3.0", "@lightningjs/core@^2.6.0", "@lightningjs/core@^2.7.0":
+"@lightningjs/core@^2.3.0", "@lightningjs/core@^2.6.0", "@lightningjs/core@^2.7.0", "@lightningjs/core@^2.9.0":
   version "2.9.0"
   resolved "https://registry.npmjs.org/@lightningjs/core/-/core-2.9.0.tgz"
   integrity sha512-Y+22VErNXl938AdVupLbf+Br97XRYZO5aQXe4UEG2/hBXa94AFu1SnJW0lrs05MGT9UwXzxRE1yt3P1VT7ZNtQ==
@@ -297,6 +297,21 @@
     shelljs "^0.8.5"
     url-polyfill "^1.1.10"
     whatwg-fetch "^3.0.0"
+
+"@lightningjs/ui-components-theme-base@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/@lightningjs/ui-components-theme-base/-/ui-components-theme-base-1.0.1.tgz"
+  integrity sha512-2ZFyjNxraCzj1qGcIBicgUHUT9+inkjLeaibW/s/Fon8L9xjCGSN1BSnPm0Fw71pi7KUDvjNJWhKposhW1MF5A==
+
+"@lightningjs/ui-components@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.npmjs.org/@lightningjs/ui-components/-/ui-components-2.0.2.tgz"
+  integrity sha512-EAgoTFvvehyfTvI4vsWq9MnLpz5p/hL2xRKTWkYrP2BZO8fmeA30XVomqY0CWKry+3qr8SyA/IKCKRDkNUbo0g==
+  dependencies:
+    "@lightningjs/ui-components-theme-base" "^1.0.1"
+    debounce "^1.2.1"
+    husky "^8.0.2"
+    lint-staged "^13.0.3"
 
 "@lightningjs/ui@^1.3.7":
   version "1.3.7"
@@ -698,6 +713,11 @@ cross-spawn@^7.0.2, cross-spawn@^7.0.3:
     path-key "^3.1.0"
     shebang-command "^2.0.0"
     which "^2.0.1"
+
+debounce@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.npmjs.org/debounce/-/debounce-1.2.1.tgz"
+  integrity sha512-XRRe6Glud4rd/ZGQfiV1ruXSfbvfJedlV9Y6zOlP+2K04vBYiJEte6stfFkCP03aMnY5tsipamumUjL14fofug==
 
 debug@^4.1.0, debug@^4.1.1, debug@^4.3.2, debug@^4.3.4:
   version "4.3.4"
@@ -1108,7 +1128,7 @@ human-signals@^3.0.1:
   resolved "https://registry.npmjs.org/human-signals/-/human-signals-3.0.1.tgz"
   integrity sha512-rQLskxnM/5OCldHo+wNXbpVgDn5A17CUoKX+7Sokwaknlq7CdSnphy0W39GU8dw59XiCXmFXDg4fRuckQRKewQ==
 
-husky@^8.0.1:
+husky@^8.0.1, husky@^8.0.2:
   version "8.0.3"
   resolved "https://registry.npmjs.org/husky/-/husky-8.0.3.tgz"
   integrity sha512-+dQSyqPh4x1hlO1swXBiNb2HzTDN1I2IGLQx1GrBuiqFJfoMrnZWwVmatvSiO+Iz8fBUnf+lekwNo4c2LlXItg==

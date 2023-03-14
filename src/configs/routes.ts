@@ -1,5 +1,5 @@
 import { Router } from "@lightningjs/sdk";
-import { Home, Search } from "../pages";
+import { Home, Search, ContentDetails } from "../pages";
 
 const routes = {
     root: 'home',
@@ -18,7 +18,10 @@ const routes = {
         },
         {
             path: 'content/:id',
-            component: Home,
+            component: ContentDetails,
+            options: {
+                reuseInstance: false
+            }
         },
 
     ]

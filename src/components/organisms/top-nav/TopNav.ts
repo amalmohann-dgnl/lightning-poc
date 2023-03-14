@@ -1,4 +1,4 @@
-import { Lightning } from '@lightningjs/sdk';
+import { Lightning, Router } from '@lightningjs/sdk';
 import { theme } from '../../../configs';
 import TopNavTemplateSpec from '../../../models/template-specs/components/top-nav-template-spec';
 import NavTextItem from '../../atoms/nav-text-item/NavTextItem';
@@ -69,8 +69,7 @@ class TopNav extends Lightning.Component<TopNavTemplateSpec> implements Lightnin
     /**
      * This function overrides the default behaviour of keypress 'Left'.
      * This functions checks the index to see the focused element and decides
-     * wheather if it should move to the left or not. And then it will reposition
-     * the wrapper.
+     * wheather if it should move to the left or not. 
      */
 
     override _handleLeft() {
@@ -82,13 +81,30 @@ class TopNav extends Lightning.Component<TopNavTemplateSpec> implements Lightnin
     /**
      * This function overrides the default behaviour of keypress 'Right'.
      * This functions checks the index to see the focused element and decides
-     * wheather if it should move to the right or not. And then it will reposition
-     * the wrapper.
+     * wheather if it should move to the right or not.
      */
 
     override _handleRight() {
         if (this.index < 2) {
             this.index += 1;
+        }
+    }
+
+
+    /**
+    * This function overrides the default behaviour of keypress 'Enter'.
+    * This functions checks the index to see the focused element and decides
+    * the route to navigate.
+    */
+    override _handleEnter() {
+        if (this.index === 0) {
+            Router.navigate('home');
+        }
+        else if (this.index === 1) {
+            Router.navigate('search');
+        }
+        else {
+            Router.navigate('settings');
         }
     }
 

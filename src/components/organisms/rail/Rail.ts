@@ -42,7 +42,7 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
     * attached for the first time. This function takes  no parameters and has no return.
     */
     override _init() {
-        const rail: { type: typeof RailItem; x: number; item: { label: string; src: string; }; }[] = [];
+        const rail: { type: typeof RailItem; x: number; item: { label: string; src: string; data: Content }; }[] = [];
         this.axiosRequester.fetch(endpoint[this.railIndex]!).then((response) => {
             if (response) {
                 this.responseData = response[0]?.data;
@@ -54,7 +54,7 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
                     rail.push({
                         type: RailItem,
                         x: i * (300 + 30),
-                        item: { label: label, src: img_src || "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/249/oyPcsfGWL5Se6RGW1JCVgpHlASH_288x432_13635141800.jpg" }
+                        item: { label: label, src: img_src || "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/249/oyPcsfGWL5Se6RGW1JCVgpHlASH_288x432_13635141800.jpg", data: this.data[i]! }
                     });
                 }
             }

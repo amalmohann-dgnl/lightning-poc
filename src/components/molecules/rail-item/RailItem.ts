@@ -1,11 +1,15 @@
-import { Lightning } from '@lightningjs/sdk'
+import { Lightning, Router } from '@lightningjs/sdk'
 import { theme } from '../../../configs'
+import { Content } from '../../../models/api-request-response';
 import { RailItemTemplateSpec } from '../../../models/template-specs'
 
 class RailItem
     extends Lightning.Component<RailItemTemplateSpec>
     implements Lightning.Component.ImplementTemplateSpec<RailItemTemplateSpec>
 {
+
+    data: Content = {} as Content;
+
     /**
      * This function is responsible for the creation and return of the UI template. This
      * function takes  no parameters and returns the template of the Rail Item component.
@@ -45,8 +49,9 @@ class RailItem
      * @Param The value that needs to be setted to the item property.
      *
      */
-    set item(obj: { label: any; src: any }) {
-        const { label, src } = obj
+    set item(obj: { label: any; src: any, data: Content }) {
+        const { label, src, data } = obj;
+        this.data = data;
         this.patch({
             Image: {
                 src: src
@@ -54,6 +59,18 @@ class RailItem
             Label: { text: label?.toString() }
         })
     }
+
+
+    /**
+   * This function overrides the default behaviour of keypress 'Enter'.
+   * This functions checks the index to see the focused element and decides
+   * the route to navigate.
+   */
+    override _handleEnter() {
+        Router.navigate(`content/${this.data.uid}`, { contentData: this.data })
+    }
+
+
 
     /**
      * This function overrides the default behavior of the component when come in focus.
