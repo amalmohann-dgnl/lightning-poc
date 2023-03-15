@@ -186,7 +186,12 @@ class ContentDetails
                             x: 40, y: 570,
                             type: Button,
                             label: "Play Video"
-                        }
+                        },
+                        PlayTrailer: {
+                            x: 40, y: 700,
+                            type: Button,
+                            label: "Play Trailer"
+                        },
                     }
                 }
             })
@@ -199,15 +204,15 @@ class ContentDetails
     }
 
 
-    // overrides the default left button actions
-    override _handleLeft(): void {
+    // overrides the default up button actions
+    override _handleUp(): void {
         if (this.index > 0) {
             this.index -= 1;
         }
     }
 
     // overrides the default right button actions
-    override _handleRight(): void {
+    override _handleDown(): void {
         if (this.index < 2) {
             this.index += 1;
         }

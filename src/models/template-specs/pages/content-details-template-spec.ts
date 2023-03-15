@@ -35,6 +35,7 @@ interface ContentDetailsTemplateSpec extends Lightning.Component.TemplateSpec {
         ContentActions: {
             BackButton: typeof BackButton;
             PlayButton: typeof Button;
+            PlayTrailer: typeof Button;
         };
     }
 
