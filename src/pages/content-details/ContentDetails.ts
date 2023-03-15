@@ -1,8 +1,7 @@
 import { Lightning, Router } from "@lightningjs/sdk";
-import { Button, Input } from "@lightningjs/ui-components";
 import { ContentDetailsTemplateSpec, SearchTemplateSpec } from "../../models/template-specs";
 import theme from '../../configs/theme';
-import { BackButton, VideoSpecItem } from "../../components";
+import { BackButton, VideoSpecItem, Button } from "../../components";
 import axios from 'axios';
 import { Content, Image } from "../../models/api-request-response";
 
@@ -11,7 +10,18 @@ class ContentDetails
     implements Lightning.Component.ImplementTemplateSpec<ContentDetailsTemplateSpec>
 {
     contentData!: Content;
-    index: number = 0;
+    index: number = 1;
+
+    // readonly contentView = this.getByRef("ContentView")!;
+    // readonly spinner = this.contentView.getByRef("Spinner")!;
+    // readonly background = this.contentView.getByRef("Background")!;
+    // readonly contentDataView = this.contentView.getByRef("ContentData")!;
+    // readonly thumbnail = this.contentDataView.getByRef("Thumbnail")!;
+    // readonly title = this.contentDataView.getByRef("Title")!;
+    // readonly description = this.contentDataView.getByRef("Description")!;
+    // readonly genre = this.contentDataView.getByRef("Genre")!;
+    // readonly info = this.contentDataView.getByRef("Info")!;
+
 
     static override _template(): Lightning.Component.Template<ContentDetailsTemplateSpec> {
         return {
@@ -33,7 +43,7 @@ class ContentDetails
                     Title: {},
                     Description: {},
                     Genre: {},
-                    Cast: {},
+                    Info: {},
                 },
                 ContentActions: {}
             }
@@ -59,15 +69,15 @@ class ContentDetails
                     ContentData: {
                         zIndex: 2,
                         Thumbnail: {
-                            shader: { type: Lightning.shaders.RoundedRectangle, radius: 30 },
-                            src: res.data.images.find((img: Image) => img.width === 288)?.url,
                             x: 1400, y: 324,
                             w: 288, h: 432,
                             scale: 1.5,
+                            shader: { type: Lightning.shaders.RoundedRectangle, radius: 30 },
+                            src: res.data.images.find((img: Image) => img.width === 288)?.url,
                             color: theme.colors.white,
                         },
                         Title: {
-                            x: 40, y: 170,
+                            x: 40, y: 185,
                             shader: null,
                             text: {
                                 text: res.data.title,
@@ -76,11 +86,14 @@ class ContentDetails
                             color: theme.colors.white,
                         },
                         Description: {
-                            x: 40, y: 280,
+                            x: 40, y: 290,
                             w: 900,
                             shader: null,
                             text: {
+                                wordWrap: true,
+                                maxLines: 3,
                                 text: res.data.description,
+                                maxLinesSuffix: '...',
                                 fontSize: 30
                             },
                             color: theme.colors.accentGrey.light,
@@ -112,7 +125,7 @@ class ContentDetails
                                 shader: null,
                                 text: {
                                     text: 'Staring  : ',
-                                    fontSize: 24
+                                    fontSize: 24,
                                 },
                                 color: theme.colors.accentGrey.light,
                             },
@@ -132,40 +145,49 @@ class ContentDetails
                                 shader: null,
                                 text: {
                                     text: res.data.actor.map((a: any) => a.personName).join(', '),
-                                    fontSize: 24
+                                    fontSize: 24,
+                                    wordWrap: true,
+                                    maxLines: 1,
+                                    maxLinesSuffix: '...',
                                 },
                                 color: theme.colors.accentGrey.light,
                             }
 
                         },
-                        VideoSpec1: {
-                            x: 70, y: 160,
-                            shader: null,
-                            type: VideoSpecItem,
-                            specData: '  16+  '
-                        },
-                        VideoSpec2: {
-                            x: 135, y: 160,
-                            shader: null,
-                            type: VideoSpecItem,
-                            specData: '  4k  '
-                        },
-                        VideoSpec3: {
-                            x: 193, y: 160,
-                            shader: null,
-                            type: VideoSpecItem,
-                            specData: '  cc  '
-                        },
-
+                        VideoSpec: {
+                            VideoSpec1: {
+                                x: 70, y: 160,
+                                shader: null,
+                                type: VideoSpecItem,
+                                specData: '  16+  '
+                            },
+                            VideoSpec2: {
+                                x: 135, y: 160,
+                                shader: null,
+                                type: VideoSpecItem,
+                                specData: '  4k  '
+                            },
+                            VideoSpec3: {
+                                x: 193, y: 160,
+                                shader: null,
+                                type: VideoSpecItem,
+                                specData: '  cc  '
+                            },
+                        }
                     },
                     ContentActions: {
+                        shader: null,
+
                         BackButton: {
                             x: 40, y: 40,
-                            shader: null,
                             type: BackButton
                         },
+                        PlayButton: {
+                            x: 40, y: 570,
+                            type: Button,
+                            label: "Play Video"
+                        }
                     }
-
                 }
             })
         })

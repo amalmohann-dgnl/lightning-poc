@@ -8,6 +8,7 @@ import NavTextItem from './atoms/nav-text-item/NavTextItem';
 import NavProfileItem from './atoms/nav-Profile-item/NavProfileItem';
 import BackButton from './atoms/back-button/BackButton';
 import VideoSpecItem from './atoms/video-spec-item/VideoSpecItem';
+import Button from './atoms/Button/Button';
 
 
 /**
@@ -20,5 +21,6 @@ export {
     NavTextItem,
     NavProfileItem,
     BackButton,
-    VideoSpecItem
+    VideoSpecItem,
+    Button
 };

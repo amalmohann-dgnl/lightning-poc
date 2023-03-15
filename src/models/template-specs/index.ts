@@ -13,6 +13,7 @@ import SearchTemplateSpec from './pages/search-template-spec';
 import BackButtonTemplateSpec from './components/back-button-template-spec';
 import ContentDetailsTemplateSpec from './pages/content-details-template-spec';
 import VideoSpecItemTemplateSpec from './components/video-spec-item-template-spec';
+import ButtonTemplateSpec from './components/button-template-spec';
 
 /**
  * Exporting all the template specs from a single location
@@ -29,5 +30,6 @@ export {
     SearchTemplateSpec,
     BackButtonTemplateSpec,
     ContentDetailsTemplateSpec,
-    VideoSpecItemTemplateSpec
+    VideoSpecItemTemplateSpec,
+    ButtonTemplateSpec,
 };

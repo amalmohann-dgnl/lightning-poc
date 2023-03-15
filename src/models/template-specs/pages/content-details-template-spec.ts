@@ -1,5 +1,5 @@
 import { Lightning } from '@lightningjs/sdk';
-import { BackButton } from '../../../components';
+import { BackButton, Button, VideoSpecItem } from '../../../components';
 import { Content } from '../../api-request-response';
 interface ContentDetailsTemplateSpec extends Lightning.Component.TemplateSpec {
     /**
@@ -15,9 +15,26 @@ interface ContentDetailsTemplateSpec extends Lightning.Component.TemplateSpec {
     ContentView: {
         Spinner: object;
         Background: object;
-        ContentData: any;
+        ContentData: {
+            Thumbnail: object,
+            Title: object,
+            Description: object,
+            Genre: object,
+            Info: {
+                Director: object
+                Starring: object
+                DirectorList: object
+                StarringList: object
+            },
+            VideoSpec: {
+                VideoSpec1: typeof VideoSpecItem;
+                VideoSpec2: typeof VideoSpecItem;
+                VideoSpec3: typeof VideoSpecItem;
+            }
+        };
         ContentActions: {
-            BackButton: typeof BackButton
+            BackButton: typeof BackButton;
+            PlayButton: typeof Button;
         };
     }
 

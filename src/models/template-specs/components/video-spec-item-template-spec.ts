@@ -4,6 +4,7 @@ interface VideoSpecItemTemplateSpec extends Lightning.Component.TemplateSpec {
     /**
      * properties and functions of the component
      */
+    specData: string;
 
 
     /**
