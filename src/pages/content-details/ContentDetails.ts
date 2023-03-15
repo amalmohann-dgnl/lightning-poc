@@ -151,7 +151,7 @@ class ContentDetails
                             specData: '  4k  '
                         },
                         VideoSpec3: {
-                            x: 190, y: 160,
+                            x: 193, y: 160,
                             shader: null,
                             type: VideoSpecItem,
                             specData: '  cc  '

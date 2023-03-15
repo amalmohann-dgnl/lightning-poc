@@ -20,8 +20,6 @@ class VideoSpecItem extends Lightning.Component<VideoSpecItemTemplateSpec> imple
     }
 
     set specData(spec: string) {
-        console.log(spec);
-
         this.patch({
             VideoSpec: {
                 Spec: {
