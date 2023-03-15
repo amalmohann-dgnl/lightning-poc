@@ -2,7 +2,7 @@ import { Lightning, Router } from "@lightningjs/sdk";
 import { Button, Input } from "@lightningjs/ui-components";
 import { ContentDetailsTemplateSpec, SearchTemplateSpec } from "../../models/template-specs";
 import theme from '../../configs/theme';
-import { BackButton } from "../../components";
+import { BackButton, VideoSpecItem } from "../../components";
 import axios from 'axios';
 import { Content, Image } from "../../models/api-request-response";
 
@@ -90,21 +90,72 @@ class ContentDetails
                             w: 900,
                             shader: null,
                             text: {
-                                text: 'Genre: ' + res.data.genre.join(', '),
+                                text: res.data.genre.join(' . '),
                                 fontSize: 24
                             },
                             color: theme.colors.accentGrey.light,
                         },
-                        Cast: {
-                            x: 40, y: 400,
-                            w: 900,
-                            shader: null,
-                            text: {
-                                text: 'Genre: ' + res.data.genre.join(', '),
-                                fontSize: 24
+                        Info: {
+                            Director: {
+                                x: 40, y: 460,
+                                w: 100,
+                                shader: null,
+                                text: {
+                                    text: 'Director : ',
+                                    fontSize: 24
+                                },
+                                color: theme.colors.accentGrey.light,
                             },
-                            color: theme.colors.accentGrey.light,
-                        }
+                            Starring: {
+                                x: 40, y: 490,
+                                w: 100,
+                                shader: null,
+                                text: {
+                                    text: 'Staring  : ',
+                                    fontSize: 24
+                                },
+                                color: theme.colors.accentGrey.light,
+                            },
+                            DirectorList: {
+                                x: 150, y: 460,
+                                w: 800,
+                                shader: null,
+                                text: {
+                                    text: res.data.director.map((a: any) => a.personName).join(', '),
+                                    fontSize: 24
+                                },
+                                color: theme.colors.accentGrey.light,
+                            },
+                            StarringList: {
+                                x: 150, y: 490,
+                                w: 800,
+                                shader: null,
+                                text: {
+                                    text: res.data.actor.map((a: any) => a.personName).join(', '),
+                                    fontSize: 24
+                                },
+                                color: theme.colors.accentGrey.light,
+                            }
+
+                        },
+                        VideoSpec1: {
+                            x: 70, y: 160,
+                            shader: null,
+                            type: VideoSpecItem,
+                            specData: '  16+  '
+                        },
+                        VideoSpec2: {
+                            x: 135, y: 160,
+                            shader: null,
+                            type: VideoSpecItem,
+                            specData: '  4k  '
+                        },
+                        VideoSpec3: {
+                            x: 190, y: 160,
+                            shader: null,
+                            type: VideoSpecItem,
+                            specData: '  cc  '
+                        },
 
                     },
                     ContentActions: {
@@ -121,24 +172,27 @@ class ContentDetails
     }
 
 
+    override _init(): void {
+        // this.tag('ContentView.ContentData.Info.Starring' as any).enableClipping()
+    }
 
 
     // overrides the default left button actions
-    override _handleLeft() {
+    override _handleLeft(): void {
         if (this.index > 0) {
             this.index -= 1;
         }
     }
 
     // overrides the default right button actions
-    override _handleRight() {
+    override _handleRight(): void {
         if (this.index < 2) {
             this.index += 1;
         }
     }
 
     // overrides the default behavior when enter button is clicked
-    override _handleEnter() {
+    override _handleEnter(): void {
         if (this.index === 0) {
             Router.navigate('home');
         }

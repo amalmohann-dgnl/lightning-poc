@@ -1,6 +1,6 @@
 import { Lightning } from "@lightningjs/sdk";
 
-interface TopNavTemplateSpec extends Lightning.Component.TemplateSpec {
+interface VideoSpecItemTemplateSpec extends Lightning.Component.TemplateSpec {
     /**
      * properties and functions of the component
      */
@@ -9,11 +9,7 @@ interface TopNavTemplateSpec extends Lightning.Component.TemplateSpec {
     /**
      * children of the component
      */
-    Navbar: {
-        NavItems: {
-            NavMenu: object;
-        };
-    }
+    VideoSpec: any;
 }
 
-export default TopNavTemplateSpec;
+export default VideoSpecItemTemplateSpec;
