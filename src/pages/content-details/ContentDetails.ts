@@ -46,9 +46,9 @@ class ContentDetails
                     Info: {},
                 },
                 ContentActions: {
-                    BackButton: { type: BackButton },
-                    PlayButton: { type: Button },
-                    PlayTrailer: { type: Button },
+                    // BackButton: { type: BackButton },
+                    // PlayButton: { type: Button },
+                    // PlayTrailer: { type: Button },
 
                 }
             }
@@ -205,8 +205,13 @@ class ContentDetails
                     }
                 }
             })
+            this._refocus();
         })
     }
+
+    // override _enable(): void {
+    //     this.index = 1;
+    // }
 
 
     override _init(): void {
