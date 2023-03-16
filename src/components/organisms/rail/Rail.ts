@@ -97,7 +97,10 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
      */
 
     override _handleLeft() {
-        this._setState("RowItem")
+        if (this.index > 0) {
+            this.index -= 1;
+            this.repositionWrapper();
+        }
     }
 
     /**
@@ -108,7 +111,10 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
      */
 
     override _handleRight() {
-        this._setState("RowItem")
+        if (this.index < this.dataLength - 1) {
+            this.index += 1;
+            this.repositionWrapper();
+        }
     }
 
     /**
@@ -124,29 +130,8 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
     // }
 
 
-    static override _states(): Lightning.Component.Constructor<Lightning.Component<Lightning.Component.TemplateSpecLoose, Lightning.Component.TypeConfig>>[] {
-        return [
-            class RowItem extends this {
-
-                override _handleRight() {
-                    if (this.index < this.dataLength - 1) {
-                        this.index += 1;
-                        this.repositionWrapper();
-                    }
-                }
-
-                override _handleLeft() {
-                    if (this.index > 0) {
-                        this.index -= 1;
-                        this.repositionWrapper();
-                    }
-                }
-
-                override _getFocused(): any {
-                    return this.tag('Slider.Wrapper' as any).children[this.index];
-                }
-            }
-        ]
+    override _getFocused(): any {
+        return this.tag('Slider.Wrapper' as any).children[this.index];
     }
 
 
