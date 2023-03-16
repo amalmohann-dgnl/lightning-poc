@@ -3,7 +3,7 @@
  * SDK version: 5.3.1
  * CLI version: 2.10.0
  *
- * Generated: Thu, 16 Mar 2023 09:26:51 GMT
+ * Generated: Thu, 16 Mar 2023 10:14:43 GMT
  */
 
 var APP_com_diagnal_app_lightningpoc = (function () {
@@ -10617,7 +10617,10 @@ var APP_com_diagnal_app_lightningpoc = (function () {
     }, {
       key: "_handleLeft",
       value: function _handleLeft() {
-        this._setState("RowItem");
+        if (this.index > 0) {
+          this.index -= 1;
+          this.repositionWrapper();
+        }
       }
 
       /**
@@ -10629,7 +10632,10 @@ var APP_com_diagnal_app_lightningpoc = (function () {
     }, {
       key: "_handleRight",
       value: function _handleRight() {
-        this._setState("RowItem");
+        if (this.index < this.dataLength - 1) {
+          this.index += 1;
+          this.repositionWrapper();
+        }
       }
 
       /**
@@ -10643,6 +10649,11 @@ var APP_com_diagnal_app_lightningpoc = (function () {
       // override _getFocused(): any {
       //     return this.tag('Slider.Wrapper' as any).children[this.index];
       // }
+    }, {
+      key: "_getFocused",
+      value: function _getFocused() {
+        return this.tag('Slider.Wrapper').children[this.index];
+      }
     }], [{
       key: "_template",
       value:
@@ -10674,41 +10685,6 @@ var APP_com_diagnal_app_lightningpoc = (function () {
             Wrapper: {}
           }
         };
-      }
-    }, {
-      key: "_states",
-      value: function _states() {
-        return [/*#__PURE__*/function (_this3) {
-          _inherits(RowItem, _this3);
-          var _super2 = _createSuper(RowItem);
-          function RowItem() {
-            _classCallCheck(this, RowItem);
-            return _super2.apply(this, arguments);
-          }
-          _createClass(RowItem, [{
-            key: "_handleRight",
-            value: function _handleRight() {
-              if (this.index < this.dataLength - 1) {
-                this.index += 1;
-                this.repositionWrapper();
-              }
-            }
-          }, {
-            key: "_handleLeft",
-            value: function _handleLeft() {
-              if (this.index > 0) {
-                this.index -= 1;
-                this.repositionWrapper();
-              }
-            }
-          }, {
-            key: "_getFocused",
-            value: function _getFocused() {
-              return this.tag('Slider.Wrapper').children[this.index];
-            }
-          }]);
-          return RowItem;
-        }(this)];
       }
     }]);
     return Rail;
