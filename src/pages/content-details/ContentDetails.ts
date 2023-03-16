@@ -45,9 +45,19 @@ class ContentDetails
                     Genre: {},
                     Info: {},
                 },
-                ContentActions: {}
+                ContentActions: {
+                    BackButton: { type: BackButton },
+                    PlayButton: { type: Button },
+                    PlayTrailer: { type: Button },
+
+                }
             }
         };
+    }
+
+    override _inactive(): void {
+        console.log("Inactive");
+        this.index = 1;
     }
 
     override set params(args: any) {

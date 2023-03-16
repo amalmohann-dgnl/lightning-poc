@@ -1,16 +1,19 @@
-import { Lightning, Router } from "@lightningjs/sdk";
-import { Button, Input } from "@lightningjs/ui-components";
+// @ts-nocheck
+import { Colors, Lightning, Router, Utils } from '@lightningjs/sdk';
 import { SearchTemplateSpec } from "../../models/template-specs";
 import theme from '../../configs/theme';
 import { BackButton } from "../../components";
-import axios from 'axios';
+// @ts-ignore
+import { InputField, Keyboard, Key as BaseKey, } from '@lightningjs/ui';
+import { Input, KeyboardInput, KeyboardQwerty } from "@lightningjs/ui-components";
+// import { keyboardConfig } from "../../configs";
 
 class Search
     extends Lightning.Component<SearchTemplateSpec>
     implements Lightning.Component.ImplementTemplateSpec<SearchTemplateSpec>
 {
 
-    index: number = 0;
+    index: number = 1;
 
     static override _template(): Lightning.Component.Template<SearchTemplateSpec> {
         return {
@@ -22,32 +25,55 @@ class Search
                 x: 40, y: 40,
                 shader: null,
                 BackButton: { type: BackButton },
-                SearchBox: {
-                    x: 150, w: 800, h: 60, rect: true, color: theme.colors.white,
-                    shader: { type: Lightning.shaders.RoundedRectangle, radius: 30 },
-                },
                 Keyboard: {
-                    x: 0, y: 120, w: 600, h: 700, rect: true, color: theme.colors.white,
+                    x: 0, y: 250, type: Keyboard, config: keyboardConfig, currentLayout: 'abc', maxCharacters: 24, signals: { onSearch: true }
+                },
+                SearchBox: {
+                    x: 0, y: 100, w: 950, h: 100, rect: true, color: theme.colors.accentGrey.light,
+                    shader: { type: Lightning.shaders.RoundedRectangle, radius: 30 },
+                    InputWrapper: {
+                        x: 20,
+                        color: theme.colors.dark,
+                        InputField: {
+                            y: 20,
+                            type: InputField,
+                        },
+                    },
 
-                }
+                },
+
             }
         };
     }
 
-    // override pageTransition() {
-    //     return 'left' 
-    // }
+    override _setup() {
+        const inputField = this.tag('SearchComponent.SearchBox.InputWrapper.InputField');
+        this.tag('Keyboard').inputField(inputField);
+    }
 
-    // overrides the default left button actions
-    override _handleLeft() {
+    onSearch(event) {
+        console.log('search', event.input)
+    }
+
+    override _active() {
+        super._active();
+        this.tag('SearchComponent.SearchBox.InputWrapper.InputField').color = theme.colors.accentGrey.dark
+    }
+
+    override _getFocused() {
+        return this.tag('Keyboard');
+    }
+
+    // overrides the default up button actions
+    override _handleUp() {
         if (this.index > 0) {
             this.index -= 1;
         }
     }
 
-    // overrides the default right button actions
-    override _handleRight() {
-        if (this.index < 2) {
+    // overrides the default down button actions
+    override _handleDown() {
+        if (this.index < 1) {
             this.index += 1;
         }
     }
@@ -65,5 +91,109 @@ class Search
     }
 
 }
+
+class Key extends BaseKey {
+    _firstActive() {
+        this.label = {
+            mountY: 0.45
+        };
+        this.labelColors = {
+            unfocused: Colors('white').get(),
+            focused: theme.colors.dark
+        };
+        this.backgroundColors = {
+            unfocused: Colors('white').alpha(0).get(),
+            focused: theme.colors.white
+        };
+        if (this.hasFocus()) {
+            this._focus();
+        }
+    }
+
+    static get width() {
+        return 90;
+    }
+    static get height() {
+        return 60;
+    }
+}
+
+class ActionKey extends BaseKey {
+    _active() {
+        this.label = {
+            mountY: 0.45
+        };
+        this.labelColors = {
+            unfocused: Colors('black').get(),
+            focused: Colors('white').get()
+        };
+        this.backgroundColors = {
+            unfocused: Colors('white').get(),
+            focused: theme.colors.accentGrey.light
+        };
+        if (this.hasFocus()) {
+            this._focus();
+        }
+    }
+
+    static get height() {
+        return 60;
+    }
+
+    static get width() {
+        return 160;
+    }
+}
+
+const keyboardConfig = {
+    layouts: {
+        'abc': [
+            ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'],
+            ['k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't'],
+            ['k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't'],
+            ['u', 'v', 'w', 'x', 'y', 'z', '_', '-', '@', '.'],
+            ['Layout:ABC', 'Layout:123', 'Space', 'Search', 'Del']
+        ],
+        'ABC': [
+            ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'],
+            ['K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T'],
+            ['k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't'],
+            ['U', 'V', 'W', 'X', 'Y', 'Z', '_', '-', '@', '.'],
+            ['Layout:abc', 'Layout:123', 'Space', 'Search', 'Del']
+        ],
+        '123': [
+            ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'],
+            ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'],
+            ['Layout:abc', 'Space', 'Clear', 'Del']
+        ]
+    },
+    styling: {
+        align: 'center',
+        horizontalSpacing: 5,
+        verticalSpacing: 20,
+    },
+    buttonTypes: {
+        default: {
+            type: Key,
+        },
+        Del: {
+            type: ActionKey, icon: 'del'
+        },
+        Layout: {
+            type: ActionKey
+        },
+        Space: {
+            type: ActionKey, w: 280, label: 'space',
+        },
+        Clear: {
+            type: ActionKey, label: 'clear'
+        },
+        Search: {
+            type: ActionKey, label: 'search'
+        }
+    }
+};
+
+
 
 export default Search;
