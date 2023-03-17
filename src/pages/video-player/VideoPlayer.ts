@@ -1,6 +1,7 @@
-import { Lightning, } from '@lightningjs/sdk';
+import { Lightning, Router } from '@lightningjs/sdk';
 import { VideoPlayerTemplateSpec } from './../../models/template-specs';
 import { VideoPlayer as LightningPlayer } from '@lightningjs/sdk'
+import { BackButton } from '../../components';
 
 // VideoPlayer component
 export class VideoPlayer
@@ -9,6 +10,8 @@ export class VideoPlayer
 {
 
     videoUrl = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
+    index = 0;
+    contentId: string = '';
 
     /**
      * This function is responsible for the creation and return of the UI template. This function 
@@ -18,7 +21,19 @@ export class VideoPlayer
      * 
      */
     static override _template(): Lightning.Component.Template<VideoPlayerTemplateSpec> {
-        return {};
+        return {
+            BackButton: {
+                x: 40, y: 40,
+                zIndex: 99,
+                type: BackButton
+            },
+        };
+    }
+
+    override set params(args: any) {
+        const { id } = args;
+        this.contentId = id;
+
     }
 
     // when the playe is shown in the screen and active for the first time 
@@ -38,6 +53,7 @@ export class VideoPlayer
     }
 
     override _inactive() {
+        // LightningPlayer.unloader(this.playerUnLoader)
         LightningPlayer.close()
     }
 
@@ -74,6 +90,11 @@ export class VideoPlayer
     // handling down button click
     override _handleDown() { }
 
+    // handling okay button click
+    override _handleEnter() {
+        Router.navigate(`content/${this.contentId}`);
+    }
+
     /**
        * This function will override the default behavior of the getFocused() method
        * 
@@ -82,6 +103,8 @@ export class VideoPlayer
        * this Component's own instance is returned.
        */
 
-    override _getFocused(): any { }
+    override _getFocused(): any {
+        return this.children[this.index]
+    }
 
 }

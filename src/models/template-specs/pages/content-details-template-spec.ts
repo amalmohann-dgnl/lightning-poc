@@ -7,6 +7,7 @@ interface ContentDetailsTemplateSpec extends Lightning.Component.TemplateSpec {
      */
     index: number;
     contentData: Content;
+    contentId: string;
 
 
     /**

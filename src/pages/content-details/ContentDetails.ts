@@ -10,6 +10,7 @@ class ContentDetails
     implements Lightning.Component.ImplementTemplateSpec<ContentDetailsTemplateSpec>
 {
     contentData!: Content;
+    contentId: string = '';
     index: number = 1;
 
     // readonly contentView = this.getByRef("ContentView")!;
@@ -64,6 +65,7 @@ class ContentDetails
         const { id } = args;
         axios.get(`https://api-qa.enlight.diagnal.com/v1b3/content/${id}`).then((res) => {
             console.log(res.data);
+            this.contentId = id;
             this.patch({
                 ContentView: {
                     Spinner: {
@@ -238,7 +240,7 @@ class ContentDetails
         if (this.index === 0) {
             Router.navigate('home');
         } else {
-            Router.navigate('player')
+            Router.navigate(`player/${this.contentId}`)
         }
     }
 
