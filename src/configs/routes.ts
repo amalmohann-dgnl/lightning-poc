@@ -1,5 +1,5 @@
 import { Router } from "@lightningjs/sdk";
-import { Home, Search, ContentDetails } from "../pages";
+import { Home, Search, ContentDetails, VideoPlayer } from "../pages";
 
 const routes = {
     root: 'home',
@@ -22,6 +22,10 @@ const routes = {
             options: {
                 reuseInstance: false
             }
+        },
+        {
+            path: 'player',
+            component: VideoPlayer,
         },
 
     ]

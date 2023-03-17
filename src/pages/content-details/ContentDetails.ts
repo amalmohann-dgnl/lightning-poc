@@ -237,6 +237,8 @@ class ContentDetails
     override _handleEnter(): void {
         if (this.index === 0) {
             Router.navigate('home');
+        } else {
+            Router.navigate('player')
         }
     }
 

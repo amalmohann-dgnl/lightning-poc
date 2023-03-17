@@ -14,6 +14,7 @@ import BackButtonTemplateSpec from './components/back-button-template-spec';
 import ContentDetailsTemplateSpec from './pages/content-details-template-spec';
 import VideoSpecItemTemplateSpec from './components/video-spec-item-template-spec';
 import ButtonTemplateSpec from './components/button-template-spec';
+import VideoPlayerTemplateSpec from './pages/video-player-template-spec';
 
 /**
  * Exporting all the template specs from a single location
@@ -32,4 +33,5 @@ export {
     ContentDetailsTemplateSpec,
     VideoSpecItemTemplateSpec,
     ButtonTemplateSpec,
+    VideoPlayerTemplateSpec
 };

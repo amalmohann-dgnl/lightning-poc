@@ -1,7 +1,7 @@
 import { Lightning } from "@lightningjs/sdk";
 import { BackButton } from "../../../components";
-// import { InputField, Keyboard } from '@lightningjs/ui';
-import { Input, Keyboard } from '@lightningjs/ui-components';
+// @ts-ignore
+import { InputField, Keyboard } from '@lightningjs/ui';
 
 interface SearchTemplateSpec extends Lightning.Component.TemplateSpecLoose {
     /**
@@ -16,7 +16,7 @@ interface SearchTemplateSpec extends Lightning.Component.TemplateSpecLoose {
         BackButton: typeof BackButton;
         SearchBox: {
             InputWrapper: {
-                InputField: typeof Input,
+                InputField: typeof InputField,
             }
         };
         Keyboard: typeof Keyboard;
