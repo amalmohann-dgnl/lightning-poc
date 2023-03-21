@@ -3,7 +3,7 @@
  * SDK version: 5.3.1
  * CLI version: 2.10.0
  *
- * Generated: Thu, 16 Mar 2023 10:14:43 GMT
+ * Generated: Tue, 21 Mar 2023 04:30:11 GMT
  */
 
 var APP_com_diagnal_app_lightningpoc = (function () {
@@ -2152,7 +2152,7 @@ var APP_com_diagnal_app_lightningpoc = (function () {
       return _consumer;
     }
   };
-  autoSetupMixin(videoPlayerPlugin, function () {
+  var VideoPlayer$1 = autoSetupMixin(videoPlayerPlugin, function () {
     precision = ApplicationInstance$1 && ApplicationInstance$1.stage && ApplicationInstance$1.stage.getRenderPrecision() || precision;
     videoEl = setupVideoTag();
     textureMode = Settings.get('platform', 'textureMode', false);
@@ -14746,6 +14746,7 @@ var APP_com_diagnal_app_lightningpoc = (function () {
       }
       _this = _super.call.apply(_super, [this].concat(args));
       _defineProperty(_assertThisInitialized(_this), "contentData", void 0);
+      _defineProperty(_assertThisInitialized(_this), "contentId", '');
       _defineProperty(_assertThisInitialized(_this), "index", 1);
       return _this;
     }
@@ -14763,6 +14764,7 @@ var APP_com_diagnal_app_lightningpoc = (function () {
         axios$1.get("https://api-qa.enlight.diagnal.com/v1b3/content/".concat(id)).then(function (res) {
           var _res$data$images$find, _res$data$images$find2;
           console.log(res.data);
+          _this2.contentId = id;
           _this2.patch({
             ContentView: {
               Spinner: {
@@ -14974,6 +14976,8 @@ var APP_com_diagnal_app_lightningpoc = (function () {
       value: function _handleEnter() {
         if (this.index === 0) {
           Router.navigate('home');
+        } else {
+          Router.navigate("player/".concat(this.contentId));
         }
       }
 
@@ -15048,6 +15052,127 @@ var APP_com_diagnal_app_lightningpoc = (function () {
     return ContentDetails;
   }(Lightning$1.Component);
 
+  // VideoPlayer component
+  var VideoPlayer = /*#__PURE__*/function (_ref) {
+    _inherits(VideoPlayer, _ref);
+    var _super = _createSuper(VideoPlayer);
+    function VideoPlayer() {
+      var _this;
+      _classCallCheck(this, VideoPlayer);
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+      _this = _super.call.apply(_super, [this].concat(args));
+      _defineProperty(_assertThisInitialized(_this), "videoUrl", 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4');
+      _defineProperty(_assertThisInitialized(_this), "index", 0);
+      _defineProperty(_assertThisInitialized(_this), "contentId", '');
+      /**
+       * 
+       * video Player functions
+       * 
+       */
+      // Note: this is in fact the default loader function
+      _defineProperty(_assertThisInitialized(_this), "playerLoader", function (url, videoEl, config) {
+        return new Promise(function (resolve) {
+          videoEl.setAttribute('src', url);
+          videoEl.load();
+          resolve();
+        });
+      });
+      // Note: this is in fact the default unloader function
+      _defineProperty(_assertThisInitialized(_this), "playerUnLoader", function (url, videoEl, config) {
+        new Promise(function (resolve) {
+          videoEl.removeAttribute('src');
+          videoEl.load();
+          resolve();
+        });
+      });
+      return _this;
+    }
+    _createClass(VideoPlayer, [{
+      key: "params",
+      set: function set(args) {
+        var id = args.id;
+        this.contentId = id;
+      }
+
+      // when the playe is shown in the screen and active for the first time 
+    }, {
+      key: "_firstActive",
+      value: function _firstActive() {
+        VideoPlayer$1.consumer(this);
+      }
+
+      // initializing the component
+    }, {
+      key: "_init",
+      value: function _init() {}
+    }, {
+      key: "_active",
+      value: function _active() {
+        VideoPlayer$1.loader(this.playerLoader);
+        VideoPlayer$1.open(this.videoUrl);
+      }
+    }, {
+      key: "_inactive",
+      value: function _inactive() {
+        // LightningPlayer.unloader(this.playerUnLoader)
+        VideoPlayer$1.close();
+      }
+    }, {
+      key: "_handleUp",
+      value:
+      // handling up button click
+      function _handleUp() {}
+
+      // handling down button click
+    }, {
+      key: "_handleDown",
+      value: function _handleDown() {}
+
+      // handling okay button click
+    }, {
+      key: "_handleEnter",
+      value: function _handleEnter() {
+        Router.navigate("content/".concat(this.contentId));
+      }
+
+      /**
+         * This function will override the default behavior of the getFocused() method
+         * 
+         * @returns Return the child Component that this Component wishes to receive focus. Returning null 
+         * or undefined tells the focus engine to not set focus on this Component at all.By default,
+         * this Component's own instance is returned.
+         */
+    }, {
+      key: "_getFocused",
+      value: function _getFocused() {
+        return this.children[this.index];
+      }
+    }], [{
+      key: "_template",
+      value:
+      /**
+       * This function is responsible for the creation and return of the UI template. This function 
+       * takes  no parameters and returns the template.
+       * 
+       * @returns Template for the Application
+       * 
+       */
+      function _template() {
+        return {
+          BackButton: {
+            x: 40,
+            y: 40,
+            zIndex: 99,
+            type: BackButton
+          }
+        };
+      }
+    }]);
+    return VideoPlayer;
+  }(Lightning$1.Component);
+
   var routes = {
     root: 'home',
     routes: [{
@@ -15065,6 +15190,9 @@ var APP_com_diagnal_app_lightningpoc = (function () {
       options: {
         reuseInstance: false
       }
+    }, {
+      path: 'player/:id',
+      component: VideoPlayer
     }]
   };
 
