@@ -15,6 +15,7 @@ const railName: string[] = [
     "Trending Now",
     "Comdey Movies",
     "Thriller Movies",
+    "Long Rail"
 ]
 
 export default railName;

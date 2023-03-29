@@ -1,5 +1,5 @@
 import { Lightning } from "@lightningjs/sdk";
-import { BackButton } from "../../../components";
+import { BackButton, Rail } from "../../../components";
 // @ts-ignore
 import { InputField, Keyboard } from '@lightningjs/ui';
 
@@ -20,6 +20,7 @@ interface SearchTemplateSpec extends Lightning.Component.TemplateSpecLoose {
             }
         };
         Keyboard: typeof Keyboard;
+        LongRail: typeof Rail;
     }
 
 

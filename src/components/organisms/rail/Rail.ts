@@ -1,10 +1,10 @@
-import { Lightning, Log, Utils } from '@lightningjs/sdk';
+import { Lightning, Log, Storage } from '@lightningjs/sdk';
 import { RailTemplateSpec } from "../../../models/template-specs";
 import RailItem from '../../molecules/rail-item/RailItem';
 import { AxiosRequester } from '../../../services';
 import { RailDataResponse, Content, Image } from '../../../models/api-request-response';
-import { endpoint, theme } from '../../../configs';
-import { railName } from '../../../configs';
+import { endpoint, theme, railName } from '../../../configs';
+import endp from '../../../configs/endpoint-url';
 
 class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Component.ImplementTemplateSpec<RailTemplateSpec> {
     index: number = -1;
@@ -21,7 +21,6 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
    * @returns Template for the Rail Component.
    * 
    */
-
     static override _template() {
         return {
             Header: {
@@ -43,28 +42,59 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
     */
     override _init() {
         const rail: { type: typeof RailItem; x: number; item: { label: string; src: string; data: Content }; }[] = [];
-        this.axiosRequester.fetch(endpoint[this.railIndex]!).then((response) => {
-            if (response) {
-                this.responseData = response[0]?.data;
-                this.dataLength = this.responseData.totalElements || 0;
-                this.data = this.responseData.content || [];
-                for (let i = 0; i < this.dataLength; i++) {
-                    let label = this.data[i]?.title!;
-                    let img_src = this.data[i]?.images.find((img: Image) => img.width === 288)?.url
-                    rail.push({
-                        type: RailItem,
-                        x: i * (300 + 30),
-                        item: { label: label, src: img_src || "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/249/oyPcsfGWL5Se6RGW1JCVgpHlASH_288x432_13635141800.jpg", data: this.data[i]! }
-                    });
+        if (this.railIndex < endp.length) {
+            this.axiosRequester.fetch(endpoint[this.railIndex]!).then((response) => {
+                if (response) {
+                    this.responseData = response[0]?.data;
+                    this.dataLength = this.responseData.totalElements || 0;
+                    this.data = this.responseData.content || [];
+                    for (let i = 0; i < this.dataLength; i++) {
+                        let label = this.data[i]?.title!;
+                        let img_src = this.data[i]?.images.find((img: Image) => img.width === 288)?.url
+                        rail.push({
+                            type: RailItem,
+                            x: i * (300 + 30),
+                            item: { label: label, src: img_src || "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/249/oyPcsfGWL5Se6RGW1JCVgpHlASH_288x432_13635141800.jpg", data: this.data[i]! }
+                        });
+                    }
                 }
-            }
-            this.patch({
-                Header: { text: railName[this.railIndex]! }
+                this.patch({
+                    Header: { text: railName[this.railIndex]! }
+                })
+                this.tag('Wrapper' as any).children = rail;
+                this.index = 0;
+                this._setState("RowItem")
             })
-            this.tag('Wrapper' as any).children = rail;
-            this.index = 0;
-            this._setState("RowItem")
+        }
+        else {
+            this.setLongRail();
+        }
+    }
+
+
+    async setLongRail() {
+        console.log("je");
+        this.data = await Storage.get('longData');
+        this.dataLength = this.data.length;
+        console.log(this.data.length);
+
+        const rail: { type: typeof RailItem; x: number; item: { label: string; src: string; data: Content }; }[] = [];
+        for (let i = 0; i < this.dataLength; i++) {
+            let label = this.data[i]?.title!;
+            let img_src = this.data[i]?.images.find((img: Image) => img.width === 288)?.url
+
+            rail.push({
+                type: RailItem,
+                x: i * (300 + 30),
+                item: { label: label, src: img_src || "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/249/oyPcsfGWL5Se6RGW1JCVgpHlASH_288x432_13635141800.jpg", data: this.data[i]! }
+            });
+        }
+        this.patch({
+            Header: { text: railName[this.railIndex]! }
         })
+        this.tag('Wrapper' as any).children = rail;
+        this.index = 0;
+        // this._setState("RowItem")
     }
 
 

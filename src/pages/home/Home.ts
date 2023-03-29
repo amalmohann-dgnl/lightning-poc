@@ -1,8 +1,10 @@
-import { Lightning, } from '@lightningjs/sdk';
-import { Rail } from '../../components';
+import { Lightning, Storage } from '@lightningjs/sdk';
+import { Rail, RailItem } from '../../components';
 import { endpoint, theme } from '../../configs';
 import { HomeTemplateSpec } from './../../models/template-specs';
 import TopNav from '../../components/organisms/top-nav/TopNav';
+import AxiosRequester from '../../services/AxiosRequester';
+import { RailDataResponse, Content, Image } from '../../models/api-request-response/rail-data.response';
 
 // Home component
 export class Home
@@ -41,6 +43,7 @@ export class Home
 
     // initializing the component
     override _init() {
+        this.backgroundFetchAndSave();
         const rails = [];
         for (let i = 0; i < this.rowLength; i++) {
             rails.push({ type: Rail, x: 0, y: i * (600 + 50), railIndex: i })
@@ -48,6 +51,33 @@ export class Home
         this.tag('Background.Slider.Wrapper' as any).children = rails;
     }
 
+    async backgroundFetchAndSave() {
+        let axiosRequester: AxiosRequester = new AxiosRequester();
+        let longData: Content[] = [];
+        for (let epoint of endpoint) {
+            await axiosRequester.fetch(epoint!).then((response) => {
+                if (response) {
+                    let responseData: RailDataResponse = response[0]?.data;
+                    let data: Content[] = responseData.content || [];
+                    longData = [...longData, ...data]
+                }
+            });
+        }
+        await Storage.set('longData', longData);
+    }
+
+    override _active() {
+        let axiosRequester: AxiosRequester = new AxiosRequester();
+        setInterval(() => {
+            for (let index = 0; index < 10; index++) {
+                axiosRequester.fetch(endpoint[index]!).then((response) => {
+                    console.log(response);
+                });
+
+            }
+
+        }, 1000);
+    }
 
     // repositioning the wrapper
     repositionWrapper() {

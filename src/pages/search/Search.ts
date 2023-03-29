@@ -1,19 +1,18 @@
 // @ts-nocheck
-import { Colors, Lightning, Router, Utils } from '@lightningjs/sdk';
+import { Colors, Lightning, Router, Storage } from '@lightningjs/sdk';
 import { SearchTemplateSpec } from "../../models/template-specs";
 import theme from '../../configs/theme';
 import { BackButton } from "../../components";
 // @ts-ignore
 import { InputField, Keyboard, Key as BaseKey, } from '@lightningjs/ui';
-import { Input, KeyboardInput, KeyboardQwerty } from "@lightningjs/ui-components";
-// import { keyboardConfig } from "../../configs";
+import Rail from '../../components/organisms/rail/Rail';
 
 class Search
     extends Lightning.Component<SearchTemplateSpec>
     implements Lightning.Component.ImplementTemplateSpec<SearchTemplateSpec>
 {
 
-    index: number = 1;
+    index: number = 2;
 
     static override _template(): Lightning.Component.Template<SearchTemplateSpec> {
         return {
@@ -24,12 +23,8 @@ class Search
             SearchComponent: {
                 x: 40, y: 40,
                 shader: null,
-                BackButton: { type: BackButton },
-                Keyboard: {
-                    x: 0, y: 250, type: Keyboard, config: keyboardConfig, currentLayout: 'abc', maxCharacters: 24, signals: { onSearch: true }
-                },
                 SearchBox: {
-                    x: 0, y: 100, w: 950, h: 100, rect: true, color: theme.colors.accentGrey.light,
+                    x: 0, y: 60, w: 950, h: 60, rect: true, color: theme.colors.accentGrey.light,
                     shader: { type: Lightning.shaders.RoundedRectangle, radius: 30 },
                     InputWrapper: {
                         x: 20,
@@ -41,7 +36,10 @@ class Search
                     },
 
                 },
-
+                BackButton: { type: BackButton },
+                Keyboard: {
+                    x: 0, y: 140, type: Keyboard, config: keyboardConfig, currentLayout: 'abc', maxCharacters: 24, signals: { onSearch: true }
+                },
             }
         };
     }
@@ -58,6 +56,9 @@ class Search
     override _active() {
         super._active();
         this.tag('SearchComponent.SearchBox.InputWrapper.InputField').color = theme.colors.accentGrey.dark
+        const LongRail = { type: Rail, x: -30, y: 380, railIndex: 16, }
+        this.tag('SearchComponent' as any).patch({ LongRail });
+
     }
 
     override _getFocused() {
@@ -66,21 +67,21 @@ class Search
 
     // overrides the default up button actions
     override _handleUp() {
-        if (this.index > 0) {
+        if (this.index > 1) {
             this.index -= 1;
         }
     }
 
     // overrides the default down button actions
     override _handleDown() {
-        if (this.index < 1) {
+        if (this.index < 3) {
             this.index += 1;
         }
     }
 
     // overrides the default behavior when enter button is clicked
     override _handleEnter() {
-        if (this.index === 0) {
+        if (this.index === 1) {
             Router.navigate('home');
         }
     }
@@ -91,6 +92,7 @@ class Search
     }
 
 }
+
 
 class Key extends BaseKey {
     _firstActive() {
@@ -114,7 +116,7 @@ class Key extends BaseKey {
         return 90;
     }
     static get height() {
-        return 60;
+        return 40;
     }
 }
 
@@ -150,19 +152,16 @@ const keyboardConfig = {
         'abc': [
             ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'],
             ['k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't'],
-            ['k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't'],
             ['u', 'v', 'w', 'x', 'y', 'z', '_', '-', '@', '.'],
             ['Layout:ABC', 'Layout:123', 'Space', 'Search', 'Del']
         ],
         'ABC': [
             ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'],
             ['K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T'],
-            ['k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't'],
             ['U', 'V', 'W', 'X', 'Y', 'Z', '_', '-', '@', '.'],
             ['Layout:abc', 'Layout:123', 'Space', 'Search', 'Del']
         ],
         '123': [
-            ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'],
             ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'],
             ['Layout:abc', 'Space', 'Clear', 'Del']
         ]

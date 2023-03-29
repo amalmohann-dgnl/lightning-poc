@@ -24,6 +24,7 @@ interface HomeTemplateSpec extends Lightning.Component.TemplateSpecLoose {
                 Widgets: {
                     Carousel: object;
                     Rails: object;
+                    LongRail: object;
                 }
             }
         }
