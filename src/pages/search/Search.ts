@@ -84,6 +84,12 @@ class Search
         console.log('search', event.input)
     }
 
+
+    /**
+     * 
+     * Memory intensive Testing
+     * 
+     */
     override _active() {
         super._active();
         this.tag('SearchComponent.SearchBox.InputWrapper.InputField').color = theme.colors.accentGrey.dark
@@ -97,6 +103,7 @@ class Search
     override _inactive() {
         clearInterval(this.intervalSub);
     }
+
 
     override _getFocused() {
         return this.tag('Keyboard');

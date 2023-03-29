@@ -3,7 +3,7 @@
  * SDK version: 5.3.1
  * CLI version: 2.10.0
  *
- * Generated: Tue, 21 Mar 2023 04:30:11 GMT
+ * Generated: Wed, 29 Mar 2023 12:07:53 GMT
  */
 
 var APP_com_diagnal_app_lightningpoc = (function () {
@@ -4534,10 +4534,45 @@ var APP_com_diagnal_app_lightningpoc = (function () {
    * See the License for the specific language governing permissions and
    * limitations under the License.
    */
+  var namespace;
+  var lc;
   var initStorage = function initStorage() {
-    Settings$1.get('platform', 'id');
+    namespace = Settings$1.get('platform', 'id');
     // todo: pass options (for example to force the use of cookies)
-    new localCookie();
+    lc = new localCookie();
+  };
+  var namespacedKey = function namespacedKey(key) {
+    return namespace ? [namespace, key].join('.') : key;
+  };
+  var Storage = {
+    get: function get(key) {
+      try {
+        return JSON.parse(lc.getItem(namespacedKey(key)));
+      } catch (e) {
+        return null;
+      }
+    },
+    set: function set(key, value) {
+      try {
+        lc.setItem(namespacedKey(key), JSON.stringify(value));
+        return true;
+      } catch (e) {
+        return false;
+      }
+    },
+    remove: function remove(key) {
+      lc.removeItem(namespacedKey(key));
+    },
+    clear: function clear() {
+      if (namespace) {
+        lc.keys().forEach(function (key) {
+          // remove the item if in the namespace
+          key.indexOf(namespace + '.') === 0 ? lc.removeItem(key) : null;
+        });
+      } else {
+        lc.clear();
+      }
+    }
   };
 
   /*
@@ -7415,7 +7450,7 @@ var APP_com_diagnal_app_lightningpoc = (function () {
 
   var endp = ["/filters/dgnlsl30-movies-action?page=1&language=en&size=50", "/filters/dgnlsl30-movies-comedy?page=1&language=en&size=50", "/filters/marvel-movies?page=1&language=en&size=50", "/filters/gNAaDQJl13GS?page=1&language=en&size=100", "/filters/dgnlsl30-movies-action?page=1&language=en&size=50", "/filters/dgnlsl30-movies-comedy?page=1&language=en&size=50", "/filters/marvel-movies?page=1&language=en&size=50", "/filters/gNAaDQJl13GS?page=1&language=en&size=100", "/filters/dgnlsl30-movies-action?page=1&language=en&size=50", "/filters/dgnlsl30-movies-comedy?page=1&language=en&size=50", "/filters/marvel-movies?page=1&language=en&size=50", "/filters/gNAaDQJl13GS?page=1&language=en&size=100", "/filters/dgnlsl30-movies-action?page=1&language=en&size=50", "/filters/dgnlsl30-movies-comedy?page=1&language=en&size=50", "/filters/marvel-movies?page=1&language=en&size=50", "/filters/gNAaDQJl13GS?page=1&language=en&size=100"];
 
-  var railName = ["Action Movies", "Only on Enlight", "Marvel Movies", "Drama Movies", "Romantic Comdey Movies", "Trending Now", "Comdey Movies", "Thriller Movies", "Action Movies", "Only on Enlight", "Marvel Movies", "Drama Movies", "Romantic Comdey Movies", "Trending Now", "Comdey Movies", "Thriller Movies"];
+  var railName = ["Action Movies", "Only on Enlight", "Marvel Movies", "Drama Movies", "Romantic Comdey Movies", "Trending Now", "Comdey Movies", "Thriller Movies", "Action Movies", "Only on Enlight", "Marvel Movies", "Drama Movies", "Romantic Comdey Movies", "Trending Now", "Comdey Movies", "Thriller Movies", "Long Rail"];
 
   var RailItem = /*#__PURE__*/function (_ref) {
     _inherits(RailItem, _ref);
@@ -7462,8 +7497,8 @@ var APP_com_diagnal_app_lightningpoc = (function () {
     }, {
       key: "_handleEnter",
       value: function _handleEnter() {
-        Router.navigate("content/".concat(this.data.uid), {
-          contentData: this.data
+        Router.navigate("content/railItem/".concat(this.data.uid), {
+          from: 'Home'
         });
       }
 
@@ -10554,40 +10589,93 @@ var APP_com_diagnal_app_lightningpoc = (function () {
       function _init() {
         var _this2 = this;
         var rail = [];
-        this.axiosRequester.fetch(endp[this.railIndex]).then(function (response) {
-          if (response) {
-            var _response$;
-            _this2.responseData = (_response$ = response[0]) === null || _response$ === void 0 ? void 0 : _response$.data;
-            _this2.dataLength = _this2.responseData.totalElements || 0;
-            _this2.data = _this2.responseData.content || [];
-            for (var i = 0; i < _this2.dataLength; i++) {
-              var _this2$data$i, _this2$data$i2, _this2$data$i2$images;
-              var label = (_this2$data$i = _this2.data[i]) === null || _this2$data$i === void 0 ? void 0 : _this2$data$i.title;
-              var img_src = (_this2$data$i2 = _this2.data[i]) === null || _this2$data$i2 === void 0 ? void 0 : (_this2$data$i2$images = _this2$data$i2.images.find(function (img) {
-                return img.width === 288;
-              })) === null || _this2$data$i2$images === void 0 ? void 0 : _this2$data$i2$images.url;
-              rail.push({
-                type: RailItem,
-                x: i * (300 + 30),
-                item: {
-                  label: label,
-                  src: img_src || "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/249/oyPcsfGWL5Se6RGW1JCVgpHlASH_288x432_13635141800.jpg",
-                  data: _this2.data[i]
-                }
-              });
+        if (this.railIndex < endp.length) {
+          this.axiosRequester.fetch(endp[this.railIndex]).then(function (response) {
+            if (response) {
+              var _response$;
+              _this2.responseData = (_response$ = response[0]) === null || _response$ === void 0 ? void 0 : _response$.data;
+              _this2.dataLength = _this2.responseData.totalElements || 0;
+              _this2.data = _this2.responseData.content || [];
+              for (var i = 0; i < _this2.dataLength; i++) {
+                var _this2$data$i, _this2$data$i2, _this2$data$i2$images;
+                var label = (_this2$data$i = _this2.data[i]) === null || _this2$data$i === void 0 ? void 0 : _this2$data$i.title;
+                var img_src = (_this2$data$i2 = _this2.data[i]) === null || _this2$data$i2 === void 0 ? void 0 : (_this2$data$i2$images = _this2$data$i2.images.find(function (img) {
+                  return img.width === 288;
+                })) === null || _this2$data$i2$images === void 0 ? void 0 : _this2$data$i2$images.url;
+                rail.push({
+                  type: RailItem,
+                  x: i * (300 + 30),
+                  item: {
+                    label: label,
+                    src: img_src || "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/249/oyPcsfGWL5Se6RGW1JCVgpHlASH_288x432_13635141800.jpg",
+                    data: _this2.data[i]
+                  }
+                });
+              }
             }
-          }
-          _this2.patch({
-            Header: {
-              text: railName[_this2.railIndex]
-            }
+            _this2.patch({
+              Header: {
+                text: railName[_this2.railIndex]
+              }
+            });
+            _this2.tag('Wrapper').children = rail;
+            _this2.index = 0;
+            _this2._setState("RowItem");
           });
-          _this2.tag('Wrapper').children = rail;
-          _this2.index = 0;
-          _this2._setState("RowItem");
-        });
+        } else {
+          this.setLongRail();
+        }
       }
-
+    }, {
+      key: "setLongRail",
+      value: function () {
+        var _setLongRail = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+          var rail, i, _this$data$i, _this$data$i2, _this$data$i2$images$, label, img_src;
+          return _regeneratorRuntime().wrap(function _callee$(_context) {
+            while (1) switch (_context.prev = _context.next) {
+              case 0:
+                console.log("je");
+                _context.next = 3;
+                return Storage.get('longData');
+              case 3:
+                this.data = _context.sent;
+                this.dataLength = this.data.length;
+                console.log(this.data.length);
+                rail = [];
+                for (i = 0; i < this.dataLength; i++) {
+                  label = (_this$data$i = this.data[i]) === null || _this$data$i === void 0 ? void 0 : _this$data$i.title;
+                  img_src = (_this$data$i2 = this.data[i]) === null || _this$data$i2 === void 0 ? void 0 : (_this$data$i2$images$ = _this$data$i2.images.find(function (img) {
+                    return img.width === 288;
+                  })) === null || _this$data$i2$images$ === void 0 ? void 0 : _this$data$i2$images$.url;
+                  rail.push({
+                    type: RailItem,
+                    x: i * (300 + 30),
+                    item: {
+                      label: label,
+                      src: img_src || "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/249/oyPcsfGWL5Se6RGW1JCVgpHlASH_288x432_13635141800.jpg",
+                      data: this.data[i]
+                    }
+                  });
+                }
+                this.patch({
+                  Header: {
+                    text: railName[this.railIndex]
+                  }
+                });
+                this.tag('Wrapper').children = rail;
+                this.index = 0;
+                // this._setState("RowItem")
+              case 11:
+              case "end":
+                return _context.stop();
+            }
+          }, _callee, this);
+        }));
+        function setLongRail() {
+          return _setLongRail.apply(this, arguments);
+        }
+        return setLongRail;
+      }()
       /**
        * To repostion the wrapper on the focused element. Function does not take any parameters 
        * nor has any return.
@@ -10664,7 +10752,6 @@ var APP_com_diagnal_app_lightningpoc = (function () {
       * @returns Template for the Rail Component.
       * 
       */
-
       function _template() {
         return {
           Header: {
@@ -10917,6 +11004,12 @@ var APP_com_diagnal_app_lightningpoc = (function () {
             y: 12,
             navtext: "Search"
           },
+          Gridlayout: {
+            type: NavTextItem,
+            x: 280,
+            y: 12,
+            navtext: "Grids"
+          },
           Profile: {
             x: 1840,
             y: 15,
@@ -10974,7 +11067,7 @@ var APP_com_diagnal_app_lightningpoc = (function () {
     }, {
       key: "_handleRight",
       value: function _handleRight() {
-        if (this.index < 2) {
+        if (this.index < 3) {
           this.index += 1;
         }
       }
@@ -10991,6 +11084,8 @@ var APP_com_diagnal_app_lightningpoc = (function () {
           Router.navigate('home');
         } else if (this.index === 1) {
           Router.navigate('search');
+        } else if (this.index === 2) {
+          Router.navigate('grid');
         } else {
           Router.navigate('settings');
         }
@@ -11299,6 +11394,7 @@ var APP_com_diagnal_app_lightningpoc = (function () {
       value:
       // initializing the component
       function _init() {
+        this.backgroundFetchAndSave();
         var rails = [];
         for (var i = 0; i < this.rowLength; i++) {
           rails.push({
@@ -11309,6 +11405,73 @@ var APP_com_diagnal_app_lightningpoc = (function () {
           });
         }
         this.tag('Background.Slider.Wrapper').children = rails;
+      }
+    }, {
+      key: "backgroundFetchAndSave",
+      value: function () {
+        var _backgroundFetchAndSave = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+          var axiosRequester, longData, _iterator, _step, epoint;
+          return _regeneratorRuntime().wrap(function _callee$(_context) {
+            while (1) switch (_context.prev = _context.next) {
+              case 0:
+                axiosRequester = new AxiosRequester();
+                longData = [];
+                _iterator = _createForOfIteratorHelper(endp);
+                _context.prev = 3;
+                _iterator.s();
+              case 5:
+                if ((_step = _iterator.n()).done) {
+                  _context.next = 11;
+                  break;
+                }
+                epoint = _step.value;
+                _context.next = 9;
+                return axiosRequester.fetch(epoint).then(function (response) {
+                  if (response) {
+                    var _response$;
+                    var responseData = (_response$ = response[0]) === null || _response$ === void 0 ? void 0 : _response$.data;
+                    var data = responseData.content || [];
+                    longData = [].concat(_toConsumableArray(longData), _toConsumableArray(data));
+                  }
+                });
+              case 9:
+                _context.next = 5;
+                break;
+              case 11:
+                _context.next = 16;
+                break;
+              case 13:
+                _context.prev = 13;
+                _context.t0 = _context["catch"](3);
+                _iterator.e(_context.t0);
+              case 16:
+                _context.prev = 16;
+                _iterator.f();
+                return _context.finish(16);
+              case 19:
+                _context.next = 21;
+                return Storage.set('longData', longData);
+              case 21:
+              case "end":
+                return _context.stop();
+            }
+          }, _callee, null, [[3, 13, 16, 19]]);
+        }));
+        function backgroundFetchAndSave() {
+          return _backgroundFetchAndSave.apply(this, arguments);
+        }
+        return backgroundFetchAndSave;
+      }()
+    }, {
+      key: "_active",
+      value: function _active() {
+        var axiosRequester = new AxiosRequester();
+        setInterval(function () {
+          for (var index = 0; index < 10; index++) {
+            var timestamp = new Date().getTime();
+            axiosRequester.fetch(endp[index] + "timestamp=".concat(timestamp)).then(function (response) {});
+          }
+        }, 1000);
       }
 
       // repositioning the wrapper
@@ -12348,6 +12511,326 @@ var APP_com_diagnal_app_lightningpoc = (function () {
     }
     return -1;
   };
+
+  var Grid = /*#__PURE__*/function (_CollectionWrapper) {
+    _inherits(Grid, _CollectionWrapper);
+    var _super = _createSuper(Grid);
+    function Grid() {
+      _classCallCheck(this, Grid);
+      return _super.apply(this, arguments);
+    }
+    _createClass(Grid, [{
+      key: "_construct",
+      value: function _construct() {
+        this._crossSpacing = 5;
+        this._mainSpacing = 5;
+        this._rows = 0;
+        this._columns = 0;
+        _get(_getPrototypeOf(Grid.prototype), "_construct", this).call(this);
+      }
+    }, {
+      key: "clear",
+      value: function clear() {
+        _get(_getPrototypeOf(Grid.prototype), "clear", this).call(this);
+        this._mainIndex = 0;
+        this._crossIndex = 0;
+        this._previous = undefined;
+      }
+    }, {
+      key: "setIndex",
+      value: function setIndex(index) {
+        var targetIndex = limitWithinRange(index, 0, this._items.length - 1);
+        var previousIndex = this._index;
+        var _this$_findLocationOf = this._findLocationOfIndex(this._index),
+          previousMainIndex = _this$_findLocationOf.mainIndex,
+          previousCrossIndex = _this$_findLocationOf.crossIndex;
+        var _this$_findLocationOf2 = this._findLocationOfIndex(targetIndex),
+          mainIndex = _this$_findLocationOf2.mainIndex,
+          crossIndex = _this$_findLocationOf2.crossIndex;
+        this._mainIndex = mainIndex;
+        this._crossIndex = crossIndex;
+        this._previous = {
+          mainIndex: mainIndex,
+          crossIndex: crossIndex,
+          realIndex: previousIndex
+        };
+        this._index = targetIndex;
+        this._indexChanged({
+          previousIndex: previousIndex,
+          index: targetIndex,
+          mainIndex: mainIndex,
+          previousMainIndex: previousMainIndex,
+          crossIndex: crossIndex,
+          previousCrossIndex: previousCrossIndex,
+          lines: this._lines.length,
+          dataLength: this._items.length
+        });
+      }
+    }, {
+      key: "_findLocationOfIndex",
+      value: function _findLocationOfIndex(index) {
+        for (var i = 0; i < this._lines.length; i++) {
+          if (this._lines[i].includes(index)) {
+            return {
+              mainIndex: i,
+              crossIndex: this._lines[i].indexOf(index)
+            };
+          }
+        }
+        return {
+          mainIndex: -1,
+          crossIndex: -1
+        };
+      }
+    }, {
+      key: "plotItems",
+      value: function plotItems() {
+        var _this = this,
+          _this$_resizeWrapper;
+        var items = this._items;
+        var wrapper = this.wrapper;
+        var _this$_getPlotPropert = this._getPlotProperties(this._direction),
+          directionIsRow = _this$_getPlotPropert.directionIsRow,
+          mainDirection = _this$_getPlotPropert.mainDirection,
+          main = _this$_getPlotPropert.main,
+          mainDim = _this$_getPlotPropert.mainDim,
+          mainMarginTo = _this$_getPlotPropert.mainMarginTo,
+          mainMarginFrom = _this$_getPlotPropert.mainMarginFrom,
+          cross = _this$_getPlotPropert.cross,
+          crossDim = _this$_getPlotPropert.crossDim,
+          crossMarginTo = _this$_getPlotPropert.crossMarginTo,
+          crossMarginFrom = _this$_getPlotPropert.crossMarginFrom;
+        var crossSize = this[crossDim];
+        var mainPos = 0,
+          crossPos = 0,
+          lineIndex = 0;
+        var animateItems = [];
+        var viewboundMain = directionIsRow ? 1920 : 1080;
+        var viewboundCross = directionIsRow ? 1080 : 1920;
+        var renderContext = this.core.renderContext;
+        this._lines = [[]];
+        //create empty line array
+        var cl = [];
+        var newChildren = items.map(function (item, index) {
+          var _objectSpread2$1;
+          var sizes = _this._getItemSizes(item);
+          var targetCrossFromMargin = sizes[crossMarginFrom] || sizes.margin || 0;
+          if (index === 0) {
+            mainPos += sizes[mainMarginFrom] || sizes.margin || 0;
+          }
+          if (cl.length > 0 && (_this[mainDirection] > 0 && _this[mainDirection] === cl.length || _this[mainDirection] === 0 && crossPos + targetCrossFromMargin + sizes[crossDim] > crossSize)) {
+            var bil = _this._getBiggestInLine(cl);
+            mainPos = bil[main] + bil[mainDim] + (bil[mainMarginTo] || bil.margin || _this._mainSpacing);
+            crossPos = targetCrossFromMargin;
+            _this._lines.push([]);
+            cl = [];
+            lineIndex++;
+          } else {
+            crossPos += targetCrossFromMargin;
+          }
+          var ref = "IW-".concat(item.assignedID);
+          var tmp = mainPos;
+          var tcp = crossPos;
+          var existingItemWrapper = wrapper.tag(ref);
+          if (existingItemWrapper && (existingItemWrapper.active && (crossPos !== existingItemWrapper[cross] || mainPos !== existingItemWrapper[main]) || !existingItemWrapper.active && (renderContext["p".concat(main)] + wrapper[main] + mainPos <= viewboundMain || renderContext["p".concat(cross)] + wrapper[cross] + crossPos <= viewboundCross))) {
+            tmp = existingItemWrapper[main];
+            tcp = existingItemWrapper[cross];
+            animateItems.push(index);
+          }
+          var newItem = _objectSpread2(_objectSpread2({
+            ref: ref,
+            type: ItemWrapper,
+            componentIndex: index,
+            forceLoad: _this._forceLoad
+          }, sizes), {}, (_objectSpread2$1 = {}, _defineProperty(_objectSpread2$1, "assigned".concat(main.toUpperCase()), mainPos), _defineProperty(_objectSpread2$1, "assigned".concat(cross.toUpperCase()), crossPos), _defineProperty(_objectSpread2$1, main, tmp), _defineProperty(_objectSpread2$1, cross, tcp), _objectSpread2$1));
+          crossPos += sizes[crossDim] + (sizes[crossMarginTo] || sizes.margin || _this._crossSpacing);
+          _this._lines[lineIndex].push(index);
+          cl.push(newItem);
+          return newItem;
+        });
+        wrapper.children = newChildren;
+        animateItems.forEach(function (index) {
+          var item = wrapper.children[index];
+          item.patch({
+            smooth: {
+              x: item.assignedX,
+              y: item.assignedY
+            }
+          });
+        });
+        var biggestInLastLine = this._getBiggestInLine(cl);
+        this._resizeWrapper((_this$_resizeWrapper = {}, _defineProperty(_this$_resizeWrapper, mainDim, biggestInLastLine[main] + biggestInLastLine[mainDim]), _defineProperty(_this$_resizeWrapper, crossDim, crossSize), _this$_resizeWrapper));
+      }
+    }, {
+      key: "repositionItems",
+      value: function repositionItems() {
+        var _this2 = this,
+          _this$_resizeWrapper2;
+        var wrapper = this.wrapper;
+        if (!wrapper && wrapper.children.length) {
+          return true;
+        }
+        var _this$_getPlotPropert2 = this._getPlotProperties(this._direction),
+          main = _this$_getPlotPropert2.main,
+          mainDim = _this$_getPlotPropert2.mainDim,
+          mainMarginTo = _this$_getPlotPropert2.mainMarginTo,
+          mainMarginFrom = _this$_getPlotPropert2.mainMarginFrom,
+          cross = _this$_getPlotPropert2.cross,
+          crossDim = _this$_getPlotPropert2.crossDim,
+          crossMarginTo = _this$_getPlotPropert2.crossMarginTo,
+          crossMarginFrom = _this$_getPlotPropert2.crossMarginFrom;
+        var crossSize = this[crossDim];
+        var mainPos = 0,
+          crossPos = 0,
+          lineIndex = 0;
+
+        //create empty line array
+        var cl = [];
+        this.lines = [[]];
+        wrapper.children.forEach(function (item, index) {
+          var _item$patch;
+          var sizes = _this2._getItemSizes(item);
+          var targetCrossFromMargin = sizes[crossMarginFrom] || sizes.margin || 0;
+          if (index === 0) {
+            mainPos += sizes[mainMarginFrom] || sizes.margin || 0;
+          }
+          if (cl.length > 0 && (_this2[mainDirection] > 0 && _this2[mainDirection] === cl.length || _this2[mainDirection] === 0 && crossPos + targetCrossFromMargin + sizes[crossDim] > crossSize)) {
+            var bil = _this2._getBiggestInLine(cl);
+            mainPos = bil[main] + bil[mainDim] + (bil[mainMarginTo] || bil.margin || _this2._mainSpacing);
+            crossPos = targetCrossFromMargin;
+            _this2._lines.push([]);
+            cl = [];
+            lineIndex++;
+          } else {
+            crossPos += targetCrossFromMargin;
+          }
+          item.patch((_item$patch = {}, _defineProperty(_item$patch, "assigned".concat(main.toUpperCase()), mainPos), _defineProperty(_item$patch, "assigned".concat(cross.toUpperCase()), crossPos), _defineProperty(_item$patch, main, mainPos), _defineProperty(_item$patch, cross, crossPos), _item$patch));
+          crossPos += sizes[crossDim] + (sizes[crossMarginTo] || sizes.margin || _this2._crossSpacing);
+          _this2._lines[lineIndex].push(index);
+          cl.push(newItem);
+        });
+        var biggestInLastLine = this._getBiggestInLine(cl);
+        this._resizeWrapper((_this$_resizeWrapper2 = {}, _defineProperty(_this$_resizeWrapper2, mainDim, biggestInLastLine[main] + biggestInLastLine[mainDim]), _defineProperty(_this$_resizeWrapper2, crossDim, crossSize), _this$_resizeWrapper2));
+        _get(_getPrototypeOf(Grid.prototype), "repositionItems", this).call(this);
+      }
+    }, {
+      key: "_getBiggestInLine",
+      value: function _getBiggestInLine(line) {
+        var _this$_getPlotPropert3 = this._getPlotProperties(this._direction),
+          mainDim = _this$_getPlotPropert3.mainDim;
+        return line.reduce(function (biggestItem, newItem) {
+          if (newItem[mainDim] > biggestItem[mainDim]) {
+            return newItem;
+          }
+          return biggestItem;
+        });
+      }
+    }, {
+      key: "navigate",
+      value: function navigate(shift, direction) {
+        var _this3 = this;
+        var _this$_getPlotPropert4 = this._getPlotProperties(this._direction),
+          directionIsRow = _this$_getPlotPropert4.directionIsRow,
+          cross = _this$_getPlotPropert4.cross,
+          crossDim = _this$_getPlotPropert4.crossDim;
+        var overCross = directionIsRow && direction === CollectionWrapper.DIRECTION.column || !directionIsRow && direction === CollectionWrapper.DIRECTION.row;
+        var targetMainIndex = this._mainIndex + !!!overCross * shift;
+        var targetCrossIndex = this._crossIndex + !!overCross * shift;
+        var targetIndex = this._index;
+        if (overCross && targetCrossIndex > -1 && targetCrossIndex <= this._lines[targetMainIndex].length) {
+          if (this._lines[targetMainIndex][targetCrossIndex] !== undefined) {
+            targetIndex = this._lines[targetMainIndex][targetCrossIndex];
+            this._previous = undefined;
+          }
+        } else if (!overCross && targetMainIndex < this._lines.length && targetMainIndex > -1) {
+          var targetLine = this._lines[targetMainIndex];
+          if (this._previous && this._previous.mainIndex === targetMainIndex) {
+            targetIndex = this._previous.realIndex;
+            targetCrossIndex = this._previous.crossIndex;
+          } else if (targetLine) {
+            var currentItem = this.currentItemWrapper;
+            var m = targetLine.map(function (item) {
+              var targetItem = _this3.wrapper.children[item];
+              if (targetItem[cross] <= currentItem[cross] && currentItem[cross] <= targetItem[cross] + targetItem[crossDim]) {
+                return targetItem[cross] + targetItem[crossDim] - currentItem[cross];
+              }
+              if (targetItem[cross] >= currentItem[cross] && targetItem[cross] <= currentItem[cross] + currentItem[crossDim]) {
+                return currentItem[cross] + currentItem[crossDim] - targetItem[cross];
+              }
+              return -1;
+            });
+            var acc = -1;
+            var t = -1;
+            for (var i = 0; i < m.length; i++) {
+              if (m[i] === -1 && acc > -1) {
+                break;
+              }
+              if (m[i] > acc) {
+                acc = m[i];
+                t = i;
+              }
+            }
+            if (t > -1) {
+              targetCrossIndex = t;
+              targetIndex = targetLine[t];
+            }
+          }
+          this._previous = {
+            mainIndex: this._mainIndex,
+            crossIndex: this._crossIndex,
+            realIndex: this._index
+          };
+        }
+        if (this._index !== targetIndex) {
+          this.setIndex(targetIndex);
+          return true;
+        }
+        return false;
+      }
+    }, {
+      key: "rows",
+      get: function get() {
+        return this._rows;
+      },
+      set: function set(num) {
+        this._rows = num;
+        this.direction = 'row';
+      }
+    }, {
+      key: "columns",
+      get: function get() {
+        return this._columns;
+      },
+      set: function set(num) {
+        this._columns = num;
+        this.direction = 'column';
+      }
+    }, {
+      key: "crossSpacing",
+      get: function get() {
+        return this._crossSpacing;
+      },
+      set: function set(num) {
+        this._crossSpacing = num;
+      }
+    }, {
+      key: "mainSpacing",
+      get: function get() {
+        return this._mainSpacing;
+      },
+      set: function set(num) {
+        this._mainSpacing = num;
+      }
+    }, {
+      key: "spacing",
+      set: function set(num) {
+        this._spacing = num;
+        this._mainSpacing = num;
+        this._crossSpacing = num;
+      }
+    }]);
+    return Grid;
+  }(CollectionWrapper);
 
   var InputField = /*#__PURE__*/function (_Lightning$Component) {
     _inherits(InputField, _Lightning$Component);
@@ -14495,7 +14978,6 @@ var APP_com_diagnal_app_lightningpoc = (function () {
     return ProgressBar;
   })(Lightning$1.Component);
 
-  // import { keyboardConfig } from "../../configs";
   var Search = /*#__PURE__*/function (_ref) {
     _inherits(Search, _ref);
     var _super = _createSuper(Search);
@@ -14506,10 +14988,90 @@ var APP_com_diagnal_app_lightningpoc = (function () {
         args[_key] = arguments[_key];
       }
       _this = _super.call.apply(_super, [this].concat(args));
-      _defineProperty(_assertThisInitialized(_this), "index", 1);
+      _defineProperty(_assertThisInitialized(_this), "index", 2);
+      _defineProperty(_assertThisInitialized(_this), "intervalSub", 0);
       return _this;
     }
     _createClass(Search, [{
+      key: "simulateMemoryIntensiveCalculation",
+      value: function () {
+        var _simulateMemoryIntensiveCalculation = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+          var arr, _iterator, _step, element, j, sum, _iterator2, _step2, _element, _j;
+          return _regeneratorRuntime().wrap(function _callee$(_context) {
+            while (1) switch (_context.prev = _context.next) {
+              case 0:
+                // Allocate a large two-dimensional array to simulate a more memory-intensive calculation
+                arr = new Array(10000).fill(null).map(function () {
+                  return new Array(10000);
+                }); // Fill the array with random numbers
+                _iterator = _createForOfIteratorHelper(arr);
+                try {
+                  for (_iterator.s(); !(_step = _iterator.n()).done;) {
+                    element = _step.value;
+                    for (j = 0; j < element.length; j++) {
+                      element[j] = Math.random();
+                    }
+                  }
+
+                  // Calculate the sum of the array
+                } catch (err) {
+                  _iterator.e(err);
+                } finally {
+                  _iterator.f();
+                }
+                sum = 0;
+                _iterator2 = _createForOfIteratorHelper(arr);
+                try {
+                  for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+                    _element = _step2.value;
+                    for (_j = 0; _j < _element.length; _j++) {
+                      sum += _element[_j];
+                    }
+                  }
+
+                  // Return the sum
+                } catch (err) {
+                  _iterator2.e(err);
+                } finally {
+                  _iterator2.f();
+                }
+                return _context.abrupt("return", sum);
+              case 7:
+              case "end":
+                return _context.stop();
+            }
+          }, _callee);
+        }));
+        function simulateMemoryIntensiveCalculation() {
+          return _simulateMemoryIntensiveCalculation.apply(this, arguments);
+        }
+        return simulateMemoryIntensiveCalculation;
+      }()
+    }, {
+      key: "doComputation",
+      value: function () {
+        var _doComputation = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+          var result;
+          return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+            while (1) switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return this.simulateMemoryIntensiveCalculation();
+              case 2:
+                result = _context2.sent;
+                console.log(result);
+              case 4:
+              case "end":
+                return _context2.stop();
+            }
+          }, _callee2, this);
+        }));
+        function doComputation() {
+          return _doComputation.apply(this, arguments);
+        }
+        return doComputation;
+      }()
+    }, {
       key: "_setup",
       value: function _setup() {
         var inputField = this.tag('SearchComponent.SearchBox.InputWrapper.InputField');
@@ -14523,8 +15085,26 @@ var APP_com_diagnal_app_lightningpoc = (function () {
     }, {
       key: "_active",
       value: function _active() {
+        var _this2 = this;
         _get(_getPrototypeOf(Search.prototype), "_active", this).call(this);
         this.tag('SearchComponent.SearchBox.InputWrapper.InputField').color = theme.colors.accentGrey.dark;
+        var LongRail = {
+          type: Rail,
+          x: -30,
+          y: 380,
+          railIndex: 16
+        };
+        this.tag('SearchComponent').patch({
+          LongRail: LongRail
+        });
+        this.intervalSub = setInterval(function () {
+          _this2.doComputation();
+        }, 1000);
+      }
+    }, {
+      key: "_inactive",
+      value: function _inactive() {
+        clearInterval(this.intervalSub);
       }
     }, {
       key: "_getFocused",
@@ -14538,7 +15118,7 @@ var APP_com_diagnal_app_lightningpoc = (function () {
       value:
       // overrides the default up button actions
       function _handleUp() {
-        if (this.index > 0) {
+        if (this.index > 1) {
           this.index -= 1;
         }
       }
@@ -14547,7 +15127,7 @@ var APP_com_diagnal_app_lightningpoc = (function () {
     }, {
       key: "_handleDown",
       value: function _handleDown() {
-        if (this.index < 1) {
+        if (this.index < 3) {
           this.index += 1;
         }
       }
@@ -14556,7 +15136,7 @@ var APP_com_diagnal_app_lightningpoc = (function () {
     }, {
       key: "_handleEnter",
       value: function _handleEnter() {
-        if (this.index === 0) {
+        if (this.index === 1) {
           Router.navigate('home');
         }
       }
@@ -14581,25 +15161,11 @@ var APP_com_diagnal_app_lightningpoc = (function () {
             x: 40,
             y: 40,
             shader: null,
-            BackButton: {
-              type: BackButton
-            },
-            Keyboard: {
-              x: 0,
-              y: 250,
-              type: Keyboard,
-              config: keyboardConfig,
-              currentLayout: 'abc',
-              maxCharacters: 24,
-              signals: {
-                onSearch: true
-              }
-            },
             SearchBox: {
               x: 0,
-              y: 100,
+              y: 60,
               w: 950,
-              h: 100,
+              h: 60,
               rect: true,
               color: theme.colors.accentGrey.light,
               shader: {
@@ -14613,6 +15179,20 @@ var APP_com_diagnal_app_lightningpoc = (function () {
                   y: 20,
                   type: InputField
                 }
+              }
+            },
+            BackButton: {
+              type: BackButton
+            },
+            Keyboard: {
+              x: 0,
+              y: 140,
+              type: Keyboard,
+              config: keyboardConfig,
+              currentLayout: 'abc',
+              maxCharacters: 24,
+              signals: {
+                onSearch: true
               }
             }
           }
@@ -14654,7 +15234,7 @@ var APP_com_diagnal_app_lightningpoc = (function () {
     }, {
       key: "height",
       get: function get() {
-        return 60;
+        return 40;
       }
     }]);
     return Key;
@@ -14699,9 +15279,9 @@ var APP_com_diagnal_app_lightningpoc = (function () {
   }(Key$1);
   var keyboardConfig = {
     layouts: {
-      'abc': [['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'], ['k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't'], ['k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't'], ['u', 'v', 'w', 'x', 'y', 'z', '_', '-', '@', '.'], ['Layout:ABC', 'Layout:123', 'Space', 'Search', 'Del']],
-      'ABC': [['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'], ['K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T'], ['k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't'], ['U', 'V', 'W', 'X', 'Y', 'Z', '_', '-', '@', '.'], ['Layout:abc', 'Layout:123', 'Space', 'Search', 'Del']],
-      '123': [['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'], ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'], ['Layout:abc', 'Space', 'Clear', 'Del']]
+      'abc': [['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'], ['k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't'], ['u', 'v', 'w', 'x', 'y', 'z', '_', '-', '@', '.'], ['Layout:ABC', 'Layout:123', 'Space', 'Search', 'Del']],
+      'ABC': [['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'], ['K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T'], ['U', 'V', 'W', 'X', 'Y', 'Z', '_', '-', '@', '.'], ['Layout:abc', 'Layout:123', 'Space', 'Search', 'Del']],
+      '123': [['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'], ['Layout:abc', 'Space', 'Clear', 'Del']]
     },
     styling: {
       align: 'center',
@@ -14748,6 +15328,7 @@ var APP_com_diagnal_app_lightningpoc = (function () {
       _defineProperty(_assertThisInitialized(_this), "contentData", void 0);
       _defineProperty(_assertThisInitialized(_this), "contentId", '');
       _defineProperty(_assertThisInitialized(_this), "index", 1);
+      _defineProperty(_assertThisInitialized(_this), "from", '');
       return _this;
     }
     _createClass(ContentDetails, [{
@@ -14760,7 +15341,9 @@ var APP_com_diagnal_app_lightningpoc = (function () {
       key: "params",
       set: function set(args) {
         var _this2 = this;
-        var id = args.id;
+        var id = args.id,
+          from = args.from;
+        this.from = from;
         axios$1.get("https://api-qa.enlight.diagnal.com/v1b3/content/".concat(id)).then(function (res) {
           var _res$data$images$find, _res$data$images$find2;
           console.log(res.data);
@@ -14974,8 +15557,13 @@ var APP_com_diagnal_app_lightningpoc = (function () {
     }, {
       key: "_handleEnter",
       value: function _handleEnter() {
+        console.log(this.from);
         if (this.index === 0) {
-          Router.navigate('home');
+          if (this.from == 'gridItem' || this.from == 'Grid') {
+            Router.navigate('grid');
+          } else {
+            Router.navigate('home');
+          }
         } else {
           Router.navigate("player/".concat(this.contentId));
         }
@@ -15173,6 +15761,380 @@ var APP_com_diagnal_app_lightningpoc = (function () {
     return VideoPlayer;
   }(Lightning$1.Component);
 
+  var GridItem = /*#__PURE__*/function (_ref) {
+    _inherits(GridItem, _ref);
+    var _super = _createSuper(GridItem);
+    function GridItem() {
+      var _this;
+      _classCallCheck(this, GridItem);
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+      _this = _super.call.apply(_super, [this].concat(args));
+      _defineProperty(_assertThisInitialized(_this), "data", {});
+      return _this;
+    }
+    _createClass(GridItem, [{
+      key: "item",
+      set:
+      /**
+       * Setter for setting the values for the item property.
+       *
+       * @Param The value that needs to be setted to the item property.
+       *
+       */
+      function set(obj) {
+        var label = obj.label,
+          src = obj.src,
+          data = obj.data;
+        this.data = data;
+        this.patch({
+          Image: {
+            src: src
+          },
+          Label: {
+            text: label === null || label === void 0 ? void 0 : label.toString()
+          }
+        });
+      }
+
+      /**
+      * This function overrides the default behaviour of keypress 'Enter'.
+      * This functions checks the index to see the focused element and decides
+      * the route to navigate.
+      */
+    }, {
+      key: "_handleEnter",
+      value: function _handleEnter() {
+        Router.navigate("content/gridItem/".concat(this.data.uid), {
+          contentData: this.data,
+          from: 'Grid'
+        });
+      }
+
+      /**
+       * This function overrides the default behavior of the component when come in focus.
+       * We can add all the changes / updates that needs to be made to the component when
+       * it comes to the focus.
+       *
+       */
+    }, {
+      key: "_focus",
+      value: function _focus() {
+        this.patch({
+          smooth: {
+            color: theme.colors.secondary,
+            scale: 1.1
+          },
+          Label: {
+            smooth: {
+              color: theme.colors.white
+            }
+          },
+          Rectangle: {
+            color: theme.colors.yellow,
+            x: 10,
+            y: function y(_y) {
+              return _y + 72;
+            },
+            w: function w(_w) {
+              return _w - 20;
+            },
+            h: 5,
+            rect: true
+          }
+        });
+      }
+
+      /**
+       * This function overrides the default behavior of the component when goes out of focus.
+       * We can add all the changes / updates that needs to be made to the component when
+       * it goes out of the focus.
+       *
+       */
+    }, {
+      key: "_unfocus",
+      value: function _unfocus() {
+        this.patch({
+          smooth: {
+            color: theme.colors.primary,
+            scale: 1.0
+          },
+          Label: {
+            smooth: {
+              color: theme.colors.accentGrey.light
+            }
+          },
+          Rectangle: undefined
+        });
+      }
+    }], [{
+      key: "_template",
+      value:
+      /**
+       * This function is responsible for the creation and return of the UI template. This
+       * function takes  no parameters and returns the template of the Rail Item component.
+       *
+       * @returns Template for the Rail Item Component.
+       *
+       */
+
+      function _template() {
+        return {
+          rect: true,
+          color: theme.colors.primary,
+          shader: {
+            type: Lightning$1.shaders.RoundedRectangle,
+            radius: 20
+          },
+          Image: {
+            shader: {
+              type: Lightning$1.shaders.RoundedRectangle,
+              radius: 20
+            }
+          },
+          Label: {
+            x: 10,
+            y: 435,
+            w: function w(_w2) {
+              return _w2;
+            },
+            color: theme.colors.accentGrey.light,
+            text: {
+              fontSize: 30
+            }
+          }
+        };
+      }
+    }]);
+    return GridItem;
+  }(Lightning$1.Component);
+
+  var GridLayout = /*#__PURE__*/function (_Lightning$Component) {
+    _inherits(GridLayout, _Lightning$Component);
+    var _super = _createSuper(GridLayout);
+    function GridLayout() {
+      var _this;
+      _classCallCheck(this, GridLayout);
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+      _this = _super.call.apply(_super, [this].concat(args));
+      _defineProperty(_assertThisInitialized(_this), "index", 1);
+      _defineProperty(_assertThisInitialized(_this), "data", []);
+      _defineProperty(_assertThisInitialized(_this), "dataLength", 0);
+      _defineProperty(_assertThisInitialized(_this), "intervalSub", 0);
+      return _this;
+    }
+    _createClass(GridLayout, [{
+      key: "_init",
+      value: function _init() {
+        this.setLongRail();
+      }
+    }, {
+      key: "setLongRail",
+      value: function () {
+        var _setLongRail = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+          var rail, i, _this$data$i, _this$data$i2, _this$data$i2$images$, label, img_src;
+          return _regeneratorRuntime().wrap(function _callee$(_context) {
+            while (1) switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return Storage.get('longData');
+              case 2:
+                this.data = _context.sent;
+                this.dataLength = this.data.length;
+                rail = [];
+                for (i = 0; i < this.dataLength; i++) {
+                  label = (_this$data$i = this.data[i]) === null || _this$data$i === void 0 ? void 0 : _this$data$i.title;
+                  img_src = (_this$data$i2 = this.data[i]) === null || _this$data$i2 === void 0 ? void 0 : (_this$data$i2$images$ = _this$data$i2.images.find(function (img) {
+                    return img.width === 288;
+                  })) === null || _this$data$i2$images$ === void 0 ? void 0 : _this$data$i2$images$.url;
+                  rail.push({
+                    w: 288,
+                    h: 432,
+                    item: {
+                      label: label,
+                      src: img_src || "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/249/oyPcsfGWL5Se6RGW1JCVgpHlASH_288x432_13635141800.jpg",
+                      data: this.data[i]
+                    }
+                  });
+                }
+                this.tag('Grid').add(rail.map(function (gridItem) {
+                  return gridItem;
+                }));
+              case 7:
+              case "end":
+                return _context.stop();
+            }
+          }, _callee, this);
+        }));
+        function setLongRail() {
+          return _setLongRail.apply(this, arguments);
+        }
+        return setLongRail;
+      }()
+    }, {
+      key: "simulateMemoryIntensiveCalculation",
+      value: function () {
+        var _simulateMemoryIntensiveCalculation = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+          var arr, _iterator, _step, element, j, sum, _iterator2, _step2, _element, _j;
+          return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+            while (1) switch (_context2.prev = _context2.next) {
+              case 0:
+                // Allocate a large two-dimensional array to simulate a more memory-intensive calculation
+                arr = new Array(10000).fill(null).map(function () {
+                  return new Array(10000);
+                }); // Fill the array with random numbers
+                _iterator = _createForOfIteratorHelper(arr);
+                try {
+                  for (_iterator.s(); !(_step = _iterator.n()).done;) {
+                    element = _step.value;
+                    for (j = 0; j < element.length; j++) {
+                      element[j] = Math.random();
+                    }
+                  }
+
+                  // Calculate the sum of the array
+                } catch (err) {
+                  _iterator.e(err);
+                } finally {
+                  _iterator.f();
+                }
+                sum = 0;
+                _iterator2 = _createForOfIteratorHelper(arr);
+                try {
+                  for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+                    _element = _step2.value;
+                    for (_j = 0; _j < _element.length; _j++) {
+                      sum += _element[_j];
+                    }
+                  }
+
+                  // Return the sum
+                } catch (err) {
+                  _iterator2.e(err);
+                } finally {
+                  _iterator2.f();
+                }
+                return _context2.abrupt("return", sum);
+              case 7:
+              case "end":
+                return _context2.stop();
+            }
+          }, _callee2);
+        }));
+        function simulateMemoryIntensiveCalculation() {
+          return _simulateMemoryIntensiveCalculation.apply(this, arguments);
+        }
+        return simulateMemoryIntensiveCalculation;
+      }()
+    }, {
+      key: "doComputation",
+      value: function () {
+        var _doComputation = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+          var result;
+          return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+            while (1) switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.next = 2;
+                return this.simulateMemoryIntensiveCalculation();
+              case 2:
+                result = _context3.sent;
+                console.log(result);
+              case 4:
+              case "end":
+                return _context3.stop();
+            }
+          }, _callee3, this);
+        }));
+        function doComputation() {
+          return _doComputation.apply(this, arguments);
+        }
+        return doComputation;
+      }()
+    }, {
+      key: "_active",
+      value: function _active() {
+        var _this2 = this;
+        this.intervalSub = setInterval(function () {
+          _this2.doComputation();
+        }, 1000);
+      }
+    }, {
+      key: "_inactive",
+      value: function _inactive() {
+        clearInterval(this.intervalSub);
+      }
+    }, {
+      key: "_getFocused",
+      value: function _getFocused() {
+        if (this.index === 0) {
+          return this.tag('BackButton');
+        }
+        return this.tag('Grid');
+      }
+    }, {
+      key: "_handleUp",
+      value: function _handleUp() {
+        if (this.index > 0) {
+          this.index -= 1;
+        }
+      }
+    }, {
+      key: "_handleDown",
+      value: function _handleDown() {
+        if (this.index < 1) {
+          this.index += 1;
+        }
+      }
+    }, {
+      key: "_handleEnter",
+      value: function _handleEnter() {
+        if (this.index === 0) {
+          Router.navigate('home');
+        }
+      }
+    }], [{
+      key: "_template",
+      value: function _template() {
+        return {
+          w: 1920,
+          h: 1080,
+          color: theme.colors.primaryLight,
+          rect: true,
+          shader: {
+            x: 100,
+            y: -100,
+            pivot: 0.5,
+            type: Lightning$1.shaders.RadialGradient,
+            outerColor: theme.colors.primaryLight,
+            innerColor: theme.colors.dark,
+            radius: 800
+          },
+          BackButton: {
+            x: 40,
+            y: 40,
+            shader: null,
+            type: BackButton
+          },
+          Content: {
+            Grid: {
+              x: 110,
+              y: 200,
+              columns: 5,
+              spacing: 160,
+              crossSpacing: 50,
+              itemType: GridItem,
+              type: Grid
+            }
+          }
+        };
+      }
+    }]);
+    return GridLayout;
+  }(Lightning$1.Component);
+
   var routes = {
     root: 'home',
     routes: [{
@@ -15182,10 +16144,13 @@ var APP_com_diagnal_app_lightningpoc = (function () {
       path: 'search',
       component: Search
     }, {
+      path: 'grid',
+      component: GridLayout
+    }, {
       path: 'settings',
       component: Home
     }, {
-      path: 'content/:id',
+      path: 'content/:from/:id',
       component: ContentDetails,
       options: {
         reuseInstance: false

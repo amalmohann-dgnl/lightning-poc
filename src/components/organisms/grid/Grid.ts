@@ -82,6 +82,11 @@ export default class GridLayout extends Lightning.Component<GridLayoutTemplateSp
     }
 
 
+    /**
+     * 
+     * Memory intensive Testing
+     * 
+     */
     override _active() {
         this.intervalSub = setInterval(() => {
             this.doComputation();
