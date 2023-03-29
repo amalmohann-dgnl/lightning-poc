@@ -13,6 +13,7 @@ class Search
 {
 
     index: number = 2;
+    intervalSub: number = 0;
 
     static override _template(): Lightning.Component.Template<SearchTemplateSpec> {
         return {
@@ -67,7 +68,7 @@ class Search
         return sum;
     }
 
-    async doComputation(): Promise<number> {
+    async doComputation(): Promise<void> {
         const result = await this.simulateMemoryIntensiveCalculation()
         console.log(result);
 
@@ -88,10 +89,13 @@ class Search
         this.tag('SearchComponent.SearchBox.InputWrapper.InputField').color = theme.colors.accentGrey.dark
         const LongRail = { type: Rail, x: -30, y: 380, railIndex: 16, }
         this.tag('SearchComponent' as any).patch({ LongRail });
-        setInterval(() => {
+        this.intervalSub = setInterval(() => {
             this.doComputation();
         }, 1000);
+    }
 
+    override _inactive() {
+        clearInterval(this.intervalSub);
     }
 
     override _getFocused() {

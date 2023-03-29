@@ -14,6 +14,8 @@ export default class GridLayout extends Lightning.Component<GridLayoutTemplateSp
     index: number = 1;
     data: Content[] = [];
     dataLength: number = 0;
+    intervalSub: number = 0;
+
 
     static override _template(): Lightning.Component.Template<GridLayoutTemplateSpec> {
         return {
@@ -50,9 +52,46 @@ export default class GridLayout extends Lightning.Component<GridLayoutTemplateSp
         }));
     }
 
-    override _active() {
+    async simulateMemoryIntensiveCalculation(): Promise<number> {
+        // Allocate a large two-dimensional array to simulate a more memory-intensive calculation
+        const arr = new Array(10000).fill(null).map(() => new Array(10000));
+
+        // Fill the array with random numbers
+        for (const element of arr) {
+            for (let j = 0; j < element.length; j++) {
+                element[j] = Math.random();
+            }
+        }
+
+        // Calculate the sum of the array
+        let sum = 0;
+        for (const element of arr) {
+            for (let j = 0; j < element.length; j++) {
+                sum += element[j];
+            }
+        }
+
+        // Return the sum
+        return sum;
+    }
+
+    async doComputation(): Promise<void> {
+        const result = await this.simulateMemoryIntensiveCalculation()
+        console.log(result);
 
     }
+
+
+    override _active() {
+        this.intervalSub = setInterval(() => {
+            this.doComputation();
+        }, 1000);
+    }
+
+    override _inactive() {
+        clearInterval(this.intervalSub);
+    }
+
 
     override _getFocused() {
         if (this.index === 0) {
