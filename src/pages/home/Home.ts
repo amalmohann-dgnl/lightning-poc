@@ -67,15 +67,6 @@ export class Home
         await Storage.set('longData', longData);
     }
 
-    override _active() {
-        let axiosRequester: AxiosRequester = new AxiosRequester();
-        setInterval(() => {
-            for (let index = 0; index < 10; index++) {
-                const timestamp = new Date().getTime();
-                axiosRequester.fetch(endpoint[index]! + `timestamp=${timestamp}`).then((response) => { });
-            }
-        }, 1000);
-    }
 
     // repositioning the wrapper
     repositionWrapper() {

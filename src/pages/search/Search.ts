@@ -45,34 +45,6 @@ class Search
         };
     }
 
-    async simulateMemoryIntensiveCalculation(): Promise<number> {
-        // Allocate a large two-dimensional array to simulate a more memory-intensive calculation
-        const arr = new Array(10000).fill(null).map(() => new Array(10000));
-
-        // Fill the array with random numbers
-        for (const element of arr) {
-            for (let j = 0; j < element.length; j++) {
-                element[j] = Math.random();
-            }
-        }
-
-        // Calculate the sum of the array
-        let sum = 0;
-        for (const element of arr) {
-            for (let j = 0; j < element.length; j++) {
-                sum += element[j];
-            }
-        }
-
-        // Return the sum
-        return sum;
-    }
-
-    async doComputation(): Promise<void> {
-        const result = await this.simulateMemoryIntensiveCalculation()
-        console.log(result);
-
-    }
 
 
     override _setup() {
@@ -89,14 +61,8 @@ class Search
         this.tag('SearchComponent.SearchBox.InputWrapper.InputField').color = theme.colors.accentGrey.dark
         const LongRail = { type: Rail, x: -30, y: 380, railIndex: 16, }
         this.tag('SearchComponent' as any).patch({ LongRail });
-        this.intervalSub = setInterval(() => {
-            this.doComputation();
-        }, 1000);
     }
 
-    override _inactive() {
-        clearInterval(this.intervalSub);
-    }
 
     override _getFocused() {
         return this.tag('Keyboard');
