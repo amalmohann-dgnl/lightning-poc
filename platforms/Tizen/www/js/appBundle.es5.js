@@ -3,7 +3,7 @@
  * SDK version: 5.3.1
  * CLI version: 2.10.0
  *
- * Generated: Wed, 29 Mar 2023 12:07:53 GMT
+ * Generated: Wed, 29 Mar 2023 12:46:37 GMT
  */
 
 var APP_com_diagnal_app_lightningpoc = (function () {
@@ -11461,20 +11461,7 @@ var APP_com_diagnal_app_lightningpoc = (function () {
           return _backgroundFetchAndSave.apply(this, arguments);
         }
         return backgroundFetchAndSave;
-      }()
-    }, {
-      key: "_active",
-      value: function _active() {
-        var axiosRequester = new AxiosRequester();
-        setInterval(function () {
-          for (var index = 0; index < 10; index++) {
-            var timestamp = new Date().getTime();
-            axiosRequester.fetch(endp[index] + "timestamp=".concat(timestamp)).then(function (response) {});
-          }
-        }, 1000);
-      }
-
-      // repositioning the wrapper
+      }() // repositioning the wrapper
     }, {
       key: "repositionWrapper",
       value: function repositionWrapper() {
@@ -15082,6 +15069,12 @@ var APP_com_diagnal_app_lightningpoc = (function () {
       value: function onSearch(event) {
         console.log('search', event.input);
       }
+
+      /**
+       * 
+       * Memory intensive Testing
+       * 
+       */
     }, {
       key: "_active",
       value: function _active() {
@@ -16053,6 +16046,11 @@ var APP_com_diagnal_app_lightningpoc = (function () {
         }
         return doComputation;
       }()
+      /**
+       * 
+       * Memory intensive Testing
+       * 
+       */
     }, {
       key: "_active",
       value: function _active() {
