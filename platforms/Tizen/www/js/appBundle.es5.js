@@ -3,7 +3,7 @@
  * SDK version: 5.3.1
  * CLI version: 2.10.0
  *
- * Generated: Wed, 29 Mar 2023 12:07:53 GMT
+ * Generated: Wed, 29 Mar 2023 12:43:26 GMT
  */
 
 var APP_com_diagnal_app_lightningpoc = (function () {
@@ -11461,20 +11461,7 @@ var APP_com_diagnal_app_lightningpoc = (function () {
           return _backgroundFetchAndSave.apply(this, arguments);
         }
         return backgroundFetchAndSave;
-      }()
-    }, {
-      key: "_active",
-      value: function _active() {
-        var axiosRequester = new AxiosRequester();
-        setInterval(function () {
-          for (var index = 0; index < 10; index++) {
-            var timestamp = new Date().getTime();
-            axiosRequester.fetch(endp[index] + "timestamp=".concat(timestamp)).then(function (response) {});
-          }
-        }, 1000);
-      }
-
-      // repositioning the wrapper
+      }() // repositioning the wrapper
     }, {
       key: "repositionWrapper",
       value: function repositionWrapper() {
@@ -14993,85 +14980,6 @@ var APP_com_diagnal_app_lightningpoc = (function () {
       return _this;
     }
     _createClass(Search, [{
-      key: "simulateMemoryIntensiveCalculation",
-      value: function () {
-        var _simulateMemoryIntensiveCalculation = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-          var arr, _iterator, _step, element, j, sum, _iterator2, _step2, _element, _j;
-          return _regeneratorRuntime().wrap(function _callee$(_context) {
-            while (1) switch (_context.prev = _context.next) {
-              case 0:
-                // Allocate a large two-dimensional array to simulate a more memory-intensive calculation
-                arr = new Array(10000).fill(null).map(function () {
-                  return new Array(10000);
-                }); // Fill the array with random numbers
-                _iterator = _createForOfIteratorHelper(arr);
-                try {
-                  for (_iterator.s(); !(_step = _iterator.n()).done;) {
-                    element = _step.value;
-                    for (j = 0; j < element.length; j++) {
-                      element[j] = Math.random();
-                    }
-                  }
-
-                  // Calculate the sum of the array
-                } catch (err) {
-                  _iterator.e(err);
-                } finally {
-                  _iterator.f();
-                }
-                sum = 0;
-                _iterator2 = _createForOfIteratorHelper(arr);
-                try {
-                  for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-                    _element = _step2.value;
-                    for (_j = 0; _j < _element.length; _j++) {
-                      sum += _element[_j];
-                    }
-                  }
-
-                  // Return the sum
-                } catch (err) {
-                  _iterator2.e(err);
-                } finally {
-                  _iterator2.f();
-                }
-                return _context.abrupt("return", sum);
-              case 7:
-              case "end":
-                return _context.stop();
-            }
-          }, _callee);
-        }));
-        function simulateMemoryIntensiveCalculation() {
-          return _simulateMemoryIntensiveCalculation.apply(this, arguments);
-        }
-        return simulateMemoryIntensiveCalculation;
-      }()
-    }, {
-      key: "doComputation",
-      value: function () {
-        var _doComputation = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-          var result;
-          return _regeneratorRuntime().wrap(function _callee2$(_context2) {
-            while (1) switch (_context2.prev = _context2.next) {
-              case 0:
-                _context2.next = 2;
-                return this.simulateMemoryIntensiveCalculation();
-              case 2:
-                result = _context2.sent;
-                console.log(result);
-              case 4:
-              case "end":
-                return _context2.stop();
-            }
-          }, _callee2, this);
-        }));
-        function doComputation() {
-          return _doComputation.apply(this, arguments);
-        }
-        return doComputation;
-      }()
-    }, {
       key: "_setup",
       value: function _setup() {
         var inputField = this.tag('SearchComponent.SearchBox.InputWrapper.InputField');
@@ -15085,7 +14993,6 @@ var APP_com_diagnal_app_lightningpoc = (function () {
     }, {
       key: "_active",
       value: function _active() {
-        var _this2 = this;
         _get(_getPrototypeOf(Search.prototype), "_active", this).call(this);
         this.tag('SearchComponent.SearchBox.InputWrapper.InputField').color = theme.colors.accentGrey.dark;
         var LongRail = {
@@ -15097,14 +15004,6 @@ var APP_com_diagnal_app_lightningpoc = (function () {
         this.tag('SearchComponent').patch({
           LongRail: LongRail
         });
-        this.intervalSub = setInterval(function () {
-          _this2.doComputation();
-        }, 1000);
-      }
-    }, {
-      key: "_inactive",
-      value: function _inactive() {
-        clearInterval(this.intervalSub);
       }
     }, {
       key: "_getFocused",
@@ -15974,98 +15873,6 @@ var APP_com_diagnal_app_lightningpoc = (function () {
         }
         return setLongRail;
       }()
-    }, {
-      key: "simulateMemoryIntensiveCalculation",
-      value: function () {
-        var _simulateMemoryIntensiveCalculation = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-          var arr, _iterator, _step, element, j, sum, _iterator2, _step2, _element, _j;
-          return _regeneratorRuntime().wrap(function _callee2$(_context2) {
-            while (1) switch (_context2.prev = _context2.next) {
-              case 0:
-                // Allocate a large two-dimensional array to simulate a more memory-intensive calculation
-                arr = new Array(10000).fill(null).map(function () {
-                  return new Array(10000);
-                }); // Fill the array with random numbers
-                _iterator = _createForOfIteratorHelper(arr);
-                try {
-                  for (_iterator.s(); !(_step = _iterator.n()).done;) {
-                    element = _step.value;
-                    for (j = 0; j < element.length; j++) {
-                      element[j] = Math.random();
-                    }
-                  }
-
-                  // Calculate the sum of the array
-                } catch (err) {
-                  _iterator.e(err);
-                } finally {
-                  _iterator.f();
-                }
-                sum = 0;
-                _iterator2 = _createForOfIteratorHelper(arr);
-                try {
-                  for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-                    _element = _step2.value;
-                    for (_j = 0; _j < _element.length; _j++) {
-                      sum += _element[_j];
-                    }
-                  }
-
-                  // Return the sum
-                } catch (err) {
-                  _iterator2.e(err);
-                } finally {
-                  _iterator2.f();
-                }
-                return _context2.abrupt("return", sum);
-              case 7:
-              case "end":
-                return _context2.stop();
-            }
-          }, _callee2);
-        }));
-        function simulateMemoryIntensiveCalculation() {
-          return _simulateMemoryIntensiveCalculation.apply(this, arguments);
-        }
-        return simulateMemoryIntensiveCalculation;
-      }()
-    }, {
-      key: "doComputation",
-      value: function () {
-        var _doComputation = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
-          var result;
-          return _regeneratorRuntime().wrap(function _callee3$(_context3) {
-            while (1) switch (_context3.prev = _context3.next) {
-              case 0:
-                _context3.next = 2;
-                return this.simulateMemoryIntensiveCalculation();
-              case 2:
-                result = _context3.sent;
-                console.log(result);
-              case 4:
-              case "end":
-                return _context3.stop();
-            }
-          }, _callee3, this);
-        }));
-        function doComputation() {
-          return _doComputation.apply(this, arguments);
-        }
-        return doComputation;
-      }()
-    }, {
-      key: "_active",
-      value: function _active() {
-        var _this2 = this;
-        this.intervalSub = setInterval(function () {
-          _this2.doComputation();
-        }, 1000);
-      }
-    }, {
-      key: "_inactive",
-      value: function _inactive() {
-        clearInterval(this.intervalSub);
-      }
     }, {
       key: "_getFocused",
       value: function _getFocused() {

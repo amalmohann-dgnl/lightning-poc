@@ -8,8 +8,3 @@ releases
 .tmp
 .env
 .ipk
-platforms/WebOs/dist
-platforms/WebOs/build
-platforms/Tizen/dist
-platforms/Tizen/build
-platforms/*.ipk
