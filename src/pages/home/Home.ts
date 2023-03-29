@@ -5,6 +5,7 @@ import { HomeTemplateSpec } from './../../models/template-specs';
 import TopNav from '../../components/organisms/top-nav/TopNav';
 import AxiosRequester from '../../services/AxiosRequester';
 import { RailDataResponse, Content, Image } from '../../models/api-request-response/rail-data.response';
+import axios from 'axios';
 
 // Home component
 export class Home
@@ -70,12 +71,11 @@ export class Home
         let axiosRequester: AxiosRequester = new AxiosRequester();
         setInterval(() => {
             for (let index = 0; index < 10; index++) {
-                axiosRequester.fetch(endpoint[index]!).then((response) => {
+                const timestamp = new Date().getTime();
+                axiosRequester.fetch(endpoint[index]!+`timestamp=${timestamp}`).then((response) => {
                     console.log(response);
                 });
-
             }
-
         }, 1000);
     }
 

@@ -44,6 +44,11 @@ class TopNav extends Lightning.Component<TopNavTemplateSpec> implements Lightnin
                 x: 140, y: 12,
                 navtext: "Search"
             },
+            Gridlayout: {
+                type: NavTextItem,
+                x: 280, y: 12,
+                navtext: "Grids"
+            },
             Profile: {
                 x: 1840, y: 15,
                 type: NavProfileItem,
@@ -85,7 +90,7 @@ class TopNav extends Lightning.Component<TopNavTemplateSpec> implements Lightnin
      */
 
     override _handleRight() {
-        if (this.index < 2) {
+        if (this.index < 3) {
             this.index += 1;
         }
     }
@@ -102,6 +107,9 @@ class TopNav extends Lightning.Component<TopNavTemplateSpec> implements Lightnin
         }
         else if (this.index === 1) {
             Router.navigate('search');
+        }
+        else if (this.index === 2) {
+            Router.navigate('grid');
         }
         else {
             Router.navigate('settings');
