@@ -1,7 +1,7 @@
 
 // @ts-ignore
 import { Grid, } from '@lightningjs/ui';
-import { Lightning, Storage } from '@lightningjs/sdk';
+import { Lightning, Router, Storage } from '@lightningjs/sdk';
 import GridLayoutTemplateSpec from '../../../models/template-specs/components/grid-template-spec';
 import { theme } from '../../../configs';
 import BackButton from '../../atoms/back-button/BackButton';
@@ -21,10 +21,10 @@ export default class GridLayout extends Lightning.Component<GridLayoutTemplateSp
             color: theme.colors.primaryLight,
             rect: true,
             shader: { x: 100, y: -100, pivot: 0.5, type: Lightning.shaders.RadialGradient, outerColor: theme.colors.primaryLight, innerColor: theme.colors.dark, radius: 800 },
+            BackButton: { x: 40, y: 40, shader: null, type: BackButton },
             Content: {
                 Grid: { x: 110, y: 200, columns: 5, spacing: 160, crossSpacing: 50, itemType: GridItem, type: Grid },
             },
-            BackButton: { x: 40, y: 40, shader: null, type: BackButton },
         }
     }
 
@@ -46,14 +46,8 @@ export default class GridLayout extends Lightning.Component<GridLayoutTemplateSp
             });
         }
         this.tag('Grid' as any).add(rail.map((gridItem: any) => {
-            console.log("item", gridItem);
             return gridItem
         }));
-    }
-
-
-    override _setup() {
-
     }
 
     override _active() {
@@ -68,8 +62,6 @@ export default class GridLayout extends Lightning.Component<GridLayoutTemplateSp
     }
 
     override  _handleUp() {
-        console.log("handle upp");
-
         if (this.index > 0) {
             this.index -= 1;
         }
@@ -78,6 +70,12 @@ export default class GridLayout extends Lightning.Component<GridLayoutTemplateSp
     override  _handleDown() {
         if (this.index < 1) {
             this.index += 1;
+        }
+    }
+
+    override _handleEnter() {
+        if (this.index === 0) {
+            Router.navigate('home');
         }
     }
 

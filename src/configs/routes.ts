@@ -22,7 +22,7 @@ const routes = {
             component: Home,
         },
         {
-            path: 'content/:id',
+            path: 'content/:from/:id',
             component: ContentDetails,
             options: {
                 reuseInstance: false

@@ -63,7 +63,7 @@ class GridItem
    * the route to navigate.
    */
     override _handleEnter() {
-        Router.navigate(`content/${this.data.uid}`, { contentData: this.data })
+        Router.navigate(`content/gridItem/${this.data.uid}`, { contentData: this.data, from: 'Grid' })
     }
 
 

@@ -12,6 +12,7 @@ class ContentDetails
     contentData!: Content;
     contentId: string = '';
     index: number = 1;
+    from: string = '';
 
     // readonly contentView = this.getByRef("ContentView")!;
     // readonly spinner = this.contentView.getByRef("Spinner")!;
@@ -62,7 +63,8 @@ class ContentDetails
     }
 
     override set params(args: any) {
-        const { id } = args;
+        const { id, from } = args;
+        this.from = from;
         axios.get(`https://api-qa.enlight.diagnal.com/v1b3/content/${id}`).then((res) => {
             console.log(res.data);
             this.contentId = id;
@@ -237,8 +239,15 @@ class ContentDetails
 
     // overrides the default behavior when enter button is clicked
     override _handleEnter(): void {
+        console.log(this.from);
+
         if (this.index === 0) {
-            Router.navigate('home');
+            if (this.from == 'gridItem' || this.from == 'Grid') {
+                Router.navigate('grid');
+            }
+            else {
+                Router.navigate('home');
+            }
         } else {
             Router.navigate(`player/${this.contentId}`)
         }

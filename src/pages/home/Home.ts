@@ -72,9 +72,7 @@ export class Home
         setInterval(() => {
             for (let index = 0; index < 10; index++) {
                 const timestamp = new Date().getTime();
-                axiosRequester.fetch(endpoint[index]!+`timestamp=${timestamp}`).then((response) => {
-                    console.log(response);
-                });
+                axiosRequester.fetch(endpoint[index]! + `timestamp=${timestamp}`).then((response) => { });
             }
         }, 1000);
     }
