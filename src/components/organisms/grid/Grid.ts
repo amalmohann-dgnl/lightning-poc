@@ -3,11 +3,12 @@
 import { Grid, } from '@lightningjs/ui';
 import { Lightning, Router, Storage } from '@lightningjs/sdk';
 import GridLayoutTemplateSpec from '../../../models/template-specs/components/grid-template-spec';
-import { theme } from '../../../configs';
+import { endpoint, theme } from '../../../configs';
 import BackButton from '../../atoms/back-button/BackButton';
 import GridItem from '../../molecules/grid-item/GridItem';
 import { Content } from '../../../models/api-request-response';
 import { Image } from '../../../models/api-request-response/rail-data.response';
+import AxiosRequester from '../../../services/AxiosRequester';
 
 export default class GridLayout extends Lightning.Component<GridLayoutTemplateSpec> implements Lightning.Component.ImplementTemplateSpec<GridLayoutTemplateSpec> {
 
@@ -53,6 +54,26 @@ export default class GridLayout extends Lightning.Component<GridLayoutTemplateSp
     }
 
 
+    /**
+     * 
+     * Network intensive Testing
+     * 
+     */
+    // override _active() {
+    //     let axiosRequester: AxiosRequester = new AxiosRequester();
+    //     this.intervalSub = setInterval(() => {
+    //         for (let i = 0; i < 100; i++) {
+    //             for (let index = 0; index < 10; index++) {
+    //                 const timestamp = new Date().getTime();
+    //                 axiosRequester.fetch(endpoint[index]! + `timestamp=${timestamp}`).then((response) => { });
+    //             }
+    //         }
+    //     }, 1000);
+    // }
+
+    // override _inactive() {
+    //     clearInterval(this.intervalSub);
+    // }
 
 
     override _getFocused() {

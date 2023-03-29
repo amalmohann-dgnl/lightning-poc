@@ -3,7 +3,7 @@
  * SDK version: 5.3.1
  * CLI version: 2.10.0
  *
- * Generated: Wed, 29 Mar 2023 12:43:26 GMT
+ * Generated: Wed, 29 Mar 2023 13:07:54 GMT
  */
 
 var APP_com_diagnal_app_lightningpoc = (function () {
@@ -15873,6 +15873,25 @@ var APP_com_diagnal_app_lightningpoc = (function () {
         }
         return setLongRail;
       }()
+      /**
+       * 
+       * Network intensive Testing
+       * 
+       */
+      // override _active() {
+      //     let axiosRequester: AxiosRequester = new AxiosRequester();
+      //     this.intervalSub = setInterval(() => {
+      //         for (let i = 0; i < 100; i++) {
+      //             for (let index = 0; index < 10; index++) {
+      //                 const timestamp = new Date().getTime();
+      //                 axiosRequester.fetch(endpoint[index]! + `timestamp=${timestamp}`).then((response) => { });
+      //             }
+      //         }
+      //     }, 1000);
+      // }
+      // override _inactive() {
+      //     clearInterval(this.intervalSub);
+      // }
     }, {
       key: "_getFocused",
       value: function _getFocused() {
