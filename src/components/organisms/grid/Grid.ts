@@ -16,6 +16,7 @@ export default class GridLayout extends Lightning.Component<GridLayoutTemplateSp
     data: Content[] = [];
     dataLength: number = 0;
     intervalSub: number = 0;
+    isLoading: boolean = true;
 
 
     static override _template(): Lightning.Component.Template<GridLayoutTemplateSpec> {
@@ -36,6 +37,7 @@ export default class GridLayout extends Lightning.Component<GridLayoutTemplateSp
     }
 
     async setLongRail() {
+        this.isLoading = true;
         this.data = await Storage.get('longData');
         this.dataLength = this.data.length;
         const rail: { h: number; w: number; item: { label: string; src: string; data: Content }; }[] = [];
@@ -51,6 +53,7 @@ export default class GridLayout extends Lightning.Component<GridLayoutTemplateSp
         this.tag('Grid' as any).add(rail.map((gridItem: any) => {
             return gridItem
         }));
+        this.isLoading = false;
     }
 
 

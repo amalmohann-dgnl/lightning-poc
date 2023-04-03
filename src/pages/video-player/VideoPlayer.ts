@@ -1,17 +1,22 @@
 import { Lightning, Router } from '@lightningjs/sdk';
-import { VideoPlayerTemplateSpec } from './../../models/template-specs';
+import { POCVideoPlayerTemplateSpec } from './../../models/template-specs';
 import { VideoPlayer as LightningPlayer } from '@lightningjs/sdk'
-import { BackButton } from '../../components';
+import { BackButton, PlayPauseButton } from '../../components';
+// @ts-ignore
+import shaka from 'shaka-player';
+
 
 // VideoPlayer component
-export class VideoPlayer
-    extends Lightning.Component<VideoPlayerTemplateSpec>
-    implements Lightning.Component.ImplementTemplateSpec<VideoPlayerTemplateSpec>
+export class POCVideoPlayer
+    extends Lightning.Component<POCVideoPlayerTemplateSpec>
+    implements Lightning.Component.ImplementTemplateSpec<POCVideoPlayerTemplateSpec>
 {
 
     videoUrl = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
-    index = 0;
+    index: number = 1;
     contentId: string = '';
+    _isPlaying: boolean = true;
+    _player: any;
 
     /**
      * This function is responsible for the creation and return of the UI template. This function 
@@ -20,13 +25,19 @@ export class VideoPlayer
      * @returns Template for the Application
      * 
      */
-    static override _template(): Lightning.Component.Template<VideoPlayerTemplateSpec> {
+    static override _template(): Lightning.Component.Template<POCVideoPlayerTemplateSpec> {
         return {
-            BackButton: {
-                x: 40, y: 40,
-                zIndex: 99,
-                type: BackButton
-            },
+            Wrapper: {
+                alpha: 1,
+                BackButton: {
+                    x: 40, y: 40,
+                    zIndex: 99,
+                    type: BackButton
+                },
+                PlayPause: {
+                    type: PlayPauseButton
+                }
+            }
         };
     }
 
@@ -39,6 +50,8 @@ export class VideoPlayer
     // when the playe is shown in the screen and active for the first time 
     override _firstActive() {
         LightningPlayer.consumer(this)
+        LightningPlayer.loader(this._loadPlayback);
+        LightningPlayer.unloader(this._unloadPlayback);
     }
 
 
@@ -48,15 +61,43 @@ export class VideoPlayer
     }
 
     override _active() {
-        LightningPlayer.loader(this.playerLoader)
         LightningPlayer.open(this.videoUrl)
     }
 
     override _inactive() {
-        // LightningPlayer.unloader(this.playerUnLoader)
         LightningPlayer.close()
     }
 
+
+    // handling up button click
+    override _handleUp() {
+        if (this.index > 0) {
+            this.index -= 1;
+        }
+    }
+
+    // handling down button click
+    override _handleDown() {
+        if (this.index < 1) {
+            this.index += 1;
+        }
+    }
+
+    // handling okay button click
+    override _handleEnter() {
+        if (this.index === 0) {
+            Router.navigate(`content/railItem/${this.contentId}`);
+        }
+        else if (this.index === 1) {
+            const button = this.tag('PlayPause' as any);
+            button.isPlaying = !button.isPlaying;
+            button.isPlaying ? LightningPlayer.play() : LightningPlayer.pause();
+        }
+    }
+
+    override _getFocused(): any {
+        return this.tag('Wrapper' as any).children[this.index]
+    }
 
     /**
      * 
@@ -65,46 +106,21 @@ export class VideoPlayer
      */
 
     // Note: this is in fact the default loader function
-    playerLoader = (url: string, videoEl: any, config: object) => {
-        return new Promise((resolve: any) => {
-            videoEl.setAttribute('src', url)
-            videoEl.load()
-            resolve()
-        })
+    _loadPlayback = async (url: string, videoEl: HTMLVideoElement) => {
+        this._setupShakaPlayer(videoEl);
+        await this._player.load(url);
     }
 
     // Note: this is in fact the default unloader function
-    playerUnLoader = (url: string, videoEl: any, config: object) => {
-        new Promise((resolve: any) => {
-            videoEl.removeAttribute('src')
-            videoEl.load()
-            resolve()
-        })
+    _unloadPlayback = async () => {
+        await this._player.unload();
     }
 
-
-
-    // handling up button click
-    override _handleUp() { }
-
-    // handling down button click
-    override _handleDown() { }
-
-    // handling okay button click
-    override _handleEnter() {
-        Router.navigate(`content/${this.contentId}`);
-    }
-
-    /**
-       * This function will override the default behavior of the getFocused() method
-       * 
-       * @returns Return the child Component that this Component wishes to receive focus. Returning null 
-       * or undefined tells the focus engine to not set focus on this Component at all.By default,
-       * this Component's own instance is returned.
-       */
-
-    override _getFocused(): any {
-        return this.children[this.index]
+    // shaka player
+    _setupShakaPlayer(videoEl: HTMLVideoElement) {
+        videoEl.autoplay = true;
+        this._player = new shaka.Player(videoEl);
+        console.log(this._player);
     }
 
 }
