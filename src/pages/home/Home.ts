@@ -154,6 +154,50 @@ export class Home
         };
     }
 
+    $changeItemOnFocus(img: string, title: string, description: string, genre: string, directors: string, starings: string) {
+        this.patch({
+            Background: {
+                Thumbnail: {
+                    src: img,
+                },
+                ContentDetails: {
+                    ContentData: {
+                        Title: {
+                            text: {
+                                text: title,
+                            },
+                        },
+                        Description: {
+                            text: {
+                                text: description,
+                            },
+                        },
+                        Genre: {
+                            text: {
+                                text: genre,
+                            },
+                        },
+                        Info: {
+                            DirectorList: {
+                                text: {
+                                    text: directors
+                                },
+                            },
+                            StarringList: {
+
+                                text: {
+                                    text: starings
+                                },
+                            }
+
+                        },
+                    },
+                },
+            },
+        })
+
+    }
+
 
     // initializing the component
     override _init() {

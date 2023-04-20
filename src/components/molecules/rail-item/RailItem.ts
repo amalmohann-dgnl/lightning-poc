@@ -1,6 +1,6 @@
 import { Lightning, Router } from '@lightningjs/sdk'
 import { theme } from '../../../configs'
-import { Content } from '../../../models/api-request-response';
+import { Content, Image } from '../../../models/api-request-response';
 import { RailItemTemplateSpec } from '../../../models/template-specs'
 
 class RailItem
@@ -79,6 +79,7 @@ class RailItem
      *
      */
     override _focus() {
+        this.fireAncestors('$changeItemOnFocus' as any, this.data.images.find((img: Image) => img.width === 828)?.url, this.data.title, this.data.description, this.data.genre.join(' . '), this.data.director.map((a: any) => a.personName).join(', '), this.data.actor.map((a: any) => a.personName).join(', '))
         this.patch({
             smooth: { color: theme.colors.secondary, scale: 1.1 },
             Label: {
