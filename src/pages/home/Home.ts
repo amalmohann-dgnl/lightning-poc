@@ -164,6 +164,14 @@ export class Home
     }
 
     $changeItemOnFocus(img: string, title: string, description: string, genre: string, directors: string, starings: string) {
+        this.tag('Background.Thumbnail' as any).animation({
+            duration: 0.5,
+            actions: [{ p: 'alpha', v: { 0: 1, 1: 0 } }]
+        }).start();
+        this.tag('Background.ContentDetails' as any).animation({
+            duration: 0.5,
+            actions: [{ p: 'alpha', v: { 0: 1, 1: 0 } }]
+        }).start();
         this.patch({
             Background: {
                 Thumbnail: {
@@ -204,6 +212,14 @@ export class Home
                 },
             },
         })
+        this.tag('Background.Thumbnail' as any).animation({
+            duration: 0.5,
+            actions: [{ p: 'alpha', v: { 0: 0, 1: 1 } }]
+        }).start();
+        this.tag('Background.ContentDetails' as any).animation({
+            duration: 0.5,
+            actions: [{ p: 'alpha', v: { 0: 0, 1: 1 } }]
+        }).start();
 
     }
 
