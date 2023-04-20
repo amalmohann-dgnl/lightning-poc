@@ -47,7 +47,7 @@ export class Home
         this.backgroundFetchAndSave();
         const rails = [];
         for (let i = 0; i < this.rowLength; i++) {
-            rails.push({ type: Rail, x: 0, y: i * (600 + 50), railIndex: i })
+            rails.push({ type: Rail, x: 0, y: i * (500 + 50), railIndex: i })
         }
         this.tag('Background.Slider.Wrapper' as any).children = rails;
     }
