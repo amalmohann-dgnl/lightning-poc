@@ -32,9 +32,11 @@ export class Home
                 w: 1920, h: 1080,
                 color: theme.colors.primaryLight,
                 rect: true,
+                ContentDetails: {},
                 Slider: {
                     zIndex: 2,
-                    w: 800, h: (h: number) => h, x: 400, y: 630, mount: 0.5,
+                    clipping: true,
+                    w: 1920, h: (h: number) => h, x: 960, y: 1100, mount: 0.5,
                     Wrapper: {}
                 }
             },

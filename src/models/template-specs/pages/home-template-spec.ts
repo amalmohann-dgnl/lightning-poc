@@ -19,6 +19,7 @@ interface HomeTemplateSpec extends Lightning.Component.TemplateSpecLoose {
      * children of the component
      */
     Background: {
+        ContentDetails: object;
         Slider: {
             Wrapper: {
                 Widgets: {
