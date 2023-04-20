@@ -20,8 +20,8 @@ class RailItem
 
     static override _template() {
         return {
-            w: 288,
-            h: 432,
+            w: 216,
+            h: 324,
             rect: true,
             color: theme.colors.primary,
             shader: { type: Lightning.shaders.RoundedRectangle, radius: 20 },
@@ -35,10 +35,10 @@ class RailItem
             },
             Label: {
                 x: 10,
-                y: 435,
+                y: 326.25,
                 w: (w: number) => w,
                 color: theme.colors.accentGrey.light,
-                text: { fontSize: 30 }
+                text: { fontSize: 22.5 }
             }
         }
     }
@@ -84,7 +84,7 @@ class RailItem
             Label: {
                 smooth: { color: theme.colors.white }
             },
-            Rectangle: { color: theme.colors.yellow, x: 10, y: (y: number) => y + 72, w: (w: number) => w - 20, h: 5, rect: true }
+            Rectangle: { color: theme.colors.yellow, x: 10, y: (y: number) => y + 54, w: (w: number) => w - 20, h: 5, rect: true }
         })
     }
 

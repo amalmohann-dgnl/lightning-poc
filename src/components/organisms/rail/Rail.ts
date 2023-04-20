@@ -53,7 +53,7 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
                         let img_src = this.data[i]?.images.find((img: Image) => img.width === 288)?.url
                         rail.push({
                             type: RailItem,
-                            x: i * (300 + 30),
+                            x: i * (216 + 30),
                             item: { label: label, src: img_src || "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/249/oyPcsfGWL5Se6RGW1JCVgpHlASH_288x432_13635141800.jpg", data: this.data[i]! }
                         });
                     }
