@@ -1,5 +1,5 @@
 import { Lightning, Storage } from '@lightningjs/sdk';
-import { Rail, VideoSpecItem } from '../../components';
+import { BackButton, Button, Rail, VideoSpecItem } from '../../components';
 import { endpoint, theme } from '../../configs';
 import { HomeTemplateSpec } from './../../models/template-specs';
 import TopNav from '../../components/organisms/top-nav/TopNav';
@@ -14,6 +14,7 @@ export class Home
     index: number = 0;
     rowLength: number = endpoint.length;
     hideNav: boolean = false;
+    isContentPage: boolean = false;
 
     readonly Wrapper = this.getByRef('Background.Slider.Wrapper' as any)!
 
@@ -110,7 +111,6 @@ export class Home
                                 },
                                 color: theme.colors.accentGrey.light,
                             }
-
                         },
                         VideoSpec: {
                             VideoSpec1: {
@@ -130,6 +130,24 @@ export class Home
                                 shader: null,
                                 type: VideoSpecItem,
                                 specData: '  cc  '
+                            },
+                        },
+                        ContentActions: {
+                            shader: null,
+                            alpha: 0,
+                            BackButton: {
+                                x: 40, y: 40,
+                                type: BackButton
+                            },
+                            PlayButton: {
+                                x: 40, y: 570,
+                                type: Button,
+                                label: "Play Video"
+                            },
+                            PlayTrailer: {
+                                x: 40, y: 700,
+                                type: Button,
+                                label: "Play Trailer"
                             },
                         }
                     },
@@ -253,6 +271,29 @@ export class Home
         }
     }
 
+    override _handleEnter() {
+        this.isContentPage = !this.isContentPage;
+        this.tag('Navbar' as any).animation({
+            duration: 1,
+            actions: [{ p: 'alpha', v: { 0: this.isContentPage ? 1 : 0, 1: this.isContentPage ? 0 : 1 } }]
+        }).start();
+
+        this.tag('Background.Slider' as any).animation({
+            duration: 1,
+            actions: [{ p: 'alpha', v: { 0: this.isContentPage ? 1 : 0, 1: this.isContentPage ? 0 : 1 } }]
+        }).start();
+
+        this.tag('Background.Thumbnail' as any).animation({
+            duration: 1,
+            actions: [{ p: 'scale', v: { 0: this.isContentPage ? 1.5 : 2, 1: this.isContentPage ? 2 : 1.5 } }]
+        }).start();
+
+        this.tag('Background.ContentDetails.ContentActions' as any).animation({
+            duration: 1,
+            actions: [{ p: 'alpha', v: { 0: this.isContentPage ? 0 : 1, 1: this.isContentPage ? 1 : 0 } }]
+        }).start();
+    }
+
     /**
        * This function will override the default behavior of the getFocused() method
        * 
@@ -262,29 +303,19 @@ export class Home
        */
 
     override _getFocused(): any {
-        // Hide and Show Navbar on scroll
-        // if (this.index <= 0) {
-        //     this.patch({
-        //         Navbar: {
-        //             visible: true,
-        //         }
-        //     })
-        // }
-        // else {
-        //     this.patch({
-        //         Navbar: {
-        //             visible: true,
-        //         }
-        //     })
-        // }
-
         // focus selection for Top Navigation and The content rails
-        if (this.index >= 0) {
-            return this.tag('Background.Slider.Wrapper' as any).children[this.index];
+        if (this.isContentPage === true) {
+            return this.tag('Background.ContentDetails.ContentActions' as any).children[this.index];
         }
         else {
-            return this.tag('Navbar' as any);
+            if (this.index >= 0) {
+                return this.tag('Background.Slider.Wrapper' as any).children[this.index];
+            }
+            else {
+                return this.tag('Navbar' as any);
+            }
         }
+
     }
 
 }

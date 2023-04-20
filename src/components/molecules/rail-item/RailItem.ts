@@ -66,9 +66,9 @@ class RailItem
    * This functions checks the index to see the focused element and decides
    * the route to navigate.
    */
-    override _handleEnter() {
-        Router.navigate(`content/railItem/${this.data.uid}`, { from: 'Home' })
-    }
+    // override _handleEnter() {
+    //     Router.navigate(`content/railItem/${this.data.uid}`, { from: 'Home' })
+    // }
 
 
 
