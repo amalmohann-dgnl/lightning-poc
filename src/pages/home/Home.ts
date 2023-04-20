@@ -1,13 +1,10 @@
 import { Lightning, Storage } from '@lightningjs/sdk';
-import { Rail, RailItem, VideoSpecItem } from '../../components';
+import { Rail, VideoSpecItem } from '../../components';
 import { endpoint, theme } from '../../configs';
 import { HomeTemplateSpec } from './../../models/template-specs';
 import TopNav from '../../components/organisms/top-nav/TopNav';
 import AxiosRequester from '../../services/AxiosRequester';
 import { RailDataResponse, Content, Image } from '../../models/api-request-response/rail-data.response';
-import axios from 'axios';
-// @ts-ignore
-import data from '../../data/data.json';
 
 // Home component
 export class Home
@@ -37,8 +34,7 @@ export class Home
                 Thumbnail: {
                     x: 1000, y: 110,
                     scale: 1.5,
-                    shader: { type: Lightning.shaders.FadeOut, innerColor: 0xff000000, left: 200 },
-                    src: data.content[1].images.find((img: Image) => img.width === 828)?.url,
+                    shader: { type: Lightning.shaders.FadeOut, innerColor: 0xff000000, left: 200, bottom: 200 },
                 },
                 ContentDetails: {
                     ContentData: {
@@ -47,7 +43,6 @@ export class Home
                             x: 40, y: 185,
                             shader: null,
                             text: {
-                                text: data.content[1].title,
                                 fontSize: 80
                             },
                             color: theme.colors.white,
@@ -59,7 +54,6 @@ export class Home
                             text: {
                                 wordWrap: true,
                                 maxLines: 3,
-                                text: data.content[1].description,
                                 maxLinesSuffix: '...',
                                 fontSize: 30
                             },
@@ -70,7 +64,6 @@ export class Home
                             w: 900,
                             shader: null,
                             text: {
-                                text: data.content[1].genre.join(' . '),
                                 fontSize: 24
                             },
                             color: theme.colors.accentGrey.light,
@@ -101,7 +94,6 @@ export class Home
                                 w: 800,
                                 shader: null,
                                 text: {
-                                    text: data.content[1].director.map((a: any) => a.personName).join(', '),
                                     fontSize: 24
                                 },
                                 color: theme.colors.accentGrey.light,
@@ -111,7 +103,6 @@ export class Home
                                 w: 800,
                                 shader: null,
                                 text: {
-                                    text: data.content[1].actor.map((a: any) => a.personName).join(', '),
                                     fontSize: 24,
                                     wordWrap: true,
                                     maxLines: 1,
