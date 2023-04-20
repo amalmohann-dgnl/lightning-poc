@@ -1,11 +1,13 @@
 import { Lightning, Storage } from '@lightningjs/sdk';
-import { Rail, RailItem } from '../../components';
+import { Rail, RailItem, VideoSpecItem } from '../../components';
 import { endpoint, theme } from '../../configs';
 import { HomeTemplateSpec } from './../../models/template-specs';
 import TopNav from '../../components/organisms/top-nav/TopNav';
 import AxiosRequester from '../../services/AxiosRequester';
 import { RailDataResponse, Content, Image } from '../../models/api-request-response/rail-data.response';
 import axios from 'axios';
+// @ts-ignore
+import data from '../../data/data.json';
 
 // Home component
 export class Home
@@ -30,12 +32,121 @@ export class Home
             Navbar: { type: TopNav },
             Background: {
                 w: 1920, h: 1080,
-                color: theme.colors.primaryLight,
+                color: theme.colors.dark,
                 rect: true,
-                ContentDetails: {},
+                Thumbnail: {
+                    x: 1000, y: 110,
+                    scale: 1.5,
+                    shader: { type: Lightning.shaders.FadeOut, innerColor: 0xff000000, left: 200 },
+                    src: data.content[1].images.find((img: Image) => img.width === 828)?.url,
+                },
+                ContentDetails: {
+                    ContentData: {
+                        shader: null,
+                        Title: {
+                            x: 40, y: 185,
+                            shader: null,
+                            text: {
+                                text: data.content[1].title,
+                                fontSize: 80
+                            },
+                            color: theme.colors.white,
+                        },
+                        Description: {
+                            x: 40, y: 290,
+                            w: 900,
+                            shader: null,
+                            text: {
+                                wordWrap: true,
+                                maxLines: 3,
+                                text: data.content[1].description,
+                                maxLinesSuffix: '...',
+                                fontSize: 30
+                            },
+                            color: theme.colors.accentGrey.light,
+                        },
+                        Genre: {
+                            x: 40, y: 400,
+                            w: 900,
+                            shader: null,
+                            text: {
+                                text: data.content[1].genre.join(' . '),
+                                fontSize: 24
+                            },
+                            color: theme.colors.accentGrey.light,
+                        },
+                        Info: {
+                            Director: {
+                                x: 40, y: 460,
+                                w: 100,
+                                shader: null,
+                                text: {
+                                    text: 'Director : ',
+                                    fontSize: 24
+                                },
+                                color: theme.colors.accentGrey.light,
+                            },
+                            Starring: {
+                                x: 40, y: 490,
+                                w: 100,
+                                shader: null,
+                                text: {
+                                    text: 'Staring  : ',
+                                    fontSize: 24,
+                                },
+                                color: theme.colors.accentGrey.light,
+                            },
+                            DirectorList: {
+                                x: 150, y: 460,
+                                w: 800,
+                                shader: null,
+                                text: {
+                                    text: data.content[1].director.map((a: any) => a.personName).join(', '),
+                                    fontSize: 24
+                                },
+                                color: theme.colors.accentGrey.light,
+                            },
+                            StarringList: {
+                                x: 150, y: 490,
+                                w: 800,
+                                shader: null,
+                                text: {
+                                    text: data.content[1].actor.map((a: any) => a.personName).join(', '),
+                                    fontSize: 24,
+                                    wordWrap: true,
+                                    maxLines: 1,
+                                    maxLinesSuffix: '...',
+                                },
+                                color: theme.colors.accentGrey.light,
+                            }
+
+                        },
+                        VideoSpec: {
+                            VideoSpec1: {
+                                x: 70, y: 160,
+                                shader: null,
+                                type: VideoSpecItem,
+                                specData: '  16+  '
+                            },
+                            VideoSpec2: {
+                                x: 135, y: 160,
+                                shader: null,
+                                type: VideoSpecItem,
+                                specData: '  4k  '
+                            },
+                            VideoSpec3: {
+                                x: 193, y: 160,
+                                shader: null,
+                                type: VideoSpecItem,
+                                specData: '  cc  '
+                            },
+                        }
+                    },
+                },
                 Slider: {
-                    zIndex: 2,
+                    zIndex: 3,
                     clipping: true,
+                    shader: null,
                     w: 1920, h: (h: number) => h, x: 960, y: 1100, mount: 0.5,
                     Wrapper: {}
                 }
@@ -117,20 +228,20 @@ export class Home
 
     override _getFocused(): any {
         // Hide and Show Navbar on scroll
-        if (this.index <= 0) {
-            this.patch({
-                Navbar: {
-                    visible: true,
-                }
-            })
-        }
-        else {
-            this.patch({
-                Navbar: {
-                    visible: false,
-                }
-            })
-        }
+        // if (this.index <= 0) {
+        //     this.patch({
+        //         Navbar: {
+        //             visible: true,
+        //         }
+        //     })
+        // }
+        // else {
+        //     this.patch({
+        //         Navbar: {
+        //             visible: true,
+        //         }
+        //     })
+        // }
 
         // focus selection for Top Navigation and The content rails
         if (this.index >= 0) {

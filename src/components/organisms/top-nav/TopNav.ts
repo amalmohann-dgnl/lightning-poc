@@ -14,10 +14,12 @@ class TopNav extends Lightning.Component<TopNavTemplateSpec> implements Lightnin
         return {
             Navbar: {
                 w: 1920, h: 1080, rect: true,
-                zIndex: 1,
-                shader: { x: 100, y: -100, pivot: 0.5, type: Lightning.shaders.RadialGradient, outerColor: theme.colors.primaryLight, innerColor: theme.colors.dark, radius: 800 },
+                // zIndex: 2,
+                // shader: { type: Lightning.shaders.RadialGradient, x: 300, y: 300, innerColor: 0xff000000, outerColor: 0x00000000, radius: 2000 },
+                // shader: { x: 100, y: -100, pivot: 0.5, type: Lightning.shaders.RadialGradient, outerColor: theme.colors.primaryLight, innerColor: theme.colors.dark, radius: 800 },
                 NavItems: {
                     x: 10, y: 10,
+                    zIndex: 4,
                     NavMenu: {
                         shader: null,
                     }
@@ -62,12 +64,12 @@ class TopNav extends Lightning.Component<TopNavTemplateSpec> implements Lightnin
         this.tag('Navbar.NavItems.NavMenu' as any).children = menus;
 
         // animating the shader background
-        this.tag('Navbar')?.animation({
-            duration: 8, repeat: -1, delay: 2,
-            actions: [
-                { p: 'shader.radius' as '$$number', v: { 0: { v: 800 }, 0.5: { v: 400 }, 1: { v: 800 } } }
-            ]
-        }).start();
+        // this.tag('Navbar')?.animation({
+        //     duration: 8, repeat: -1, delay: 2,
+        //     actions: [
+        //         { p: 'shader.radius' as '$$number', v: { 0: { v: 800 }, 0.5: { v: 400 }, 1: { v: 800 } } }
+        //     ]
+        // }).start();
     }
 
 

@@ -1,0 +1,5289 @@
+{
+  "content": [{
+      "uid": "277047846813",
+      "seasonUid": "",
+      "title": "Black Panther",
+      "description": "T'Challa, the new ruler of the advanced kingdom of Wakanda, must defend his land from being torn apart by enemies from outside and inside the country.",
+      "episodeNumber": null,
+      "releaseYear": 2018,
+      "director": [{
+        "creditType": "Director",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/1056121",
+        "personName": "Ryan Coogler"
+      }],
+      "actor": [{
+        "creditType": "Actor",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/172069",
+        "personName": "Chadwick Boseman"
+      }],
+      "genre": [
+        "Science Fiction",
+        "Adventure",
+        "Action"
+      ],
+      "displayDuration": 3600000,
+      "type": "movie",
+      "categoryId": [
+        "ALL_ASSETS",
+        "ALL_MOVIES",
+        "SELECTED_MOVIE"
+      ],
+      "streams": "https://link.theplatform.com/s/tzTJhC/media/KiuQu87oT2HU",
+      "downloadUrl": "https://link.theplatform.com/s/tzTJhC/media/KiuQu87oT2HU",
+      "trailers": [{
+        "streams": "https://api-dev.enlight.diagnal.com/v1b3/playback/dummyTrailerStream?assetTypes=Rendition,Trailer"
+      }],
+      "mediaGuid": "284054",
+      "availableOn": 0,
+      "availableTill": 1937302060783,
+      "availableDays": null,
+      "isCcAvailable": true,
+      "parentalControl": [{}],
+      "isDownloadable": true,
+      "isCastable": false,
+      "countries": [
+        "USA"
+      ],
+      "contentGuid": "284054",
+      "images": [{
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/807/813/nEkrINGoMMtD7AVFr6zAxz5GGtr_2048x1152_13854277961.jpg",
+          "type": "landscape",
+          "width": 2048,
+          "height": 1152
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/807/813/nEkrINGoMMtD7AVFr6zAxz5GGtr_828x464_13854277962.jpg",
+          "type": "landscape",
+          "width": 828,
+          "height": 464
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/807/813/nEkrINGoMMtD7AVFr6zAxz5GGtr_760x428_13854277963.jpg",
+          "type": "landscape",
+          "width": 760,
+          "height": 428
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/807/813/nEkrINGoMMtD7AVFr6zAxz5GGtr_526x296_13854277964.jpg",
+          "type": "landscape",
+          "width": 526,
+          "height": 296
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/807/813/krAPAxe25A2CH8CdxdAUhU9VYYk_288x432_13854277973.jpg",
+          "type": "portrait",
+          "width": 288,
+          "height": 432
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/807/813/krAPAxe25A2CH8CdxdAUhU9VYYk_280x420_13854277974.jpg",
+          "type": "portrait",
+          "width": 280,
+          "height": 420
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/807/813/krAPAxe25A2CH8CdxdAUhU9VYYk_264x392_13854277975.jpg",
+          "type": "portrait",
+          "width": 264,
+          "height": 392
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/807/813/krAPAxe25A2CH8CdxdAUhU9VYYk_228x344_13854277976.jpg",
+          "type": "portrait",
+          "width": 228,
+          "height": 344
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/807/813/krAPAxe25A2CH8CdxdAUhU9VYYk_220x330_13854277977.jpg",
+          "type": "portrait",
+          "width": 220,
+          "height": 330
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/807/813/nEkrINGoMMtD7AVFr6zAxz5GGtr.jpg",
+          "type": "landscape",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/807/813/krAPAxe25A2CH8CdxdAUhU9VYYk.jpg",
+          "type": "portrait",
+          "width": 1280,
+          "height": 1919
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_large.jpg",
+          "type": "square",
+          "width": 1080,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_medium.jpg",
+          "type": "square",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_small.jpg",
+          "type": "square",
+          "width": 360,
+          "height": 360
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_large.jpg",
+          "type": "landscape",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 525
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_small.jpg",
+          "type": "landscape",
+          "width": 300,
+          "height": 225
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_large.jpg",
+          "type": "landscape",
+          "width": 1500,
+          "height": 570
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 226
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_small.jpg",
+          "type": "landscape",
+          "width": 480,
+          "height": 182
+        }
+      ],
+      "purchaseMode": "subscription",
+      "maxQualityAvailable": "4K",
+      "studio": [
+        "Universal Pictures"
+      ]
+    },
+    {
+      "uid": "277047334692",
+      "seasonUid": "",
+      "title": "Dunkirk",
+      "description": "Miraculous evacuation of Allied soldiers from Belgium, Britain, Canada, and France, who were cut off and surrounded by the German army from the beaches and harbor of Dunkirk, France, between May 26- June 04, 1940, during Battle of France in World War II.",
+      "episodeNumber": null,
+      "releaseYear": 2017,
+      "director": [{
+        "creditType": "Director",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/525",
+        "personName": "Christopher Nolan"
+      }],
+      "actor": [{
+        "creditType": "Actor",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/1687041",
+        "personName": "Fionn Whitehead"
+      }],
+      "genre": [
+        "Thriller",
+        "History",
+        "Drama",
+        "War",
+        "Action"
+      ],
+      "displayDuration": 3600000,
+      "type": "movie",
+      "categoryId": [
+        "ALL_ASSETS",
+        "ALL_MOVIES",
+        "SELECTED_MOVIE"
+      ],
+      "streams": "https://link.theplatform.com/s/tzTJhC/media/n4pjk_RReldV",
+      "downloadUrl": "https://link.theplatform.com/s/tzTJhC/media/n4pjk_RReldV",
+      "trailers": [{
+        "streams": "https://api-dev.enlight.diagnal.com/v1b3/playback/dummyTrailerStream?assetTypes=Rendition,Trailer"
+      }],
+      "mediaGuid": "374720",
+      "availableOn": 0,
+      "availableTill": 1937302060783,
+      "availableDays": null,
+      "isCcAvailable": true,
+      "parentalControl": [{}],
+      "isDownloadable": true,
+      "isCastable": false,
+      "countries": [
+        "USA"
+      ],
+      "contentGuid": "374720",
+      "images": [{
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/808/789/fudEG1VUWuOqleXv6NwCExK0VLy_2048x1152_13855813622.jpg",
+          "type": "landscape",
+          "width": 2048,
+          "height": 1152
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/808/789/fudEG1VUWuOqleXv6NwCExK0VLy_828x464_13855813623.jpg",
+          "type": "landscape",
+          "width": 828,
+          "height": 464
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/808/789/fudEG1VUWuOqleXv6NwCExK0VLy_760x428_13855813624.jpg",
+          "type": "landscape",
+          "width": 760,
+          "height": 428
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/808/789/fudEG1VUWuOqleXv6NwCExK0VLy_526x296_13855813625.jpg",
+          "type": "landscape",
+          "width": 526,
+          "height": 296
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/808/789/bOXBV303Fgkzn2K4FeKDc0O31q4_288x432_13854789933.jpg",
+          "type": "portrait",
+          "width": 288,
+          "height": 432
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/808/789/bOXBV303Fgkzn2K4FeKDc0O31q4_280x420_13854789934.jpg",
+          "type": "portrait",
+          "width": 280,
+          "height": 420
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/808/789/bOXBV303Fgkzn2K4FeKDc0O31q4_264x392_13854789935.jpg",
+          "type": "portrait",
+          "width": 264,
+          "height": 392
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/808/789/bOXBV303Fgkzn2K4FeKDc0O31q4_228x344_13854789936.jpg",
+          "type": "portrait",
+          "width": 228,
+          "height": 344
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/808/789/bOXBV303Fgkzn2K4FeKDc0O31q4.jpg",
+          "type": "portrait",
+          "width": 1066,
+          "height": 1600
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/808/789/bOXBV303Fgkzn2K4FeKDc0O31q4_220x330_13854789937.jpg",
+          "type": "portrait",
+          "width": 220,
+          "height": 330
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/808/789/fudEG1VUWuOqleXv6NwCExK0VLy.jpg",
+          "type": "landscape",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_large.jpg",
+          "type": "square",
+          "width": 1080,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_medium.jpg",
+          "type": "square",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_small.jpg",
+          "type": "square",
+          "width": 360,
+          "height": 360
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_large.jpg",
+          "type": "landscape",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 525
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_small.jpg",
+          "type": "landscape",
+          "width": 300,
+          "height": 225
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_large.jpg",
+          "type": "landscape",
+          "width": 1500,
+          "height": 570
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 226
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_small.jpg",
+          "type": "landscape",
+          "width": 480,
+          "height": 182
+        }
+      ],
+      "purchaseMode": "subscription",
+      "maxQualityAvailable": "4K",
+      "studio": [
+        "Universal Pictures"
+      ]
+    },
+    {
+      "uid": "277047846530",
+      "seasonUid": "",
+      "title": "Snatched",
+      "description": "When her boyfriend dumps Emily, a spontaneous woman in her 30s, she persuades her ultra-cautious mom to accompany her on a vacation to Ecuador. When these two very different women are trapped on this wild journey, their bond as mother and daughter is tested and strengthened while they attempt to navigate the jungle and escape.",
+      "episodeNumber": null,
+      "releaseYear": 2017,
+      "director": [{
+        "creditType": "Director",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/56661",
+        "personName": "Jonathan Levine"
+      }],
+      "actor": [{
+        "creditType": "Actor",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/440414",
+        "personName": "Amy Schumer"
+      }],
+      "genre": [
+        "Comedy",
+        "Action"
+      ],
+      "displayDuration": 3600000,
+      "type": "movie",
+      "categoryId": [
+        "ALL_ASSETS",
+        "ALL_MOVIES",
+        "SELECTED_MOVIE"
+      ],
+      "streams": "https://link.theplatform.com/s/tzTJhC/media/ETMrN6UuykrT",
+      "downloadUrl": "https://link.theplatform.com/s/tzTJhC/media/ETMrN6UuykrT",
+      "trailers": [{
+        "streams": "https://api-dev.enlight.diagnal.com/v1b3/playback/dummyTrailerStream?assetTypes=Rendition,Trailer"
+      }],
+      "mediaGuid": "373569",
+      "availableOn": 0,
+      "availableTill": 1937302060783,
+      "availableDays": null,
+      "isCcAvailable": true,
+      "parentalControl": [{}],
+      "isDownloadable": true,
+      "isCastable": false,
+      "countries": [
+        "USA"
+      ],
+      "contentGuid": "373569",
+      "images": [{
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/808/289/6E2TAM2zp2dqgOTLBFHIj8Uu1ip_2048x1152_13855813638.jpg",
+          "type": "landscape",
+          "width": 2048,
+          "height": 1152
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/808/289/6E2TAM2zp2dqgOTLBFHIj8Uu1ip_828x464_13855813639.jpg",
+          "type": "landscape",
+          "width": 828,
+          "height": 464
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/808/289/6E2TAM2zp2dqgOTLBFHIj8Uu1ip_760x428_13855813640.jpg",
+          "type": "landscape",
+          "width": 760,
+          "height": 428
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/808/289/6E2TAM2zp2dqgOTLBFHIj8Uu1ip_526x296_13855813641.jpg",
+          "type": "landscape",
+          "width": 526,
+          "height": 296
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/808/289/lvGa6v7sR6p6RWCtwv0Dgdr1B8z_288x432_13855813642.jpg",
+          "type": "portrait",
+          "width": 288,
+          "height": 432
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/808/289/lvGa6v7sR6p6RWCtwv0Dgdr1B8z_280x420_13855813643.jpg",
+          "type": "portrait",
+          "width": 280,
+          "height": 420
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/808/289/lvGa6v7sR6p6RWCtwv0Dgdr1B8z_264x392_13855813644.jpg",
+          "type": "portrait",
+          "width": 264,
+          "height": 392
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/808/289/lvGa6v7sR6p6RWCtwv0Dgdr1B8z_228x344_13855813645.jpg",
+          "type": "portrait",
+          "width": 228,
+          "height": 344
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/808/289/lvGa6v7sR6p6RWCtwv0Dgdr1B8z_220x330_13855813646.jpg",
+          "type": "portrait",
+          "width": 220,
+          "height": 330
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/808/289/6E2TAM2zp2dqgOTLBFHIj8Uu1ip.jpg",
+          "type": "landscape",
+          "width": 3840,
+          "height": 2160
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/808/289/lvGa6v7sR6p6RWCtwv0Dgdr1B8z.jpg",
+          "type": "portrait",
+          "width": 1000,
+          "height": 1500
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_large.jpg",
+          "type": "square",
+          "width": 1080,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_medium.jpg",
+          "type": "square",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_small.jpg",
+          "type": "square",
+          "width": 360,
+          "height": 360
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_large.jpg",
+          "type": "landscape",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 525
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_small.jpg",
+          "type": "landscape",
+          "width": 300,
+          "height": 225
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_large.jpg",
+          "type": "landscape",
+          "width": 1500,
+          "height": 570
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 226
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_small.jpg",
+          "type": "landscape",
+          "width": 480,
+          "height": 182
+        }
+      ],
+      "purchaseMode": "subscription",
+      "maxQualityAvailable": "4K",
+      "studio": [
+        "Universal Pictures"
+      ]
+    },
+    {
+      "uid": "277048358666",
+      "seasonUid": "",
+      "title": "King Arthur: Legend of the Sword",
+      "description": "When the child Arthur’s father is murdered, Vortigern, Arthur’s uncle, seizes the crown. Robbed of his birthright and with no idea who he truly is, Arthur comes up the hard way in the back alleys of the city. But once he pulls the sword Excalibur from the stone, his life is turned upside down and he is forced to acknowledge his true legacy... whether he likes it or not.",
+      "episodeNumber": null,
+      "releaseYear": 2017,
+      "director": [{
+        "creditType": "Director",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/956",
+        "personName": "Guy Ritchie"
+      }],
+      "actor": [{
+        "creditType": "Actor",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/56365",
+        "personName": "Charlie Hunnam"
+      }],
+      "genre": [
+        "Drama",
+        "Action",
+        "Fantasy"
+      ],
+      "displayDuration": 3600000,
+      "type": "movie",
+      "categoryId": [
+        "ALL_ASSETS",
+        "ALL_MOVIES",
+        "SELECTED_MOVIE"
+      ],
+      "streams": "https://link.theplatform.com/s/tzTJhC/media/r66JPb4nd_ov",
+      "downloadUrl": "https://link.theplatform.com/s/tzTJhC/media/r66JPb4nd_ov",
+      "trailers": [{
+        "streams": "https://api-dev.enlight.diagnal.com/v1b3/playback/dummyTrailerStream?assetTypes=Rendition,Trailer"
+      }],
+      "mediaGuid": "274857",
+      "availableOn": 0,
+      "availableTill": 1937302060783,
+      "availableDays": null,
+      "isCcAvailable": true,
+      "parentalControl": [{}],
+      "isDownloadable": true,
+      "isCastable": false,
+      "countries": [
+        "USA"
+      ],
+      "contentGuid": "274857",
+      "images": [{
+          "url": "https://static.enlight.diagnal.com/enlight/posters/King+arthur_2048x1152.jpeg",
+          "type": "landscape",
+          "width": 2048,
+          "height": 1152
+        },
+        {
+          "url": "https://static.enlight.diagnal.com/enlight/posters/King_Arthur_828x464.jpg",
+          "type": "landscape",
+          "width": 828,
+          "height": 464
+        },
+        {
+          "url": "https://static.enlight.diagnal.com/enlight/posters/king_Arthur_760x428.jpg",
+          "type": "landscape",
+          "width": 760,
+          "height": 428
+        },
+        {
+          "url": "https://static.enlight.diagnal.com/enlight/posters/King+Arthur+526x296.jpg",
+          "type": "landscape",
+          "width": 526,
+          "height": 296
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/808/289/5qtySjfuJfOLvVrVXuwNo2BIVPH_288x432_13854277708.jpg",
+          "type": "portrait",
+          "width": 288,
+          "height": 432
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/808/289/5qtySjfuJfOLvVrVXuwNo2BIVPH_280x420_13854277709.jpg",
+          "type": "portrait",
+          "width": 280,
+          "height": 420
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/808/289/5qtySjfuJfOLvVrVXuwNo2BIVPH_264x392_13854277710.jpg",
+          "type": "portrait",
+          "width": 264,
+          "height": 392
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/808/289/5qtySjfuJfOLvVrVXuwNo2BIVPH_228x344_13854277711.jpg",
+          "type": "portrait",
+          "width": 228,
+          "height": 344
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/808/289/5qtySjfuJfOLvVrVXuwNo2BIVPH_220x330_13854277712.jpg",
+          "type": "portrait",
+          "width": 220,
+          "height": 330
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/808/289/5qtySjfuJfOLvVrVXuwNo2BIVPH.jpg",
+          "type": "portrait",
+          "width": 2000,
+          "height": 3000
+        },
+        {
+          "url": "https://static.enlight.diagnal.com/enlight/posters/King-Arthur_1920x1080.jpg",
+          "type": "landscape",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://static.enlight.diagnal.com/enlight/posters/arthur+1025.jpg",
+          "type": "landscape",
+          "width": 1025,
+          "height": 440
+        },
+        {
+          "url": "https://static.enlight.diagnal.com/enlight/posters/1500x570+arthur.jpg",
+          "type": "landscape",
+          "width": 1500,
+          "height": 570
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_large.jpg",
+          "type": "square",
+          "width": 1080,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_medium.jpg",
+          "type": "square",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_small.jpg",
+          "type": "square",
+          "width": 360,
+          "height": 360
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_large.jpg",
+          "type": "landscape",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 525
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_small.jpg",
+          "type": "landscape",
+          "width": 300,
+          "height": 225
+        }
+      ],
+      "purchaseMode": "subscription",
+      "maxQualityAvailable": "4K",
+      "studio": [
+        "Universal Pictures"
+      ]
+    },
+    {
+      "uid": "277069862742",
+      "seasonUid": "",
+      "title": "Ghost in the Shell",
+      "description": "In the near future, Major is the first of her kind: a human saved from a terrible crash, who is cyber-enhanced to be a perfect soldier devoted to stopping the world's most dangerous criminals.",
+      "episodeNumber": null,
+      "releaseYear": 2017,
+      "director": [{
+        "creditType": "Director",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/228134",
+        "personName": "Rupert Sanders"
+      }],
+      "actor": [{
+        "creditType": "Actor",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/1245",
+        "personName": "Scarlett Johansson"
+      }],
+      "genre": [
+        "Science Fiction",
+        "Drama",
+        "Action"
+      ],
+      "displayDuration": 3600000,
+      "type": "movie",
+      "categoryId": [
+        "ALL_ASSETS",
+        "ALL_MOVIES",
+        "SELECTED_MOVIE"
+      ],
+      "streams": "https://link.theplatform.com/s/tzTJhC/media/b6lM3CvAx4Xd",
+      "downloadUrl": "https://link.theplatform.com/s/tzTJhC/media/b6lM3CvAx4Xd",
+      "trailers": [{
+        "streams": "https://api-dev.enlight.diagnal.com/v1b3/playback/dummyTrailerStream?assetTypes=Rendition,Trailer"
+      }],
+      "mediaGuid": "315837",
+      "availableOn": 0,
+      "availableTill": 1937302060783,
+      "availableDays": null,
+      "isCcAvailable": true,
+      "parentalControl": [{}],
+      "isDownloadable": true,
+      "isCastable": false,
+      "countries": [
+        "USA"
+      ],
+      "contentGuid": "315837",
+      "images": [{
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/796/lsRhmB7m36pEX0UHpkpJSE48BW5_2048x1152_13636165608.jpg",
+          "type": "landscape",
+          "width": 2048,
+          "height": 1152
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/796/lsRhmB7m36pEX0UHpkpJSE48BW5_828x464_13636165609.jpg",
+          "type": "landscape",
+          "width": 828,
+          "height": 464
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/796/lsRhmB7m36pEX0UHpkpJSE48BW5_760x428_13636165610.jpg",
+          "type": "landscape",
+          "width": 760,
+          "height": 428
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/796/lsRhmB7m36pEX0UHpkpJSE48BW5_526x296_13636165611.jpg",
+          "type": "landscape",
+          "width": 526,
+          "height": 296
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/796/myRzRzCxdfUWjkJWgpHHZ1oGkJd_288x432_13635141854.jpg",
+          "type": "portrait",
+          "width": 288,
+          "height": 432
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/796/myRzRzCxdfUWjkJWgpHHZ1oGkJd_280x420_13635141855.jpg",
+          "type": "portrait",
+          "width": 280,
+          "height": 420
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/796/myRzRzCxdfUWjkJWgpHHZ1oGkJd_264x392_13635141856.jpg",
+          "type": "portrait",
+          "width": 264,
+          "height": 392
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/796/myRzRzCxdfUWjkJWgpHHZ1oGkJd_228x344_13635141857.jpg",
+          "type": "portrait",
+          "width": 228,
+          "height": 344
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/796/myRzRzCxdfUWjkJWgpHHZ1oGkJd_220x330_13635141858.jpg",
+          "type": "portrait",
+          "width": 220,
+          "height": 330
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/796/lsRhmB7m36pEX0UHpkpJSE48BW5.jpg",
+          "type": "landscape",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/796/myRzRzCxdfUWjkJWgpHHZ1oGkJd.jpg",
+          "type": "portrait",
+          "width": 2000,
+          "height": 3000
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_large.jpg",
+          "type": "square",
+          "width": 1080,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_medium.jpg",
+          "type": "square",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_small.jpg",
+          "type": "square",
+          "width": 360,
+          "height": 360
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_large.jpg",
+          "type": "landscape",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 525
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_small.jpg",
+          "type": "landscape",
+          "width": 300,
+          "height": 225
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_large.jpg",
+          "type": "landscape",
+          "width": 1500,
+          "height": 570
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 226
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_small.jpg",
+          "type": "landscape",
+          "width": 480,
+          "height": 182
+        }
+      ],
+      "purchaseMode": "subscription",
+      "maxQualityAvailable": "4K",
+      "studio": [
+        "Universal Pictures"
+      ]
+    },
+    {
+      "uid": "277066790804",
+      "seasonUid": "",
+      "title": "CHiPS",
+      "description": "The adventures of two California Highway Patrol motorcycle officers as they make their rounds on the freeways of Los Angeles.",
+      "episodeNumber": null,
+      "releaseYear": 2017,
+      "director": [],
+      "actor": [],
+      "genre": [
+        "Comedy",
+        "Drama",
+        "Action"
+      ],
+      "displayDuration": 3600000,
+      "type": "movie",
+      "categoryId": [
+        "ALL_ASSETS",
+        "ALL_MOVIES",
+        "SELECTED_MOVIE"
+      ],
+      "streams": "https://link.theplatform.com/s/tzTJhC/media/1s6VUzBlXxQP",
+      "downloadUrl": "https://link.theplatform.com/s/tzTJhC/media/1s6VUzBlXxQP",
+      "trailers": [{
+        "streams": "https://api-dev.enlight.diagnal.com/v1b3/playback/dummyTrailerStream?assetTypes=Rendition,Trailer"
+      }],
+      "mediaGuid": "417644",
+      "availableOn": 0,
+      "availableTill": 1937302060783,
+      "availableDays": null,
+      "isCcAvailable": true,
+      "parentalControl": [{}],
+      "isDownloadable": true,
+      "isCastable": false,
+      "countries": [
+        "USA"
+      ],
+      "contentGuid": "417644",
+      "images": [{
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/249/rjOTZfuDCtcbLkufdqLG8ITvlbD_2048x1152_13635141794.jpg",
+          "type": "landscape",
+          "width": 2048,
+          "height": 1152
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/249/rjOTZfuDCtcbLkufdqLG8ITvlbD_828x464_13635141795.jpg",
+          "type": "landscape",
+          "width": 828,
+          "height": 464
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/249/rjOTZfuDCtcbLkufdqLG8ITvlbD_760x428_13635141796.jpg",
+          "type": "landscape",
+          "width": 760,
+          "height": 428
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/249/rjOTZfuDCtcbLkufdqLG8ITvlbD_526x296_13635141797.jpg",
+          "type": "landscape",
+          "width": 526,
+          "height": 296
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/249/oyPcsfGWL5Se6RGW1JCVgpHlASH_288x432_13635141800.jpg",
+          "type": "portrait",
+          "width": 288,
+          "height": 432
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/249/oyPcsfGWL5Se6RGW1JCVgpHlASH_280x420_13635141801.jpg",
+          "type": "portrait",
+          "width": 280,
+          "height": 420
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/249/oyPcsfGWL5Se6RGW1JCVgpHlASH_264x392_13635141802.jpg",
+          "type": "portrait",
+          "width": 264,
+          "height": 392
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/249/oyPcsfGWL5Se6RGW1JCVgpHlASH_228x344_13635141803.jpg",
+          "type": "portrait",
+          "width": 228,
+          "height": 344
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/249/oyPcsfGWL5Se6RGW1JCVgpHlASH_220x330_13635141804.jpg",
+          "type": "portrait",
+          "width": 220,
+          "height": 330
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/249/oyPcsfGWL5Se6RGW1JCVgpHlASH.jpg",
+          "type": "portrait",
+          "width": 1365,
+          "height": 2048
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/249/rjOTZfuDCtcbLkufdqLG8ITvlbD.jpg",
+          "type": "landscape",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_large.jpg",
+          "type": "square",
+          "width": 1080,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_medium.jpg",
+          "type": "square",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_small.jpg",
+          "type": "square",
+          "width": 360,
+          "height": 360
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_large.jpg",
+          "type": "landscape",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 525
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_small.jpg",
+          "type": "landscape",
+          "width": 300,
+          "height": 225
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_large.jpg",
+          "type": "landscape",
+          "width": 1500,
+          "height": 570
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 226
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_small.jpg",
+          "type": "landscape",
+          "width": 480,
+          "height": 182
+        }
+      ],
+      "purchaseMode": "subscription",
+      "maxQualityAvailable": "4K",
+      "studio": [
+        "Universal Pictures"
+      ]
+    },
+    {
+      "uid": "277059110573",
+      "seasonUid": "",
+      "title": "Kong: Skull Island",
+      "description": "Explore the mysterious and dangerous home of the king of the apes as a team of explorers ventures deep inside the treacherous, primordial island.",
+      "episodeNumber": null,
+      "releaseYear": 2017,
+      "director": [{
+        "creditType": "Director",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/236539",
+        "personName": "Jordan Vogt-Roberts"
+      }],
+      "actor": [{
+        "creditType": "Actor",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/91606",
+        "personName": "Tom Hiddleston"
+      }],
+      "genre": [
+        "Science Fiction",
+        "Adventure",
+        "Action",
+        "Fantasy"
+      ],
+      "displayDuration": 3600000,
+      "type": "movie",
+      "categoryId": [
+        "ALL_ASSETS",
+        "ALL_MOVIES",
+        "SELECTED_MOVIE"
+      ],
+      "streams": "https://link.theplatform.com/s/tzTJhC/media/QsBCGMGMcqLo",
+      "downloadUrl": "https://link.theplatform.com/s/tzTJhC/media/QsBCGMGMcqLo",
+      "trailers": [{
+        "streams": "https://api-dev.enlight.diagnal.com/v1b3/playback/dummyTrailerStream?assetTypes=Rendition,Trailer"
+      }],
+      "mediaGuid": "293167",
+      "availableOn": 0,
+      "availableTill": 1937302060783,
+      "availableDays": null,
+      "isCcAvailable": true,
+      "parentalControl": [{}],
+      "isDownloadable": true,
+      "isCastable": false,
+      "countries": [
+        "USA"
+      ],
+      "contentGuid": "293167",
+      "images": [{
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/5wBbdNb0NdGiZQJYoKHRv6VbiOr_228x344_13634117868.jpg",
+          "type": "portrait",
+          "width": 228,
+          "height": 344
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/5wBbdNb0NdGiZQJYoKHRv6VbiOr_220x330_13634117869.jpg",
+          "type": "portrait",
+          "width": 220,
+          "height": 330
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/pGwChWiAY1bdoxL79sXmaFBlYJH.jpg",
+          "type": "landscape",
+          "width": 3840,
+          "height": 2160
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/5wBbdNb0NdGiZQJYoKHRv6VbiOr.jpg",
+          "type": "portrait",
+          "width": 2000,
+          "height": 3000
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/pGwChWiAY1bdoxL79sXmaFBlYJH_2048x1152_13634117861.jpg",
+          "type": "landscape",
+          "width": 2048,
+          "height": 1152
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/pGwChWiAY1bdoxL79sXmaFBlYJH_828x464_13634117862.jpg",
+          "type": "landscape",
+          "width": 828,
+          "height": 464
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/pGwChWiAY1bdoxL79sXmaFBlYJH_760x428_13634117863.jpg",
+          "type": "landscape",
+          "width": 760,
+          "height": 428
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/pGwChWiAY1bdoxL79sXmaFBlYJH_526x296_13634117864.jpg",
+          "type": "landscape",
+          "width": 526,
+          "height": 296
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/5wBbdNb0NdGiZQJYoKHRv6VbiOr_288x432_13634117865.jpg",
+          "type": "portrait",
+          "width": 288,
+          "height": 432
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/5wBbdNb0NdGiZQJYoKHRv6VbiOr_280x420_13634117866.jpg",
+          "type": "portrait",
+          "width": 280,
+          "height": 420
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/5wBbdNb0NdGiZQJYoKHRv6VbiOr_264x392_13634117867.jpg",
+          "type": "portrait",
+          "width": 264,
+          "height": 392
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_large.jpg",
+          "type": "square",
+          "width": 1080,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_medium.jpg",
+          "type": "square",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_small.jpg",
+          "type": "square",
+          "width": 360,
+          "height": 360
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_large.jpg",
+          "type": "landscape",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 525
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_small.jpg",
+          "type": "landscape",
+          "width": 300,
+          "height": 225
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_large.jpg",
+          "type": "landscape",
+          "width": 1500,
+          "height": 570
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 226
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_small.jpg",
+          "type": "landscape",
+          "width": 480,
+          "height": 182
+        }
+      ],
+      "purchaseMode": "subscription",
+      "maxQualityAvailable": "4K",
+      "studio": [
+        "Universal Pictures"
+      ]
+    },
+    {
+      "uid": "277058086728",
+      "seasonUid": "",
+      "title": "Logan",
+      "description": "In the near future, a weary Logan cares for an ailing Professor X in a hide out on the Mexican border. But Logan's attempts to hide from the world and his legacy are up-ended when a young mutant arrives, being pursued by dark forces.",
+      "episodeNumber": null,
+      "releaseYear": 2017,
+      "director": [],
+      "actor": [{
+        "creditType": "Actor",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/6968",
+        "personName": "Hugh Jackman"
+      }],
+      "genre": [
+        "Science Fiction",
+        "Drama",
+        "Action"
+      ],
+      "displayDuration": 3600000,
+      "type": "movie",
+      "categoryId": [
+        "ALL_ASSETS",
+        "ALL_MOVIES",
+        "SELECTED_MOVIE"
+      ],
+      "streams": "https://link.theplatform.com/s/tzTJhC/media/zYVhJjMdPKIR",
+      "downloadUrl": "https://link.theplatform.com/s/tzTJhC/media/zYVhJjMdPKIR",
+      "trailers": [{
+        "streams": "https://api-dev.enlight.diagnal.com/v1b3/playback/dummyTrailerStream?assetTypes=Rendition,Trailer"
+      }],
+      "mediaGuid": "263115",
+      "availableOn": 0,
+      "availableTill": 1937302060783,
+      "availableDays": null,
+      "isCcAvailable": true,
+      "parentalControl": [{}],
+      "isDownloadable": true,
+      "isCastable": false,
+      "countries": [
+        "USA"
+      ],
+      "contentGuid": "263115",
+      "images": [{
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/201/5pAGnkFYSsFJ99ZxDIYnhQbQFXs_2048x1152_17412677828.jpg",
+          "type": "landscape",
+          "width": 2048,
+          "height": 1152
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/201/5pAGnkFYSsFJ99ZxDIYnhQbQFXs_828x464_17412677829.jpg",
+          "type": "landscape",
+          "width": 828,
+          "height": 464
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/201/5pAGnkFYSsFJ99ZxDIYnhQbQFXs_760x428_17412677830.jpg",
+          "type": "landscape",
+          "width": 760,
+          "height": 428
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/201/5pAGnkFYSsFJ99ZxDIYnhQbQFXs_526x296_17412677831.jpg",
+          "type": "landscape",
+          "width": 526,
+          "height": 296
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/201/45Y1G5FEgttPAwjTYic6czC9xCn_288x432_17412677832.jpg",
+          "type": "portrait",
+          "width": 288,
+          "height": 432
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/201/45Y1G5FEgttPAwjTYic6czC9xCn_280x420_17412677833.jpg",
+          "type": "portrait",
+          "width": 280,
+          "height": 420
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/201/45Y1G5FEgttPAwjTYic6czC9xCn_264x392_17412677834.jpg",
+          "type": "portrait",
+          "width": 264,
+          "height": 392
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/201/45Y1G5FEgttPAwjTYic6czC9xCn_228x344_17412677835.jpg",
+          "type": "portrait",
+          "width": 228,
+          "height": 344
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/201/45Y1G5FEgttPAwjTYic6czC9xCn_220x330_17412677836.jpg",
+          "type": "portrait",
+          "width": 220,
+          "height": 330
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/201/5pAGnkFYSsFJ99ZxDIYnhQbQFXs.jpg",
+          "type": "landscape",
+          "width": 3840,
+          "height": 2160
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/201/45Y1G5FEgttPAwjTYic6czC9xCn.jpg",
+          "type": "portrait",
+          "width": 2000,
+          "height": 3000
+        },
+        {
+          "url": "https://s3-ap-southeast-1.amazonaws.com/create-static/images/hotspots/277058086728_movie_263115_Logan.jpg",
+          "type": "landscape",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "url": "https://s3-ap-southeast-1.amazonaws.com/create-static/images/hotspots/277058086728_movie_263115_Logansqr.jpeg",
+          "type": "square",
+          "width": 750,
+          "height": 750
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_large.jpg",
+          "type": "landscape",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 525
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_small.jpg",
+          "type": "landscape",
+          "width": 300,
+          "height": 225
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_large.jpg",
+          "type": "landscape",
+          "width": 1500,
+          "height": 570
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 226
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_small.jpg",
+          "type": "landscape",
+          "width": 480,
+          "height": 182
+        }
+      ],
+      "purchaseMode": "subscription",
+      "maxQualityAvailable": "4K",
+      "studio": [
+        "Universal Pictures"
+      ]
+    },
+    {
+      "uid": "277132326626",
+      "seasonUid": "",
+      "title": "John Wick: Chapter 2",
+      "description": "John Wick is forced out of retirement by a former associate looking to seize control of a shadowy international assassins’ guild. Bound by a blood oath to aid him, Wick travels to Rome and does battle against some of the world’s most dangerous killers.",
+      "episodeNumber": null,
+      "releaseYear": 2017,
+      "director": [],
+      "actor": [{
+        "creditType": "Actor",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/6384",
+        "personName": "Keanu Reeves"
+      }],
+      "genre": [
+        "Thriller",
+        "Action",
+        "Crime"
+      ],
+      "displayDuration": 3600000,
+      "type": "movie",
+      "categoryId": [
+        "ALL_ASSETS",
+        "ALL_MOVIES",
+        "SELECTED_MOVIE"
+      ],
+      "streams": "https://link.theplatform.com/s/tzTJhC/media/vxwloPp2XL6t",
+      "downloadUrl": "https://link.theplatform.com/s/tzTJhC/media/vxwloPp2XL6t",
+      "trailers": [{
+        "streams": "https://api-dev.enlight.diagnal.com/v1b3/playback/dummyTrailerStream?assetTypes=Rendition,Trailer"
+      }],
+      "mediaGuid": "324552",
+      "availableOn": 0,
+      "availableTill": 1937302060783,
+      "availableDays": null,
+      "isCcAvailable": true,
+      "parentalControl": [{}],
+      "isDownloadable": true,
+      "isCastable": false,
+      "countries": [
+        "USA"
+      ],
+      "contentGuid": "324552",
+      "images": [{
+          "url": "https://static.enlight.diagnal.com/enlight/posters/John_wick_828x464.jpg",
+          "type": "landscape",
+          "width": 828,
+          "height": 464
+        },
+        {
+          "url": "https://static.enlight.diagnal.com/enlight/posters/John_Wick_760x428.jpg",
+          "type": "landscape",
+          "width": 760,
+          "height": 428
+        },
+        {
+          "url": "https://static.enlight.diagnal.com/enlight/posters/John_wick_526x296.jpg",
+          "type": "landscape",
+          "width": 526,
+          "height": 296
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/185/393/1jvyy3UtMbWBHikj7byFJeY5Fc7_288x432_13637701999.jpg",
+          "type": "portrait",
+          "width": 288,
+          "height": 432
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/185/393/1jvyy3UtMbWBHikj7byFJeY5Fc7_280x420_13637702000.jpg",
+          "type": "portrait",
+          "width": 280,
+          "height": 420
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/185/393/1jvyy3UtMbWBHikj7byFJeY5Fc7_264x392_13637702001.jpg",
+          "type": "portrait",
+          "width": 264,
+          "height": 392
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/185/393/1jvyy3UtMbWBHikj7byFJeY5Fc7_228x344_13637702002.jpg",
+          "type": "portrait",
+          "width": 228,
+          "height": 344
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/185/393/1jvyy3UtMbWBHikj7byFJeY5Fc7_220x330_13639749503.jpg",
+          "type": "portrait",
+          "width": 220,
+          "height": 330
+        },
+        {
+          "url": "https://static.enlight.diagnal.com/enlight/posters/10_John-Wick-Chapter-Two_1920x1080.jpg",
+          "type": "landscape",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://static.enlight.diagnal.com/enlight/posters/John+Wick+1025.jpg",
+          "type": "landscape",
+          "width": 1025,
+          "height": 440
+        },
+        {
+          "url": "https://static.enlight.diagnal.com/enlight/posters/1500x570+john.jpg",
+          "type": "landscape",
+          "width": 1500,
+          "height": 570
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_large.jpg",
+          "type": "square",
+          "width": 1080,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_medium.jpg",
+          "type": "square",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_small.jpg",
+          "type": "square",
+          "width": 360,
+          "height": 360
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_large.jpg",
+          "type": "landscape",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 525
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_small.jpg",
+          "type": "landscape",
+          "width": 300,
+          "height": 225
+        }
+      ],
+      "purchaseMode": "subscription",
+      "maxQualityAvailable": "4K",
+      "studio": [
+        "Universal Pictures"
+      ]
+    },
+    {
+      "uid": "277058086764",
+      "seasonUid": "",
+      "title": "Doctor Strange",
+      "description": "After his career is destroyed, a brilliant but arrogant surgeon gets a new lease on life when a sorcerer takes him under his wing and trains him to defend the world against evil.",
+      "episodeNumber": null,
+      "releaseYear": 2016,
+      "director": [{
+        "creditType": "Director",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/55499",
+        "personName": "Scott Derrickson"
+      }],
+      "actor": [],
+      "genre": [
+        "Science Fiction",
+        "Adventure",
+        "Action",
+        "Fantasy"
+      ],
+      "displayDuration": 6240000,
+      "type": "movie",
+      "categoryId": [
+        "ALL_ASSETS",
+        "ALL_MOVIES",
+        "SELECTED_MOVIE"
+      ],
+      "streams": "https://api-dev.enlight.diagnal.com/v1b3/playback/277058086764?",
+      "downloadUrl": "https://link.theplatform.com/s/tzTJhC/media/kf1xVxt5jloO",
+      "trailers": [{
+        "streams": "https://api-dev.enlight.diagnal.com/v1b3/playback/dummyTrailerStream?assetTypes=Rendition,Trailer"
+      }],
+      "mediaGuid": "284052",
+      "availableOn": 0,
+      "availableTill": 1937302060783,
+      "availableDays": null,
+      "isCcAvailable": true,
+      "parentalControl": [{
+        "rating": "G"
+      }],
+      "isDownloadable": true,
+      "isCastable": false,
+      "countries": [
+        "USA"
+      ],
+      "contentGuid": "284052",
+      "images": [{
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/201/tFI8VLMgSTTU38i8TIsklfqS9Nl_2048x1152_13634117834.jpg",
+          "type": "landscape",
+          "width": 2048,
+          "height": 1152
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/201/tFI8VLMgSTTU38i8TIsklfqS9Nl_828x464_13634117835.jpg",
+          "type": "landscape",
+          "width": 828,
+          "height": 464
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/201/tFI8VLMgSTTU38i8TIsklfqS9Nl_760x428_13634117836.jpg",
+          "type": "landscape",
+          "width": 760,
+          "height": 428
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/201/tFI8VLMgSTTU38i8TIsklfqS9Nl_526x296_13634117837.jpg",
+          "type": "landscape",
+          "width": 526,
+          "height": 296
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/201/4PiiNGXj1KENTmCBHeN6Mskj2Fq_288x432_13634117838.jpg",
+          "type": "portrait",
+          "width": 288,
+          "height": 432
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/201/4PiiNGXj1KENTmCBHeN6Mskj2Fq_280x420_13634117839.jpg",
+          "type": "portrait",
+          "width": 280,
+          "height": 420
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/201/4PiiNGXj1KENTmCBHeN6Mskj2Fq_264x392_13634117840.jpg",
+          "type": "portrait",
+          "width": 264,
+          "height": 392
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/201/4PiiNGXj1KENTmCBHeN6Mskj2Fq_228x344_13634117841.jpg",
+          "type": "portrait",
+          "width": 228,
+          "height": 344
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/201/4PiiNGXj1KENTmCBHeN6Mskj2Fq_220x330_13634117842.jpg",
+          "type": "portrait",
+          "width": 220,
+          "height": 330
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/201/tFI8VLMgSTTU38i8TIsklfqS9Nl.jpg",
+          "type": "landscape",
+          "width": 3840,
+          "height": 2160
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/201/4PiiNGXj1KENTmCBHeN6Mskj2Fq.jpg",
+          "type": "portrait",
+          "width": 2000,
+          "height": 3000
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_large.jpg",
+          "type": "square",
+          "width": 1080,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_medium.jpg",
+          "type": "square",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_small.jpg",
+          "type": "square",
+          "width": 360,
+          "height": 360
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_large.jpg",
+          "type": "landscape",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 525
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_small.jpg",
+          "type": "landscape",
+          "width": 300,
+          "height": 225
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_large.jpg",
+          "type": "landscape",
+          "width": 1500,
+          "height": 570
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 226
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_small.jpg",
+          "type": "landscape",
+          "width": 480,
+          "height": 182
+        }
+      ],
+      "purchaseMode": "subscription",
+      "maxQualityAvailable": "4K",
+      "studio": [
+        "Universal Pictures"
+      ]
+    },
+    {
+      "uid": "277067302949",
+      "seasonUid": "",
+      "title": "Keanu",
+      "description": "Friends hatch a plot to retrieve a stolen cat by posing as drug dealers for a street gang.",
+      "episodeNumber": null,
+      "releaseYear": 2016,
+      "director": [{
+        "creditType": "Director",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/136153",
+        "personName": "Peter Atencio"
+      }],
+      "actor": [{
+        "creditType": "Actor",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/291263",
+        "personName": "Jordan Peele"
+      }],
+      "genre": [
+        "Comedy",
+        "Action"
+      ],
+      "displayDuration": 3600000,
+      "type": "movie",
+      "categoryId": [
+        "ALL_ASSETS",
+        "ALL_MOVIES",
+        "SELECTED_MOVIE"
+      ],
+      "streams": "https://link.theplatform.com/s/tzTJhC/media/DAYtL3zzeC_o",
+      "downloadUrl": "https://link.theplatform.com/s/tzTJhC/media/DAYtL3zzeC_o",
+      "trailers": [{
+        "streams": "https://api-dev.enlight.diagnal.com/v1b3/playback/dummyTrailerStream?assetTypes=Rendition,Trailer"
+      }],
+      "mediaGuid": "342521",
+      "availableOn": 0,
+      "availableTill": 1937302060783,
+      "availableDays": null,
+      "isCcAvailable": true,
+      "parentalControl": [{}],
+      "isDownloadable": true,
+      "isCastable": false,
+      "countries": [
+        "USA"
+      ],
+      "contentGuid": "342521",
+      "images": [{
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/297/udU6t5xPNDLlRTxhjXqgWFFYlvO_280x420_13635653756.jpg",
+          "type": "portrait",
+          "width": 280,
+          "height": 420
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/297/udU6t5xPNDLlRTxhjXqgWFFYlvO_264x392_13635653757.jpg",
+          "type": "portrait",
+          "width": 264,
+          "height": 392
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/297/udU6t5xPNDLlRTxhjXqgWFFYlvO_228x344_13635653758.jpg",
+          "type": "portrait",
+          "width": 228,
+          "height": 344
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/297/udU6t5xPNDLlRTxhjXqgWFFYlvO_220x330_13635653759.jpg",
+          "type": "portrait",
+          "width": 220,
+          "height": 330
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/297/udU6t5xPNDLlRTxhjXqgWFFYlvO.jpg",
+          "type": "portrait",
+          "width": 2000,
+          "height": 3000
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/297/9AjSRV8RMhHJS3DsnfJcY6CM9xU.jpg",
+          "type": "landscape",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/297/9AjSRV8RMhHJS3DsnfJcY6CM9xU_2048x1152_13635653749.jpg",
+          "type": "landscape",
+          "width": 2048,
+          "height": 1152
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/297/9AjSRV8RMhHJS3DsnfJcY6CM9xU_828x464_13635653750.jpg",
+          "type": "landscape",
+          "width": 828,
+          "height": 464
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/297/9AjSRV8RMhHJS3DsnfJcY6CM9xU_760x428_13635653751.jpg",
+          "type": "landscape",
+          "width": 760,
+          "height": 428
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/297/9AjSRV8RMhHJS3DsnfJcY6CM9xU_526x296_13635653752.jpg",
+          "type": "landscape",
+          "width": 526,
+          "height": 296
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/297/udU6t5xPNDLlRTxhjXqgWFFYlvO_288x432_13635653755.jpg",
+          "type": "portrait",
+          "width": 288,
+          "height": 432
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_large.jpg",
+          "type": "square",
+          "width": 1080,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_medium.jpg",
+          "type": "square",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_small.jpg",
+          "type": "square",
+          "width": 360,
+          "height": 360
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_large.jpg",
+          "type": "landscape",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 525
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_small.jpg",
+          "type": "landscape",
+          "width": 300,
+          "height": 225
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_large.jpg",
+          "type": "landscape",
+          "width": 1500,
+          "height": 570
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 226
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_small.jpg",
+          "type": "landscape",
+          "width": 480,
+          "height": 182
+        }
+      ],
+      "purchaseMode": "subscription",
+      "maxQualityAvailable": "4K",
+      "studio": [
+        "Universal Pictures"
+      ]
+    },
+    {
+      "uid": "277065254530",
+      "seasonUid": "",
+      "title": "Rogue One: A Star Wars Story",
+      "description": "A rogue band of resistance fighters unite for a mission to steal the Death Star plans and bring a new hope to the galaxy.",
+      "episodeNumber": null,
+      "releaseYear": 2016,
+      "director": [{
+        "creditType": "Director",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/129894",
+        "personName": "Gareth Edwards"
+      }],
+      "actor": [{
+        "creditType": "Actor",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/72855",
+        "personName": "Felicity Jones"
+      }],
+      "genre": [
+        "Science Fiction",
+        "Drama",
+        "War",
+        "Action"
+      ],
+      "displayDuration": 3600000,
+      "type": "movie",
+      "categoryId": [
+        "ALL_ASSETS",
+        "ALL_MOVIES",
+        "SELECTED_MOVIE"
+      ],
+      "streams": "https://link.theplatform.com/s/tzTJhC/media/fDpN7uOGWNAd",
+      "downloadUrl": "https://link.theplatform.com/s/tzTJhC/media/fDpN7uOGWNAd",
+      "trailers": [{
+        "streams": "https://api-dev.enlight.diagnal.com/v1b3/playback/dummyTrailerStream?assetTypes=Rendition,Trailer"
+      }],
+      "mediaGuid": "330459",
+      "availableOn": 0,
+      "availableTill": 1937302060783,
+      "availableDays": null,
+      "isCcAvailable": true,
+      "parentalControl": [{}],
+      "isDownloadable": true,
+      "isCastable": false,
+      "countries": [
+        "USA"
+      ],
+      "contentGuid": "330459",
+      "images": [{
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/190/773/tZjVVIYXACV4IIIhXeIM59ytqwS_2048x1152_13635141755.jpg",
+          "type": "landscape",
+          "width": 2048,
+          "height": 1152
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/190/773/tZjVVIYXACV4IIIhXeIM59ytqwS_828x464_13635141756.jpg",
+          "type": "landscape",
+          "width": 828,
+          "height": 464
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/190/773/tZjVVIYXACV4IIIhXeIM59ytqwS_760x428_13635141757.jpg",
+          "type": "landscape",
+          "width": 760,
+          "height": 428
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/190/773/tZjVVIYXACV4IIIhXeIM59ytqwS_526x296_13635141758.jpg",
+          "type": "landscape",
+          "width": 526,
+          "height": 296
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/190/773/qjiskwlV1qQzRCjpV0cL9pEMF9a_288x432_13635141769.jpg",
+          "type": "portrait",
+          "width": 288,
+          "height": 432
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/190/773/qjiskwlV1qQzRCjpV0cL9pEMF9a_280x420_13635141770.jpg",
+          "type": "portrait",
+          "width": 280,
+          "height": 420
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/190/773/qjiskwlV1qQzRCjpV0cL9pEMF9a_264x392_13635141771.jpg",
+          "type": "portrait",
+          "width": 264,
+          "height": 392
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/190/773/qjiskwlV1qQzRCjpV0cL9pEMF9a_228x344_13635141772.jpg",
+          "type": "portrait",
+          "width": 228,
+          "height": 344
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/190/773/qjiskwlV1qQzRCjpV0cL9pEMF9a_220x330_13635141773.jpg",
+          "type": "portrait",
+          "width": 220,
+          "height": 330
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/190/773/tZjVVIYXACV4IIIhXeIM59ytqwS.jpg",
+          "type": "landscape",
+          "width": 3840,
+          "height": 2160
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/190/773/qjiskwlV1qQzRCjpV0cL9pEMF9a.jpg",
+          "type": "portrait",
+          "width": 2000,
+          "height": 3000
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_large.jpg",
+          "type": "square",
+          "width": 1080,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_medium.jpg",
+          "type": "square",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_small.jpg",
+          "type": "square",
+          "width": 360,
+          "height": 360
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_large.jpg",
+          "type": "landscape",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 525
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_small.jpg",
+          "type": "landscape",
+          "width": 300,
+          "height": 225
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_large.jpg",
+          "type": "landscape",
+          "width": 1500,
+          "height": 570
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 226
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_small.jpg",
+          "type": "landscape",
+          "width": 480,
+          "height": 182
+        }
+      ],
+      "purchaseMode": "subscription",
+      "maxQualityAvailable": "4K",
+      "studio": [
+        "Universal Pictures"
+      ]
+    },
+    {
+      "uid": "277124646909",
+      "seasonUid": "",
+      "title": "Deadpool",
+      "description": "Based upon Marvel Comics’ most unconventional anti-hero, DEADPOOL tells the origin story of former Special Forces operative turned mercenary Wade Wilson, who after being subjected to a rogue experiment that leaves him with accelerated healing powers, adopts the alter ego Deadpool. Armed with his new abilities and a dark, twisted sense of humor, Deadpool hunts down the man who nearly destroyed his life.",
+      "episodeNumber": null,
+      "releaseYear": 2016,
+      "director": [],
+      "actor": [{
+        "creditType": "Actor",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/10859",
+        "personName": "Ryan Reynolds"
+      }],
+      "genre": [
+        "Romance",
+        "Comedy",
+        "Adventure",
+        "Action"
+      ],
+      "displayDuration": 8400000,
+      "type": "movie",
+      "categoryId": [
+        "ALL_ASSETS",
+        "ALL_MOVIES",
+        "SELECTED_MOVIE"
+      ],
+      "streams": "https://api-dev.enlight.diagnal.com/v1b3/playback/277124646909?",
+      "downloadUrl": "https://link.theplatform.com/s/tzTJhC/media/C1VvwpXneDcc",
+      "trailers": [{
+        "streams": "https://api-dev.enlight.diagnal.com/v1b3/playback/dummyTrailerStream?assetTypes=Rendition,Trailer"
+      }],
+      "mediaGuid": "293660",
+      "availableOn": 0,
+      "availableTill": 1937302060783,
+      "availableDays": null,
+      "isCcAvailable": true,
+      "parentalControl": [{
+        "rating": "18+"
+      }],
+      "isDownloadable": true,
+      "isCastable": false,
+      "countries": [
+        "USA"
+      ],
+      "contentGuid": "293660",
+      "images": [{
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/186/369/n1y094tVDFATSzkTnFxoGZ1qNsG_2048x1152_13637189853.jpg",
+          "type": "landscape",
+          "width": 2048,
+          "height": 1152
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/186/369/n1y094tVDFATSzkTnFxoGZ1qNsG_828x464_13637189854.jpg",
+          "type": "landscape",
+          "width": 828,
+          "height": 464
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/186/369/n1y094tVDFATSzkTnFxoGZ1qNsG_760x428_13637189855.jpg",
+          "type": "landscape",
+          "width": 760,
+          "height": 428
+        },
+        {
+          "url": "https://static.enlight.diagnal.com/enlight/thumbnails/Deadpool_526x296.jpg",
+          "type": "landscape",
+          "width": 526,
+          "height": 296
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/186/369/inVq3FRqcYIRl2la8iZikYYxFNR_288x432_13637189848.jpg",
+          "type": "portrait",
+          "width": 288,
+          "height": 432
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/186/369/inVq3FRqcYIRl2la8iZikYYxFNR_280x420_13637189849.jpg",
+          "type": "portrait",
+          "width": 280,
+          "height": 420
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/186/369/inVq3FRqcYIRl2la8iZikYYxFNR_264x392_13637189850.jpg",
+          "type": "portrait",
+          "width": 264,
+          "height": 392
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/186/369/inVq3FRqcYIRl2la8iZikYYxFNR_228x344_13637189851.jpg",
+          "type": "portrait",
+          "width": 228,
+          "height": 344
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/186/369/inVq3FRqcYIRl2la8iZikYYxFNR_220x330_13637189852.jpg",
+          "type": "portrait",
+          "width": 220,
+          "height": 330
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/186/369/n1y094tVDFATSzkTnFxoGZ1qNsG.jpg",
+          "type": "landscape",
+          "width": 3840,
+          "height": 2160
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/186/369/inVq3FRqcYIRl2la8iZikYYxFNR.jpg",
+          "type": "portrait",
+          "width": 2000,
+          "height": 3000
+        },
+        {
+          "url": "https://s3-ap-southeast-1.amazonaws.com/create-static/images/hotspots/277124646909_movie_293660_Deadpool.jpeg",
+          "type": "landscape",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "url": "https://s3-ap-southeast-1.amazonaws.com/create-static/images/hotspots/277124646909_movie_293660_Deadpool_sqr.jpeg",
+          "type": "square",
+          "width": 750,
+          "height": 750
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_large.jpg",
+          "type": "landscape",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 525
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_small.jpg",
+          "type": "landscape",
+          "width": 300,
+          "height": 225
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_large.jpg",
+          "type": "landscape",
+          "width": 1500,
+          "height": 570
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 226
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_small.jpg",
+          "type": "landscape",
+          "width": 480,
+          "height": 182
+        }
+      ],
+      "purchaseMode": "subscription",
+      "maxQualityAvailable": "4K",
+      "studio": [
+        "Universal Pictures"
+      ]
+    },
+    {
+      "uid": "277058598652",
+      "seasonUid": "",
+      "title": "Star Wars: The Force Awakens",
+      "description": "Thirty years after defeating the Galactic Empire, Han Solo and his allies face a new threat from the evil Kylo Ren and his army of Stormtroopers.",
+      "episodeNumber": null,
+      "releaseYear": 2015,
+      "director": [{
+        "creditType": "Director",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/15344",
+        "personName": "J.J. Abrams"
+      }],
+      "actor": [{
+        "creditType": "Actor",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/3",
+        "personName": "Harrison Ford"
+      }],
+      "genre": [
+        "Science Fiction",
+        "Adventure",
+        "Action",
+        "Fantasy"
+      ],
+      "displayDuration": 3600000,
+      "type": "movie",
+      "categoryId": [
+        "ALL_ASSETS",
+        "ALL_MOVIES",
+        "SELECTED_MOVIE"
+      ],
+      "streams": "https://link.theplatform.com/s/tzTJhC/media/INGOIRMiVNzC",
+      "downloadUrl": "https://link.theplatform.com/s/tzTJhC/media/INGOIRMiVNzC",
+      "trailers": [{
+        "streams": "https://api-dev.enlight.diagnal.com/v1b3/playback/dummyTrailerStream?assetTypes=Rendition,Trailer"
+      }],
+      "mediaGuid": "140607",
+      "availableOn": 0,
+      "availableTill": 1937302060783,
+      "availableDays": null,
+      "isCcAvailable": true,
+      "parentalControl": [{}],
+      "isDownloadable": true,
+      "isCastable": false,
+      "countries": [
+        "USA"
+      ],
+      "contentGuid": "140607",
+      "images": [{
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/192/724/njv65RTipNSTozFLuF85jL0bcQe_2048x1152_13635141562.jpg",
+          "type": "landscape",
+          "width": 2048,
+          "height": 1152
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/192/724/njv65RTipNSTozFLuF85jL0bcQe_828x464_13635141563.jpg",
+          "type": "landscape",
+          "width": 828,
+          "height": 464
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/192/724/njv65RTipNSTozFLuF85jL0bcQe_760x428_13635141564.jpg",
+          "type": "landscape",
+          "width": 760,
+          "height": 428
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/192/724/njv65RTipNSTozFLuF85jL0bcQe_526x296_13635141565.jpg",
+          "type": "landscape",
+          "width": 526,
+          "height": 296
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/192/724/weUSwMdQIa3NaXVzwUoIIcAi85d_288x432_13633093996.jpg",
+          "type": "portrait",
+          "width": 288,
+          "height": 432
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/192/724/weUSwMdQIa3NaXVzwUoIIcAi85d_280x420_13633093997.jpg",
+          "type": "portrait",
+          "width": 280,
+          "height": 420
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/192/724/weUSwMdQIa3NaXVzwUoIIcAi85d_264x392_13633093998.jpg",
+          "type": "portrait",
+          "width": 264,
+          "height": 392
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/192/724/weUSwMdQIa3NaXVzwUoIIcAi85d_228x344_13633093999.jpg",
+          "type": "portrait",
+          "width": 228,
+          "height": 344
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/192/724/weUSwMdQIa3NaXVzwUoIIcAi85d_220x330_13633094000.jpg",
+          "type": "portrait",
+          "width": 220,
+          "height": 330
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/192/724/njv65RTipNSTozFLuF85jL0bcQe.jpg",
+          "type": "landscape",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/192/724/weUSwMdQIa3NaXVzwUoIIcAi85d.jpg",
+          "type": "portrait",
+          "width": 2000,
+          "height": 3000
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_large.jpg",
+          "type": "square",
+          "width": 1080,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_medium.jpg",
+          "type": "square",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_small.jpg",
+          "type": "square",
+          "width": 360,
+          "height": 360
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_large.jpg",
+          "type": "landscape",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 525
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_small.jpg",
+          "type": "landscape",
+          "width": 300,
+          "height": 225
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_large.jpg",
+          "type": "landscape",
+          "width": 1500,
+          "height": 570
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 226
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_small.jpg",
+          "type": "landscape",
+          "width": 480,
+          "height": 182
+        }
+      ],
+      "purchaseMode": "subscription",
+      "maxQualityAvailable": "4K",
+      "studio": [
+        "Universal Pictures"
+      ]
+    },
+    {
+      "uid": "277060134562",
+      "seasonUid": "",
+      "title": "Jurassic World",
+      "description": "Twenty-two years after the events of Jurassic Park, Isla Nublar now features a fully functioning dinosaur theme park, Jurassic World, as originally envisioned by John Hammond.",
+      "episodeNumber": null,
+      "releaseYear": 2015,
+      "director": [{
+        "creditType": "Director",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/930707",
+        "personName": "Colin Trevorrow"
+      }],
+      "actor": [{
+        "creditType": "Actor",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/73457",
+        "personName": "Chris Pratt"
+      }],
+      "genre": [
+        "Thriller",
+        "Science Fiction",
+        "Adventure",
+        "Action"
+      ],
+      "displayDuration": 3600000,
+      "type": "movie",
+      "categoryId": [
+        "ALL_ASSETS",
+        "ALL_MOVIES",
+        "SELECTED_MOVIE"
+      ],
+      "streams": "https://link.theplatform.com/s/tzTJhC/media/YIi76X_xNO4w",
+      "downloadUrl": "https://link.theplatform.com/s/tzTJhC/media/YIi76X_xNO4w",
+      "trailers": [{
+        "streams": "https://api-dev.enlight.diagnal.com/v1b3/playback/dummyTrailerStream?assetTypes=Rendition,Trailer"
+      }],
+      "mediaGuid": "135397",
+      "availableOn": 0,
+      "availableTill": 1937302060783,
+      "availableDays": null,
+      "isCcAvailable": true,
+      "parentalControl": [{}],
+      "isDownloadable": true,
+      "isCastable": false,
+      "countries": [
+        "USA"
+      ],
+      "contentGuid": "135397",
+      "images": [{
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/dkMD5qlogeRMiEixC4YNPUvax2T_2048x1152_13635653565.jpg",
+          "type": "landscape",
+          "width": 2048,
+          "height": 1152
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/dkMD5qlogeRMiEixC4YNPUvax2T_828x464_13635653566.jpg",
+          "type": "landscape",
+          "width": 828,
+          "height": 464
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/dkMD5qlogeRMiEixC4YNPUvax2T_760x428_13635653567.jpg",
+          "type": "landscape",
+          "width": 760,
+          "height": 428
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/dkMD5qlogeRMiEixC4YNPUvax2T_526x296_13635653568.jpg",
+          "type": "landscape",
+          "width": 526,
+          "height": 296
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/jjBgi2r5cRt36xF6iNUEhzscEcb_288x432_13635653579.jpg",
+          "type": "portrait",
+          "width": 288,
+          "height": 432
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/jjBgi2r5cRt36xF6iNUEhzscEcb_280x420_13635653580.jpg",
+          "type": "portrait",
+          "width": 280,
+          "height": 420
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/jjBgi2r5cRt36xF6iNUEhzscEcb_264x392_13635653581.jpg",
+          "type": "portrait",
+          "width": 264,
+          "height": 392
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/jjBgi2r5cRt36xF6iNUEhzscEcb_228x344_13635653582.jpg",
+          "type": "portrait",
+          "width": 228,
+          "height": 344
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/jjBgi2r5cRt36xF6iNUEhzscEcb_220x330_13635653583.jpg",
+          "type": "portrait",
+          "width": 220,
+          "height": 330
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/jjBgi2r5cRt36xF6iNUEhzscEcb.jpg",
+          "type": "portrait",
+          "width": 2000,
+          "height": 3000
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/dkMD5qlogeRMiEixC4YNPUvax2T.jpg",
+          "type": "landscape",
+          "width": 3840,
+          "height": 2160
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_large.jpg",
+          "type": "square",
+          "width": 1080,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_medium.jpg",
+          "type": "square",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_small.jpg",
+          "type": "square",
+          "width": 360,
+          "height": 360
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_large.jpg",
+          "type": "landscape",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 525
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_small.jpg",
+          "type": "landscape",
+          "width": 300,
+          "height": 225
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_large.jpg",
+          "type": "landscape",
+          "width": 1500,
+          "height": 570
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 226
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_small.jpg",
+          "type": "landscape",
+          "width": 480,
+          "height": 182
+        }
+      ],
+      "purchaseMode": "subscription",
+      "maxQualityAvailable": "4K",
+      "studio": [
+        "Universal Pictures"
+      ]
+    },
+    {
+      "uid": "277078054603",
+      "seasonUid": "",
+      "title": "Avengers: Age of Ultron",
+      "description": "When Tony Stark tries to jumpstart a dormant peacekeeping program, things go awry and Earth’s Mightiest Heroes are put to the ultimate test as the fate of the planet hangs in the balance. As the villainous Ultron emerges, it is up to The Avengers to stop him from enacting his terrible plans, and soon uneasy alliances and unexpected action pave the way for an epic and unique global adventure.",
+      "episodeNumber": null,
+      "releaseYear": 2015,
+      "director": [{
+        "creditType": "Director",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/12891",
+        "personName": "Joss Whedon"
+      }],
+      "actor": [{
+        "creditType": "Actor",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/3223",
+        "personName": "Robert Downey Jr."
+      }],
+      "genre": [
+        "Science Fiction",
+        "Adventure",
+        "Action"
+      ],
+      "displayDuration": 9300000,
+      "type": "movie",
+      "categoryId": [
+        "ALL_ASSETS",
+        "ALL_MOVIES",
+        "SELECTED_MOVIE"
+      ],
+      "streams": "https://link.theplatform.com/s/tzTJhC/media/rHlTn9jj2S5G",
+      "downloadUrl": "https://link.theplatform.com/s/tzTJhC/media/rHlTn9jj2S5G",
+      "trailers": [{
+        "streams": "https://api-dev.enlight.diagnal.com/v1b3/playback/dummyTrailerStream?assetTypes=Rendition,Trailer"
+      }],
+      "mediaGuid": "99861",
+      "availableOn": 0,
+      "availableTill": 1937302060783,
+      "availableDays": null,
+      "isCcAvailable": true,
+      "parentalControl": [{
+        "rating": "PD"
+      }],
+      "isDownloadable": true,
+      "isCastable": false,
+      "countries": [
+        "USA"
+      ],
+      "contentGuid": "99861",
+      "images": [{
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/320/570qhjGZmGPrBGnfx70jcwIuBr4_2048x1152_13635653986.jpg",
+          "type": "landscape",
+          "width": 2048,
+          "height": 1152
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/320/570qhjGZmGPrBGnfx70jcwIuBr4_828x464_13635653987.jpg",
+          "type": "landscape",
+          "width": 828,
+          "height": 464
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/320/570qhjGZmGPrBGnfx70jcwIuBr4_760x428_13635653988.jpg",
+          "type": "landscape",
+          "width": 760,
+          "height": 428
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/320/570qhjGZmGPrBGnfx70jcwIuBr4_526x296_13635653989.jpg",
+          "type": "landscape",
+          "width": 526,
+          "height": 296
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/320/t90Y3G8UGQp0f0DrP60wRu9gfrH_288x432_13635653981.jpg",
+          "type": "portrait",
+          "width": 288,
+          "height": 432
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/320/t90Y3G8UGQp0f0DrP60wRu9gfrH_280x420_13635653982.jpg",
+          "type": "portrait",
+          "width": 280,
+          "height": 420
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/320/t90Y3G8UGQp0f0DrP60wRu9gfrH_264x392_13635653983.jpg",
+          "type": "portrait",
+          "width": 264,
+          "height": 392
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/320/t90Y3G8UGQp0f0DrP60wRu9gfrH_228x344_13635653984.jpg",
+          "type": "portrait",
+          "width": 228,
+          "height": 344
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/320/t90Y3G8UGQp0f0DrP60wRu9gfrH_220x330_13635653985.jpg",
+          "type": "portrait",
+          "width": 220,
+          "height": 330
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/320/570qhjGZmGPrBGnfx70jcwIuBr4.jpg",
+          "type": "landscape",
+          "width": 3840,
+          "height": 2160
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/320/t90Y3G8UGQp0f0DrP60wRu9gfrH.jpg",
+          "type": "portrait",
+          "width": 2000,
+          "height": 3000
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_large.jpg",
+          "type": "square",
+          "width": 1080,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_medium.jpg",
+          "type": "square",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_small.jpg",
+          "type": "square",
+          "width": 360,
+          "height": 360
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_large.jpg",
+          "type": "landscape",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 525
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_small.jpg",
+          "type": "landscape",
+          "width": 300,
+          "height": 225
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_large.jpg",
+          "type": "landscape",
+          "width": 1500,
+          "height": 570
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 226
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_small.jpg",
+          "type": "landscape",
+          "width": 480,
+          "height": 182
+        }
+      ],
+      "purchaseMode": "subscription",
+      "maxQualityAvailable": "4K",
+      "studio": [
+        "Universal Pictures"
+      ]
+    },
+    {
+      "uid": "277064230747",
+      "seasonUid": "",
+      "title": "Rush",
+      "description": "A biographical drama centered on the rivalry between Formula 1 drivers James Hunt and Niki Lauda during the 1976 Formula One motor-racing season.",
+      "episodeNumber": null,
+      "releaseYear": 2013,
+      "director": [{
+        "creditType": "Director",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/6159",
+        "personName": "Ron Howard"
+      }],
+      "actor": [{
+        "creditType": "Actor",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/3872",
+        "personName": "Daniel Brühl"
+      }],
+      "genre": [
+        "Drama",
+        "Action"
+      ],
+      "displayDuration": 3600000,
+      "type": "movie",
+      "categoryId": [
+        "ALL_ASSETS",
+        "ALL_MOVIES",
+        "SELECTED_MOVIE"
+      ],
+      "streams": "https://link.theplatform.com/s/tzTJhC/media/yHhGQAkJaByK",
+      "downloadUrl": "https://link.theplatform.com/s/tzTJhC/media/yHhGQAkJaByK",
+      "trailers": [{
+        "streams": "https://api-dev.enlight.diagnal.com/v1b3/playback/dummyTrailerStream?assetTypes=Rendition,Trailer"
+      }],
+      "mediaGuid": "96721",
+      "availableOn": 0,
+      "availableTill": 1937302060783,
+      "availableDays": null,
+      "isCcAvailable": true,
+      "parentalControl": [{}],
+      "isDownloadable": true,
+      "isCastable": false,
+      "countries": [
+        "USA"
+      ],
+      "contentGuid": "96721",
+      "images": [{
+          "url": "https://static.enlight.diagnal.com/enlight/posters/Rush_828x464.jpg",
+          "type": "landscape",
+          "width": 828,
+          "height": 464
+        },
+        {
+          "url": "https://static.enlight.diagnal.com/enlight/posters/Rush_760x428.jpg",
+          "type": "landscape",
+          "width": 760,
+          "height": 428
+        },
+        {
+          "url": "https://static.enlight.diagnal.com/enlight/posters/Rush+526x296.jpg",
+          "type": "landscape",
+          "width": 526,
+          "height": 296
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/797/cjEepHZOZAwmK6nAj5jis6HV75E_288x432_13635141706.jpg",
+          "type": "portrait",
+          "width": 288,
+          "height": 432
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/797/cjEepHZOZAwmK6nAj5jis6HV75E_280x420_13635141707.jpg",
+          "type": "portrait",
+          "width": 280,
+          "height": 420
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/797/cjEepHZOZAwmK6nAj5jis6HV75E_264x392_13635141708.jpg",
+          "type": "portrait",
+          "width": 264,
+          "height": 392
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/797/cjEepHZOZAwmK6nAj5jis6HV75E_228x344_13635141709.jpg",
+          "type": "portrait",
+          "width": 228,
+          "height": 344
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/797/cjEepHZOZAwmK6nAj5jis6HV75E_220x330_13635141710.jpg",
+          "type": "portrait",
+          "width": 220,
+          "height": 330
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/797/cjEepHZOZAwmK6nAj5jis6HV75E.jpg",
+          "type": "portrait",
+          "width": 1000,
+          "height": 1500
+        },
+        {
+          "url": "https://static.enlight.diagnal.com/enlight/posters/Rush1_1920x1080.jpg",
+          "type": "landscape",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://static.enlight.diagnal.com/enlight/posters/Rush+588x330.jpg",
+          "type": "landscape",
+          "width": 588,
+          "height": 330
+        },
+        {
+          "url": "https://static.enlight.diagnal.com/enlight/posters/Rush+1025.jpg",
+          "type": "landscape",
+          "width": 1025,
+          "height": 440
+        },
+        {
+          "url": "https://static.enlight.diagnal.com/enlight/posters/Rush+1500x570.jpg",
+          "type": "landscape",
+          "width": 1500,
+          "height": 570
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_large.jpg",
+          "type": "square",
+          "width": 1080,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_medium.jpg",
+          "type": "square",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_small.jpg",
+          "type": "square",
+          "width": 360,
+          "height": 360
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_large.jpg",
+          "type": "landscape",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 525
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_small.jpg",
+          "type": "landscape",
+          "width": 300,
+          "height": 225
+        }
+      ],
+      "purchaseMode": "subscription",
+      "maxQualityAvailable": "4K",
+      "studio": [
+        "Universal Pictures"
+      ]
+    },
+    {
+      "uid": "277067814695",
+      "seasonUid": "",
+      "title": "Pacific Rim",
+      "description": "When legions of monstrous creatures, known as Kaiju, started rising from the sea, a war began that would take millions of lives and consume humanity's resources for years on end. To combat the giant Kaiju, a special type of weapon was devised: massive robots, called Jaegers, which are controlled simultaneously by two pilots whose minds are locked in a neural bridge. But even the Jaegers are proving nearly defenseless in the face of the relentless Kaiju. On the verge of defeat, the forces defending mankind have no choice but to turn to two unlikely heroes—a washed-up former pilot (Charlie Hunnam) and an untested trainee (Rinko Kikuchi)—who are teamed to drive a legendary but seemingly obsolete Jaeger from the past. Together, they stand as mankind's last hope against the mounting apocalypse.",
+      "episodeNumber": null,
+      "releaseYear": 2013,
+      "director": [],
+      "actor": [{
+        "creditType": "Actor",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/17605",
+        "personName": "Idris Elba"
+      }],
+      "genre": [
+        "Science Fiction",
+        "Adventure",
+        "Action"
+      ],
+      "displayDuration": 3600000,
+      "type": "movie",
+      "categoryId": [
+        "ALL_ASSETS",
+        "ALL_MOVIES",
+        "SELECTED_MOVIE"
+      ],
+      "streams": "https://link.theplatform.com/s/tzTJhC/media/n3WzAjHoBVPm",
+      "downloadUrl": "https://link.theplatform.com/s/tzTJhC/media/n3WzAjHoBVPm",
+      "trailers": [{
+        "streams": "https://api-dev.enlight.diagnal.com/v1b3/playback/dummyTrailerStream?assetTypes=Rendition,Trailer"
+      }],
+      "mediaGuid": "68726",
+      "availableOn": 0,
+      "availableTill": 1937302060783,
+      "availableDays": null,
+      "isCcAvailable": true,
+      "parentalControl": [{}],
+      "isDownloadable": true,
+      "isCastable": false,
+      "countries": [
+        "USA"
+      ],
+      "contentGuid": "68726",
+      "images": [{
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/297/iB0RsWVoOXzicPi2Yy5xmTYMbho_2048x1152_13634629898.jpg",
+          "type": "landscape",
+          "width": 2048,
+          "height": 1152
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/297/iB0RsWVoOXzicPi2Yy5xmTYMbho_828x464_13634629899.jpg",
+          "type": "landscape",
+          "width": 828,
+          "height": 464
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/297/iB0RsWVoOXzicPi2Yy5xmTYMbho_760x428_13634629900.jpg",
+          "type": "landscape",
+          "width": 760,
+          "height": 428
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/297/iB0RsWVoOXzicPi2Yy5xmTYMbho_526x296_13634629901.jpg",
+          "type": "landscape",
+          "width": 526,
+          "height": 296
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/297/sCJEwEShZvruTpQ2a4yiX3Q9EyZ_288x432_13634629889.jpg",
+          "type": "portrait",
+          "width": 288,
+          "height": 432
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/297/sCJEwEShZvruTpQ2a4yiX3Q9EyZ_280x420_13634629890.jpg",
+          "type": "portrait",
+          "width": 280,
+          "height": 420
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/297/sCJEwEShZvruTpQ2a4yiX3Q9EyZ_264x392_13634629891.jpg",
+          "type": "portrait",
+          "width": 264,
+          "height": 392
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/297/sCJEwEShZvruTpQ2a4yiX3Q9EyZ_228x344_13634629892.jpg",
+          "type": "portrait",
+          "width": 228,
+          "height": 344
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/297/sCJEwEShZvruTpQ2a4yiX3Q9EyZ_220x330_13634629893.jpg",
+          "type": "portrait",
+          "width": 220,
+          "height": 330
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/297/sCJEwEShZvruTpQ2a4yiX3Q9EyZ.jpg",
+          "type": "portrait",
+          "width": 1000,
+          "height": 1500
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/297/iB0RsWVoOXzicPi2Yy5xmTYMbho.jpg",
+          "type": "landscape",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_large.jpg",
+          "type": "square",
+          "width": 1080,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_medium.jpg",
+          "type": "square",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_small.jpg",
+          "type": "square",
+          "width": 360,
+          "height": 360
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_large.jpg",
+          "type": "landscape",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 525
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_small.jpg",
+          "type": "landscape",
+          "width": 300,
+          "height": 225
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_large.jpg",
+          "type": "landscape",
+          "width": 1500,
+          "height": 570
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 226
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_small.jpg",
+          "type": "landscape",
+          "width": 480,
+          "height": 182
+        }
+      ],
+      "purchaseMode": "subscription",
+      "maxQualityAvailable": "4K",
+      "studio": [
+        "Universal Pictures"
+      ]
+    },
+    {
+      "uid": "277057062527",
+      "seasonUid": "",
+      "title": "Iron Man 3",
+      "description": "When Tony Stark's world is torn apart by a formidable terrorist called the Mandarin, he starts an odyssey of rebuilding and retribution.",
+      "episodeNumber": null,
+      "releaseYear": 2013,
+      "director": [{
+        "creditType": "Director",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/1108",
+        "personName": "Shane Black"
+      }],
+      "actor": [{
+        "creditType": "Actor",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/3223",
+        "personName": "Robert Downey Jr."
+      }],
+      "genre": [
+        "Science Fiction",
+        "Adventure",
+        "Action"
+      ],
+      "displayDuration": 3600000,
+      "type": "movie",
+      "categoryId": [
+        "ALL_ASSETS",
+        "ALL_MOVIES",
+        "SELECTED_MOVIE"
+      ],
+      "streams": "https://link.theplatform.com/s/tzTJhC/media/eFibtU0navgy",
+      "downloadUrl": "https://link.theplatform.com/s/tzTJhC/media/eFibtU0navgy",
+      "trailers": [{
+        "streams": "https://api-dev.enlight.diagnal.com/v1b3/playback/dummyTrailerStream?assetTypes=Rendition,Trailer"
+      }],
+      "mediaGuid": "68721",
+      "availableOn": 0,
+      "availableTill": 1937302060783,
+      "availableDays": null,
+      "isCcAvailable": true,
+      "parentalControl": [{}],
+      "isDownloadable": true,
+      "isCastable": false,
+      "countries": [
+        "USA"
+      ],
+      "contentGuid": "68721",
+      "images": [{
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/201/n9X2DKItL3V0yq1q1jrk8z5UAki_2048x1152_13568581781.jpg",
+          "type": "landscape",
+          "width": 2048,
+          "height": 1152
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/201/n9X2DKItL3V0yq1q1jrk8z5UAki_828x464_13568581782.jpg",
+          "type": "landscape",
+          "width": 828,
+          "height": 464
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/201/n9X2DKItL3V0yq1q1jrk8z5UAki_760x428_13568581783.jpg",
+          "type": "landscape",
+          "width": 760,
+          "height": 428
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/201/n9X2DKItL3V0yq1q1jrk8z5UAki_526x296_13568581784.jpg",
+          "type": "landscape",
+          "width": 526,
+          "height": 296
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/201/1Ilv6ryHUv6rt9zIsbSEJUmmbEi_288x432_13569093757.jpg",
+          "type": "portrait",
+          "width": 288,
+          "height": 432
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/201/1Ilv6ryHUv6rt9zIsbSEJUmmbEi_280x420_13569093758.jpg",
+          "type": "portrait",
+          "width": 280,
+          "height": 420
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/201/1Ilv6ryHUv6rt9zIsbSEJUmmbEi_264x392_13569093759.jpg",
+          "type": "portrait",
+          "width": 264,
+          "height": 392
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/201/1Ilv6ryHUv6rt9zIsbSEJUmmbEi_228x344_13569093760.jpg",
+          "type": "portrait",
+          "width": 228,
+          "height": 344
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/201/1Ilv6ryHUv6rt9zIsbSEJUmmbEi_220x330_13569093761.jpg",
+          "type": "portrait",
+          "width": 220,
+          "height": 330
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/201/n9X2DKItL3V0yq1q1jrk8z5UAki.jpg",
+          "type": "landscape",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/201/1Ilv6ryHUv6rt9zIsbSEJUmmbEi.jpg",
+          "type": "portrait",
+          "width": 1000,
+          "height": 1500
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_large.jpg",
+          "type": "square",
+          "width": 1080,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_medium.jpg",
+          "type": "square",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_small.jpg",
+          "type": "square",
+          "width": 360,
+          "height": 360
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_large.jpg",
+          "type": "landscape",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 525
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_small.jpg",
+          "type": "landscape",
+          "width": 300,
+          "height": 225
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_large.jpg",
+          "type": "landscape",
+          "width": 1500,
+          "height": 570
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 226
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_small.jpg",
+          "type": "landscape",
+          "width": 480,
+          "height": 182
+        }
+      ],
+      "purchaseMode": "subscription",
+      "maxQualityAvailable": "4K",
+      "studio": [
+        "Universal Pictures"
+      ]
+    },
+    {
+      "uid": "277060646774",
+      "seasonUid": "",
+      "title": "Jack the Giant Slayer",
+      "description": "The story of an ancient war that is reignited when a young farmhand unwittingly opens a gateway between our world and a fearsome race of giants. Unleashed on the Earth for the first time in centuries, the giants strive to reclaim the land they once lost, forcing the young man, Jack into the battle of his life to stop them. Fighting for a kingdom, its people, and the love of a brave princess, he comes face to face with the unstoppable warriors he thought only existed in legend–and gets the chance to become a legend himself.",
+      "episodeNumber": null,
+      "releaseYear": 2013,
+      "director": [{
+        "creditType": "Director",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/9032",
+        "personName": "Bryan Singer"
+      }],
+      "actor": [{
+        "creditType": "Actor",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/3292",
+        "personName": "Nicholas Hoult"
+      }],
+      "genre": [
+        "Action",
+        "Family",
+        "Fantasy"
+      ],
+      "displayDuration": 3600000,
+      "type": "movie",
+      "categoryId": [
+        "ALL_ASSETS",
+        "ALL_MOVIES",
+        "SELECTED_MOVIE"
+      ],
+      "streams": "https://link.theplatform.com/s/tzTJhC/media/ioP0md0YQdqu",
+      "downloadUrl": "https://link.theplatform.com/s/tzTJhC/media/ioP0md0YQdqu",
+      "trailers": [{
+        "streams": "https://api-dev.enlight.diagnal.com/v1b3/playback/dummyTrailerStream?assetTypes=Rendition,Trailer"
+      }],
+      "mediaGuid": "81005",
+      "availableOn": 0,
+      "availableTill": 1937302060783,
+      "availableDays": null,
+      "isCcAvailable": true,
+      "parentalControl": [{}],
+      "isDownloadable": true,
+      "isCastable": false,
+      "countries": [
+        "USA"
+      ],
+      "contentGuid": "81005",
+      "images": [{
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/200/rJw1ecWyu9uoFFmtcYwzeNjZ9yP_2048x1152_13567045772.jpg",
+          "type": "landscape",
+          "width": 2048,
+          "height": 1152
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/200/rJw1ecWyu9uoFFmtcYwzeNjZ9yP_828x464_13567045773.jpg",
+          "type": "landscape",
+          "width": 828,
+          "height": 464
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/200/rJw1ecWyu9uoFFmtcYwzeNjZ9yP_760x428_13567045774.jpg",
+          "type": "landscape",
+          "width": 760,
+          "height": 428
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/200/rJw1ecWyu9uoFFmtcYwzeNjZ9yP_526x296_13567045775.jpg",
+          "type": "landscape",
+          "width": 526,
+          "height": 296
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/200/skn7v9tBfFf7sK5CCuLjQRSpMZ1_288x432_13566021900.jpg",
+          "type": "portrait",
+          "width": 288,
+          "height": 432
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/200/skn7v9tBfFf7sK5CCuLjQRSpMZ1_280x420_13566021901.jpg",
+          "type": "portrait",
+          "width": 280,
+          "height": 420
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/200/skn7v9tBfFf7sK5CCuLjQRSpMZ1_264x392_13566021902.jpg",
+          "type": "portrait",
+          "width": 264,
+          "height": 392
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/200/skn7v9tBfFf7sK5CCuLjQRSpMZ1_228x344_13566021903.jpg",
+          "type": "portrait",
+          "width": 228,
+          "height": 344
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/200/skn7v9tBfFf7sK5CCuLjQRSpMZ1_220x330_13566021904.jpg",
+          "type": "portrait",
+          "width": 220,
+          "height": 330
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/200/skn7v9tBfFf7sK5CCuLjQRSpMZ1.jpg",
+          "type": "portrait",
+          "width": 1000,
+          "height": 1500
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/200/rJw1ecWyu9uoFFmtcYwzeNjZ9yP.jpg",
+          "type": "landscape",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_large.jpg",
+          "type": "square",
+          "width": 1080,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_medium.jpg",
+          "type": "square",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_small.jpg",
+          "type": "square",
+          "width": 360,
+          "height": 360
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_large.jpg",
+          "type": "landscape",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 525
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_small.jpg",
+          "type": "landscape",
+          "width": 300,
+          "height": 225
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_large.jpg",
+          "type": "landscape",
+          "width": 1500,
+          "height": 570
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 226
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_small.jpg",
+          "type": "landscape",
+          "width": 480,
+          "height": 182
+        }
+      ],
+      "purchaseMode": "subscription",
+      "maxQualityAvailable": "4K",
+      "studio": [
+        "Universal Pictures"
+      ]
+    },
+    {
+      "uid": "277059110535",
+      "seasonUid": "",
+      "title": "Red Dawn",
+      "description": "A city in Washington state awakens to the surreal sight of foreign paratroopers dropping from the sky - shockingly, the U.S. has been invaded and their hometown is the initial target. Quickly and without warning, the citizens find themselves prisoners and their town under enemy occupation. Determined to fight back, a group of young patriots seek refuge in the surrounding woods, training and reorganizing themselves into a guerrilla group of fighters. Taking inspiration from their high school mascot, they call themselves the Wolverines, banding together to protect one another, liberate their town from its captors, and take back their freedom.",
+      "episodeNumber": null,
+      "releaseYear": 2012,
+      "director": [{
+        "creditType": "Director",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/8684",
+        "personName": "Dan Bradley"
+      }],
+      "actor": [{
+        "creditType": "Actor",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/74568",
+        "personName": "Chris Hemsworth"
+      }],
+      "genre": [
+        "Thriller",
+        "Science Fiction",
+        "War",
+        "Action"
+      ],
+      "displayDuration": 3600000,
+      "type": "movie",
+      "categoryId": [
+        "ALL_ASSETS",
+        "ALL_MOVIES",
+        "SELECTED_MOVIE"
+      ],
+      "streams": "https://link.theplatform.com/s/tzTJhC/media/shzXUHxK_qNS",
+      "downloadUrl": "https://link.theplatform.com/s/tzTJhC/media/shzXUHxK_qNS",
+      "trailers": [{
+        "streams": "https://api-dev.enlight.diagnal.com/v1b3/playback/dummyTrailerStream?assetTypes=Rendition,Trailer"
+      }],
+      "mediaGuid": "60747",
+      "availableOn": 0,
+      "availableTill": 1937302060783,
+      "availableDays": null,
+      "isCcAvailable": true,
+      "parentalControl": [{}],
+      "isDownloadable": true,
+      "isCastable": false,
+      "countries": [
+        "USA"
+      ],
+      "contentGuid": "60747",
+      "images": [{
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/tNkIfqiuWFYCUIiyVblar8rB1GV_280x420_13635141572.jpg",
+          "type": "portrait",
+          "width": 280,
+          "height": 420
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/tNkIfqiuWFYCUIiyVblar8rB1GV_264x392_13635141573.jpg",
+          "type": "portrait",
+          "width": 264,
+          "height": 392
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/tNkIfqiuWFYCUIiyVblar8rB1GV_228x344_13635141574.jpg",
+          "type": "portrait",
+          "width": 228,
+          "height": 344
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/tNkIfqiuWFYCUIiyVblar8rB1GV_220x330_13635141575.jpg",
+          "type": "portrait",
+          "width": 220,
+          "height": 330
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/tNkIfqiuWFYCUIiyVblar8rB1GV.jpg",
+          "type": "portrait",
+          "width": 1400,
+          "height": 2100
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/1XGdQbJbv6EDLa3MP4qGhcg9S8a.jpg",
+          "type": "landscape",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/1XGdQbJbv6EDLa3MP4qGhcg9S8a_2048x1152_13635141576.jpg",
+          "type": "landscape",
+          "width": 2048,
+          "height": 1152
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/1XGdQbJbv6EDLa3MP4qGhcg9S8a_828x464_13635141577.jpg",
+          "type": "landscape",
+          "width": 828,
+          "height": 464
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/1XGdQbJbv6EDLa3MP4qGhcg9S8a_760x428_13635141578.jpg",
+          "type": "landscape",
+          "width": 760,
+          "height": 428
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/1XGdQbJbv6EDLa3MP4qGhcg9S8a_526x296_13635141579.jpg",
+          "type": "landscape",
+          "width": 526,
+          "height": 296
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/tNkIfqiuWFYCUIiyVblar8rB1GV_288x432_13635141571.jpg",
+          "type": "portrait",
+          "width": 288,
+          "height": 432
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_large.jpg",
+          "type": "square",
+          "width": 1080,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_medium.jpg",
+          "type": "square",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_small.jpg",
+          "type": "square",
+          "width": 360,
+          "height": 360
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_large.jpg",
+          "type": "landscape",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 525
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_small.jpg",
+          "type": "landscape",
+          "width": 300,
+          "height": 225
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_large.jpg",
+          "type": "landscape",
+          "width": 1500,
+          "height": 570
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 226
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_small.jpg",
+          "type": "landscape",
+          "width": 480,
+          "height": 182
+        }
+      ],
+      "purchaseMode": "subscription",
+      "maxQualityAvailable": "4K",
+      "studio": [
+        "Universal Pictures"
+      ]
+    },
+    {
+      "uid": "277074982570",
+      "seasonUid": "",
+      "title": "The Avengers",
+      "description": "When an unexpected enemy emerges and threatens global safety and security, Nick Fury, director of the international peacekeeping agency known as S.H.I.E.L.D., finds himself in need of a team to pull the world back from the brink of disaster. Spanning the globe, a daring recruitment effort begins!",
+      "episodeNumber": null,
+      "releaseYear": 2012,
+      "director": [],
+      "actor": [],
+      "genre": [
+        "Science Fiction",
+        "Adventure",
+        "Action"
+      ],
+      "displayDuration": 3600000,
+      "type": "movie",
+      "categoryId": [
+        "ALL_ASSETS",
+        "ALL_MOVIES",
+        "SELECTED_MOVIE"
+      ],
+      "streams": "https://link.theplatform.com/s/tzTJhC/media/D98npLXzZijv",
+      "downloadUrl": "https://link.theplatform.com/s/tzTJhC/media/D98npLXzZijv",
+      "trailers": [{
+        "streams": "https://api-dev.enlight.diagnal.com/v1b3/playback/dummyTrailerStream?assetTypes=Rendition,Trailer"
+      }],
+      "mediaGuid": "24428",
+      "availableOn": 0,
+      "availableTill": 1937302060783,
+      "availableDays": null,
+      "isCcAvailable": true,
+      "parentalControl": [{}],
+      "isDownloadable": true,
+      "isCastable": false,
+      "countries": [
+        "USA"
+      ],
+      "contentGuid": "24428",
+      "images": [{
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/821/hbn46fQaRmlpBuUrEiFqv0GDL6Y_2048x1152_13635653857.jpg",
+          "type": "landscape",
+          "width": 2048,
+          "height": 1152
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/821/hbn46fQaRmlpBuUrEiFqv0GDL6Y_828x464_13635653858.jpg",
+          "type": "landscape",
+          "width": 828,
+          "height": 464
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/821/hbn46fQaRmlpBuUrEiFqv0GDL6Y_760x428_13635653859.jpg",
+          "type": "landscape",
+          "width": 760,
+          "height": 428
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/821/hbn46fQaRmlpBuUrEiFqv0GDL6Y_526x296_13635653860.jpg",
+          "type": "landscape",
+          "width": 526,
+          "height": 296
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/821/cezWGskPY5x7GaglTTRN4Fugfb8_288x432_13635653861.jpg",
+          "type": "portrait",
+          "width": 288,
+          "height": 432
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/821/cezWGskPY5x7GaglTTRN4Fugfb8_280x420_13635653862.jpg",
+          "type": "portrait",
+          "width": 280,
+          "height": 420
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/821/cezWGskPY5x7GaglTTRN4Fugfb8_264x392_13635653863.jpg",
+          "type": "portrait",
+          "width": 264,
+          "height": 392
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/821/cezWGskPY5x7GaglTTRN4Fugfb8_228x344_13635653864.jpg",
+          "type": "portrait",
+          "width": 228,
+          "height": 344
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/821/cezWGskPY5x7GaglTTRN4Fugfb8_220x330_13635653865.jpg",
+          "type": "portrait",
+          "width": 220,
+          "height": 330
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/821/hbn46fQaRmlpBuUrEiFqv0GDL6Y.jpg",
+          "type": "landscape",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/821/cezWGskPY5x7GaglTTRN4Fugfb8.jpg",
+          "type": "portrait",
+          "width": 1000,
+          "height": 1500
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_large.jpg",
+          "type": "square",
+          "width": 1080,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_medium.jpg",
+          "type": "square",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_small.jpg",
+          "type": "square",
+          "width": 360,
+          "height": 360
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_large.jpg",
+          "type": "landscape",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 525
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_small.jpg",
+          "type": "landscape",
+          "width": 300,
+          "height": 225
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_large.jpg",
+          "type": "landscape",
+          "width": 1500,
+          "height": 570
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 226
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_small.jpg",
+          "type": "landscape",
+          "width": 480,
+          "height": 182
+        }
+      ],
+      "purchaseMode": "subscription",
+      "maxQualityAvailable": "4K",
+      "studio": [
+        "Universal Pictures"
+      ]
+    },
+    {
+      "uid": "277081638546",
+      "seasonUid": "",
+      "title": "The Other Guys",
+      "description": "NYPD detectives Christopher Danson (Johnson) and P.K. Highsmith (Jackson) are the baddest and most beloved cops in New York City. They don't get tattoos, other men get tattoos of them. Two desks over and one back, sit detectives Allen Gamble (Ferrell) and Terry Hoitz (Wahlberg). You've seen them in the background of photos of Danson and Highsmith, out of focus and eyes closed. They're not heroes, they're \"the other guys.\" But every cop has his or her day and soon Gamble and Hoitz stumble into a seemingly innocuous case no other detective wants to touch that could turn into NYC's biggest crime. It's the opportunity of their lives, but do these guys have the right stuff?",
+      "episodeNumber": null,
+      "releaseYear": 2010,
+      "director": [{
+        "creditType": "Director",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/55710",
+        "personName": "Adam McKay"
+      }],
+      "actor": [{
+        "creditType": "Actor",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/23659",
+        "personName": "Will Ferrell"
+      }],
+      "genre": [
+        "Comedy",
+        "Action",
+        "Crime"
+      ],
+      "displayDuration": 3600000,
+      "type": "movie",
+      "categoryId": [
+        "ALL_ASSETS",
+        "ALL_MOVIES",
+        "SELECTED_MOVIE"
+      ],
+      "streams": "https://link.theplatform.com/s/tzTJhC/media/UUDRH_bdxARl",
+      "downloadUrl": "https://link.theplatform.com/s/tzTJhC/media/UUDRH_bdxARl",
+      "trailers": [{
+        "streams": "https://api-dev.enlight.diagnal.com/v1b3/playback/dummyTrailerStream?assetTypes=Rendition,Trailer"
+      }],
+      "mediaGuid": "27581",
+      "availableOn": 0,
+      "availableTill": 1937302060783,
+      "availableDays": null,
+      "isCcAvailable": true,
+      "parentalControl": [{}],
+      "isDownloadable": true,
+      "isCastable": false,
+      "countries": [
+        "USA"
+      ],
+      "contentGuid": "27581",
+      "images": [{
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/320/awMESdeGymmNYTMhWvjJE5AP61a_2048x1152_13637701638.jpg",
+          "type": "landscape",
+          "width": 2048,
+          "height": 1152
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/320/awMESdeGymmNYTMhWvjJE5AP61a_828x464_13637701639.jpg",
+          "type": "landscape",
+          "width": 828,
+          "height": 464
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/320/awMESdeGymmNYTMhWvjJE5AP61a_760x428_13637701640.jpg",
+          "type": "landscape",
+          "width": 760,
+          "height": 428
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/320/awMESdeGymmNYTMhWvjJE5AP61a_526x296_13637701641.jpg",
+          "type": "landscape",
+          "width": 526,
+          "height": 296
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/320/b4mYjC8kKx32BnCNBQeDCA76WBd_288x432_13636677956.jpg",
+          "type": "portrait",
+          "width": 288,
+          "height": 432
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/320/b4mYjC8kKx32BnCNBQeDCA76WBd_280x420_13636677957.jpg",
+          "type": "portrait",
+          "width": 280,
+          "height": 420
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/320/b4mYjC8kKx32BnCNBQeDCA76WBd_264x392_13636677958.jpg",
+          "type": "portrait",
+          "width": 264,
+          "height": 392
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/320/b4mYjC8kKx32BnCNBQeDCA76WBd_228x344_13636677959.jpg",
+          "type": "portrait",
+          "width": 228,
+          "height": 344
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/320/b4mYjC8kKx32BnCNBQeDCA76WBd_220x330_13636677960.jpg",
+          "type": "portrait",
+          "width": 220,
+          "height": 330
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/320/awMESdeGymmNYTMhWvjJE5AP61a.jpg",
+          "type": "landscape",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/320/b4mYjC8kKx32BnCNBQeDCA76WBd.jpg",
+          "type": "portrait",
+          "width": 1000,
+          "height": 1500
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_large.jpg",
+          "type": "square",
+          "width": 1080,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_medium.jpg",
+          "type": "square",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_small.jpg",
+          "type": "square",
+          "width": 360,
+          "height": 360
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_large.jpg",
+          "type": "landscape",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 525
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_small.jpg",
+          "type": "landscape",
+          "width": 300,
+          "height": 225
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_large.jpg",
+          "type": "landscape",
+          "width": 1500,
+          "height": 570
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 226
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_small.jpg",
+          "type": "landscape",
+          "width": 480,
+          "height": 182
+        }
+      ],
+      "purchaseMode": "subscription",
+      "maxQualityAvailable": "4K",
+      "studio": [
+        "Universal Pictures"
+      ]
+    },
+    {
+      "uid": "277070886474",
+      "seasonUid": "",
+      "title": "The Expendables",
+      "description": "Barney Ross leads a band of highly skilled mercenaries including knife enthusiast Lee Christmas, a martial arts expert, heavy weapons specialist, demolitionist, and a loose-cannon sniper. When the group is commissioned by the mysterious Mr. Church to assassinate the dictator of a small South American island, Barney and Lee visit the remote locale to scout out their opposition and discover the true nature of the conflict engulfing the city.",
+      "episodeNumber": null,
+      "releaseYear": 2010,
+      "director": [{
+        "creditType": "Director",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/16483",
+        "personName": "Sylvester Stallone"
+      }],
+      "actor": [{
+        "creditType": "Actor",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/16483",
+        "personName": "Sylvester Stallone"
+      }],
+      "genre": [
+        "Thriller",
+        "Action"
+      ],
+      "displayDuration": 3600000,
+      "type": "movie",
+      "categoryId": [
+        "ALL_ASSETS",
+        "ALL_MOVIES",
+        "SELECTED_MOVIE"
+      ],
+      "streams": "https://link.theplatform.com/s/tzTJhC/media/ZmrjdSTsjwQX",
+      "downloadUrl": "https://link.theplatform.com/s/tzTJhC/media/ZmrjdSTsjwQX",
+      "trailers": [{
+        "streams": "https://api-dev.enlight.diagnal.com/v1b3/playback/dummyTrailerStream?assetTypes=Rendition,Trailer"
+      }],
+      "mediaGuid": "27578",
+      "availableOn": 0,
+      "availableTill": 1937302060783,
+      "availableDays": null,
+      "isCcAvailable": true,
+      "parentalControl": [{}],
+      "isDownloadable": true,
+      "isCastable": false,
+      "countries": [
+        "USA"
+      ],
+      "contentGuid": "27578",
+      "images": [{
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/796/x5u73uBylbyCCnkzUGzt3uozqRp_2048x1152_13635653795.jpg",
+          "type": "landscape",
+          "width": 2048,
+          "height": 1152
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/796/x5u73uBylbyCCnkzUGzt3uozqRp_828x464_13635653796.jpg",
+          "type": "landscape",
+          "width": 828,
+          "height": 464
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/796/x5u73uBylbyCCnkzUGzt3uozqRp_760x428_13635653797.jpg",
+          "type": "landscape",
+          "width": 760,
+          "height": 428
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/796/x5u73uBylbyCCnkzUGzt3uozqRp_526x296_13635653798.jpg",
+          "type": "landscape",
+          "width": 526,
+          "height": 296
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/796/y2qJoYxOhzyidsA60Mqn29H38Lk_288x432_13635653788.jpg",
+          "type": "portrait",
+          "width": 288,
+          "height": 432
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/796/y2qJoYxOhzyidsA60Mqn29H38Lk_280x420_13635653789.jpg",
+          "type": "portrait",
+          "width": 280,
+          "height": 420
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/796/y2qJoYxOhzyidsA60Mqn29H38Lk_264x392_13635653790.jpg",
+          "type": "portrait",
+          "width": 264,
+          "height": 392
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/796/y2qJoYxOhzyidsA60Mqn29H38Lk_228x344_13635653791.jpg",
+          "type": "portrait",
+          "width": 228,
+          "height": 344
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/796/y2qJoYxOhzyidsA60Mqn29H38Lk_220x330_13635653792.jpg",
+          "type": "portrait",
+          "width": 220,
+          "height": 330
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/796/y2qJoYxOhzyidsA60Mqn29H38Lk.jpg",
+          "type": "portrait",
+          "width": 1000,
+          "height": 1500
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/796/x5u73uBylbyCCnkzUGzt3uozqRp.jpg",
+          "type": "landscape",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_large.jpg",
+          "type": "square",
+          "width": 1080,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_medium.jpg",
+          "type": "square",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_small.jpg",
+          "type": "square",
+          "width": 360,
+          "height": 360
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_large.jpg",
+          "type": "landscape",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 525
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_small.jpg",
+          "type": "landscape",
+          "width": 300,
+          "height": 225
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_large.jpg",
+          "type": "landscape",
+          "width": 1500,
+          "height": 570
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 226
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_small.jpg",
+          "type": "landscape",
+          "width": 480,
+          "height": 182
+        }
+      ],
+      "purchaseMode": "subscription",
+      "maxQualityAvailable": "4K",
+      "studio": [
+        "Universal Pictures"
+      ]
+    },
+    {
+      "uid": "277079590589",
+      "seasonUid": "",
+      "title": "Iron Man 2",
+      "description": "With the world now aware of his dual life as the armored superhero Iron Man, billionaire inventor Tony Stark faces pressure from the government, the press and the public to share his technology with the military. Unwilling to let go of his invention, Stark, with Pepper Potts and James 'Rhodey' Rhodes at his side, must forge new alliances – and confront powerful enemies.",
+      "episodeNumber": null,
+      "releaseYear": 2010,
+      "director": [{
+        "creditType": "Director",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/15277",
+        "personName": "Jon Favreau"
+      }],
+      "actor": [{
+        "creditType": "Actor",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/3223",
+        "personName": "Robert Downey Jr."
+      }],
+      "genre": [
+        "Science Fiction",
+        "Adventure",
+        "Action"
+      ],
+      "displayDuration": 3600000,
+      "type": "movie",
+      "categoryId": [
+        "ALL_ASSETS",
+        "ALL_MOVIES",
+        "SELECTED_MOVIE"
+      ],
+      "streams": "https://link.theplatform.com/s/tzTJhC/media/roLgHQJTIq2F",
+      "downloadUrl": "https://link.theplatform.com/s/tzTJhC/media/roLgHQJTIq2F",
+      "trailers": [{
+        "streams": "https://api-dev.enlight.diagnal.com/v1b3/playback/dummyTrailerStream?assetTypes=Rendition,Trailer"
+      }],
+      "mediaGuid": "10138",
+      "availableOn": 0,
+      "availableTill": 1937302060783,
+      "availableDays": null,
+      "isCcAvailable": true,
+      "parentalControl": [{}],
+      "isDownloadable": true,
+      "isCastable": false,
+      "countries": [
+        "USA"
+      ],
+      "contentGuid": "10138",
+      "images": [{
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/320/jxdSxqAFrdioKgXwgTs5Qfbazjq_2048x1152_13636677925.jpg",
+          "type": "landscape",
+          "width": 2048,
+          "height": 1152
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/320/jxdSxqAFrdioKgXwgTs5Qfbazjq_828x464_13636677926.jpg",
+          "type": "landscape",
+          "width": 828,
+          "height": 464
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/320/jxdSxqAFrdioKgXwgTs5Qfbazjq_760x428_13636677927.jpg",
+          "type": "landscape",
+          "width": 760,
+          "height": 428
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/320/jxdSxqAFrdioKgXwgTs5Qfbazjq_526x296_13636677928.jpg",
+          "type": "landscape",
+          "width": 526,
+          "height": 296
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/320/ArqpkNYGfcTIA6umWt6xihfIZZv_288x432_13636677918.jpg",
+          "type": "portrait",
+          "width": 288,
+          "height": 432
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/320/ArqpkNYGfcTIA6umWt6xihfIZZv_280x420_13636677919.jpg",
+          "type": "portrait",
+          "width": 280,
+          "height": 420
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/320/ArqpkNYGfcTIA6umWt6xihfIZZv_264x392_13636677920.jpg",
+          "type": "portrait",
+          "width": 264,
+          "height": 392
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/320/ArqpkNYGfcTIA6umWt6xihfIZZv_228x344_13636677921.jpg",
+          "type": "portrait",
+          "width": 228,
+          "height": 344
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/320/ArqpkNYGfcTIA6umWt6xihfIZZv_220x330_13636677922.jpg",
+          "type": "portrait",
+          "width": 220,
+          "height": 330
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/320/jxdSxqAFrdioKgXwgTs5Qfbazjq.jpg",
+          "type": "landscape",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/188/320/ArqpkNYGfcTIA6umWt6xihfIZZv.jpg",
+          "type": "portrait",
+          "width": 1000,
+          "height": 1500
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_large.jpg",
+          "type": "square",
+          "width": 1080,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_medium.jpg",
+          "type": "square",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_small.jpg",
+          "type": "square",
+          "width": 360,
+          "height": 360
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_large.jpg",
+          "type": "landscape",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 525
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_small.jpg",
+          "type": "landscape",
+          "width": 300,
+          "height": 225
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_large.jpg",
+          "type": "landscape",
+          "width": 1500,
+          "height": 570
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 226
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_small.jpg",
+          "type": "landscape",
+          "width": 480,
+          "height": 182
+        }
+      ],
+      "purchaseMode": "subscription",
+      "maxQualityAvailable": "4K",
+      "studio": [
+        "Universal Pictures"
+      ]
+    },
+    {
+      "uid": "277122086922",
+      "seasonUid": "",
+      "title": "G-Force",
+      "description": "A team of trained secret agent animals, guinea pigs Darwin, Juarez, Blaster, mole Speckles, and fly Mooch takes on a mission for the US government to stop evil Leonard Saber, who plans to destroy the world with household appliances. But the government shuts them down and they are sentenced to a pet shop. Can they escape to defeat the villain and save the world?",
+      "episodeNumber": null,
+      "releaseYear": 2009,
+      "director": [{
+        "creditType": "Director",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/84851",
+        "personName": "Hoyt Yeatman"
+      }],
+      "actor": [{
+        "creditType": "Actor",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/6807",
+        "personName": "Sam Rockwell"
+      }],
+      "genre": [
+        "Comedy",
+        "Adventure",
+        "Action",
+        "Family",
+        "Fantasy"
+      ],
+      "displayDuration": 3600000,
+      "type": "movie",
+      "categoryId": [
+        "ALL_ASSETS",
+        "ALL_MOVIES",
+        "SELECTED_MOVIE"
+      ],
+      "streams": "https://link.theplatform.com/s/tzTJhC/media/W3kmDBKlqzXT",
+      "downloadUrl": "https://link.theplatform.com/s/tzTJhC/media/W3kmDBKlqzXT",
+      "trailers": [{
+        "streams": "https://api-dev.enlight.diagnal.com/v1b3/playback/dummyTrailerStream?assetTypes=Rendition,Trailer"
+      }],
+      "mediaGuid": "19585",
+      "availableOn": 0,
+      "availableTill": 1937302060783,
+      "availableDays": null,
+      "isCcAvailable": true,
+      "parentalControl": [{}],
+      "isDownloadable": true,
+      "isCastable": false,
+      "countries": [
+        "USA"
+      ],
+      "contentGuid": "19585",
+      "images": [{
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/186/869/dnBiiPKJnIKb1e8BcDo3cicdjFG_2048x1152_13637189788.jpg",
+          "type": "landscape",
+          "width": 2048,
+          "height": 1152
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/186/869/dnBiiPKJnIKb1e8BcDo3cicdjFG_828x464_13637189789.jpg",
+          "type": "landscape",
+          "width": 828,
+          "height": 464
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/186/869/dnBiiPKJnIKb1e8BcDo3cicdjFG_526x296_13637189791.jpg",
+          "type": "landscape",
+          "width": 526,
+          "height": 296
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/186/869/ecTQ40F6Ob4JW2qMRUf8ThxViyd_288x432_13636165886.jpg",
+          "type": "portrait",
+          "width": 288,
+          "height": 432
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/186/869/ecTQ40F6Ob4JW2qMRUf8ThxViyd_280x420_13636165887.jpg",
+          "type": "portrait",
+          "width": 280,
+          "height": 420
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/186/869/ecTQ40F6Ob4JW2qMRUf8ThxViyd_264x392_13636165888.jpg",
+          "type": "portrait",
+          "width": 264,
+          "height": 392
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/186/869/ecTQ40F6Ob4JW2qMRUf8ThxViyd_228x344_13636165889.jpg",
+          "type": "portrait",
+          "width": 228,
+          "height": 344
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/186/869/ecTQ40F6Ob4JW2qMRUf8ThxViyd_220x330_13636165890.jpg",
+          "type": "portrait",
+          "width": 220,
+          "height": 330
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/186/869/dnBiiPKJnIKb1e8BcDo3cicdjFG.jpg",
+          "type": "landscape",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/186/869/ecTQ40F6Ob4JW2qMRUf8ThxViyd.jpg",
+          "type": "portrait",
+          "width": 1000,
+          "height": 1500
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/186/869/dnBiiPKJnIKb1e8BcDo3cicdjFG_760x428_13637189790.jpg",
+          "type": "landscape",
+          "width": 760,
+          "height": 428
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_large.jpg",
+          "type": "square",
+          "width": 1080,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_medium.jpg",
+          "type": "square",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_small.jpg",
+          "type": "square",
+          "width": 360,
+          "height": 360
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_large.jpg",
+          "type": "landscape",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 525
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_small.jpg",
+          "type": "landscape",
+          "width": 300,
+          "height": 225
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_large.jpg",
+          "type": "landscape",
+          "width": 1500,
+          "height": 570
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 226
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_small.jpg",
+          "type": "landscape",
+          "width": 480,
+          "height": 182
+        }
+      ],
+      "purchaseMode": "subscription",
+      "maxQualityAvailable": "4K",
+      "studio": [
+        "Universal Pictures"
+      ]
+    },
+    {
+      "uid": "277082662654",
+      "seasonUid": "",
+      "title": "Quantum of Solace",
+      "description": "Quantum of Solace continues the adventures of James Bond after Casino Royale. Betrayed by Vesper, the woman he loved, 007 fights the urge to make his latest mission personal. Pursuing his determination to uncover the truth, Bond and M interrogate Mr. White, who reveals that the organization that blackmailed Vesper is far more complex and dangerous than anyone had imagined.",
+      "episodeNumber": null,
+      "releaseYear": 2008,
+      "director": [],
+      "actor": [{
+        "creditType": "Actor",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/8784",
+        "personName": "Daniel Craig"
+      }],
+      "genre": [
+        "Thriller",
+        "Adventure",
+        "Action",
+        "Crime"
+      ],
+      "displayDuration": 3600000,
+      "type": "movie",
+      "categoryId": [
+        "ALL_ASSETS",
+        "ALL_MOVIES",
+        "SELECTED_MOVIE"
+      ],
+      "streams": "https://link.theplatform.com/s/tzTJhC/media/c_Aw3EEzYVzi",
+      "downloadUrl": "https://link.theplatform.com/s/tzTJhC/media/c_Aw3EEzYVzi",
+      "trailers": [{
+        "streams": "https://api-dev.enlight.diagnal.com/v1b3/playback/dummyTrailerStream?assetTypes=Rendition,Trailer"
+      }],
+      "mediaGuid": "10764",
+      "availableOn": 0,
+      "availableTill": 1937302060783,
+      "availableDays": null,
+      "isCcAvailable": true,
+      "parentalControl": [{}],
+      "isDownloadable": true,
+      "isCastable": false,
+      "countries": [
+        "USA"
+      ],
+      "contentGuid": "10764",
+      "images": [{
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/187/845/hfZVY8lMiE7HH1cDc2qzSFF6Kbt_2048x1152_13637701665.jpg",
+          "type": "landscape",
+          "width": 2048,
+          "height": 1152
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/187/845/hfZVY8lMiE7HH1cDc2qzSFF6Kbt_828x464_13637701666.jpg",
+          "type": "landscape",
+          "width": 828,
+          "height": 464
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/187/845/hfZVY8lMiE7HH1cDc2qzSFF6Kbt_760x428_13637701667.jpg",
+          "type": "landscape",
+          "width": 760,
+          "height": 428
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/187/845/hfZVY8lMiE7HH1cDc2qzSFF6Kbt_526x296_13637701668.jpg",
+          "type": "landscape",
+          "width": 526,
+          "height": 296
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/187/845/6mlNx0Jiqhg3D7NlANT9pidsgPJ_288x432_13637701669.jpg",
+          "type": "portrait",
+          "width": 288,
+          "height": 432
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/187/845/6mlNx0Jiqhg3D7NlANT9pidsgPJ_280x420_13637701670.jpg",
+          "type": "portrait",
+          "width": 280,
+          "height": 420
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/187/845/6mlNx0Jiqhg3D7NlANT9pidsgPJ_264x392_13637701671.jpg",
+          "type": "portrait",
+          "width": 264,
+          "height": 392
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/187/845/6mlNx0Jiqhg3D7NlANT9pidsgPJ_228x344_13637701672.jpg",
+          "type": "portrait",
+          "width": 228,
+          "height": 344
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/187/845/6mlNx0Jiqhg3D7NlANT9pidsgPJ_220x330_13637701673.jpg",
+          "type": "portrait",
+          "width": 220,
+          "height": 330
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/187/845/6mlNx0Jiqhg3D7NlANT9pidsgPJ.jpg",
+          "type": "portrait",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/187/845/hfZVY8lMiE7HH1cDc2qzSFF6Kbt.jpg",
+          "type": "landscape",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_large.jpg",
+          "type": "square",
+          "width": 1080,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_medium.jpg",
+          "type": "square",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_small.jpg",
+          "type": "square",
+          "width": 360,
+          "height": 360
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_large.jpg",
+          "type": "landscape",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 525
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_small.jpg",
+          "type": "landscape",
+          "width": 300,
+          "height": 225
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_large.jpg",
+          "type": "landscape",
+          "width": 1500,
+          "height": 570
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 226
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_small.jpg",
+          "type": "landscape",
+          "width": 480,
+          "height": 182
+        }
+      ],
+      "purchaseMode": "subscription",
+      "maxQualityAvailable": "4K",
+      "studio": [
+        "Universal Pictures"
+      ]
+    },
+    {
+      "uid": "277065254496",
+      "seasonUid": "",
+      "title": "Iron Man",
+      "description": "After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil.",
+      "episodeNumber": null,
+      "releaseYear": 2008,
+      "director": [],
+      "actor": [],
+      "genre": [
+        "Science Fiction",
+        "Adventure",
+        "Action"
+      ],
+      "displayDuration": 3600000,
+      "type": "movie",
+      "categoryId": [
+        "ALL_ASSETS",
+        "ALL_MOVIES",
+        "SELECTED_MOVIE"
+      ],
+      "streams": "https://link.theplatform.com/s/tzTJhC/media/8zJqR7XXuyhd",
+      "downloadUrl": "https://link.theplatform.com/s/tzTJhC/media/8zJqR7XXuyhd",
+      "trailers": [{
+        "streams": "https://api-dev.enlight.diagnal.com/v1b3/playback/dummyTrailerStream?assetTypes=Rendition,Trailer"
+      }],
+      "mediaGuid": "1726",
+      "availableOn": 0,
+      "availableTill": 1937302060783,
+      "availableDays": null,
+      "isCcAvailable": true,
+      "parentalControl": [{}],
+      "isDownloadable": true,
+      "isCastable": false,
+      "countries": [
+        "USA"
+      ],
+      "contentGuid": "1726",
+      "images": [{
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/190/273/ZQixhAZx6fH1VNafFXsqa1B8QI_2048x1152_13635653703.jpg",
+          "type": "landscape",
+          "width": 2048,
+          "height": 1152
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/190/273/ZQixhAZx6fH1VNafFXsqa1B8QI_828x464_13635653704.jpg",
+          "type": "landscape",
+          "width": 828,
+          "height": 464
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/190/273/ZQixhAZx6fH1VNafFXsqa1B8QI_760x428_13635653705.jpg",
+          "type": "landscape",
+          "width": 760,
+          "height": 428
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/190/273/ZQixhAZx6fH1VNafFXsqa1B8QI_526x296_13635653706.jpg",
+          "type": "landscape",
+          "width": 526,
+          "height": 296
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/190/273/s2IG9qXfhJYxIttKyroYFBsHwzQ_288x432_13635653698.jpg",
+          "type": "portrait",
+          "width": 288,
+          "height": 432
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/190/273/s2IG9qXfhJYxIttKyroYFBsHwzQ_280x420_13635653699.jpg",
+          "type": "portrait",
+          "width": 280,
+          "height": 420
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/190/273/s2IG9qXfhJYxIttKyroYFBsHwzQ_264x392_13635653700.jpg",
+          "type": "portrait",
+          "width": 264,
+          "height": 392
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/190/273/s2IG9qXfhJYxIttKyroYFBsHwzQ_228x344_13635653701.jpg",
+          "type": "portrait",
+          "width": 228,
+          "height": 344
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/190/273/s2IG9qXfhJYxIttKyroYFBsHwzQ_220x330_13635653702.jpg",
+          "type": "portrait",
+          "width": 220,
+          "height": 330
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/190/273/ZQixhAZx6fH1VNafFXsqa1B8QI.jpg",
+          "type": "landscape",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/190/273/s2IG9qXfhJYxIttKyroYFBsHwzQ.jpg",
+          "type": "portrait",
+          "width": 1000,
+          "height": 1500
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_large.jpg",
+          "type": "square",
+          "width": 1080,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_medium.jpg",
+          "type": "square",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_small.jpg",
+          "type": "square",
+          "width": 360,
+          "height": 360
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_large.jpg",
+          "type": "landscape",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 525
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_small.jpg",
+          "type": "landscape",
+          "width": 300,
+          "height": 225
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_large.jpg",
+          "type": "landscape",
+          "width": 1500,
+          "height": 570
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 226
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_small.jpg",
+          "type": "landscape",
+          "width": 480,
+          "height": 182
+        }
+      ],
+      "purchaseMode": "subscription",
+      "maxQualityAvailable": "4K",
+      "studio": [
+        "Universal Pictures"
+      ]
+    },
+    {
+      "uid": "277069862780",
+      "seasonUid": "",
+      "title": "Rambo",
+      "description": "When governments fail to act on behalf of captive missionaries, ex-Green Beret John James Rambo sets aside his peaceful existence along the Salween River in a war-torn region of Thailand to take action.  Although he's still haunted by violent memories of his time as a U.S. soldier during the Vietnam War, Rambo can hardly turn his back on the aid workers who so desperately need his help.",
+      "episodeNumber": null,
+      "releaseYear": 2008,
+      "director": [{
+        "creditType": "Director",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/16483",
+        "personName": "Sylvester Stallone"
+      }],
+      "actor": [{
+        "creditType": "Actor",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/16483",
+        "personName": "Sylvester Stallone"
+      }],
+      "genre": [
+        "Thriller",
+        "Action"
+      ],
+      "displayDuration": 3600000,
+      "type": "movie",
+      "categoryId": [
+        "ALL_ASSETS",
+        "ALL_MOVIES",
+        "SELECTED_MOVIE"
+      ],
+      "streams": "https://link.theplatform.com/s/tzTJhC/media/1GVKiy0Owfiu",
+      "downloadUrl": "https://link.theplatform.com/s/tzTJhC/media/1GVKiy0Owfiu",
+      "trailers": [{
+        "streams": "https://api-dev.enlight.diagnal.com/v1b3/playback/dummyTrailerStream?assetTypes=Rendition,Trailer"
+      }],
+      "mediaGuid": "7555",
+      "availableOn": 0,
+      "availableTill": 1937302060783,
+      "availableDays": null,
+      "isCcAvailable": true,
+      "parentalControl": [{}],
+      "isDownloadable": true,
+      "isCastable": false,
+      "countries": [
+        "USA"
+      ],
+      "contentGuid": "7555",
+      "images": [{
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/796/mgSMefETH89UnNWMffevxZPKDnO_2048x1152_13634629957.jpg",
+          "type": "landscape",
+          "width": 2048,
+          "height": 1152
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/796/mgSMefETH89UnNWMffevxZPKDnO_828x464_13634629958.jpg",
+          "type": "landscape",
+          "width": 828,
+          "height": 464
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/796/mgSMefETH89UnNWMffevxZPKDnO_760x428_13634629959.jpg",
+          "type": "landscape",
+          "width": 760,
+          "height": 428
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/796/mgSMefETH89UnNWMffevxZPKDnO_526x296_13634629960.jpg",
+          "type": "landscape",
+          "width": 526,
+          "height": 296
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/796/ec1m7YgBYb4os06OSNW3QBaNYqZ_288x432_13634629952.jpg",
+          "type": "portrait",
+          "width": 288,
+          "height": 432
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/796/ec1m7YgBYb4os06OSNW3QBaNYqZ_280x420_13634629953.jpg",
+          "type": "portrait",
+          "width": 280,
+          "height": 420
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/796/ec1m7YgBYb4os06OSNW3QBaNYqZ_264x392_13634629954.jpg",
+          "type": "portrait",
+          "width": 264,
+          "height": 392
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/796/ec1m7YgBYb4os06OSNW3QBaNYqZ_228x344_13634629955.jpg",
+          "type": "portrait",
+          "width": 228,
+          "height": 344
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/796/ec1m7YgBYb4os06OSNW3QBaNYqZ_220x330_13634629956.jpg",
+          "type": "portrait",
+          "width": 220,
+          "height": 330
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/796/mgSMefETH89UnNWMffevxZPKDnO.jpg",
+          "type": "landscape",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/189/796/ec1m7YgBYb4os06OSNW3QBaNYqZ.jpg",
+          "type": "portrait",
+          "width": 2000,
+          "height": 3000
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_large.jpg",
+          "type": "square",
+          "width": 1080,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_medium.jpg",
+          "type": "square",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_small.jpg",
+          "type": "square",
+          "width": 360,
+          "height": 360
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_large.jpg",
+          "type": "landscape",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 525
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_small.jpg",
+          "type": "landscape",
+          "width": 300,
+          "height": 225
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_large.jpg",
+          "type": "landscape",
+          "width": 1500,
+          "height": 570
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 226
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_small.jpg",
+          "type": "landscape",
+          "width": 480,
+          "height": 182
+        }
+      ],
+      "purchaseMode": "subscription",
+      "maxQualityAvailable": "4K",
+      "studio": [
+        "Universal Pictures"
+      ]
+    },
+    {
+      "uid": "277060646690",
+      "seasonUid": "",
+      "title": "I Am Legend",
+      "description": "Robert Neville is a scientist who was unable to stop the spread of the terrible virus that was incurable and man-made. Immune, Neville is now the last human survivor in what is left of New York City and perhaps the world. For three years, Neville has faithfully sent out daily radio messages, desperate to find any other survivors who might be out there. But he is not alone.",
+      "episodeNumber": null,
+      "releaseYear": 2007,
+      "director": [{
+        "creditType": "Director",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/10943",
+        "personName": "Francis Lawrence"
+      }],
+      "actor": [{
+        "creditType": "Actor",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/2888",
+        "personName": "Will Smith"
+      }],
+      "genre": [
+        "Thriller",
+        "Horror",
+        "Science Fiction",
+        "Drama",
+        "Action"
+      ],
+      "displayDuration": 3600000,
+      "type": "movie",
+      "categoryId": [
+        "ALL_ASSETS",
+        "ALL_MOVIES",
+        "SELECTED_MOVIE"
+      ],
+      "streams": "https://api-dev.enlight.diagnal.com/v1b3/playback/277060646690?",
+      "downloadUrl": "https://link.theplatform.com/s/tzTJhC/media/mUwm59Jms8RD",
+      "trailers": [{
+        "streams": "https://api-dev.enlight.diagnal.com/v1b3/playback/dummyTrailerStream?assetTypes=Rendition,Trailer"
+      }],
+      "mediaGuid": "6479",
+      "availableOn": 0,
+      "availableTill": 1937302060783,
+      "availableDays": null,
+      "isCcAvailable": true,
+      "parentalControl": [{}],
+      "isDownloadable": true,
+      "isCastable": false,
+      "countries": [
+        "USA"
+      ],
+      "contentGuid": "6479",
+      "images": [{
+          "url": "https://static.enlight.diagnal.com/enlight/posters/I_am_legend_828x464.jpg",
+          "type": "landscape",
+          "width": 828,
+          "height": 464
+        },
+        {
+          "url": "https://static.enlight.diagnal.com/enlight/posters/I_am_Legend_760x428.jpg",
+          "type": "landscape",
+          "width": 760,
+          "height": 428
+        },
+        {
+          "url": "https://static.enlight.diagnal.com/enlight/posters/I_am_Legend_526x296.jpg",
+          "type": "landscape",
+          "width": 526,
+          "height": 296
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/6OA0I8hhW9zftWoCYxJAzXW9UIN_288x432_13635653558.jpg",
+          "type": "portrait",
+          "width": 288,
+          "height": 432
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/6OA0I8hhW9zftWoCYxJAzXW9UIN_280x420_13635653559.jpg",
+          "type": "portrait",
+          "width": 280,
+          "height": 420
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/6OA0I8hhW9zftWoCYxJAzXW9UIN_264x392_13635653560.jpg",
+          "type": "portrait",
+          "width": 264,
+          "height": 392
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/6OA0I8hhW9zftWoCYxJAzXW9UIN_228x344_13635653561.jpg",
+          "type": "portrait",
+          "width": 228,
+          "height": 344
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/6OA0I8hhW9zftWoCYxJAzXW9UIN_220x330_13635653562.jpg",
+          "type": "portrait",
+          "width": 220,
+          "height": 330
+        },
+        {
+          "url": "https://static.enlight.diagnal.com/enlight/posters/I-am-legend_1920x1080.jpg",
+          "type": "landscape",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/748/6OA0I8hhW9zftWoCYxJAzXW9UIN.jpg",
+          "type": "portrait",
+          "width": 1500,
+          "height": 2250
+        },
+        {
+          "url": "https://static.enlight.diagnal.com/enlight/posters/I+am+Legend+1025.jpg",
+          "type": "landscape",
+          "width": 1025,
+          "height": 440
+        },
+        {
+          "url": "https://static.enlight.diagnal.com/enlight/posters/1500x570+Legend.jpg",
+          "type": "landscape",
+          "width": 1500,
+          "height": 570
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_large.jpg",
+          "type": "square",
+          "width": 1080,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_medium.jpg",
+          "type": "square",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_small.jpg",
+          "type": "square",
+          "width": 360,
+          "height": 360
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_large.jpg",
+          "type": "landscape",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 525
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_small.jpg",
+          "type": "landscape",
+          "width": 300,
+          "height": 225
+        }
+      ],
+      "purchaseMode": "subscription",
+      "maxQualityAvailable": "4K",
+      "studio": [
+        "Universal Pictures"
+      ]
+    },
+    {
+      "uid": "277049382841",
+      "seasonUid": "",
+      "title": "The Incredibles",
+      "description": "Bob Parr has given up his superhero days to log in time as an insurance adjuster and raise his three children with his formerly heroic wife in suburbia. But when he receives a mysterious assignment, it's time to get back into costume.",
+      "episodeNumber": null,
+      "releaseYear": 2004,
+      "director": [{
+        "creditType": "Director",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/7087",
+        "personName": "Brad Bird"
+      }],
+      "actor": [{
+        "creditType": "Actor",
+        "personId": "http://data.entertainment.tv.theplatform.com/entertainment/data/Person/guid/2706109753/8977",
+        "personName": "Craig T. Nelson"
+      }],
+      "genre": [
+        "Science Fiction",
+        "Animation",
+        "Adventure",
+        "Action",
+        "Family"
+      ],
+      "displayDuration": 3600000,
+      "type": "movie",
+      "categoryId": [
+        "ALL_ASSETS",
+        "ALL_MOVIES",
+        "SELECTED_MOVIE"
+      ],
+      "streams": "https://link.theplatform.com/s/tzTJhC/media/_bKEfquvIT5P",
+      "downloadUrl": "https://link.theplatform.com/s/tzTJhC/media/_bKEfquvIT5P",
+      "trailers": [{
+        "streams": "https://api-dev.enlight.diagnal.com/v1b3/playback/dummyTrailerStream?assetTypes=Rendition,Trailer"
+      }],
+      "mediaGuid": "9806",
+      "availableOn": 0,
+      "availableTill": 1937302060783,
+      "availableDays": null,
+      "isCcAvailable": true,
+      "parentalControl": [{}],
+      "isDownloadable": true,
+      "isCastable": false,
+      "countries": [
+        "USA"
+      ],
+      "contentGuid": "9806",
+      "images": [{
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/701/iGknrkEyebPFmpQoLGy5L0utVxz_2048x1152_13634117720.jpg",
+          "type": "landscape",
+          "width": 2048,
+          "height": 1152
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/701/iGknrkEyebPFmpQoLGy5L0utVxz_828x464_13634117721.jpg",
+          "type": "landscape",
+          "width": 828,
+          "height": 464
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/701/iGknrkEyebPFmpQoLGy5L0utVxz_760x428_13634117722.jpg",
+          "type": "landscape",
+          "width": 760,
+          "height": 428
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/701/iGknrkEyebPFmpQoLGy5L0utVxz_526x296_13634117723.jpg",
+          "type": "landscape",
+          "width": 526,
+          "height": 296
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/701/9gBnaVySWaXulJNzR796Nd8kdje_288x432_13634117724.jpg",
+          "type": "portrait",
+          "width": 288,
+          "height": 432
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/701/9gBnaVySWaXulJNzR796Nd8kdje_280x420_13634117725.jpg",
+          "type": "portrait",
+          "width": 280,
+          "height": 420
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/701/9gBnaVySWaXulJNzR796Nd8kdje_264x392_13634117726.jpg",
+          "type": "portrait",
+          "width": 264,
+          "height": 392
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/701/9gBnaVySWaXulJNzR796Nd8kdje_228x344_13634117727.jpg",
+          "type": "portrait",
+          "width": 228,
+          "height": 344
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/701/9gBnaVySWaXulJNzR796Nd8kdje_220x330_13634117728.jpg",
+          "type": "portrait",
+          "width": 220,
+          "height": 330
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/701/iGknrkEyebPFmpQoLGy5L0utVxz.jpg",
+          "type": "landscape",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/193/701/9gBnaVySWaXulJNzR796Nd8kdje.jpg",
+          "type": "portrait",
+          "width": 1000,
+          "height": 1500
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_large.jpg",
+          "type": "square",
+          "width": 1080,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_medium.jpg",
+          "type": "square",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_1_1_small.jpg",
+          "type": "square",
+          "width": 360,
+          "height": 360
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_large.jpg",
+          "type": "landscape",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 525
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_4_3_small.jpg",
+          "type": "landscape",
+          "width": 300,
+          "height": 225
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_large.jpg",
+          "type": "landscape",
+          "width": 1500,
+          "height": 570
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_medium.jpg",
+          "type": "landscape",
+          "width": 700,
+          "height": 226
+        },
+        {
+          "url": "https://cdn.create.diagnal.com/videotron/images/placeholders/image_50_19_small.jpg",
+          "type": "landscape",
+          "width": 480,
+          "height": 182
+        }
+      ],
+      "purchaseMode": "subscription",
+      "maxQualityAvailable": "4K",
+      "studio": [
+        "Universal Pictures"
+      ]
+    }
+  ],
+  "totalElements": 31,
+  "totalPages": 1,
+  "apiMapping": [{
+    "url": "https://feed.entertainment.tv.theplatform.com/f/tzTJhC/dgnlsl30-movies-action?lang=en&count=true&range=1-50&form=cjson",
+    "method": "GET",
+    "timestamp": 1681957217421,
+    "timeTaken": 486
+  }]
+}
