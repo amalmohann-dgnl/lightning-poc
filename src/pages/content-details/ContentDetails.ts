@@ -78,7 +78,6 @@ class ContentDetails
                         h: (h: number) => h,
                         w: (w: number) => w,
                         src: res.data.images.find((img: Image) => img.width === 2048)?.url,
-
                     },
                     ContentData: {
                         zIndex: 2,
