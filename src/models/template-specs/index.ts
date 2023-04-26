@@ -16,6 +16,7 @@ import VideoSpecItemTemplateSpec from './components/video-spec-item-template-spe
 import ButtonTemplateSpec from './components/button-template-spec';
 import POCVideoPlayerTemplateSpec from './pages/video-player-template-spec';
 import PlayPauseButtonTemplateSpec from './components/play-pause-button-template-spec';
+import PreviewComponentTemplateSpec from './components/preview-components-template-spec';
 
 /**
  * Exporting all the template specs from a single location
@@ -35,5 +36,6 @@ export {
     VideoSpecItemTemplateSpec,
     ButtonTemplateSpec,
     POCVideoPlayerTemplateSpec,
-    PlayPauseButtonTemplateSpec
+    PlayPauseButtonTemplateSpec,
+    PreviewComponentTemplateSpec
 };

@@ -79,6 +79,7 @@ class RailItem
      *
      */
     override _focus() {
+        this.fireAncestors('$changeItemOnFocus' as any, this.data)
         this.patch({
             smooth: { color: theme.colors.secondary, scale: 1.1 },
             Label: {

@@ -1,11 +1,13 @@
 import { Lightning, Storage } from '@lightningjs/sdk';
-import { Rail, RailItem } from '../../components';
+import { PreviewComponent, Rail, RailItem } from '../../components';
 import { endpoint, theme } from '../../configs';
 import { HomeTemplateSpec } from './../../models/template-specs';
 import TopNav from '../../components/organisms/top-nav/TopNav';
 import AxiosRequester from '../../services/AxiosRequester';
 import { RailDataResponse, Content, Image } from '../../models/api-request-response/rail-data.response';
 import axios from 'axios';
+import { PageTransition } from '../../models';
+import { PAGETRANSITION } from '../../constants';
 
 // Home component
 export class Home
@@ -15,6 +17,7 @@ export class Home
     index: number = 0;
     rowLength: number = endpoint.length;
     hideNav: boolean = false;
+    eventData: Content = {} as Content;
 
     readonly Wrapper = this.getByRef('Background.Slider.Wrapper' as any)!
 
@@ -27,12 +30,14 @@ export class Home
      */
     static override _template(): Lightning.Component.Template<HomeTemplateSpec> {
         return {
-            Navbar: { type: TopNav },
+            // Navbar: { type: TopNav },
             Background: {
                 w: 1920, h: 1080,
                 color: theme.colors.primaryLight,
                 rect: true,
-                ContentDetails: {},
+                ContentDetails: {
+                    type: PreviewComponent,
+                },
                 Slider: {
                     zIndex: 2,
                     clipping: true,
@@ -41,6 +46,19 @@ export class Home
                 }
             },
         };
+    }
+
+    $changeItemOnFocus(data: Content) {
+        let updatedDescription = {
+            type: PreviewComponent,
+            data: data
+        }
+        this.patch({
+            Background: {
+                ContentDetails: updatedDescription
+            }
+        })
+
     }
 
 
@@ -86,11 +104,15 @@ export class Home
         }
     }
 
+    override pageTransition() {
+        return PAGETRANSITION.CROSSFADE;
+    }
+
 
 
     // handling up button click
     override _handleUp() {
-        if (this.index > -1) {
+        if (this.index > 0) {
             this.index -= 1;
             if (this.index >= 0) {
                 this.repositionWrapper();

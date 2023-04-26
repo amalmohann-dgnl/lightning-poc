@@ -32,13 +32,13 @@ class ContentDetails
                 color: theme.colors.primaryLight,
                 rect: true,
                 shader: { x: 100, y: -100, pivot: 0.5, type: Lightning.shaders.RadialGradient, outerColor: theme.colors.primaryLight, innerColor: theme.colors.dark, radius: 800 },
-                Spinner: {
-                    w: 100, h: 100, mount: 0.5,
-                    x: (x: number) => x / 2,
-                    y: (y: number) => y / 2,
-                    rect: true,
-                    shader: { type: Lightning.shaders.Spinner2, stroke: 5 }
-                },
+                // Spinner: {
+                //     w: 100, h: 100, mount: 0.5,
+                //     x: (x: number) => x / 2,
+                //     y: (y: number) => y / 2,
+                //     rect: true,
+                //     shader: { type: Lightning.shaders.Spinner2, stroke: 5 }
+                // },
                 Background: {},
                 ContentData: {
                     Thumbnail: {},
