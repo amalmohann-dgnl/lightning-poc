@@ -4,6 +4,7 @@ import theme from '../../configs/theme';
 import { BackButton, VideoSpecItem, Button } from "../../components";
 import axios from 'axios';
 import { Content, Image } from "../../models/api-request-response";
+import { PAGETRANSITION } from "../../constants";
 
 class ContentDetails
     extends Lightning.Component<ContentDetailsTemplateSpec>
@@ -29,29 +30,130 @@ class ContentDetails
         return {
             ContentView: {
                 w: 1920, h: 1080,
-                color: theme.colors.primaryLight,
+                color: theme.colors.black,
                 rect: true,
                 shader: { x: 100, y: -100, pivot: 0.5, type: Lightning.shaders.RadialGradient, outerColor: theme.colors.primaryLight, innerColor: theme.colors.dark, radius: 800 },
-                // Spinner: {
-                //     w: 100, h: 100, mount: 0.5,
-                //     x: (x: number) => x / 2,
-                //     y: (y: number) => y / 2,
-                //     rect: true,
-                //     shader: { type: Lightning.shaders.Spinner2, stroke: 5 }
-                // },
-                Background: {},
+                Thumbnail: {
+                    x: 1000, y: 110,
+                    scale: 1.5,
+                    shader: { type: Lightning.shaders.FadeOut, innerColor: theme.colors.black, left: 200, bottom: 200 },
+                },
                 ContentData: {
-                    Thumbnail: {},
-                    Title: {},
-                    Description: {},
-                    Genre: {},
-                    Info: {},
+                    shader: null,
+                    zIndex: 2,
+                    Title: {
+                        x: 40, y: 165,
+                        shader: null,
+                        text: {
+                            fontSize: 80
+                        },
+                        color: theme.colors.white,
+                    },
+                    Description: {
+                        x: 40, y: 270,
+                        w: 900,
+                        shader: null,
+                        text: {
+                            wordWrap: true,
+                            maxLines: 3,
+                            maxLinesSuffix: '...',
+                            fontSize: 30
+                        },
+                        color: theme.colors.accentGrey.light,
+                    },
+                    Genre: {
+                        x: 40, y: 380,
+                        w: 900,
+                        shader: null,
+                        text: {
+                            fontSize: 24
+                        },
+                        color: theme.colors.accentGrey.light,
+                    },
+                    Info: {
+                        visible: false,
+                        Director: {
+                            x: 40, y: 440,
+                            w: 100,
+                            shader: null,
+                            text: {
+                                text: 'Director : ',
+                                fontSize: 24
+                            },
+                            color: theme.colors.accentGrey.light,
+                        },
+                        Starring: {
+                            x: 40, y: 470,
+                            w: 100,
+                            shader: null,
+                            text: {
+                                text: 'Staring  : ',
+                                fontSize: 24,
+                            },
+                            color: theme.colors.accentGrey.light,
+                        },
+                        DirectorList: {
+                            x: 150, y: 440,
+                            w: 800,
+                            shader: null,
+                            text: {
+                                fontSize: 24
+                            },
+                            color: theme.colors.accentGrey.light,
+                        },
+                        StarringList: {
+                            x: 150, y: 470,
+                            w: 800,
+                            shader: null,
+                            text: {
+                                fontSize: 24,
+                                wordWrap: true,
+                                maxLines: 1,
+                                maxLinesSuffix: '...',
+                            },
+                            color: theme.colors.accentGrey.light,
+                        }
+
+                    },
+                    VideoSpec: {
+                        visible: false,
+                        VideoSpec1: {
+                            x: 70, y: 140,
+                            shader: null,
+                            type: VideoSpecItem,
+                            specData: '  16+  '
+                        },
+                        VideoSpec2: {
+                            x: 135, y: 140,
+                            shader: null,
+                            type: VideoSpecItem,
+                            specData: '  4k  '
+                        },
+                        VideoSpec3: {
+                            x: 193, y: 140,
+                            shader: null,
+                            type: VideoSpecItem,
+                            specData: '  cc  '
+                        },
+                    }
                 },
                 ContentActions: {
-                    // BackButton: { type: BackButton },
-                    // PlayButton: { type: Button },
-                    // PlayTrailer: { type: Button },
+                    shader: null,
 
+                    BackButton: {
+                        x: 40, y: 40,
+                        type: BackButton
+                    },
+                    PlayButton: {
+                        x: 40, y: 570,
+                        type: Button,
+                        label: "Play Video"
+                    },
+                    PlayTrailer: {
+                        x: 40, y: 700,
+                        type: Button,
+                        label: "Play Trailer"
+                    },
                 }
             }
         };
@@ -62,155 +164,55 @@ class ContentDetails
         this.index = 1;
     }
 
-    override set params(args: any) {
-        const { id, from } = args;
-        this.from = from;
-        axios.get(`https://api-qa.enlight.diagnal.com/v1b3/content/${id}`).then((res) => {
-            console.log(res.data);
-            this.contentId = id;
-            this.patch({
-                ContentView: {
-                    Spinner: {
-                        rect: false,
+    override set params(args: { id: string, from: string, data: Content }) {
+        const { id, from, data } = args; this.from = from;
+        let imgSrc = data.images.find((img: Image) => img.width === 828)?.url;
+        console.log(args);
+        this.patch({
+            ContentView: {
+                shader: { type: Lightning.shaders.RadialGradient, x: 300, y: 300, innerColor: 0xff000000, radius: 1500 },
+                Thumbnail: {
+                    src: imgSrc
+                },
+                ContentData: {
+                    x: 10,
+                    Title: {
+                        text: {
+                            text: data.title,
+                        },
                     },
-                    shader: { type: Lightning.shaders.RadialGradient, x: 300, y: 300, innerColor: 0xff000000, radius: 1500 },
-                    Background: {
-                        h: (h: number) => h,
-                        w: (w: number) => w,
-                        src: res.data.images.find((img: Image) => img.width === 2048)?.url,
-
+                    Description: {
+                        text: {
+                            text: data.description,
+                        },
                     },
-                    ContentData: {
-                        zIndex: 2,
-                        Thumbnail: {
-                            x: 1400, y: 324,
-                            w: 288, h: 432,
-                            scale: 1.5,
-                            shader: { type: Lightning.shaders.RoundedRectangle, radius: 30 },
-                            src: res.data.images.find((img: Image) => img.width === 288)?.url,
-                            color: theme.colors.white,
+                    Genre: {
+                        text: {
+                            text: data.genre.join(' . '),
                         },
-                        Title: {
-                            x: 40, y: 185,
-                            shader: null,
+                    },
+                    Info: {
+                        visible: true,
+                        DirectorList: {
                             text: {
-                                text: res.data.title,
-                                fontSize: 80
+                                text: data.director.map((a: any) => a.personName).join(', '),
                             },
-                            color: theme.colors.white,
                         },
-                        Description: {
-                            x: 40, y: 290,
-                            w: 900,
-                            shader: null,
+                        StarringList: {
                             text: {
-                                wordWrap: true,
-                                maxLines: 3,
-                                text: res.data.description,
-                                maxLinesSuffix: '...',
-                                fontSize: 30
-                            },
-                            color: theme.colors.accentGrey.light,
-                        },
-                        Genre: {
-                            x: 40, y: 400,
-                            w: 900,
-                            shader: null,
-                            text: {
-                                text: res.data.genre.join(' . '),
-                                fontSize: 24
-                            },
-                            color: theme.colors.accentGrey.light,
-                        },
-                        Info: {
-                            Director: {
-                                x: 40, y: 460,
-                                w: 100,
-                                shader: null,
-                                text: {
-                                    text: 'Director : ',
-                                    fontSize: 24
-                                },
-                                color: theme.colors.accentGrey.light,
-                            },
-                            Starring: {
-                                x: 40, y: 490,
-                                w: 100,
-                                shader: null,
-                                text: {
-                                    text: 'Staring  : ',
-                                    fontSize: 24,
-                                },
-                                color: theme.colors.accentGrey.light,
-                            },
-                            DirectorList: {
-                                x: 150, y: 460,
-                                w: 800,
-                                shader: null,
-                                text: {
-                                    text: res.data.director.map((a: any) => a.personName).join(', '),
-                                    fontSize: 24
-                                },
-                                color: theme.colors.accentGrey.light,
-                            },
-                            StarringList: {
-                                x: 150, y: 490,
-                                w: 800,
-                                shader: null,
-                                text: {
-                                    text: res.data.actor.map((a: any) => a.personName).join(', '),
-                                    fontSize: 24,
-                                    wordWrap: true,
-                                    maxLines: 1,
-                                    maxLinesSuffix: '...',
-                                },
-                                color: theme.colors.accentGrey.light,
-                            }
+                                text: data.actor.map((a: any) => a.personName).join(', '),
 
-                        },
-                        VideoSpec: {
-                            VideoSpec1: {
-                                x: 70, y: 160,
-                                shader: null,
-                                type: VideoSpecItem,
-                                specData: '  16+  '
-                            },
-                            VideoSpec2: {
-                                x: 135, y: 160,
-                                shader: null,
-                                type: VideoSpecItem,
-                                specData: '  4k  '
-                            },
-                            VideoSpec3: {
-                                x: 193, y: 160,
-                                shader: null,
-                                type: VideoSpecItem,
-                                specData: '  cc  '
                             },
                         }
                     },
-                    ContentActions: {
-                        shader: null,
-
-                        BackButton: {
-                            x: 40, y: 40,
-                            type: BackButton
-                        },
-                        PlayButton: {
-                            x: 40, y: 570,
-                            type: Button,
-                            label: "Play Video"
-                        },
-                        PlayTrailer: {
-                            x: 40, y: 700,
-                            type: Button,
-                            label: "Play Trailer"
-                        },
+                    VideoSpec: {
+                        visible: true,
                     }
                 }
-            })
-            this._refocus();
+            }
         })
+
+        this._refocus();
     }
 
     // override _enable(): void {
@@ -256,6 +258,11 @@ class ContentDetails
     // returns the focused components
     override _getFocused(): any {
         return this.tag('ContentView.ContentActions' as any).children[this.index]
+    }
+
+
+    override pageTransition() {
+        return PAGETRANSITION.CROSSFADE;
     }
 
 

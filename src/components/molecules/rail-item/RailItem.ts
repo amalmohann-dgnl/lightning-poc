@@ -67,7 +67,7 @@ class RailItem
    * the route to navigate.
    */
     override _handleEnter() {
-        Router.navigate(`content/railItem/${this.data.uid}`, { from: 'Home' })
+        Router.navigate(`content/railItem/${this.data.uid}`, { from: 'Home', data: this.data })
     }
 
 

@@ -14,7 +14,7 @@ interface ContentDetailsTemplateSpec extends Lightning.Component.TemplateSpec {
      * children of the component
      */
     ContentView: {
-        Spinner: object;
+        Thumbnail: object;
         Background: object;
         ContentData: {
             Thumbnail: object,

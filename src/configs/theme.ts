@@ -16,6 +16,7 @@ const theme = {
             dark: 0xff455160,
         },
         dark: 0xff060623,
+        black: 0xff000000,
     }
 }
 

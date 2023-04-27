@@ -5,9 +5,6 @@ interface PreviewComponentTemplateSpec extends Lightning.Component.TemplateSpec 
     /**
      * properties of the component
      */
-    index: number;
-    contentData: Content;
-    contentId: string;
 
 
     /**

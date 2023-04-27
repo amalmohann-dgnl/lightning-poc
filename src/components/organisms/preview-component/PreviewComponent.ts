@@ -1,56 +1,28 @@
-import { Lightning, Router } from "@lightningjs/sdk";
+import { Lightning, Utils } from "@lightningjs/sdk";
 import { PreviewComponentTemplateSpec } from "../../../models/template-specs";
 import theme from '../../../configs/theme';
 import { VideoSpecItem } from "../../../components";
-import { Content, Image } from "../../../models/api-request-response";
 
 class PreviewComponent
     extends Lightning.Component<PreviewComponentTemplateSpec>
     implements Lightning.Component.ImplementTemplateSpec<PreviewComponentTemplateSpec>
 {
-    contentData!: Content;
-    contentId: string = '';
-    index: number = 1;
-    from: string = '';
-
     static override _template(): Lightning.Component.Template<PreviewComponentTemplateSpec> {
         return {
             ContentView: {
                 Thumbnail: {
                     x: 1000, y: 110,
                     scale: 1.5,
-                    shader: { type: Lightning.shaders.FadeOut, innerColor: 0xff000000, left: 200, bottom: 200 },
+                    shader: { type: Lightning.shaders.FadeOut, innerColor: theme.colors.black, left: 200, bottom: 200 },
                 },
                 ContentDetails: {
                     ContentData: {
                         shader: null,
-                    },
-                },
-            }
-        };
-    }
-
-    override _inactive(): void {
-        console.log("Inactive");
-        this.index = 1;
-    }
-
-    set data(eventDetails: Content) {
-        console.log(eventDetails);
-        this.patch({
-            ContentView: {
-                shader: { type: Lightning.shaders.RadialGradient, x: 300, y: 300, innerColor: 0xff000000, radius: 1500 },
-                Thumbnail: {
-                    src: eventDetails.images.find((img: Image) => img.width === 828)?.url,
-                },
-                ContentDetails: {
-                    ContentData: {
                         zIndex: 2,
                         Title: {
                             x: 40, y: 165,
                             shader: null,
                             text: {
-                                text: eventDetails.title,
                                 fontSize: 80
                             },
                             color: theme.colors.white,
@@ -62,7 +34,6 @@ class PreviewComponent
                             text: {
                                 wordWrap: true,
                                 maxLines: 3,
-                                text: eventDetails.description,
                                 maxLinesSuffix: '...',
                                 fontSize: 30
                             },
@@ -73,12 +44,12 @@ class PreviewComponent
                             w: 900,
                             shader: null,
                             text: {
-                                text: eventDetails.genre.join(' . '),
                                 fontSize: 24
                             },
                             color: theme.colors.accentGrey.light,
                         },
                         Info: {
+                            visible: false,
                             Director: {
                                 x: 40, y: 440,
                                 w: 100,
@@ -104,7 +75,6 @@ class PreviewComponent
                                 w: 800,
                                 shader: null,
                                 text: {
-                                    text: eventDetails.director.map((a: any) => a.personName).join(', '),
                                     fontSize: 24
                                 },
                                 color: theme.colors.accentGrey.light,
@@ -114,7 +84,6 @@ class PreviewComponent
                                 w: 800,
                                 shader: null,
                                 text: {
-                                    text: eventDetails.actor.map((a: any) => a.personName).join(', '),
                                     fontSize: 24,
                                     wordWrap: true,
                                     maxLines: 1,
@@ -125,6 +94,7 @@ class PreviewComponent
 
                         },
                         VideoSpec: {
+                            visible: false,
                             VideoSpec1: {
                                 x: 70, y: 140,
                                 shader: null,
@@ -145,53 +115,96 @@ class PreviewComponent
                             },
                         }
                     },
+                },
+            }
+        };
+    }
+
+    override _inactive(): void {
+        console.log("Inactive");
+    }
+
+    set data(eventDetails: { imgSrc: string, title: string, description: string, genre: string, directorsList: string, actorsList: string }) {
+        console.log(eventDetails);
+
+        const { imgSrc, title, description, genre, directorsList, actorsList } = eventDetails;
+
+        const thumbnailAnimation = this.tag('ContentView.Thumbnail' as any).animation({
+            duration: 0.5,
+            delay: 0.5,
+            autoStop: true,
+            actions: [
+                { p: 'src', v: { 0: '', 0.6: imgSrc } },
+                { p: 'alpha', v: { 0: 1, 0.5: 0, 1: 1 } }
+            ]
+        });
+
+        const contentAnimation = this.tag('ContentView.ContentDetails' as any).animation({
+            duration: 1,
+            delay: 0,
+            actions: [
+                { p: 'alpha', v: { 0: 1, 0.6: 0, 0.8: 0, 1: 1 } },
+                { p: 'x', v: { 0: 10, 0.6: -100, 0.65: 10 } },
+                { p: 'y', v: { 0: 0, 0.6: 0, 0.7: -30, 1: 0 } },
+            ]
+        });
+
+
+        // patching
+        this.patch({
+            ContentView: {
+                shader: { type: Lightning.shaders.RadialGradient, x: 300, y: 300, innerColor: 0xff000000, radius: 1500 },
+                ContentDetails: {
+                    x: 10,
+                    ContentData: {
+                        Title: {
+                            text: {
+                                text: title,
+                            },
+                        },
+                        Description: {
+                            text: {
+                                text: description,
+                            },
+                        },
+                        Genre: {
+                            text: {
+                                text: genre,
+                            },
+                        },
+                        Info: {
+                            visible: true,
+                            DirectorList: {
+                                text: {
+                                    text: directorsList,
+                                },
+                            },
+                            StarringList: {
+                                text: {
+                                    text: actorsList,
+
+                                },
+                            }
+                        },
+                        VideoSpec: {
+                            visible: true,
+                        }
+                    }
                 }
             }
         })
 
+        thumbnailAnimation.start();
+        contentAnimation.start();
     }
-
 
     override _init(): void {
-        // this.tag('ContentView.ContentData.Info.Starring' as any).enableClipping()
+        this.tag('ContentView.Thumbnail' as any).on('txError', () => {
+            console.error('texture failed to load: ' + this.tag('ContentView.Thumbnail' as any).src)
+            // show placeholder
+            this.tag('ContentView.Thumbnail' as any).src = Utils.asset('/static/images/background.png');
+        })
     }
-
-
-    // overrides the default up button actions
-    override _handleUp(): void {
-        if (this.index > 0) {
-            this.index -= 1;
-        }
-    }
-
-    // overrides the default right button actions
-    override _handleDown(): void {
-        if (this.index < 2) {
-            this.index += 1;
-        }
-    }
-
-    // overrides the default behavior when enter button is clicked
-    override _handleEnter(): void {
-        console.log(this.from);
-
-        if (this.index === 0) {
-            if (this.from == 'gridItem' || this.from == 'Grid') {
-                Router.navigate('grid');
-            }
-            else {
-                Router.navigate('home');
-            }
-        } else {
-            Router.navigate(`player/${this.contentId}`)
-        }
-    }
-
-    // returns the focused components
-    override _getFocused(): any {
-        return this.tag('ContentView.ContentActions' as any).children[this.index]
-    }
-
 
 }
 

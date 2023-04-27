@@ -2,11 +2,8 @@ import { Lightning, Storage } from '@lightningjs/sdk';
 import { PreviewComponent, Rail, RailItem } from '../../components';
 import { endpoint, theme } from '../../configs';
 import { HomeTemplateSpec } from './../../models/template-specs';
-import TopNav from '../../components/organisms/top-nav/TopNav';
 import AxiosRequester from '../../services/AxiosRequester';
 import { RailDataResponse, Content, Image } from '../../models/api-request-response/rail-data.response';
-import axios from 'axios';
-import { PageTransition } from '../../models';
 import { PAGETRANSITION } from '../../constants';
 
 // Home component
@@ -33,7 +30,7 @@ export class Home
             // Navbar: { type: TopNav },
             Background: {
                 w: 1920, h: 1080,
-                color: theme.colors.primaryLight,
+                color: theme.colors.black,
                 rect: true,
                 ContentDetails: {
                     type: PreviewComponent,
@@ -49,18 +46,21 @@ export class Home
     }
 
     $changeItemOnFocus(data: Content) {
-        let updatedDescription = {
+        console.log("changeItemOnFocus");
+        let imgSrc = data.images.find((img: Image) => img.width === 828)?.url;
+        let title = data.title;
+        let description = data.description;
+        let genre = data.genre.join(' . ');
+        let directorsList = data.director.map((a: any) => a.personName).join(', ');
+        let actorsList = data.actor.map((a: any) => a.personName).join(', ');
+
+        const previewItem = {
             type: PreviewComponent,
-            data: data
+            data: { imgSrc, title, description, genre, directorsList, actorsList }
         }
-        this.patch({
-            Background: {
-                ContentDetails: updatedDescription
-            }
-        })
+        this.tag('Background.ContentDetails' as any).patch(previewItem);
 
     }
-
 
     // initializing the component
     override _init() {
@@ -107,8 +107,6 @@ export class Home
     override pageTransition() {
         return PAGETRANSITION.CROSSFADE;
     }
-
-
 
     // handling up button click
     override _handleUp() {
