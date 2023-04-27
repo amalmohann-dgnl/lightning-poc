@@ -4,6 +4,8 @@
  */
 import { Lightning } from "@lightningjs/sdk";
 import { Content } from "../../api-request-response";
+// @ts-ignore
+import { ProgressBar } from "@lightningjs/ui";
 
 /**
  * properties of the Rail Item component
@@ -25,6 +27,8 @@ interface RailItemTemplateSpec extends Lightning.Component.TemplateSpec {
     Label: object;
     data: Content;
     Rectangle?: object;
+    ProgressBar: typeof ProgressBar;
+    PlayButton: object;
 
 }
 

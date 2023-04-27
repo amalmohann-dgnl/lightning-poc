@@ -2,6 +2,9 @@ import { Lightning, Router } from '@lightningjs/sdk'
 import { theme } from '../../../configs'
 import { Content } from '../../../models/api-request-response';
 import { RailItemTemplateSpec } from '../../../models/template-specs'
+// @ts-ignore
+import { ProgressBar } from '@lightningjs/ui'
+import VideoSpecItem from '../../atoms/video-spec-item/VideoSpecItem';
 
 class RailItem
     extends Lightning.Component<RailItemTemplateSpec>
@@ -23,15 +26,12 @@ class RailItem
             w: 216,
             h: 324,
             rect: true,
-            color: theme.colors.primary,
+            color: theme.colors.accentGrey.dark,
             shader: { type: Lightning.shaders.RoundedRectangle, radius: 20 },
             Image: {
                 w: (w: any) => w,
                 h: (h: any) => h,
-                shader: {
-                    type: Lightning.shaders.RoundedRectangle,
-                    radius: 20
-                }
+                shader: { type: Lightning.shaders.FadeOut, innerColor: theme.colors.black, bottom: 200 },
             },
             Label: {
                 x: 10,
@@ -39,7 +39,52 @@ class RailItem
                 w: (w: number) => w,
                 color: theme.colors.accentGrey.light,
                 text: { fontSize: 22.5 }
+            },
+            ProgressBar: {
+                h: 5, w: 200,
+                x: 10, y: 300,
+                type: ProgressBar,
+                progressColorFocused: theme.colors.yellow,
+                progressColor: theme.colors.yellow,
+            },
+
+            VideoSpec: {
+                visible: true,
+                VideoSpec1: {
+                    x: 55, y: 25,
+                    shader: null,
+                    type: VideoSpecItem,
+                    specData: '  16+  ',
+                    customColor: theme.colors.yellow
+                },
+                VideoSpec2: {
+                    x: 120, y: 25,
+                    shader: null,
+                    type: VideoSpecItem,
+                    specData: '  4k  ',
+                    customColor: theme.colors.yellow
+
+                },
+                VideoSpec3: {
+                    x: 175, y: 25,
+                    shader: null,
+                    type: VideoSpecItem,
+                    specData: '  cc  ',
+                    customColor: theme.colors.yellow
+
+                },
+            },
+            PlayButton: {
+                h: 100,
+                y: 200,
+                visible: false,
+                text: {
+                    fontSize: 35, textColor: theme.colors.white,
+                    textAlign: 'left', textIndent: 20, textBaseline: 'hanging',
+                    text: "Play Video",
+                }
             }
+
         }
     }
 
@@ -56,7 +101,10 @@ class RailItem
             Image: {
                 src: src
             },
-            Label: { text: label?.toString() }
+            Label: { text: label?.toString() },
+            ProgressBar: {
+                value: Math.floor(Math.random() * 101)
+            }
         })
     }
 
@@ -81,11 +129,18 @@ class RailItem
     override _focus() {
         this.fireAncestors('$changeItemOnFocus' as any, this.data)
         this.patch({
-            smooth: { color: theme.colors.secondary, scale: 1.1 },
+            smooth: { color: theme.colors.black, scale: 1.1 },
+            Image: {
+                shader: { type: Lightning.shaders.FadeOut, innerColor: theme.colors.black, top: 200, bottom: 200, },
+            },
             Label: {
                 smooth: { color: theme.colors.white }
             },
-            Rectangle: { color: theme.colors.yellow, x: 10, y: (y: number) => y + 54, w: (w: number) => w - 20, h: 5, rect: true }
+            Rectangle: { color: theme.colors.yellow, x: 10, y: (y: number) => y + 54, w: (w: number) => w - 20, h: 5, rect: true },
+            PlayButton: {
+                visible: true,
+                color: theme.colors.yellow
+            }
         })
     }
 
@@ -97,11 +152,14 @@ class RailItem
      */
     override _unfocus() {
         this.patch({
-            smooth: { color: theme.colors.primary, scale: 1.0 },
+            smooth: { color: theme.colors.accentGrey.dark, scale: 1.0 },
             Label: {
                 smooth: { color: theme.colors.accentGrey.light }
             },
-            Rectangle: undefined
+            Rectangle: undefined,
+            PlayButton: {
+                visible: false,
+            }
         })
     }
 }

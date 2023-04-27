@@ -23,7 +23,21 @@ class VideoSpecItem extends Lightning.Component<VideoSpecItemTemplateSpec> imple
         this.patch({
             VideoSpec: {
                 Spec: {
-                    text: spec
+                    text: spec,
+                }
+            }
+        })
+    }
+
+    set customColor(color: string) {
+        this.patch({
+            VideoSpec: {
+                shader: {
+                    strokeColor: color
+                },
+                Spec: {
+                    smooth: { color: color }
+
                 }
             }
         })

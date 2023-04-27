@@ -1,4 +1,4 @@
-import { Lightning, Log, Storage } from '@lightningjs/sdk';
+import { Lightning, Storage } from '@lightningjs/sdk';
 import { RailTemplateSpec } from "../../../models/template-specs";
 import RailItem from '../../molecules/rail-item/RailItem';
 import { AxiosRequester } from '../../../services';
