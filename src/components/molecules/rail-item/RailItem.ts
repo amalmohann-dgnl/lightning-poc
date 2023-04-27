@@ -33,13 +33,13 @@ class RailItem
                     radius: 20
                 }
             },
-            Label: {
-                x: 10,
-                y: 326.25,
-                w: (w: number) => w,
-                color: theme.colors.accentGrey.light,
-                text: { fontSize: 22.5 }
-            }
+            // Label: {
+            //     x: 10,
+            //     y: 326.25,
+            //     w: (w: number) => w,
+            //     color: theme.colors.accentGrey.light,
+            //     text: { fontSize: 22.5 }
+            // }
         }
     }
 
@@ -56,7 +56,7 @@ class RailItem
             Image: {
                 src: src
             },
-            Label: { text: label?.toString() }
+            // Label: { text: label?.toString() }
         })
     }
 
@@ -82,10 +82,10 @@ class RailItem
         this.fireAncestors('$changeItemOnFocus' as any, this.data)
         this.patch({
             smooth: { color: theme.colors.secondary, scale: 1.1 },
-            Label: {
-                smooth: { color: theme.colors.white }
-            },
-            Rectangle: { color: theme.colors.yellow, x: 10, y: (y: number) => y + 54, w: (w: number) => w - 20, h: 5, rect: true }
+            // Label: {
+            //     smooth: { color: theme.colors.white }
+            // },
+            // Rectangle: { color: theme.colors.yellow, x: 10, y: (y: number) => y + 54, w: (w: number) => w - 20, h: 5, rect: true }
         })
     }
 
@@ -98,10 +98,10 @@ class RailItem
     override _unfocus() {
         this.patch({
             smooth: { color: theme.colors.primary, scale: 1.0 },
-            Label: {
-                smooth: { color: theme.colors.accentGrey.light }
-            },
-            Rectangle: undefined
+            // Label: {
+            //     smooth: { color: theme.colors.accentGrey.light }
+            // },
+            // Rectangle: undefined
         })
     }
 }
