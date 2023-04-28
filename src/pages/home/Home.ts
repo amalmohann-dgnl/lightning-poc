@@ -33,14 +33,17 @@ export class Home
                 color: theme.colors.black,
                 rect: true,
                 Box: {
-                    zIndex: 3,
-                    w: 100,
-                    h: 100,
                     x: 80,
                     y: 665,
-                    rect: true,
-                    shader: { type: Lightning.shaders.RoundedRectangle, radius: 20 },
-                    color: 0xffF2DB59,
+                    InnerBox : {
+                        zIndex: 3,
+                        w: 100,
+                        h: 100,
+                        rect: true,
+                        shader: { type: Lightning.shaders.RoundedRectangle, radius: 20 },
+                        // shader: {type: Lightning.shaders.Hole, w: 100, h: 75, x: 40, y: 20, radius: 20},
+                        color: 0xffF2DB59,
+                    }
                 },
                 ContentDetails: {
                     type: PreviewComponent,
@@ -70,13 +73,16 @@ export class Home
         }
         this.tag('Background.ContentDetails' as any).patch(previewItem);
         this.tag('Box')?.patch({
-            w: cardData.cardWidth,
-            h: cardData.cardHeight
+            InnerBox: {
+                w: cardData.cardWidth + 10,
+                h: cardData.cardHeight + 10,
+                // shader: { w: cardData.cardWidth, h: cardData.cardHeight }
+            }
         })
         const focusBox = this.tag("Box" as any)
-        if (cardData.cardIndex >= cardData.railTotalElements - 5) {
+        if (cardData.cardIndex >= cardData.railTotalElements - 6) {
             console.log('cardData.railTotalElements - cardData.cardIndex', 6 - (cardData.railTotalElements - cardData.cardIndex))
-            focusBox.setSmooth("x", (216 + 30) * (6 - (cardData.railTotalElements - cardData.cardIndex)) + 80, { duration: 0.3 });
+            focusBox.setSmooth("x", (216 + 30) * (7 - (cardData.railTotalElements - cardData.cardIndex)) + 80, { duration: 0.3 });
         } else focusBox.setSmooth("x", 80, { duration: 0.3 });
 
     }

@@ -33,7 +33,9 @@ interface HomeTemplateSpec extends Lightning.Component.TemplateSpecLoose {
                 }
             }
         },
-        Box: object
+        Box: {
+            InnerBox: object
+        }
 
     }
     Navbar: typeof TopNav;

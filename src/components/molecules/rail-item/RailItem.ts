@@ -53,6 +53,8 @@ class RailItem
      */
     set item(obj: { label: any; src: any, data: Content, index: number, totalElements: number }) {
         const { label, src, data, index, totalElements } = obj;
+        console.log("totalElements", totalElements);
+
         this.data = data;
         this.index = index;
         this.totalElements = totalElements
@@ -62,6 +64,11 @@ class RailItem
             },
             Label: { text: label?.toString() }
         })
+        if (totalElements === 10 || totalElements === 31) {
+            this.patch({
+                h: 200
+            })
+        }
     }
 
 

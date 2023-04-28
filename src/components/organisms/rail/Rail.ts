@@ -105,7 +105,7 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
 
     repositionWrapper() {
         const wrapper = this.tag('Wrapper' as any);
-        if (this.index < this.dataLength - 5) {
+        if (this.index < this.dataLength - 6) {
             wrapper.setSmooth("x", -(216 + 30) * this.index, { duration: 0.3 });
         }
     }
