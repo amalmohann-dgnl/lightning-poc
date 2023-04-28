@@ -2,8 +2,12 @@
   "name": "com.diagnal.app.lightningpoc",
   "homepage": ".",
   "description": "Lighting POC",
+  "type": "module",
+  "main": "index.js",
   "scripts": {
     "prepare": "husky install",
+    "dev-vite": "vite",
+    "build": "vite build",
     "dev": "LNG_SERVE_PORT=3000 lng dev",
     "rm-dist-webos": "rm -rf ./platforms/WebOs/dist || rm -r ./platforms/WebOs/dist || rmdir ./platforms/WebOs/dist",
     "rm-dist-tizen": "rm -rf ./platforms/Tizen/www || rm -r ./platforms/Tizen/www || rmdir ./platforms/Tizen/www",

@@ -1,11 +1,9 @@
 import { Lightning, Storage } from '@lightningjs/sdk';
-import { Rail, RailItem } from '../../components';
+import { PreviewComponent, Rail, RailItem } from '../../components';
 import { endpoint, theme } from '../../configs';
 import { HomeTemplateSpec } from './../../models/template-specs';
-import TopNav from '../../components/organisms/top-nav/TopNav';
 import AxiosRequester from '../../services/AxiosRequester';
 import { RailDataResponse, Content, Image } from '../../models/api-request-response/rail-data.response';
-import axios from 'axios';
 
 // Home component
 export class Home
@@ -15,6 +13,7 @@ export class Home
     index: number = 0;
     rowLength: number = endpoint.length;
     hideNav: boolean = false;
+    eventData: Content = {} as Content;
 
     readonly Wrapper = this.getByRef('Background.Slider.Wrapper' as any)!
 
@@ -27,27 +26,47 @@ export class Home
      */
     static override _template(): Lightning.Component.Template<HomeTemplateSpec> {
         return {
-            Navbar: { type: TopNav },
+            // Navbar: { type: TopNav },
             Background: {
                 w: 1920, h: 1080,
-                color: theme.colors.primaryLight,
+                color: theme.colors.black,
                 rect: true,
+                ContentDetails: {
+                    type: PreviewComponent,
+                },
                 Slider: {
                     zIndex: 2,
-                    w: 800, h: (h: number) => h, x: 400, y: 630, mount: 0.5,
+                    clipping: true,
+                    w: 1920, h: (h: number) => h, x: 960, y: 1100, mount: 0.5,
                     Wrapper: {}
                 }
             },
         };
     }
 
+    $changeItemOnFocus(data: Content) {
+        console.log("changeItemOnFocus");
+        let imgSrc = data.images.find((img: Image) => img.width === 828)?.url;
+        let title = data.title;
+        let description = data.description;
+        let genre = data.genre.join(' . ');
+        let directorsList = data.director.map((a: any) => a.personName).join(', ');
+        let actorsList = data.actor.map((a: any) => a.personName).join(', ');
+
+        const previewItem = {
+            type: PreviewComponent,
+            data: { imgSrc, title, description, genre, directorsList, actorsList }
+        }
+        this.tag('Background.ContentDetails' as any).patch(previewItem);
+
+    }
 
     // initializing the component
     override _init() {
         this.backgroundFetchAndSave();
         const rails = [];
         for (let i = 0; i < this.rowLength; i++) {
-            rails.push({ type: Rail, x: 0, y: i * (600 + 50), railIndex: i })
+            rails.push({ type: Rail, x: 0, y: i * (500 + 50), railIndex: i })
         }
         this.tag('Background.Slider.Wrapper' as any).children = rails;
     }
@@ -84,11 +103,23 @@ export class Home
         }
     }
 
+    // adding animation on entering the page.
+    override _active() {
+        const railInAnimation = this.tag('Background.Slider' as any).animation({
+            duration: 1,
+            delay: 0,
+            actions: [
+                { p: 'alpha', v: { 0: 0, 1: 1 } },
+                { p: 'y', v: { 0: 1400, 1: 1100 } },
+            ]
+        });
 
+        railInAnimation.start();
+    }
 
     // handling up button click
     override _handleUp() {
-        if (this.index > -1) {
+        if (this.index > 0) {
             this.index -= 1;
             if (this.index >= 0) {
                 this.repositionWrapper();
@@ -139,4 +170,19 @@ export class Home
         }
     }
 
+    // Animating the page transition
+    pageTransitionOut(page: any) {
+        return new Promise<void>((resolve, reject) => {
+            this.tag('Background.Slider' as any).patch({
+                smooth: { y: [1300, { duration: 1, delay: 0, timingFunction: 'ease' }], alpha: 0 }
+            })
+
+            this.tag('Background.ContentDetails' as any).animate();
+
+            // resolve Promise when transition on x is finished
+            this.tag('Background.Slider' as any).transition('y').on('finish', () => {
+                resolve();
+            });
+        });
+    }
 }

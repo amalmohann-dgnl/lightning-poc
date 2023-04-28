@@ -5,6 +5,8 @@
 
 import { Lightning } from '@lightningjs/sdk';
 import TopNav from '../../../components/organisms/top-nav/TopNav';
+import { Content } from '../../api-request-response';
+import { PreviewComponent } from '../../../components';
 
 interface HomeTemplateSpec extends Lightning.Component.TemplateSpecLoose {
     /**
@@ -13,12 +15,15 @@ interface HomeTemplateSpec extends Lightning.Component.TemplateSpecLoose {
     index: number;
     rowLength: number;
     hideNav: boolean;
+    eventData: Content;
+
 
 
     /**
      * children of the component
      */
     Background: {
+        ContentDetails: typeof PreviewComponent;
         Slider: {
             Wrapper: {
                 Widgets: {
