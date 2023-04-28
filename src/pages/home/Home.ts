@@ -4,7 +4,6 @@ import { endpoint, theme } from '../../configs';
 import { HomeTemplateSpec } from './../../models/template-specs';
 import AxiosRequester from '../../services/AxiosRequester';
 import { RailDataResponse, Content, Image } from '../../models/api-request-response/rail-data.response';
-import { PAGETRANSITION } from '../../constants';
 
 // Home component
 export class Home
@@ -104,8 +103,18 @@ export class Home
         }
     }
 
-    override pageTransition() {
-        return PAGETRANSITION.CROSSFADE;
+    // adding animation on entering the page.
+    override _active() {
+        const railInAnimation = this.tag('Background.Slider' as any).animation({
+            duration: 1,
+            delay: 0,
+            actions: [
+                { p: 'alpha', v: { 0: 0, 1: 1 } },
+                { p: 'y', v: { 0: 1400, 1: 1100 } },
+            ]
+        });
+
+        railInAnimation.start();
     }
 
     // handling up button click
@@ -161,4 +170,19 @@ export class Home
         }
     }
 
+    // Animating the page transition
+    pageTransitionOut(page: any) {
+        return new Promise<void>((resolve, reject) => {
+            this.tag('Background.Slider' as any).patch({
+                smooth: { y: [1300, { duration: 1, delay: 0, timingFunction: 'ease' }], alpha: 0 }
+            })
+
+            this.tag('Background.ContentDetails' as any).animate();
+
+            // resolve Promise when transition on x is finished
+            this.tag('Background.Slider' as any).transition('y').on('finish', () => {
+                resolve();
+            });
+        });
+    }
 }

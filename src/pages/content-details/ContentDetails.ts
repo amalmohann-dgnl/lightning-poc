@@ -139,7 +139,6 @@ class ContentDetails
                 },
                 ContentActions: {
                     shader: null,
-
                     BackButton: {
                         x: 40, y: 40,
                         type: BackButton
@@ -215,13 +214,34 @@ class ContentDetails
         this._refocus();
     }
 
-    // override _enable(): void {
-    //     this.index = 1;
-    // }
 
 
     override _init(): void {
         // this.tag('ContentView.ContentData.Info.Starring' as any).enableClipping()
+    }
+
+    // animating elements on netering the page (invoked in the transition)
+    animateElements(): void {
+        const contentAnimation = this.tag('ContentView.ContentData' as any).animation({
+            duration: 1,
+            delay: 0,
+            actions: [
+                { p: 'alpha', v: { 0: 0, 1: 1 } },
+                { p: 'y', v: { 0: -60, 1: 0 } },
+            ]
+        });
+
+        const contentActionsAnimation = this.tag('ContentView.ContentActions' as any).animation({
+            duration: 1,
+            delay: 0,
+            actions: [
+                { p: 'alpha', v: { 0: 0, 1: 1 } },
+                { p: 'x', v: { 0: -100, 1: 10 } },
+            ]
+        });
+
+        contentActionsAnimation.start();
+        contentAnimation.start();
     }
 
 
@@ -260,11 +280,22 @@ class ContentDetails
         return this.tag('ContentView.ContentActions' as any).children[this.index]
     }
 
+    // custom page transition
+    override pageTransition(pageIn: any, pageOut: any) {
+        // resolving if no pageout is defined
+        if (!pageOut) return Promise.resolve();
 
-    override pageTransition() {
-        return PAGETRANSITION.CROSSFADE;
+        return new Promise<void>((resolve, reject) => {
+            // completing the animations of page out and starting the animation of page in after
+            pageOut.pageTransitionOut(pageOut).then(() => {
+                // toggle visibility
+                pageIn.visible = true;
+                pageIn.animateElements();
+                resolve()
+            });
+
+        })
     }
-
 
 }
 
