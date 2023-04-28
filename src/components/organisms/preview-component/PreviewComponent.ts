@@ -202,7 +202,7 @@ class PreviewComponent
         this.tag('ContentView.Thumbnail' as any).on('txError', () => {
             console.error('texture failed to load: ' + this.tag('ContentView.Thumbnail' as any).src)
             // show placeholder
-            this.tag('ContentView.Thumbnail' as any).src = Utils.asset('/static/images/background.png');
+            // this.tag('ContentView.Thumbnail' as any).src = Utils.asset('/static/images/background.png');
         })
     }
 

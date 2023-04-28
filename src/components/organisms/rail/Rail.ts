@@ -15,11 +15,11 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
     data: Content[] = [];
 
     /**
-   * This function is responsible for the creation and return of the UI template. This 
+   * This function is responsible for the creation and return of the UI template. This
    * function takes  no parameters and returns the template of the Rail component.
-   * 
+   *
    * @returns Template for the Rail Component.
-   * 
+   *
    */
     static override _template() {
         return {
@@ -85,7 +85,7 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
 
             rail.push({
                 type: RailItem,
-                x: i * (300 + 30),
+                x: i * (216 + 30),
                 item: { label: label, src: img_src || "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/249/oyPcsfGWL5Se6RGW1JCVgpHlASH_288x432_13635141800.jpg", data: this.data[i]! }
             });
         }
@@ -99,23 +99,16 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
 
 
     /**
-     * To repostion the wrapper on the focused element. Function does not take any parameters 
+     * To repostion the wrapper on the focused element. Function does not take any parameters
      * nor has any return.
      */
 
     repositionWrapper() {
-        const wrapper = this.tag('Wrapper' as any);
-        const sliderW = this.tag('Slider' as any).w;
-        const currentWrapperX = wrapper.transition('x').targetvalue || wrapper.x;
-        const currentFocus = wrapper.children[this.index];
-        const currentFocusX = currentFocus.x + currentWrapperX;
-        const currentFocusOuterWidth = currentFocus.x + currentFocus.w;
+      console.log(this.dataLength);
 
-        if (currentFocusX < 0) {
-            wrapper.setSmooth('x', -currentFocus.x);
-        }
-        else if (currentFocusOuterWidth > sliderW) {
-            wrapper.setSmooth('x', sliderW - (currentFocusOuterWidth));
+        const wrapper = this.tag('Wrapper' as any);
+        if (this.index < this.dataLength - 5) {
+            wrapper.setSmooth("x", -(216 + 30) * this.index, { duration: 0.3 });
         }
     }
 
@@ -149,8 +142,8 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
 
     /**
      * This function will override the default behavior of the getFocused() method
-     * 
-     * @returns Return the child Component that this Component wishes to receive focus. Returning null 
+     *
+     * @returns Return the child Component that this Component wishes to receive focus. Returning null
      * or undefined tells the focus engine to not set focus on this Component at all.By default,
      * this Component's own instance is returned.
      */
