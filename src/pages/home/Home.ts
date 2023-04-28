@@ -1,5 +1,5 @@
 import { Lightning, Storage } from '@lightningjs/sdk';
-import { PreviewComponent, Rail, RailItem } from '../../components';
+import { PreviewComponent, Rail, FocusBox } from '../../components';
 import { endpoint, theme } from '../../configs';
 import { HomeTemplateSpec } from './../../models/template-specs';
 import AxiosRequester from '../../services/AxiosRequester';
@@ -19,11 +19,11 @@ export class Home
     readonly Wrapper = this.getByRef('Background.Slider.Wrapper' as any)!
 
     /**
-     * This function is responsible for the creation and return of the UI template. This function 
+     * This function is responsible for the creation and return of the UI template. This function
      * takes  no parameters and returns the template.
-     * 
+     *
      * @returns Template for the Application
-     * 
+     *
      */
     static override _template(): Lightning.Component.Template<HomeTemplateSpec> {
         return {
@@ -32,6 +32,16 @@ export class Home
                 w: 1920, h: 1080,
                 color: theme.colors.black,
                 rect: true,
+                Box: {
+                    zIndex: 3,
+                    w: 100,
+                    h: 100,
+                    x: 80,
+                    y: 665,
+                    rect: true,
+                    shader: { type: Lightning.shaders.RoundedRectangle, radius: 20 },
+                    color: 0xffF2DB59,
+                },
                 ContentDetails: {
                     type: PreviewComponent,
                 },
@@ -45,8 +55,8 @@ export class Home
         };
     }
 
-    $changeItemOnFocus(data: Content) {
-        console.log("changeItemOnFocus");
+    $changeItemOnFocus(data: Content, cardData: { railTotalElements: number, cardIndex: number, cardHeight: number, cardWidth: number }) {
+        console.log("cardData", cardData);
         let imgSrc = data.images.find((img: Image) => img.width === 828)?.url;
         let title = data.title;
         let description = data.description;
@@ -59,6 +69,15 @@ export class Home
             data: { imgSrc, title, description, genre, directorsList, actorsList }
         }
         this.tag('Background.ContentDetails' as any).patch(previewItem);
+        this.tag('Box')?.patch({
+            w: cardData.cardWidth,
+            h: cardData.cardHeight
+        })
+        const focusBox = this.tag("Box" as any)
+        if (cardData.cardIndex >= cardData.railTotalElements - 5) {
+            console.log('cardData.railTotalElements - cardData.cardIndex', 6 - (cardData.railTotalElements - cardData.cardIndex))
+            focusBox.setSmooth("x", (216 + 30) * (6 - (cardData.railTotalElements - cardData.cardIndex)) + 80, { duration: 0.3 });
+        } else focusBox.setSmooth("x", 80, { duration: 0.3 });
 
     }
 
@@ -129,8 +148,8 @@ export class Home
 
     /**
        * This function will override the default behavior of the getFocused() method
-       * 
-       * @returns Return the child Component that this Component wishes to receive focus. Returning null 
+       *
+       * @returns Return the child Component that this Component wishes to receive focus. Returning null
        * or undefined tells the focus engine to not set focus on this Component at all.By default,
        * this Component's own instance is returned.
        */

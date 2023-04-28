@@ -41,7 +41,7 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
     * attached for the first time. This function takes  no parameters and has no return.
     */
     override _init() {
-        const rail: { type: typeof RailItem; x: number; item: { label: string; src: string; data: Content }; }[] = [];
+        const rail: { type: typeof RailItem; x: number; item: { label: string; src: string; data: Content, index: number, totalElements: number }; }[] = [];
         if (this.railIndex < endp.length) {
             this.axiosRequester.fetch(endpoint[this.railIndex]!).then((response) => {
                 if (response) {
@@ -54,7 +54,7 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
                         rail.push({
                             type: RailItem,
                             x: i * (216 + 30),
-                            item: { label: label, src: img_src || "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/249/oyPcsfGWL5Se6RGW1JCVgpHlASH_288x432_13635141800.jpg", data: this.data[i]! }
+                            item: { label: label, src: img_src || "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/249/oyPcsfGWL5Se6RGW1JCVgpHlASH_288x432_13635141800.jpg", data: this.data[i]!, index: i, totalElements: this.dataLength }
                         });
                     }
                 }
@@ -104,8 +104,6 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
      */
 
     repositionWrapper() {
-      console.log(this.dataLength);
-
         const wrapper = this.tag('Wrapper' as any);
         if (this.index < this.dataLength - 5) {
             wrapper.setSmooth("x", -(216 + 30) * this.index, { duration: 0.3 });

@@ -11,6 +11,7 @@ import VideoSpecItem from './atoms/video-spec-item/VideoSpecItem';
 import PlayPauseButton from './atoms/play-pause-button/PlayPauseButton';
 import Button from './atoms/button/Button';
 import PreviewComponent from './organisms/preview-component/PreviewComponent';
+import FocusBox from './atoms/focus-box/focusBox';
 
 
 /**
@@ -26,5 +27,6 @@ export {
     VideoSpecItem,
     Button,
     PlayPauseButton,
-    PreviewComponent
+    PreviewComponent,
+    FocusBox
 };
