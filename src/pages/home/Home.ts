@@ -4,6 +4,7 @@ import { endpoint, theme } from '../../configs';
 import { HomeTemplateSpec } from './../../models/template-specs';
 import AxiosRequester from '../../services/AxiosRequester';
 import { RailDataResponse, Content, Image } from '../../models/api-request-response/rail-data.response';
+import { diamensions } from '../utils/rail-utils/cardUtils';
 
 // Home component
 export class Home
@@ -57,14 +58,16 @@ export class Home
         };
     }
 
-    $changeItemOnFocus(data: Content, cardData: { railTotalElements: number, cardIndex: number, cardHeight: number, cardWidth: number }) {
-        console.log("cardData", cardData);
+    $changeItemOnFocus(data: Content, cardData: { railTotalElements: number, cardIndex: number, cardHeight: number, cardWidth: number, cardSize: diamensions }) {
         let imgSrc = data.images.find((img: Image) => img.width === 828)?.url;
         let title = data.title;
         let description = data.description;
         let genre = data.genre.join(' . ');
         let directorsList = data.director.map((a: any) => a.personName).join(', ');
         let actorsList = data.actor.map((a: any) => a.personName).join(', ');
+
+        const { railTotalElements, cardIndex,cardSize } = cardData
+        const { minimumCardsInViewport, w, h, margin } = cardSize
 
         const previewItem = {
             type: PreviewComponent,
@@ -73,15 +76,14 @@ export class Home
         this.tag('Background.ContentDetails' as any).patch(previewItem);
         this.tag('Box')?.patch({
             InnerBox: {
-                w: cardData.cardWidth,
-                h: cardData.cardHeight,
+                w: w,
+                h: h,
                 // shader: { w: cardData.cardWidth, h: cardData.cardHeight }
             }
         })
         const focusBox = this.tag("Box" as any)
-        if (cardData.cardIndex >= cardData.railTotalElements - 6) {
-            console.log('cardData.railTotalElements - cardData.cardIndex', 6 - (cardData.railTotalElements - cardData.cardIndex))
-            focusBox.setSmooth("x", (216 + 30) * (7 - (cardData.railTotalElements - cardData.cardIndex)) + 80, { duration: 0.3 });
+        if (cardIndex >= railTotalElements - (minimumCardsInViewport - 1)) {
+            focusBox.setSmooth("x", (w + margin) * (minimumCardsInViewport - (railTotalElements - cardIndex)) + 80, { duration: 0.3 });
         } else focusBox.setSmooth("x", 80, { duration: 0.3 });
 
     }

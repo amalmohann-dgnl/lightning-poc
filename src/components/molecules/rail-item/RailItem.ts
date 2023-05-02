@@ -2,6 +2,7 @@ import { Lightning, Router } from '@lightningjs/sdk'
 import { theme } from '../../../configs'
 import { Content } from '../../../models/api-request-response';
 import { RailItemTemplateSpec } from '../../../models/template-specs'
+import { cardSizes, diamensions } from '../../../pages/utils/rail-utils/cardUtils';
 
 class RailItem
     extends Lightning.Component<RailItemTemplateSpec>
@@ -11,6 +12,7 @@ class RailItem
     data: Content = {} as Content;
     index: number = 0
     totalElements: number = 0
+    cardSize: diamensions = cardSizes.regular
 
     /**
      * This function is responsible for the creation and return of the UI template. This
@@ -22,8 +24,6 @@ class RailItem
 
     static override _template() {
         return {
-            w: 216,
-            h: 324,
             rect: true,
             color: theme.colors.primary,
             shader: { type: Lightning.shaders.RoundedRectangle, radius: 20 },
@@ -37,7 +37,6 @@ class RailItem
             },
             Label: {
                 x: 10,
-                y: 326.25,
                 w: (w: number) => w,
                 color: theme.colors.accentGrey.light,
                 text: { fontSize: 22.5 }
@@ -51,24 +50,20 @@ class RailItem
      * @Param The value that needs to be setted to the item property.
      *
      */
-    set item(obj: { label: any; src: any, data: Content, index: number, totalElements: number }) {
-        const { label, src, data, index, totalElements } = obj;
-        console.log("totalElements", totalElements);
-
+    set item(obj: { label: any; src: any, data: Content, index: number, totalElements: number, cardSize: diamensions }) {
+        const { label, src, data, index, totalElements, cardSize } = obj;
         this.data = data;
         this.index = index;
         this.totalElements = totalElements
+        this.cardSize = cardSize
         this.patch({
             Image: {
                 src: src
             },
-            Label: { text: label?.toString() }
+            w: this.cardSize.w,
+            h: this.cardSize.h,
+            Label: { text: label?.toString(), y: this.cardSize.h + 4 }
         })
-        // if (totalElements === 10 || totalElements === 31) {
-        //     this.patch({
-        //         h: 200
-        //     })
-        // }
     }
 
 
@@ -90,12 +85,12 @@ class RailItem
      *
      */
     override _focus() {
-        console.log(this.w)
         const cardData = {
-          cardWidth: this.w,
-          cardHeight: this.h,
-          cardIndex: this.index,
-          railTotalElements: this.totalElements
+            cardWidth: this.w,
+            cardHeight: this.h,
+            cardIndex: this.index,
+            railTotalElements: this.totalElements,
+            cardSize: this.cardSize
         }
         this.fireAncestors('$changeItemOnFocus' as any, this.data, cardData)
         this.patch({
