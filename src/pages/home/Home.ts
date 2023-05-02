@@ -73,8 +73,8 @@ export class Home
         this.tag('Background.ContentDetails' as any).patch(previewItem);
         this.tag('Box')?.patch({
             InnerBox: {
-                w: cardData.cardWidth + 10,
-                h: cardData.cardHeight + 10,
+                w: cardData.cardWidth,
+                h: cardData.cardHeight,
                 // shader: { w: cardData.cardWidth, h: cardData.cardHeight }
             }
         })

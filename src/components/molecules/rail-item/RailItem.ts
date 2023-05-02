@@ -64,11 +64,11 @@ class RailItem
             },
             Label: { text: label?.toString() }
         })
-        if (totalElements === 10 || totalElements === 31) {
-            this.patch({
-                h: 200
-            })
-        }
+        // if (totalElements === 10 || totalElements === 31) {
+        //     this.patch({
+        //         h: 200
+        //     })
+        // }
     }
 
 
