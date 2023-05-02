@@ -9,6 +9,8 @@ class RailItem
 {
 
     data: Content = {} as Content;
+    index: number = 0
+    totalElements: number = 0
 
     /**
      * This function is responsible for the creation and return of the UI template. This
@@ -49,15 +51,24 @@ class RailItem
      * @Param The value that needs to be setted to the item property.
      *
      */
-    set item(obj: { label: any; src: any, data: Content }) {
-        const { label, src, data } = obj;
+    set item(obj: { label: any; src: any, data: Content, index: number, totalElements: number }) {
+        const { label, src, data, index, totalElements } = obj;
+        console.log("totalElements", totalElements);
+
         this.data = data;
+        this.index = index;
+        this.totalElements = totalElements
         this.patch({
             Image: {
                 src: src
             },
             Label: { text: label?.toString() }
         })
+        if (totalElements === 10 || totalElements === 31) {
+            this.patch({
+                h: 200
+            })
+        }
     }
 
 
@@ -79,9 +90,16 @@ class RailItem
      *
      */
     override _focus() {
-        this.fireAncestors('$changeItemOnFocus' as any, this.data)
+        console.log(this.w)
+        const cardData = {
+          cardWidth: this.w,
+          cardHeight: this.h,
+          cardIndex: this.index,
+          railTotalElements: this.totalElements
+        }
+        this.fireAncestors('$changeItemOnFocus' as any, this.data, cardData)
         this.patch({
-            smooth: { color: theme.colors.secondary, scale: 1.1 },
+            // smooth: { color: theme.colors.secondary, scale: 1.1 },
             Label: {
                 smooth: { color: theme.colors.white }
             },
