@@ -141,7 +141,17 @@ export class Home
             ]
         });
 
+        const focusBorderInAnimation = this.tag('Background.Box' as any).animation({
+            duration: 1,
+            delay: 0,
+            actions: [
+                { p: 'alpha', v: { 0: 0, 1: 1 } },
+                { p: 'y', v: { 0: 965, 1: 665 } },
+            ]
+        });
+
         railInAnimation.start();
+        focusBorderInAnimation.start()
     }
 
     // handling up button click
@@ -202,6 +212,10 @@ export class Home
         return new Promise<void>((resolve, reject) => {
             this.tag('Background.Slider' as any).patch({
                 smooth: { y: [1300, { duration: 1, delay: 0, timingFunction: 'ease' }], alpha: 0 }
+            })
+
+            this.tag('Background.Box' as any).patch({
+                smooth: { y: [865, { duration: 1, delay: 0, timingFunction: 'ease' }], alpha: 0 }
             })
 
             this.tag('Background.ContentDetails' as any).animate();
