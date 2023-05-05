@@ -17,6 +17,7 @@ import ButtonTemplateSpec from './components/button-template-spec';
 import POCVideoPlayerTemplateSpec from './pages/video-player-template-spec';
 import PlayPauseButtonTemplateSpec from './components/play-pause-button-template-spec';
 import PreviewComponentTemplateSpec from './components/preview-components-template-spec';
+import FocusBoxTemplateSpec from './components/focus-box-template-spec';
 
 /**
  * Exporting all the template specs from a single location
@@ -37,5 +38,6 @@ export {
     ButtonTemplateSpec,
     POCVideoPlayerTemplateSpec,
     PlayPauseButtonTemplateSpec,
-    PreviewComponentTemplateSpec
+    PreviewComponentTemplateSpec,
+    FocusBoxTemplateSpec
 };
