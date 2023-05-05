@@ -1,9 +1,8 @@
 import { Launch } from '@lightningjs/sdk';
 import { App } from './App';
 
-Launch(App, {
+const app = Launch(App, {
   stage: {
-    canvas: document.getElementsByTagName('canvas')[0],
   },
   debug: true,
   enablePointer: true,
@@ -17,3 +16,6 @@ Launch(App, {
     27: 'Exit',
   },
 }, { /* Platform settings */ });
+
+const canvas = app.stage.getCanvas();
+document.body.appendChild(canvas);
