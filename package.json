@@ -16,7 +16,8 @@
     "cp-dist-webos-es6": "cp -r ./dist/es6/ ./platforms/WebOS/dist || copy ./dist/es6/ ./platforms/WebOS/",
     "cp-dist-tizen-es6": "cp -r ./dist/es6/ ./platforms/Tizen/www/ || copy ./dist/es6/ ./platforms/Tizen/www/",
     "build-es5": "npm run rm-dist-webos && npm run rm-dist-tizen && lng dist --es5 && npm run cp-dist-webos-es5 && npm run cp-dist-tizen-es5",
-    "build-es6": "npm run rm-dist-webos && npm run rm-dist-tizen && lng dist && npm run cp-dist-webos-es6 && npm run cp-dist-tizen-es6"
+    "build-es6": "npm run rm-dist-webos && npm run rm-dist-tizen && lng dist && npm run cp-dist-webos-es6 && npm run cp-dist-tizen-es6",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@lightningjs/sdk": "^5.3.1",
@@ -35,6 +36,7 @@
     "eslint": "^8.21.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "gh-pages": "^5.0.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",

@@ -3,6 +3,8 @@ import { App } from './App';
 
 const app = Launch(App, {
   stage: {
+    pauseRafLoopOnIdle: true,
+    fontSharp: true,
   },
   debug: true,
   enablePointer: true,
