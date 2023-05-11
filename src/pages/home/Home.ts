@@ -1,4 +1,4 @@
-import { Lightning, Storage } from '@lightningjs/sdk';
+import { Colors, Lightning, Storage } from '@lightningjs/sdk';
 import { PreviewComponent, Rail, FocusBox } from '../../components';
 import { endpoint, theme } from '../../configs';
 import { HomeTemplateSpec } from './../../models/template-specs';
@@ -35,14 +35,13 @@ export class Home
                 Box: {
                     x: 80,
                     y: 665,
-                    InnerBox : {
+                    InnerBox: {
                         zIndex: 3,
                         w: 100,
                         h: 100,
                         rect: true,
-                        shader: { type: Lightning.shaders.RoundedRectangle, radius: 20 },
-                        // shader: {type: Lightning.shaders.Hole, w: 100, h: 75, x: 40, y: 20, radius: 20},
-                        color: 0xffF2DB59,
+                        shader: { type: Lightning.shaders.RoundedRectangle, radius: 20, stroke: 5, strokeColor: theme.colors.yellow },
+                        color: Colors('transparent'),
                     }
                 },
                 ContentDetails: {
@@ -66,7 +65,7 @@ export class Home
         let directorsList = data.director.map((a: any) => a.personName).join(', ');
         let actorsList = data.actor.map((a: any) => a.personName).join(', ');
 
-        const { railTotalElements, cardIndex,cardSize } = cardData
+        const { railTotalElements, cardIndex, cardSize } = cardData
         const { minimumCardsInViewport, w, h, margin } = cardSize
 
         const previewItem = {
