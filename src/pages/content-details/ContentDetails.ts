@@ -166,6 +166,7 @@ class ContentDetails
     override set params(args: { id: string, from: string, data: Content }) {
         const { id, from, data } = args; this.from = from;
         let imgSrc = data.images.find((img: Image) => img.width === 828)?.url;
+        this.contentId = id;
         console.log(args);
         this.patch({
             ContentView: {
@@ -271,6 +272,8 @@ class ContentDetails
                 Router.navigate('home');
             }
         } else {
+            console.log(this.contentId);
+
             Router.navigate(`player/${this.contentId}`)
         }
     }

@@ -1,4 +1,4 @@
-import { Lightning, Router } from '@lightningjs/sdk';
+import { Lightning, Registry, Router } from '@lightningjs/sdk';
 import { POCVideoPlayerTemplateSpec } from './../../models/template-specs';
 import { VideoPlayer as LightningPlayer } from '@lightningjs/sdk'
 import { BackButton, PlayPauseButton } from '../../components';
@@ -52,6 +52,7 @@ export class POCVideoPlayer
         LightningPlayer.consumer(this)
         LightningPlayer.loader(this._loadPlayback);
         LightningPlayer.unloader(this._unloadPlayback);
+        this._toggleUI();
     }
 
 
@@ -62,6 +63,7 @@ export class POCVideoPlayer
 
     override _active() {
         LightningPlayer.open(this.videoUrl)
+        this._toggleUI();
     }
 
     override _inactive() {
@@ -74,6 +76,7 @@ export class POCVideoPlayer
         if (this.index > 0) {
             this.index -= 1;
         }
+        this._toggleUI();
     }
 
     // handling down button click
@@ -81,6 +84,7 @@ export class POCVideoPlayer
         if (this.index < 1) {
             this.index += 1;
         }
+        this._toggleUI();
     }
 
     // handling okay button click
@@ -93,10 +97,22 @@ export class POCVideoPlayer
             button.isPlaying = !button.isPlaying;
             button.isPlaying ? LightningPlayer.play() : LightningPlayer.pause();
         }
+        this._toggleUI();
     }
 
     override _getFocused(): any {
         return this.tag('Wrapper' as any).children[this.index]
+    }
+
+
+
+    // toggle ui
+    _toggleUI = () => {
+        this.tag('Wrapper' as any).setSmooth('alpha', 1);
+        const timeOutId = Registry.setTimeout(() => {
+            this.tag('Wrapper' as any).setSmooth('alpha', 0);
+            Registry.clearTimeout(timeOutId);
+        }, 4000);
     }
 
     /**
@@ -109,6 +125,7 @@ export class POCVideoPlayer
     _loadPlayback = async (url: string, videoEl: HTMLVideoElement) => {
         this._setupShakaPlayer(videoEl);
         await this._player.load(url);
+        this._toggleUI();
     }
 
     // Note: this is in fact the default unloader function
