@@ -1,10 +1,10 @@
-import { Lightning, Storage } from '@lightningjs/sdk';
-import { PreviewComponent, Rail, RailItem } from '../../components';
+import { Colors, Lightning, Storage } from '@lightningjs/sdk';
+import { PreviewComponent, Rail, FocusBox } from '../../components';
 import { endpoint, theme } from '../../configs';
 import { HomeTemplateSpec } from './../../models/template-specs';
 import AxiosRequester from '../../services/AxiosRequester';
 import { RailDataResponse, Content, Image } from '../../models/api-request-response/rail-data.response';
-import { PAGETRANSITION } from '../../constants';
+import { diamensions } from '../utils/rail-utils/cardUtils';
 
 // Home component
 export class Home
@@ -19,11 +19,11 @@ export class Home
     readonly Wrapper = this.getByRef('Background.Slider.Wrapper' as any)!
 
     /**
-     * This function is responsible for the creation and return of the UI template. This function 
+     * This function is responsible for the creation and return of the UI template. This function
      * takes  no parameters and returns the template.
-     * 
+     *
      * @returns Template for the Application
-     * 
+     *
      */
     static override _template(): Lightning.Component.Template<HomeTemplateSpec> {
         return {
@@ -32,6 +32,18 @@ export class Home
                 w: 1920, h: 1080,
                 color: theme.colors.black,
                 rect: true,
+                Box: {
+                    x: 80,
+                    y: 665,
+                    InnerBox: {
+                        zIndex: 3,
+                        w: 100,
+                        h: 100,
+                        rect: true,
+                        shader: { type: Lightning.shaders.RoundedRectangle, radius: 20, stroke: 5, strokeColor: theme.colors.yellow },
+                        color: Colors('transparent'),
+                    }
+                },
                 ContentDetails: {
                     type: PreviewComponent,
                 },
@@ -45,8 +57,7 @@ export class Home
         };
     }
 
-    $changeItemOnFocus(data: Content) {
-        console.log("changeItemOnFocus");
+    $changeItemOnFocus(data: Content, cardData: { railTotalElements: number, cardIndex: number, cardHeight: number, cardWidth: number, cardSize: diamensions }) {
         let imgSrc = data.images.find((img: Image) => img.width === 828)?.url;
         let title = data.title;
         let description = data.description;
@@ -54,11 +65,25 @@ export class Home
         let directorsList = data.director.map((a: any) => a.personName).join(', ');
         let actorsList = data.actor.map((a: any) => a.personName).join(', ');
 
+        const { railTotalElements, cardIndex, cardSize } = cardData
+        const { minimumCardsInViewport, w, h, margin } = cardSize
+
         const previewItem = {
             type: PreviewComponent,
             data: { imgSrc, title, description, genre, directorsList, actorsList }
         }
         this.tag('Background.ContentDetails' as any).patch(previewItem);
+        this.tag('Box')?.patch({
+            InnerBox: {
+                w: w,
+                h: h,
+                // shader: { w: cardData.cardWidth, h: cardData.cardHeight }
+            }
+        })
+        const focusBox = this.tag("Box" as any)
+        if (cardIndex >= railTotalElements - (minimumCardsInViewport - 1)) {
+            focusBox.setSmooth("x", (w + margin) * (minimumCardsInViewport - (railTotalElements - cardIndex)) + 80, { duration: 0.3 });
+        } else focusBox.setSmooth("x", 80, { duration: 0.3 });
 
     }
 
@@ -104,8 +129,28 @@ export class Home
         }
     }
 
-    override pageTransition() {
-        return PAGETRANSITION.CROSSFADE;
+    // adding animation on entering the page.
+    override _active() {
+        const railInAnimation = this.tag('Background.Slider' as any).animation({
+            duration: 1,
+            delay: 0,
+            actions: [
+                { p: 'alpha', v: { 0: 0, 1: 1 } },
+                { p: 'y', v: { 0: 1400, 1: 1100 } },
+            ]
+        });
+
+        const focusBorderInAnimation = this.tag('Background.Box' as any).animation({
+            duration: 1,
+            delay: 0,
+            actions: [
+                { p: 'alpha', v: { 0: 0, 1: 1 } },
+                { p: 'y', v: { 0: 965, 1: 665 } },
+            ]
+        });
+
+        railInAnimation.start();
+        focusBorderInAnimation.start()
     }
 
     // handling up button click
@@ -129,8 +174,8 @@ export class Home
 
     /**
        * This function will override the default behavior of the getFocused() method
-       * 
-       * @returns Return the child Component that this Component wishes to receive focus. Returning null 
+       *
+       * @returns Return the child Component that this Component wishes to receive focus. Returning null
        * or undefined tells the focus engine to not set focus on this Component at all.By default,
        * this Component's own instance is returned.
        */
@@ -161,4 +206,23 @@ export class Home
         }
     }
 
+    // Animating the page transition
+    pageTransitionOut(page: any) {
+        return new Promise<void>((resolve, reject) => {
+            this.tag('Background.Slider' as any).patch({
+                smooth: { y: [1300, { duration: 1, delay: 0, timingFunction: 'ease' }], alpha: 0 }
+            })
+
+            this.tag('Background.Box' as any).patch({
+                smooth: { y: [865, { duration: 1, delay: 0, timingFunction: 'ease' }], alpha: 0 }
+            })
+
+            this.tag('Background.ContentDetails' as any).animate();
+
+            // resolve Promise when transition on x is finished
+            this.tag('Background.Slider' as any).transition('y').on('finish', () => {
+                resolve();
+            });
+        });
+    }
 }

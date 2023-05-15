@@ -7,6 +7,8 @@ class PreviewComponent
     extends Lightning.Component<PreviewComponentTemplateSpec>
     implements Lightning.Component.ImplementTemplateSpec<PreviewComponentTemplateSpec>
 {
+    firstActive = true;
+
     static override _template(): Lightning.Component.Template<PreviewComponentTemplateSpec> {
         return {
             ContentView: {
@@ -120,32 +122,33 @@ class PreviewComponent
         };
     }
 
-    override _inactive(): void {
-        console.log("Inactive");
-    }
 
     set data(eventDetails: { imgSrc: string, title: string, description: string, genre: string, directorsList: string, actorsList: string }) {
         console.log(eventDetails);
 
         const { imgSrc, title, description, genre, directorsList, actorsList } = eventDetails;
 
-        const thumbnailAnimation = this.tag('ContentView.Thumbnail' as any).animation({
-            duration: 0.5,
-            delay: 0.5,
-            autoStop: true,
-            actions: [
-                { p: 'src', v: { 0: '', 0.6: imgSrc } },
-                { p: 'alpha', v: { 0: 1, 0.5: 0, 1: 1 } }
-            ]
+        // animation for the thumbnail on change
+        this.tag('ContentView.Thumbnail' as any).patch({
+            smooth: { src: imgSrc }
+        })
+
+        this.tag('ContentView.Thumbnail' as any).transition('src').on('start', () => {
+            this.tag('ContentView.Thumbnail' as any).setSmooth('alpha', 0, { duration: 0.5 });
         });
+        this.tag('ContentView.Thumbnail' as any).transition('src').on('finish', () => {
+            this.tag('ContentView.Thumbnail' as any).setSmooth('alpha', 1, { duration: 0.5 });
+        });
+
+
 
         const contentAnimation = this.tag('ContentView.ContentDetails' as any).animation({
             duration: 1,
             delay: 0,
             actions: [
-                { p: 'alpha', v: { 0: 1, 0.6: 0, 0.8: 0, 1: 1 } },
-                { p: 'x', v: { 0: 10, 0.6: -100, 0.65: 10 } },
-                { p: 'y', v: { 0: 0, 0.6: 0, 0.7: -30, 1: 0 } },
+                { p: 'alpha', v: { 0: 1, 0.5: 0, 0.8: 0, 1: 1 } },
+                { p: 'x', v: { 0: 10, 0.6: -100, 0.65: 10, } },
+                { p: 'y', v: { 0: 0, 0.6: 0, 0.65: -30, 1: 0 } },
             ]
         });
 
@@ -194,15 +197,43 @@ class PreviewComponent
             }
         })
 
-        thumbnailAnimation.start();
+
+        // checking for initial rendering to avoid duplicate animations
+        if (this.firstActive) {
+            this.firstActive = false;
+            this.tag('ContentView.ContentDetails' as any).animation({
+                duration: 1,
+                delay: 0,
+                repeat: 0,
+                actions: [
+                    { p: 'alpha', v: { 0: 0, 1: 1 } },
+                    { p: 'y', v: { 0: -30, 1: 0 } },
+                ]
+            }).start();
+            return
+        }
+
         contentAnimation.start();
+    }
+
+    // Animate on Navigation to details page (invoked from pageTransitionOut of home page )
+    animate() {
+        this.tag('ContentView.ContentDetails' as any).animation({
+            duration: 2,
+            delay: 0,
+            actions: [
+                { p: 'alpha', v: { 0: 1, 0.5: 0 } },
+                { p: 'y', v: { 0: 0, 0.5: -30, 1: 0 } },
+            ]
+        }).start();
+
     }
 
     override _init(): void {
         this.tag('ContentView.Thumbnail' as any).on('txError', () => {
             console.error('texture failed to load: ' + this.tag('ContentView.Thumbnail' as any).src)
             // show placeholder
-            this.tag('ContentView.Thumbnail' as any).src = Utils.asset('/static/images/background.png');
+            // this.tag('ContentView.Thumbnail' as any).src = Utils.asset('/static/images/background.png');
         })
     }
 

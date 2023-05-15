@@ -6,6 +6,7 @@ import { Lightning } from "@lightningjs/sdk";
 import { Content } from "../../api-request-response";
 // @ts-ignore
 import { ProgressBar } from "@lightningjs/ui";
+import { diamensions } from "../../../pages/utils/rail-utils/cardUtils";
 
 /**
  * properties of the Rail Item component
@@ -17,6 +18,7 @@ interface RailItemTemplateSpec extends Lightning.Component.TemplateSpec {
     /**
      * properties and functions of the component
      */
+    cardSize: diamensions;
 
 
 

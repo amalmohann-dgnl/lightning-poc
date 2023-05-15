@@ -5,7 +5,7 @@ interface PreviewComponentTemplateSpec extends Lightning.Component.TemplateSpec 
     /**
      * properties of the component
      */
-
+    firstActive: boolean;
 
     /**
      * children of the component

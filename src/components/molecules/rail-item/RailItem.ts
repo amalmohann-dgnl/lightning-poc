@@ -5,6 +5,7 @@ import { RailItemTemplateSpec } from '../../../models/template-specs'
 // @ts-ignore
 import { ProgressBar } from '@lightningjs/ui'
 import VideoSpecItem from '../../atoms/video-spec-item/VideoSpecItem';
+import { cardSizes, diamensions } from '../../../pages/utils/rail-utils/cardUtils';
 
 class RailItem
     extends Lightning.Component<RailItemTemplateSpec>
@@ -12,6 +13,9 @@ class RailItem
 {
 
     data: Content = {} as Content;
+    index: number = 0
+    totalElements: number = 0
+    cardSize: diamensions = cardSizes.regular
 
     /**
      * This function is responsible for the creation and return of the UI template. This
@@ -23,8 +27,6 @@ class RailItem
 
     static override _template() {
         return {
-            w: 216,
-            h: 324,
             rect: true,
             color: theme.colors.accentGrey.dark,
             shader: { type: Lightning.shaders.RoundedRectangle, radius: 20 },
@@ -42,7 +44,7 @@ class RailItem
             },
             ProgressBar: {
                 h: 5, w: 200,
-                x: 10, y: 300,
+                x: 10, y: cardSizes.regular.h - 20,
                 type: ProgressBar,
                 progressColorFocused: theme.colors.yellow,
                 progressColor: theme.colors.yellow,
@@ -76,12 +78,12 @@ class RailItem
             },
             PlayButton: {
                 h: 100,
-                y: 200,
                 visible: false,
                 text: {
                     fontSize: 35, textColor: theme.colors.white,
                     textAlign: 'left', textIndent: 20, textBaseline: 'hanging',
                     text: "Play Video",
+                    mountY: 0.5,
                 }
             }
 
@@ -94,15 +96,24 @@ class RailItem
      * @Param The value that needs to be setted to the item property.
      *
      */
-    set item(obj: { label: any; src: any, data: Content }) {
-        const { label, src, data } = obj;
+    set item(obj: { label: any; src: any, data: Content, index: number, totalElements: number, cardSize: diamensions }) {
+        const { label, src, data, index, totalElements, cardSize } = obj;
         this.data = data;
+        this.index = index;
+        this.totalElements = totalElements
+        this.cardSize = cardSize
         this.patch({
             Image: {
-                src: src
+                src: src,
+                shader: { type: Lightning.shaders.RoundedRectangle, radius: 20 },
+
             },
-            Label: { text: label?.toString() },
+            Label: { y: this.cardSize.h + 10, text: label?.toString() },
+            w: this.cardSize.w,
+            h: this.cardSize.h,
             ProgressBar: {
+                x: 10, y: this.cardSize.h - 20,
+                w: this.cardSize.w - 20,
                 value: Math.floor(Math.random() * 101)
             }
         })
@@ -127,9 +138,8 @@ class RailItem
      *
      */
     override _focus() {
-        this.fireAncestors('$changeItemOnFocus' as any, this.data)
         this.patch({
-            smooth: { color: theme.colors.black, scale: 1.1 },
+            //     // smooth: { color: theme.colors.black, scale: 1.1 },
             Image: {
                 shader: { type: Lightning.shaders.FadeOut, innerColor: theme.colors.black, top: 200, bottom: 200, },
             },
@@ -139,9 +149,18 @@ class RailItem
             Rectangle: { color: theme.colors.yellow, x: 10, y: (y: number) => y + 54, w: (w: number) => w - 20, h: 5, rect: true },
             PlayButton: {
                 visible: true,
-                color: theme.colors.yellow
+                color: theme.colors.yellow,
+                y: this.cardSize.h / 2,
             }
         })
+        const cardData = {
+            cardWidth: this.w,
+            cardHeight: this.h,
+            cardIndex: this.index,
+            railTotalElements: this.totalElements,
+            cardSize: this.cardSize
+        }
+        this.fireAncestors('$changeItemOnFocus' as any, this.data, cardData)
     }
 
     /**
@@ -152,14 +171,14 @@ class RailItem
      */
     override _unfocus() {
         this.patch({
-            smooth: { color: theme.colors.accentGrey.dark, scale: 1.0 },
+            // smooth: { color: theme.colors.accentGrey.dark, scale: 1.0 },
             Label: {
                 smooth: { color: theme.colors.accentGrey.light }
             },
             Rectangle: undefined,
             PlayButton: {
                 visible: false,
-            }
+            },
         })
     }
 }
