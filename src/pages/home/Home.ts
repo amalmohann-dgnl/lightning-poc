@@ -1,4 +1,4 @@
-import { Colors, Lightning, Storage } from '@lightningjs/sdk';
+import { Colors, Lightning, Registry, Storage } from '@lightningjs/sdk';
 import { PreviewComponent, Rail, FocusBox } from '../../components';
 import { endpoint, theme } from '../../configs';
 import { HomeTemplateSpec } from './../../models/template-specs';
@@ -15,6 +15,7 @@ export class Home
     rowLength: number = endpoint.length;
     hideNav: boolean = false;
     eventData: Content = {} as Content;
+    intervalId: number = 0;
 
     readonly Wrapper = this.getByRef('Background.Slider.Wrapper' as any)!
 
@@ -151,6 +152,14 @@ export class Home
 
         railInAnimation.start();
         focusBorderInAnimation.start()
+
+        let axiosRequester: AxiosRequester = new AxiosRequester();
+        this.intervalId = Registry.setInterval(() => {
+            for (let index = 0; index < 10; index++) {
+                const timestamp = new Date().getTime();
+                axiosRequester.fetch(endpoint[index]! + `timestamp=${timestamp}`).then((response) => { });
+            }
+        }, 1000);
     }
 
     // handling up button click
@@ -224,5 +233,9 @@ export class Home
                 resolve();
             });
         });
+    }
+
+    override _inactive() {
+        Registry.clearInterval(this.intervalId);
     }
 }

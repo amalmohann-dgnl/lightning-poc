@@ -16,6 +16,7 @@ interface HomeTemplateSpec extends Lightning.Component.TemplateSpecLoose {
     rowLength: number;
     hideNav: boolean;
     eventData: Content;
+    intervalId: number;
 
 
 
