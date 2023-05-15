@@ -1,5 +1,6 @@
-import { Lightning } from "@lightningjs/sdk";
+import { Colors, Lightning } from "@lightningjs/sdk";
 import { FocusBoxTemplateSpec } from "../../../models/template-specs";
+import { theme } from "../../../configs";
 
 class FocusBox
     extends Lightning.Component<FocusBoxTemplateSpec>
@@ -8,13 +9,16 @@ class FocusBox
     static override _template(): Lightning.Component.Template<FocusBoxTemplateSpec> {
         return {
             Box: {
-                x: 0,
-                y: 0,
-                w: 216,
-                h: 324,
-                rect: true,
-                color: 0x00000000,
-                shader: { type: Lightning.shaders.RoundedRectangle, radius: 20 },
+                x: 80,
+                y: 665,
+                InnerBox: {
+                    zIndex: 3,
+                    w: 100,
+                    h: 100,
+                    rect: true,
+                    shader: { type: Lightning.shaders.RoundedRectangle, radius: 20, stroke: 5, strokeColor: theme.colors.yellow },
+                    color: Colors('transparent'),
+                }
             },
         };
     }
