@@ -98,7 +98,7 @@ class RailItem
             Label: {
                 smooth: { color: theme.colors.white }
             },
-            Rectangle: { color: theme.colors.yellow, x: 10, y: (y: number) => y + 54, w: (w: number) => w - 20, h: 5, rect: true }
+            // Rectangle: { color: theme.colors.yellow, x: 10, y: (y: number) => y + 54, w: (w: number) => w - 20, h: 5, rect: true }
         })
     }
 
