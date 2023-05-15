@@ -13,6 +13,8 @@ class RailItem
     index: number = 0
     totalElements: number = 0
     cardSize: diamensions = cardSizes.regular
+    focused = false
+    railIndex: number = 0
 
     /**
      * This function is responsible for the creation and return of the UI template. This
@@ -50,12 +52,13 @@ class RailItem
      * @Param The value that needs to be setted to the item property.
      *
      */
-    set item(obj: { label: any; src: any, data: Content, index: number, totalElements: number, cardSize: diamensions }) {
-        const { label, src, data, index, totalElements, cardSize } = obj;
+    set item(obj: { label: any; src: any, data: Content, index: number, totalElements: number, cardSize: diamensions; railIndex: number }) {
+        const { label, src, data, index, totalElements, cardSize, railIndex } = obj;
         this.data = data;
         this.index = index;
         this.totalElements = totalElements
         this.cardSize = cardSize
+        this.railIndex = railIndex
         this.patch({
             Image: {
                 src: src
@@ -85,12 +88,14 @@ class RailItem
      *
      */
     override _focus() {
+        this.focused = true
         const cardData = {
             cardWidth: this.w,
             cardHeight: this.h,
             cardIndex: this.index,
             railTotalElements: this.totalElements,
-            cardSize: this.cardSize
+            cardSize: this.cardSize,
+            railIndex: this.railIndex
         }
         this.fireAncestors('$changeItemOnFocus' as any, this.data, cardData)
         this.patch({
@@ -109,6 +114,7 @@ class RailItem
      *
      */
     override _unfocus() {
+        this.focused = false
         this.patch({
             smooth: { color: theme.colors.primary, scale: 1.0 },
             Label: {

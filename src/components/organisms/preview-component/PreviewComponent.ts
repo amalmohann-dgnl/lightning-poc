@@ -9,16 +9,22 @@ class PreviewComponent
 {
     firstActive = true;
 
+    readonly Thumbnail = this.tag('ContentView.Thumbnail')!
+    readonly ContentDetails = this.tag('ContentView.ContentDetails')!
+
     static override _template(): Lightning.Component.Template<PreviewComponentTemplateSpec> {
         return {
             ContentView: {
+                // alpha: 0,
                 Thumbnail: {
+                    alpha: 0,
                     x: 1000, y: 110,
                     scale: 1.5,
                     shader: { type: Lightning.shaders.FadeOut, innerColor: theme.colors.black, left: 200, bottom: 200 },
                 },
                 ContentDetails: {
                     ContentData: {
+                        // alpha: 0,
                         shader: null,
                         zIndex: 2,
                         Title: {
@@ -133,9 +139,9 @@ class PreviewComponent
             smooth: { src: imgSrc }
         })
 
-        this.tag('ContentView.Thumbnail' as any).transition('src').on('start', () => {
-            this.tag('ContentView.Thumbnail' as any).setSmooth('alpha', 0, { duration: 0.5 });
-        });
+        // this.tag('ContentView.Thumbnail' as any).transition('src').on('start', () => {
+        //     this.tag('ContentView.Thumbnail' as any).setSmooth('alpha', 0, { duration: 0.5 });
+        // });
         this.tag('ContentView.Thumbnail' as any).transition('src').on('finish', () => {
             this.tag('ContentView.Thumbnail' as any).setSmooth('alpha', 1, { duration: 0.5 });
         });
@@ -143,10 +149,10 @@ class PreviewComponent
 
 
         const contentAnimation = this.tag('ContentView.ContentDetails' as any).animation({
-            duration: 1,
+            duration: 0.5,
             delay: 0,
             actions: [
-                { p: 'alpha', v: { 0: 1, 0.5: 0, 0.8: 0, 1: 1 } },
+                { p: 'alpha', v: { 0: 0, 0.8: 0, 1: 1 } },
                 { p: 'x', v: { 0: 10, 0.6: -100, 0.65: 10, } },
                 { p: 'y', v: { 0: 0, 0.6: 0, 0.65: -30, 1: 0 } },
             ]
