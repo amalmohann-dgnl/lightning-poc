@@ -26,20 +26,30 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
    */
     static override _template() {
         return {
-            Header: {
-                x: 50,
-                y: 20,
-                color: theme.colors.white,
-                text: { text: "", fontSize: 35 }
+          Header: {
+            x: 50,
+            y: 20,
+            color: theme.colors.white,
+            text: {
+              text: "",
+              fontSize: 35,
+              fontFace: "Saira Regular",
+              fontStyle: "600",
             },
-            Slider: {
-                w: 1920, h: 350, y: 105, mount: 0, rect: true, clipping: true,
-                color: Colors('transparent').get(),
-                Wrapper: {
-                  x: 80
-                }
-            }
-        }
+          },
+          Slider: {
+            w: 1920,
+            h: 400,
+            y: 105,
+            mount: 0,
+            rect: true,
+            clipping: true,
+            color: Colors("transparent").get(),
+            Wrapper: {
+              x: 80,
+            },
+          },
+        };
     }
 
     /**

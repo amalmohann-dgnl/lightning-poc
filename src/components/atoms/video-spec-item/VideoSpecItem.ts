@@ -6,16 +6,26 @@ class VideoSpecItem extends Lightning.Component<VideoSpecItemTemplateSpec> imple
 
     static override _template(): Lightning.Component.Template<VideoSpecItemTemplateSpec> {
         return {
-            VideoSpec: {
-                w: 120, h: 80,
-                shader: { type: Lightning.shaders.RoundedRectangle, radius: 20, stroke: 8, strokeColor: theme.colors.accentGrey.light },
-                color: theme.colors.accentGrey.light,
-                Spec: {
-                    mount: 0.5,
-                    color: theme.colors.accentGrey.light,
-                    text: { fontSize: 22, }
-                }
+          VideoSpec: {
+            w: 120,
+            h: 80,
+            shader: {
+              type: Lightning.shaders.RoundedRectangle,
+              radius: 20,
+              stroke: 8,
+              strokeColor: theme.colors.accentGrey.light,
             },
+            color: theme.colors.accentGrey.light,
+            Spec: {
+              mount: 0.5,
+              color: theme.colors.accentGrey.light,
+              text: {
+                fontSize: 22,
+                fontFace: "Saira Regular",
+                fontStyle: "400",
+              },
+            },
+          },
         };
     }
 

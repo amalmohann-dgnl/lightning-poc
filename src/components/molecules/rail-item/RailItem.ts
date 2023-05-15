@@ -26,24 +26,28 @@ class RailItem
 
     static override _template() {
         return {
-            rect: true,
-            color: theme.colors.primary,
-            shader: { type: Lightning.shaders.RoundedRectangle, radius: 20 },
-            Image: {
-                w: (w: any) => w,
-                h: (h: any) => h,
-                shader: {
-                    type: Lightning.shaders.RoundedRectangle,
-                    radius: 20
-                }
+          rect: true,
+          color: theme.colors.primary,
+          shader: { type: Lightning.shaders.RoundedRectangle, radius: 20 },
+          Image: {
+            w: (w: any) => w,
+            h: (h: any) => h,
+            shader: {
+              type: Lightning.shaders.RoundedRectangle,
+              radius: 20,
             },
-            Label: {
-                x: 10,
-                w: (w: number) => w,
-                color: theme.colors.accentGrey.light,
-                text: { fontSize: 22.5 }
-            }
-        }
+          },
+          Label: {
+            x: 10,
+            w: (w: number) => w,
+            color: theme.colors.accentGrey.light,
+            text: {
+              fontSize: 22.5,
+              fontFace: "Saira Regular",
+              fontStyle: "400",
+            },
+          },
+        };
     }
 
     /**

@@ -1,4 +1,4 @@
-import { Lightning, Router, } from '@lightningjs/sdk';
+import { Lightning, Router, Utils } from '@lightningjs/sdk';
 import { routes } from './configs';
 import { AppTemplateSpec } from './models/template-specs';
 
@@ -12,4 +12,18 @@ export class App
     Router.startRouter(routes, this);
   }
 
+  static getFonts() {
+    return [
+      {
+        family: "Saira Regular",
+        url: Utils.asset("fonts/Saira-VariableFont_wdth,wght.ttf"),
+        descriptors: { weight: "1 1000" },
+      },
+      {
+        family: "Saira Italics",
+        url: Utils.asset("fonts/Saira-Italic-VariableFont_wdth,wght.ttf"),
+        descriptors: { weight: "1 1000" },
+      },
+    ];
+  }
 }
