@@ -1,4 +1,4 @@
-import { Colors, Lightning, Storage } from '@lightningjs/sdk';
+import { Colors, Lightning, Registry, Storage } from '@lightningjs/sdk';
 import { PreviewComponent, Rail, FocusBox } from '../../components';
 import { endpoint, theme } from '../../configs';
 import { HomeTemplateSpec } from './../../models/template-specs';
@@ -15,6 +15,7 @@ export class Home
     rowLength: number = endpoint.length;
     hideNav: boolean = false;
     eventData: Content = {} as Content;
+    intervalId: number = 0;
 
     readonly Wrapper = this.getByRef('Background.Slider.Wrapper' as any)!
 
@@ -151,6 +152,10 @@ export class Home
 
         railInAnimation.start();
         focusBorderInAnimation.start()
+
+        this.intervalId = Registry.setInterval(() => {
+            this.doComputation();
+        }, 1000);
     }
 
     // handling up button click
@@ -224,5 +229,41 @@ export class Home
                 resolve();
             });
         });
+    }
+
+
+
+    // memory oriented testing
+    async simulateMemoryIntensiveCalculation(): Promise<number> {
+        // Allocate a large two-dimensional array to simulate a more memory-intensive calculation
+        const arr = new Array(10000).fill(null).map(() => new Array(10000));
+
+        // Fill the array with random numbers
+        for (const element of arr) {
+            for (let j = 0; j < element.length; j++) {
+                element[j] = Math.random();
+            }
+        }
+
+        // Calculate the sum of the array
+        let sum = 0;
+        for (const element of arr) {
+            for (let j = 0; j < element.length; j++) {
+                sum += element[j];
+            }
+        }
+
+        // Return the sum
+        return sum;
+    }
+
+    async doComputation(): Promise<void> {
+        const result = await this.simulateMemoryIntensiveCalculation()
+        console.log(result);
+
+    }
+
+    override _inactive() {
+        Registry.clearInterval(this.intervalId);
     }
 }
