@@ -5,6 +5,7 @@ import { AxiosRequester } from '../../../services';
 import { RailDataResponse, Content, Image } from '../../../models/api-request-response';
 import { endpoint, theme, railName } from '../../../configs';
 import endp from '../../../configs/endpoint-url';
+import { cardSizes, diamensions } from '../../../pages/utils/rail-utils/cardUtils';
 
 class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Component.ImplementTemplateSpec<RailTemplateSpec> {
     index: number = -1;
@@ -15,11 +16,11 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
     data: Content[] = [];
 
     /**
-   * This function is responsible for the creation and return of the UI template. This 
+   * This function is responsible for the creation and return of the UI template. This
    * function takes  no parameters and returns the template of the Rail component.
-   * 
+   *
    * @returns Template for the Rail Component.
-   * 
+   *
    */
     static override _template() {
         return {
@@ -41,7 +42,7 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
     * attached for the first time. This function takes  no parameters and has no return.
     */
     override _init() {
-        const rail: { type: typeof RailItem; x: number; item: { label: string; src: string; data: Content }; }[] = [];
+        const rail: { type: typeof RailItem; x: number; item: { label: string; src: string; data: Content, index: number, totalElements: number, cardSize: diamensions }; }[] = [];
         if (this.railIndex < endp.length) {
             this.axiosRequester.fetch(endpoint[this.railIndex]!).then((response) => {
                 if (response) {
@@ -49,12 +50,21 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
                     this.dataLength = this.responseData.totalElements || 0;
                     this.data = this.responseData.content || [];
                     for (let i = 0; i < this.dataLength; i++) {
-                        let label = this.data[i]?.title!;
+                        let cardSize = cardSizes.regular
                         let img_src = this.data[i]?.images.find((img: Image) => img.width === 288)?.url
+
+                        // Just a random scenerio. Making 2 rail cards different in diamensions
+                        if (this.dataLength === 10 || this.dataLength === 31) {
+                            cardSize = cardSizes.wide
+                            img_src = this.data[i]?.images.find((img: Image) => img.width === 526)?.url
+                        }
+                        let label = this.data[i]?.title!;
+                        console.log(this.data[i]?.images);
+                        let cardWidthIncludingMargin = cardSize.w + cardSize.margin
                         rail.push({
                             type: RailItem,
-                            x: i * (216 + 30),
-                            item: { label: label, src: img_src || "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/249/oyPcsfGWL5Se6RGW1JCVgpHlASH_288x432_13635141800.jpg", data: this.data[i]! }
+                            x: i * cardWidthIncludingMargin,
+                            item: { label: label, src: img_src || "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/249/oyPcsfGWL5Se6RGW1JCVgpHlASH_288x432_13635141800.jpg", data: this.data[i]!, index: i, totalElements: this.dataLength, cardSize: cardSize }
                         });
                     }
                 }
@@ -85,7 +95,7 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
 
             rail.push({
                 type: RailItem,
-                x: i * (300 + 30),
+                x: i * (216 + 30),
                 item: { label: label, src: img_src || "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/249/oyPcsfGWL5Se6RGW1JCVgpHlASH_288x432_13635141800.jpg", data: this.data[i]! }
             });
         }
@@ -99,23 +109,16 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
 
 
     /**
-     * To repostion the wrapper on the focused element. Function does not take any parameters 
+     * To repostion the wrapper on the focused element. Function does not take any parameters
      * nor has any return.
      */
 
     repositionWrapper() {
         const wrapper = this.tag('Wrapper' as any);
-        const sliderW = this.tag('Slider' as any).w;
-        const currentWrapperX = wrapper.transition('x').targetvalue || wrapper.x;
-        const currentFocus = wrapper.children[this.index];
-        const currentFocusX = currentFocus.x + currentWrapperX;
-        const currentFocusOuterWidth = currentFocus.x + currentFocus.w;
-
-        if (currentFocusX < 0) {
-            wrapper.setSmooth('x', -currentFocus.x);
-        }
-        else if (currentFocusOuterWidth > sliderW) {
-            wrapper.setSmooth('x', sliderW - (currentFocusOuterWidth));
+        const currentFocus = wrapper.children[this.index]
+        const cardSize = currentFocus.cardSize
+        if (this.index < this.dataLength - (cardSize.minimumCardsInViewport - 1)) {
+            wrapper.setSmooth("x", -(cardSize.w + cardSize.margin) * this.index, { duration: 0.3 });
         }
     }
 
@@ -149,8 +152,8 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
 
     /**
      * This function will override the default behavior of the getFocused() method
-     * 
-     * @returns Return the child Component that this Component wishes to receive focus. Returning null 
+     *
+     * @returns Return the child Component that this Component wishes to receive focus. Returning null
      * or undefined tells the focus engine to not set focus on this Component at all.By default,
      * this Component's own instance is returned.
      */

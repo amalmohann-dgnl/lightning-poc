@@ -1,4 +1,4 @@
-/** 
+/**
  * Template specs for the App.ts.
  * This iterface decides the structure of the app's template structure.
 */
@@ -6,7 +6,7 @@
 import { Lightning } from '@lightningjs/sdk';
 import TopNav from '../../../components/organisms/top-nav/TopNav';
 import { Content } from '../../api-request-response';
-import { PreviewComponent } from '../../../components';
+import { PreviewComponent, FocusBox } from '../../../components';
 
 interface HomeTemplateSpec extends Lightning.Component.TemplateSpecLoose {
     /**
@@ -32,6 +32,9 @@ interface HomeTemplateSpec extends Lightning.Component.TemplateSpecLoose {
                     LongRail: object;
                 }
             }
+        },
+        Box: {
+            InnerBox: object
         }
 
     }

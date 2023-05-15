@@ -1,9 +1,9 @@
 /**
  * App version: 1.0.0
  * SDK version: 5.3.1
- * CLI version: 2.10.0
+ * CLI version: 2.11.0
  *
- * Generated: Mon, 03 Apr 2023 06:07:05 GMT
+ * Generated: Mon, 15 May 2023 07:35:43 GMT
  */
 
 var APP_com_diagnal_app_lightningpoc = (function () {
@@ -7446,13 +7446,29 @@ var APP_com_diagnal_app_lightningpoc = (function () {
         light: 0xffA1A8B2,
         dark: 0xff455160
       },
-      dark: 0xff060623
+      dark: 0xff060623,
+      black: 0xff000000
     }
   };
 
   var endp = ["/filters/dgnlsl30-movies-action?page=1&language=en&size=50", "/filters/dgnlsl30-movies-comedy?page=1&language=en&size=50", "/filters/marvel-movies?page=1&language=en&size=50", "/filters/gNAaDQJl13GS?page=1&language=en&size=100", "/filters/dgnlsl30-movies-action?page=1&language=en&size=50", "/filters/dgnlsl30-movies-comedy?page=1&language=en&size=50", "/filters/marvel-movies?page=1&language=en&size=50", "/filters/gNAaDQJl13GS?page=1&language=en&size=100", "/filters/dgnlsl30-movies-action?page=1&language=en&size=50", "/filters/dgnlsl30-movies-comedy?page=1&language=en&size=50", "/filters/marvel-movies?page=1&language=en&size=50", "/filters/gNAaDQJl13GS?page=1&language=en&size=100", "/filters/dgnlsl30-movies-action?page=1&language=en&size=50", "/filters/dgnlsl30-movies-comedy?page=1&language=en&size=50", "/filters/marvel-movies?page=1&language=en&size=50", "/filters/gNAaDQJl13GS?page=1&language=en&size=100"];
 
   var railName = ["Action Movies", "Only on Enlight", "Marvel Movies", "Drama Movies", "Romantic Comdey Movies", "Trending Now", "Comdey Movies", "Thriller Movies", "Action Movies", "Only on Enlight", "Marvel Movies", "Drama Movies", "Romantic Comdey Movies", "Trending Now", "Comdey Movies", "Thriller Movies", "Long Rail"];
+
+  var cardSizes = {
+    regular: {
+      w: 216,
+      h: 324,
+      margin: 30,
+      minimumCardsInViewport: 7
+    },
+    wide: {
+      w: 324,
+      h: 216,
+      margin: 30,
+      minimumCardsInViewport: 5
+    }
+  };
 
   var RailItem = /*#__PURE__*/function (_ref) {
     _inherits(RailItem, _ref);
@@ -7465,6 +7481,9 @@ var APP_com_diagnal_app_lightningpoc = (function () {
       }
       _this = _super.call.apply(_super, [this].concat(args));
       _defineProperty(_assertThisInitialized(_this), "data", {});
+      _defineProperty(_assertThisInitialized(_this), "index", 0);
+      _defineProperty(_assertThisInitialized(_this), "totalElements", 0);
+      _defineProperty(_assertThisInitialized(_this), "cardSize", cardSizes.regular);
       return _this;
     }
     _createClass(RailItem, [{
@@ -7477,17 +7496,23 @@ var APP_com_diagnal_app_lightningpoc = (function () {
        *
        */
       function set(obj) {
-        var label = obj.label,
-          src = obj.src,
-          data = obj.data;
+        obj.label;
+          var src = obj.src,
+          data = obj.data,
+          index = obj.index,
+          totalElements = obj.totalElements,
+          cardSize = obj.cardSize;
         this.data = data;
+        this.index = index;
+        this.totalElements = totalElements;
+        this.cardSize = cardSize;
         this.patch({
           Image: {
             src: src
           },
-          Label: {
-            text: label === null || label === void 0 ? void 0 : label.toString()
-          }
+          w: this.cardSize.w,
+          h: this.cardSize.h
+          // Label: { text: label?.toString(), y: this.cardSize.h + 4 }
         });
       }
 
@@ -7500,7 +7525,8 @@ var APP_com_diagnal_app_lightningpoc = (function () {
       key: "_handleEnter",
       value: function _handleEnter() {
         Router.navigate("content/railItem/".concat(this.data.uid), {
-          from: 'Home'
+          from: 'Home',
+          data: this.data
         });
       }
 
@@ -7513,29 +7539,21 @@ var APP_com_diagnal_app_lightningpoc = (function () {
     }, {
       key: "_focus",
       value: function _focus() {
-        this.patch({
-          smooth: {
-            color: theme.colors.secondary,
-            scale: 1.1
-          },
-          Label: {
-            smooth: {
-              color: theme.colors.white
-            }
-          },
-          Rectangle: {
-            color: theme.colors.yellow,
-            x: 10,
-            y: function y(_y) {
-              return _y + 72;
-            },
-            w: function w(_w) {
-              return _w - 20;
-            },
-            h: 5,
-            rect: true
-          }
-        });
+        var cardData = {
+          cardWidth: this.w,
+          cardHeight: this.h,
+          cardIndex: this.index,
+          railTotalElements: this.totalElements,
+          cardSize: this.cardSize
+        };
+        this.fireAncestors('$changeItemOnFocus', this.data, cardData);
+        // this.patch({
+        //     // smooth: { color: theme.colors.secondary, scale: 1.1 },
+        //     Label: {
+        //         smooth: { color: theme.colors.white }
+        //     },
+        //     Rectangle: { color: theme.colors.yellow, x: 10, y: (y: number) => y + 54, w: (w: number) => w - 20, h: 5, rect: true }
+        // })
       }
 
       /**
@@ -7551,13 +7569,11 @@ var APP_com_diagnal_app_lightningpoc = (function () {
           smooth: {
             color: theme.colors.primary,
             scale: 1.0
-          },
-          Label: {
-            smooth: {
-              color: theme.colors.accentGrey.light
-            }
-          },
-          Rectangle: undefined
+          }
+          // Label: {
+          //     smooth: { color: theme.colors.accentGrey.light }
+          // },
+          // Rectangle: undefined
         });
       }
     }], [{
@@ -7573,8 +7589,6 @@ var APP_com_diagnal_app_lightningpoc = (function () {
 
       function _template() {
         return {
-          w: 288,
-          h: 432,
           rect: true,
           color: theme.colors.primary,
           shader: {
@@ -7582,8 +7596,8 @@ var APP_com_diagnal_app_lightningpoc = (function () {
             radius: 20
           },
           Image: {
-            w: function w(_w2) {
-              return _w2;
+            w: function w(_w) {
+              return _w;
             },
             h: function h(_h) {
               return _h;
@@ -7592,18 +7606,13 @@ var APP_com_diagnal_app_lightningpoc = (function () {
               type: Lightning$1.shaders.RoundedRectangle,
               radius: 20
             }
-          },
-          Label: {
-            x: 10,
-            y: 435,
-            w: function w(_w3) {
-              return _w3;
-            },
-            color: theme.colors.accentGrey.light,
-            text: {
-              fontSize: 30
-            }
           }
+          // Label: {
+          //     x: 10,
+          //     w: (w: number) => w,
+          //     color: theme.colors.accentGrey.light,
+          //     text: { fontSize: 22.5 }
+          // }
         };
       }
     }]);
@@ -10599,18 +10608,33 @@ var APP_com_diagnal_app_lightningpoc = (function () {
               _this2.dataLength = _this2.responseData.totalElements || 0;
               _this2.data = _this2.responseData.content || [];
               for (var i = 0; i < _this2.dataLength; i++) {
-                var _this2$data$i, _this2$data$i2, _this2$data$i2$images;
-                var label = (_this2$data$i = _this2.data[i]) === null || _this2$data$i === void 0 ? void 0 : _this2$data$i.title;
-                var img_src = (_this2$data$i2 = _this2.data[i]) === null || _this2$data$i2 === void 0 ? void 0 : (_this2$data$i2$images = _this2$data$i2.images.find(function (img) {
+                var _this2$data$i, _this2$data$i$images$, _this2$data$i3, _this2$data$i4;
+                var cardSize = cardSizes.regular;
+                var img_src = (_this2$data$i = _this2.data[i]) === null || _this2$data$i === void 0 ? void 0 : (_this2$data$i$images$ = _this2$data$i.images.find(function (img) {
                   return img.width === 288;
-                })) === null || _this2$data$i2$images === void 0 ? void 0 : _this2$data$i2$images.url;
+                })) === null || _this2$data$i$images$ === void 0 ? void 0 : _this2$data$i$images$.url;
+
+                // Just a random scenerio. Making 2 rail cards different in diamensions
+                if (_this2.dataLength === 10 || _this2.dataLength === 31) {
+                  var _this2$data$i2, _this2$data$i2$images;
+                  cardSize = cardSizes.wide;
+                  img_src = (_this2$data$i2 = _this2.data[i]) === null || _this2$data$i2 === void 0 ? void 0 : (_this2$data$i2$images = _this2$data$i2.images.find(function (img) {
+                    return img.width === 526;
+                  })) === null || _this2$data$i2$images === void 0 ? void 0 : _this2$data$i2$images.url;
+                }
+                var label = (_this2$data$i3 = _this2.data[i]) === null || _this2$data$i3 === void 0 ? void 0 : _this2$data$i3.title;
+                console.log((_this2$data$i4 = _this2.data[i]) === null || _this2$data$i4 === void 0 ? void 0 : _this2$data$i4.images);
+                var cardWidthIncludingMargin = cardSize.w + cardSize.margin;
                 rail.push({
                   type: RailItem,
-                  x: i * (300 + 30),
+                  x: i * cardWidthIncludingMargin,
                   item: {
                     label: label,
                     src: img_src || "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/249/oyPcsfGWL5Se6RGW1JCVgpHlASH_288x432_13635141800.jpg",
-                    data: _this2.data[i]
+                    data: _this2.data[i],
+                    index: i,
+                    totalElements: _this2.dataLength,
+                    cardSize: cardSize
                   }
                 });
               }
@@ -10651,7 +10675,7 @@ var APP_com_diagnal_app_lightningpoc = (function () {
                   })) === null || _this$data$i2$images$ === void 0 ? void 0 : _this$data$i2$images$.url;
                   rail.push({
                     type: RailItem,
-                    x: i * (300 + 30),
+                    x: i * (216 + 30),
                     item: {
                       label: label,
                       src: img_src || "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/249/oyPcsfGWL5Se6RGW1JCVgpHlASH_288x432_13635141800.jpg",
@@ -10679,22 +10703,19 @@ var APP_com_diagnal_app_lightningpoc = (function () {
         return setLongRail;
       }()
       /**
-       * To repostion the wrapper on the focused element. Function does not take any parameters 
+       * To repostion the wrapper on the focused element. Function does not take any parameters
        * nor has any return.
        */
     }, {
       key: "repositionWrapper",
       value: function repositionWrapper() {
         var wrapper = this.tag('Wrapper');
-        var sliderW = this.tag('Slider').w;
-        var currentWrapperX = wrapper.transition('x').targetvalue || wrapper.x;
         var currentFocus = wrapper.children[this.index];
-        var currentFocusX = currentFocus.x + currentWrapperX;
-        var currentFocusOuterWidth = currentFocus.x + currentFocus.w;
-        if (currentFocusX < 0) {
-          wrapper.setSmooth('x', -currentFocus.x);
-        } else if (currentFocusOuterWidth > sliderW) {
-          wrapper.setSmooth('x', sliderW - currentFocusOuterWidth);
+        var cardSize = currentFocus.cardSize;
+        if (this.index < this.dataLength - (cardSize.minimumCardsInViewport - 1)) {
+          wrapper.setSmooth("x", -(cardSize.w + cardSize.margin) * this.index, {
+            duration: 0.3
+          });
         }
       }
 
@@ -10730,8 +10751,8 @@ var APP_com_diagnal_app_lightningpoc = (function () {
 
       /**
        * This function will override the default behavior of the getFocused() method
-       * 
-       * @returns Return the child Component that this Component wishes to receive focus. Returning null 
+       *
+       * @returns Return the child Component that this Component wishes to receive focus. Returning null
        * or undefined tells the focus engine to not set focus on this Component at all.By default,
        * this Component's own instance is returned.
        */
@@ -10748,11 +10769,11 @@ var APP_com_diagnal_app_lightningpoc = (function () {
       key: "_template",
       value:
       /**
-      * This function is responsible for the creation and return of the UI template. This 
+      * This function is responsible for the creation and return of the UI template. This
       * function takes  no parameters and returns the template of the Rail component.
-      * 
+      *
       * @returns Template for the Rail Component.
-      * 
+      *
       */
       function _template() {
         return {
@@ -10971,7 +10992,7 @@ var APP_com_diagnal_app_lightningpoc = (function () {
     return NavProfileItem;
   }(Lightning$1.Component);
 
-  var TopNav = /*#__PURE__*/function (_Lightning$Component) {
+  /*#__PURE__*/(function (_Lightning$Component) {
     _inherits(TopNav, _Lightning$Component);
     var _super = _createSuper(TopNav);
     function TopNav() {
@@ -11149,7 +11170,7 @@ var APP_com_diagnal_app_lightningpoc = (function () {
       }
     }]);
     return TopNav;
-  }(Lightning$1.Component);
+  })(Lightning$1.Component);
 
   var BackButton = /*#__PURE__*/function (_ref) {
     _inherits(BackButton, _ref);
@@ -11441,6 +11462,351 @@ var APP_com_diagnal_app_lightningpoc = (function () {
     return Button;
   }(Lightning$1.Component);
 
+  var PreviewComponent = /*#__PURE__*/function (_ref) {
+    _inherits(PreviewComponent, _ref);
+    var _super = _createSuper(PreviewComponent);
+    function PreviewComponent() {
+      var _this;
+      _classCallCheck(this, PreviewComponent);
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+      _this = _super.call.apply(_super, [this].concat(args));
+      _defineProperty(_assertThisInitialized(_this), "firstActive", true);
+      return _this;
+    }
+    _createClass(PreviewComponent, [{
+      key: "data",
+      set: function set(eventDetails) {
+        var _this2 = this;
+        console.log(eventDetails);
+        var imgSrc = eventDetails.imgSrc,
+          title = eventDetails.title,
+          description = eventDetails.description,
+          genre = eventDetails.genre,
+          directorsList = eventDetails.directorsList,
+          actorsList = eventDetails.actorsList;
+
+        // animation for the thumbnail on change
+        this.tag('ContentView.Thumbnail').patch({
+          smooth: {
+            src: imgSrc
+          }
+        });
+        this.tag('ContentView.Thumbnail').transition('src').on('start', function () {
+          _this2.tag('ContentView.Thumbnail').setSmooth('alpha', 0, {
+            duration: 0.5
+          });
+        });
+        this.tag('ContentView.Thumbnail').transition('src').on('finish', function () {
+          _this2.tag('ContentView.Thumbnail').setSmooth('alpha', 1, {
+            duration: 0.5
+          });
+        });
+        var contentAnimation = this.tag('ContentView.ContentDetails').animation({
+          duration: 1,
+          delay: 0,
+          actions: [{
+            p: 'alpha',
+            v: {
+              0: 1,
+              0.5: 0,
+              0.8: 0,
+              1: 1
+            }
+          }, {
+            p: 'x',
+            v: {
+              0: 10,
+              0.6: -100,
+              0.65: 10
+            }
+          }, {
+            p: 'y',
+            v: {
+              0: 0,
+              0.6: 0,
+              0.65: -30,
+              1: 0
+            }
+          }]
+        });
+
+        // patching
+        this.patch({
+          ContentView: {
+            shader: {
+              type: Lightning$1.shaders.RadialGradient,
+              x: 300,
+              y: 300,
+              innerColor: 0xff000000,
+              radius: 1500
+            },
+            ContentDetails: {
+              x: 10,
+              ContentData: {
+                Title: {
+                  text: {
+                    text: title
+                  }
+                },
+                Description: {
+                  text: {
+                    text: description
+                  }
+                },
+                Genre: {
+                  text: {
+                    text: genre
+                  }
+                },
+                Info: {
+                  visible: true,
+                  DirectorList: {
+                    text: {
+                      text: directorsList
+                    }
+                  },
+                  StarringList: {
+                    text: {
+                      text: actorsList
+                    }
+                  }
+                },
+                VideoSpec: {
+                  visible: true
+                }
+              }
+            }
+          }
+        });
+
+        // checking for initial rendering to avoid duplicate animations
+        if (this.firstActive) {
+          this.firstActive = false;
+          this.tag('ContentView.ContentDetails').animation({
+            duration: 1,
+            delay: 0,
+            repeat: 0,
+            actions: [{
+              p: 'alpha',
+              v: {
+                0: 0,
+                1: 1
+              }
+            }, {
+              p: 'y',
+              v: {
+                0: -30,
+                1: 0
+              }
+            }]
+          }).start();
+          return;
+        }
+        contentAnimation.start();
+      }
+
+      // Animate on Navigation to details page (invoked from pageTransitionOut of home page )
+    }, {
+      key: "animate",
+      value: function animate() {
+        this.tag('ContentView.ContentDetails').animation({
+          duration: 2,
+          delay: 0,
+          actions: [{
+            p: 'alpha',
+            v: {
+              0: 1,
+              0.5: 0
+            }
+          }, {
+            p: 'y',
+            v: {
+              0: 0,
+              0.5: -30,
+              1: 0
+            }
+          }]
+        }).start();
+      }
+    }, {
+      key: "_init",
+      value: function _init() {
+        var _this3 = this;
+        this.tag('ContentView.Thumbnail').on('txError', function () {
+          console.error('texture failed to load: ' + _this3.tag('ContentView.Thumbnail').src);
+          // show placeholder
+          // this.tag('ContentView.Thumbnail' as any).src = Utils.asset('/static/images/background.png');
+        });
+      }
+    }], [{
+      key: "_template",
+      value: function _template() {
+        return {
+          ContentView: {
+            Thumbnail: {
+              x: 1000,
+              y: 110,
+              scale: 1.5,
+              shader: {
+                type: Lightning$1.shaders.FadeOut,
+                innerColor: theme.colors.black,
+                left: 200,
+                bottom: 200
+              }
+            },
+            ContentDetails: {
+              ContentData: {
+                shader: null,
+                zIndex: 2,
+                Title: {
+                  x: 40,
+                  y: 165,
+                  shader: null,
+                  text: {
+                    fontSize: 80
+                  },
+                  color: theme.colors.white
+                },
+                Description: {
+                  x: 40,
+                  y: 270,
+                  w: 900,
+                  shader: null,
+                  text: {
+                    wordWrap: true,
+                    maxLines: 3,
+                    maxLinesSuffix: '...',
+                    fontSize: 30
+                  },
+                  color: theme.colors.accentGrey.light
+                },
+                Genre: {
+                  x: 40,
+                  y: 380,
+                  w: 900,
+                  shader: null,
+                  text: {
+                    fontSize: 24
+                  },
+                  color: theme.colors.accentGrey.light
+                },
+                Info: {
+                  visible: false,
+                  Director: {
+                    x: 40,
+                    y: 440,
+                    w: 100,
+                    shader: null,
+                    text: {
+                      text: 'Director : ',
+                      fontSize: 24
+                    },
+                    color: theme.colors.accentGrey.light
+                  },
+                  Starring: {
+                    x: 40,
+                    y: 470,
+                    w: 100,
+                    shader: null,
+                    text: {
+                      text: 'Staring  : ',
+                      fontSize: 24
+                    },
+                    color: theme.colors.accentGrey.light
+                  },
+                  DirectorList: {
+                    x: 150,
+                    y: 440,
+                    w: 800,
+                    shader: null,
+                    text: {
+                      fontSize: 24
+                    },
+                    color: theme.colors.accentGrey.light
+                  },
+                  StarringList: {
+                    x: 150,
+                    y: 470,
+                    w: 800,
+                    shader: null,
+                    text: {
+                      fontSize: 24,
+                      wordWrap: true,
+                      maxLines: 1,
+                      maxLinesSuffix: '...'
+                    },
+                    color: theme.colors.accentGrey.light
+                  }
+                },
+                VideoSpec: {
+                  visible: false,
+                  VideoSpec1: {
+                    x: 70,
+                    y: 140,
+                    shader: null,
+                    type: VideoSpecItem,
+                    specData: '  16+  '
+                  },
+                  VideoSpec2: {
+                    x: 135,
+                    y: 140,
+                    shader: null,
+                    type: VideoSpecItem,
+                    specData: '  4k  '
+                  },
+                  VideoSpec3: {
+                    x: 193,
+                    y: 140,
+                    shader: null,
+                    type: VideoSpecItem,
+                    specData: '  cc  '
+                  }
+                }
+              }
+            }
+          }
+        };
+      }
+    }]);
+    return PreviewComponent;
+  }(Lightning$1.Component);
+
+  /*#__PURE__*/(function (_ref) {
+    _inherits(FocusBox, _ref);
+    var _super = _createSuper(FocusBox);
+    function FocusBox() {
+      _classCallCheck(this, FocusBox);
+      return _super.apply(this, arguments);
+    }
+    _createClass(FocusBox, null, [{
+      key: "_template",
+      value: function _template() {
+        return {
+          Box: {
+            x: 80,
+            y: 665,
+            InnerBox: {
+              zIndex: 3,
+              w: 100,
+              h: 100,
+              rect: true,
+              shader: {
+                type: Lightning$1.shaders.RoundedRectangle,
+                radius: 20,
+                stroke: 5,
+                strokeColor: theme.colors.yellow
+              },
+              color: Colors('transparent')
+            }
+          }
+        };
+      }
+    }]);
+    return FocusBox;
+  })(Lightning$1.Component);
+
   // Home component
   var Home = /*#__PURE__*/function (_ref) {
     _inherits(Home, _ref);
@@ -11455,21 +11821,74 @@ var APP_com_diagnal_app_lightningpoc = (function () {
       _defineProperty(_assertThisInitialized(_this), "index", 0);
       _defineProperty(_assertThisInitialized(_this), "rowLength", endp.length);
       _defineProperty(_assertThisInitialized(_this), "hideNav", false);
+      _defineProperty(_assertThisInitialized(_this), "eventData", {});
       _defineProperty(_assertThisInitialized(_this), "Wrapper", _this.getByRef('Background.Slider.Wrapper'));
       return _this;
     }
     _createClass(Home, [{
-      key: "_init",
-      value:
+      key: "$changeItemOnFocus",
+      value: function $changeItemOnFocus(data, cardData) {
+        var _data$images$find, _this$tag;
+        var imgSrc = (_data$images$find = data.images.find(function (img) {
+          return img.width === 828;
+        })) === null || _data$images$find === void 0 ? void 0 : _data$images$find.url;
+        var title = data.title;
+        var description = data.description;
+        var genre = data.genre.join(' . ');
+        var directorsList = data.director.map(function (a) {
+          return a.personName;
+        }).join(', ');
+        var actorsList = data.actor.map(function (a) {
+          return a.personName;
+        }).join(', ');
+        var railTotalElements = cardData.railTotalElements,
+          cardIndex = cardData.cardIndex,
+          cardSize = cardData.cardSize;
+        var minimumCardsInViewport = cardSize.minimumCardsInViewport,
+          w = cardSize.w,
+          h = cardSize.h,
+          margin = cardSize.margin;
+        var previewItem = {
+          type: PreviewComponent,
+          data: {
+            imgSrc: imgSrc,
+            title: title,
+            description: description,
+            genre: genre,
+            directorsList: directorsList,
+            actorsList: actorsList
+          }
+        };
+        this.tag('Background.ContentDetails').patch(previewItem);
+        (_this$tag = this.tag('Box')) === null || _this$tag === void 0 ? void 0 : _this$tag.patch({
+          InnerBox: {
+            w: w,
+            h: h
+            // shader: { w: cardData.cardWidth, h: cardData.cardHeight }
+          }
+        });
+
+        var focusBox = this.tag("Box");
+        if (cardIndex >= railTotalElements - (minimumCardsInViewport - 1)) {
+          focusBox.setSmooth("x", (w + margin) * (minimumCardsInViewport - (railTotalElements - cardIndex)) + 80, {
+            duration: 0.3
+          });
+        } else focusBox.setSmooth("x", 80, {
+          duration: 0.3
+        });
+      }
+
       // initializing the component
-      function _init() {
+    }, {
+      key: "_init",
+      value: function _init() {
         this.backgroundFetchAndSave();
         var rails = [];
         for (var i = 0; i < this.rowLength; i++) {
           rails.push({
             type: Rail,
             x: 0,
-            y: i * (600 + 50),
+            y: i * (500 + 50),
             railIndex: i
           });
         }
@@ -11547,11 +11966,53 @@ var APP_com_diagnal_app_lightningpoc = (function () {
         }
       }
 
+      // adding animation on entering the page.
+    }, {
+      key: "_active",
+      value: function _active() {
+        var railInAnimation = this.tag('Background.Slider').animation({
+          duration: 1,
+          delay: 0,
+          actions: [{
+            p: 'alpha',
+            v: {
+              0: 0,
+              1: 1
+            }
+          }, {
+            p: 'y',
+            v: {
+              0: 1400,
+              1: 1100
+            }
+          }]
+        });
+        var focusBorderInAnimation = this.tag('Background.Box').animation({
+          duration: 1,
+          delay: 0,
+          actions: [{
+            p: 'alpha',
+            v: {
+              0: 0,
+              1: 1
+            }
+          }, {
+            p: 'y',
+            v: {
+              0: 965,
+              1: 665
+            }
+          }]
+        });
+        railInAnimation.start();
+        focusBorderInAnimation.start();
+      }
+
       // handling up button click
     }, {
       key: "_handleUp",
       value: function _handleUp() {
-        if (this.index > -1) {
+        if (this.index > 0) {
           this.index -= 1;
           if (this.index >= 0) {
             this.repositionWrapper();
@@ -11571,8 +12032,8 @@ var APP_com_diagnal_app_lightningpoc = (function () {
 
       /**
          * This function will override the default behavior of the getFocused() method
-         * 
-         * @returns Return the child Component that this Component wishes to receive focus. Returning null 
+         *
+         * @returns Return the child Component that this Component wishes to receive focus. Returning null
          * or undefined tells the focus engine to not set focus on this Component at all.By default,
          * this Component's own instance is returned.
          */
@@ -11601,34 +12062,88 @@ var APP_com_diagnal_app_lightningpoc = (function () {
           return this.tag('Navbar');
         }
       }
+
+      // Animating the page transition
+    }, {
+      key: "pageTransitionOut",
+      value: function pageTransitionOut(page) {
+        var _this2 = this;
+        return new Promise(function (resolve, reject) {
+          _this2.tag('Background.Slider').patch({
+            smooth: {
+              y: [1300, {
+                duration: 1,
+                delay: 0,
+                timingFunction: 'ease'
+              }],
+              alpha: 0
+            }
+          });
+          _this2.tag('Background.Box').patch({
+            smooth: {
+              y: [865, {
+                duration: 1,
+                delay: 0,
+                timingFunction: 'ease'
+              }],
+              alpha: 0
+            }
+          });
+          _this2.tag('Background.ContentDetails').animate();
+
+          // resolve Promise when transition on x is finished
+          _this2.tag('Background.Slider').transition('y').on('finish', function () {
+            resolve();
+          });
+        });
+      }
     }], [{
       key: "_template",
       value:
       /**
-       * This function is responsible for the creation and return of the UI template. This function 
+       * This function is responsible for the creation and return of the UI template. This function
        * takes  no parameters and returns the template.
-       * 
+       *
        * @returns Template for the Application
-       * 
+       *
        */
       function _template() {
         return {
-          Navbar: {
-            type: TopNav
-          },
+          // Navbar: { type: TopNav },
           Background: {
             w: 1920,
             h: 1080,
-            color: theme.colors.primaryLight,
+            color: theme.colors.black,
             rect: true,
+            Box: {
+              x: 80,
+              y: 665,
+              InnerBox: {
+                zIndex: 3,
+                w: 100,
+                h: 100,
+                rect: true,
+                shader: {
+                  type: Lightning$1.shaders.RoundedRectangle,
+                  radius: 20,
+                  stroke: 5,
+                  strokeColor: theme.colors.yellow
+                },
+                color: Colors('transparent')
+              }
+            },
+            ContentDetails: {
+              type: PreviewComponent
+            },
             Slider: {
               zIndex: 2,
-              w: 800,
+              clipping: true,
+              w: 1920,
               h: function h(_h) {
                 return _h;
               },
-              x: 400,
-              y: 630,
+              x: 960,
+              y: 1100,
               mount: 0.5,
               Wrapper: {}
             }
@@ -15308,199 +15823,115 @@ var APP_com_diagnal_app_lightningpoc = (function () {
     }, {
       key: "params",
       set: function set(args) {
-        var _this2 = this;
-        var id = args.id,
-          from = args.from;
+        var _data$images$find;
+        args.id;
+          var from = args.from,
+          data = args.data;
         this.from = from;
-        axios$1.get("https://api-qa.enlight.diagnal.com/v1b3/content/".concat(id)).then(function (res) {
-          var _res$data$images$find, _res$data$images$find2;
-          console.log(res.data);
-          _this2.contentId = id;
-          _this2.patch({
-            ContentView: {
-              Spinner: {
-                rect: false
+        var imgSrc = (_data$images$find = data.images.find(function (img) {
+          return img.width === 828;
+        })) === null || _data$images$find === void 0 ? void 0 : _data$images$find.url;
+        console.log(args);
+        this.patch({
+          ContentView: {
+            shader: {
+              type: Lightning$1.shaders.RadialGradient,
+              x: 300,
+              y: 300,
+              innerColor: 0xff000000,
+              radius: 1500
+            },
+            Thumbnail: {
+              src: imgSrc
+            },
+            ContentData: {
+              x: 10,
+              Title: {
+                text: {
+                  text: data.title
+                }
               },
-              shader: {
-                type: Lightning$1.shaders.RadialGradient,
-                x: 300,
-                y: 300,
-                innerColor: 0xff000000,
-                radius: 1500
+              Description: {
+                text: {
+                  text: data.description
+                }
               },
-              Background: {
-                h: function h(_h) {
-                  return _h;
-                },
-                w: function w(_w) {
-                  return _w;
-                },
-                src: (_res$data$images$find = res.data.images.find(function (img) {
-                  return img.width === 2048;
-                })) === null || _res$data$images$find === void 0 ? void 0 : _res$data$images$find.url
+              Genre: {
+                text: {
+                  text: data.genre.join(' . ')
+                }
               },
-              ContentData: {
-                zIndex: 2,
-                Thumbnail: {
-                  x: 1400,
-                  y: 324,
-                  w: 288,
-                  h: 432,
-                  scale: 1.5,
-                  shader: {
-                    type: Lightning$1.shaders.RoundedRectangle,
-                    radius: 30
-                  },
-                  src: (_res$data$images$find2 = res.data.images.find(function (img) {
-                    return img.width === 288;
-                  })) === null || _res$data$images$find2 === void 0 ? void 0 : _res$data$images$find2.url,
-                  color: theme.colors.white
-                },
-                Title: {
-                  x: 40,
-                  y: 185,
-                  shader: null,
+              Info: {
+                visible: true,
+                DirectorList: {
                   text: {
-                    text: res.data.title,
-                    fontSize: 80
-                  },
-                  color: theme.colors.white
-                },
-                Description: {
-                  x: 40,
-                  y: 290,
-                  w: 900,
-                  shader: null,
-                  text: {
-                    wordWrap: true,
-                    maxLines: 3,
-                    text: res.data.description,
-                    maxLinesSuffix: '...',
-                    fontSize: 30
-                  },
-                  color: theme.colors.accentGrey.light
-                },
-                Genre: {
-                  x: 40,
-                  y: 400,
-                  w: 900,
-                  shader: null,
-                  text: {
-                    text: res.data.genre.join(' . '),
-                    fontSize: 24
-                  },
-                  color: theme.colors.accentGrey.light
-                },
-                Info: {
-                  Director: {
-                    x: 40,
-                    y: 460,
-                    w: 100,
-                    shader: null,
-                    text: {
-                      text: 'Director : ',
-                      fontSize: 24
-                    },
-                    color: theme.colors.accentGrey.light
-                  },
-                  Starring: {
-                    x: 40,
-                    y: 490,
-                    w: 100,
-                    shader: null,
-                    text: {
-                      text: 'Staring  : ',
-                      fontSize: 24
-                    },
-                    color: theme.colors.accentGrey.light
-                  },
-                  DirectorList: {
-                    x: 150,
-                    y: 460,
-                    w: 800,
-                    shader: null,
-                    text: {
-                      text: res.data.director.map(function (a) {
-                        return a.personName;
-                      }).join(', '),
-                      fontSize: 24
-                    },
-                    color: theme.colors.accentGrey.light
-                  },
-                  StarringList: {
-                    x: 150,
-                    y: 490,
-                    w: 800,
-                    shader: null,
-                    text: {
-                      text: res.data.actor.map(function (a) {
-                        return a.personName;
-                      }).join(', '),
-                      fontSize: 24,
-                      wordWrap: true,
-                      maxLines: 1,
-                      maxLinesSuffix: '...'
-                    },
-                    color: theme.colors.accentGrey.light
+                    text: data.director.map(function (a) {
+                      return a.personName;
+                    }).join(', ')
                   }
                 },
-                VideoSpec: {
-                  VideoSpec1: {
-                    x: 70,
-                    y: 160,
-                    shader: null,
-                    type: VideoSpecItem,
-                    specData: '  16+  '
-                  },
-                  VideoSpec2: {
-                    x: 135,
-                    y: 160,
-                    shader: null,
-                    type: VideoSpecItem,
-                    specData: '  4k  '
-                  },
-                  VideoSpec3: {
-                    x: 193,
-                    y: 160,
-                    shader: null,
-                    type: VideoSpecItem,
-                    specData: '  cc  '
+                StarringList: {
+                  text: {
+                    text: data.actor.map(function (a) {
+                      return a.personName;
+                    }).join(', ')
                   }
                 }
               },
-              ContentActions: {
-                shader: null,
-                BackButton: {
-                  x: 40,
-                  y: 40,
-                  type: BackButton
-                },
-                PlayButton: {
-                  x: 40,
-                  y: 570,
-                  type: Button,
-                  label: "Play Video"
-                },
-                PlayTrailer: {
-                  x: 40,
-                  y: 700,
-                  type: Button,
-                  label: "Play Trailer"
-                }
+              VideoSpec: {
+                visible: true
               }
             }
-          });
-          _this2._refocus();
+          }
         });
+        this._refocus();
       }
-
-      // override _enable(): void {
-      //     this.index = 1;
-      // }
     }, {
       key: "_init",
       value: function _init() {
         // this.tag('ContentView.ContentData.Info.Starring' as any).enableClipping()
+      }
+
+      // animating elements on netering the page (invoked in the transition)
+    }, {
+      key: "animateElements",
+      value: function animateElements() {
+        var contentAnimation = this.tag('ContentView.ContentData').animation({
+          duration: 1,
+          delay: 0,
+          actions: [{
+            p: 'alpha',
+            v: {
+              0: 0,
+              1: 1
+            }
+          }, {
+            p: 'y',
+            v: {
+              0: -60,
+              1: 0
+            }
+          }]
+        });
+        var contentActionsAnimation = this.tag('ContentView.ContentActions').animation({
+          duration: 1,
+          delay: 0,
+          actions: [{
+            p: 'alpha',
+            v: {
+              0: 0,
+              1: 1
+            }
+          }, {
+            p: 'x',
+            v: {
+              0: -100,
+              1: 10
+            }
+          }]
+        });
+        contentActionsAnimation.start();
+        contentAnimation.start();
       }
 
       // overrides the default up button actions
@@ -15543,6 +15974,23 @@ var APP_com_diagnal_app_lightningpoc = (function () {
       value: function _getFocused() {
         return this.tag('ContentView.ContentActions').children[this.index];
       }
+
+      // custom page transition
+    }, {
+      key: "pageTransition",
+      value: function pageTransition(pageIn, pageOut) {
+        // resolving if no pageout is defined
+        if (!pageOut) return Promise.resolve();
+        return new Promise(function (resolve, reject) {
+          // completing the animations of page out and starting the animation of page in after
+          pageOut.pageTransitionOut(pageOut).then(function () {
+            // toggle visibility
+            pageIn.visible = true;
+            pageIn.animateElements();
+            resolve();
+          });
+        });
+      }
     }], [{
       key: "_template",
       value:
@@ -15555,13 +16003,12 @@ var APP_com_diagnal_app_lightningpoc = (function () {
       // readonly description = this.contentDataView.getByRef("Description")!;
       // readonly genre = this.contentDataView.getByRef("Genre")!;
       // readonly info = this.contentDataView.getByRef("Info")!;
-
       function _template() {
         return {
           ContentView: {
             w: 1920,
             h: 1080,
-            color: theme.colors.primaryLight,
+            color: theme.colors.black,
             rect: true,
             shader: {
               x: 100,
@@ -15572,34 +16019,144 @@ var APP_com_diagnal_app_lightningpoc = (function () {
               innerColor: theme.colors.dark,
               radius: 800
             },
-            Spinner: {
-              w: 100,
-              h: 100,
-              mount: 0.5,
-              x: function x(_x) {
-                return _x / 2;
-              },
-              y: function y(_y) {
-                return _y / 2;
-              },
-              rect: true,
+            Thumbnail: {
+              x: 1000,
+              y: 110,
+              scale: 1.5,
               shader: {
-                type: Lightning$1.shaders.Spinner2,
-                stroke: 5
+                type: Lightning$1.shaders.FadeOut,
+                innerColor: theme.colors.black,
+                left: 200,
+                bottom: 200
               }
             },
-            Background: {},
             ContentData: {
-              Thumbnail: {},
-              Title: {},
-              Description: {},
-              Genre: {},
-              Info: {}
+              shader: null,
+              zIndex: 2,
+              Title: {
+                x: 40,
+                y: 165,
+                shader: null,
+                text: {
+                  fontSize: 80
+                },
+                color: theme.colors.white
+              },
+              Description: {
+                x: 40,
+                y: 270,
+                w: 900,
+                shader: null,
+                text: {
+                  wordWrap: true,
+                  maxLines: 3,
+                  maxLinesSuffix: '...',
+                  fontSize: 30
+                },
+                color: theme.colors.accentGrey.light
+              },
+              Genre: {
+                x: 40,
+                y: 380,
+                w: 900,
+                shader: null,
+                text: {
+                  fontSize: 24
+                },
+                color: theme.colors.accentGrey.light
+              },
+              Info: {
+                visible: false,
+                Director: {
+                  x: 40,
+                  y: 440,
+                  w: 100,
+                  shader: null,
+                  text: {
+                    text: 'Director : ',
+                    fontSize: 24
+                  },
+                  color: theme.colors.accentGrey.light
+                },
+                Starring: {
+                  x: 40,
+                  y: 470,
+                  w: 100,
+                  shader: null,
+                  text: {
+                    text: 'Staring  : ',
+                    fontSize: 24
+                  },
+                  color: theme.colors.accentGrey.light
+                },
+                DirectorList: {
+                  x: 150,
+                  y: 440,
+                  w: 800,
+                  shader: null,
+                  text: {
+                    fontSize: 24
+                  },
+                  color: theme.colors.accentGrey.light
+                },
+                StarringList: {
+                  x: 150,
+                  y: 470,
+                  w: 800,
+                  shader: null,
+                  text: {
+                    fontSize: 24,
+                    wordWrap: true,
+                    maxLines: 1,
+                    maxLinesSuffix: '...'
+                  },
+                  color: theme.colors.accentGrey.light
+                }
+              },
+              VideoSpec: {
+                visible: false,
+                VideoSpec1: {
+                  x: 70,
+                  y: 140,
+                  shader: null,
+                  type: VideoSpecItem,
+                  specData: '  16+  '
+                },
+                VideoSpec2: {
+                  x: 135,
+                  y: 140,
+                  shader: null,
+                  type: VideoSpecItem,
+                  specData: '  4k  '
+                },
+                VideoSpec3: {
+                  x: 193,
+                  y: 140,
+                  shader: null,
+                  type: VideoSpecItem,
+                  specData: '  cc  '
+                }
+              }
             },
             ContentActions: {
-              // BackButton: { type: BackButton },
-              // PlayButton: { type: Button },
-              // PlayTrailer: { type: Button },
+              shader: null,
+              BackButton: {
+                x: 40,
+                y: 40,
+                type: BackButton
+              },
+              PlayButton: {
+                x: 40,
+                y: 570,
+                type: Button,
+                label: "Play Video"
+              },
+              PlayTrailer: {
+                x: 40,
+                y: 700,
+                type: Button,
+                label: "Play Trailer"
+              }
             }
           }
         };
