@@ -17,6 +17,7 @@
     "cp-dist-tizen-es6": "cp -r ./dist/es6/ ./platforms/Tizen/www/ || copy ./dist/es6/ ./platforms/Tizen/www/",
     "build-es5": "npm run rm-dist-webos && npm run rm-dist-tizen && lng dist --es5 && npm run cp-dist-webos-es5 && npm run cp-dist-tizen-es5",
     "build-es6": "npm run rm-dist-webos && npm run rm-dist-tizen && lng dist && npm run cp-dist-webos-es6 && npm run cp-dist-tizen-es6",
+    "update-build": "npm run build && npm run deploy",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {

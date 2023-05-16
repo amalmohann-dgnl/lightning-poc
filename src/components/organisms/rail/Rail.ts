@@ -59,7 +59,6 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
                             img_src = this.data[i]?.images.find((img: Image) => img.width === 526)?.url
                         }
                         let label = this.data[i]?.title!;
-                        console.log(this.data[i]?.images);
                         let cardWidthIncludingMargin = cardSize.w + cardSize.margin
                         rail.push({
                             type: RailItem,
