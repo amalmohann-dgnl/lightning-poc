@@ -5,6 +5,7 @@ import { BackButton, VideoSpecItem, Button } from "../../components";
 import axios from 'axios';
 import { Content, Image } from "../../models/api-request-response";
 import { PAGETRANSITION } from "../../constants";
+import { JavaScriptInterface } from "../../models/JavaScriptInterface";
 
 class ContentDetails
     extends Lightning.Component<ContentDetailsTemplateSpec>
@@ -14,16 +15,7 @@ class ContentDetails
     contentId: string = '';
     index: number = 1;
     from: string = '';
-
-    // readonly contentView = this.getByRef("ContentView")!;
-    // readonly spinner = this.contentView.getByRef("Spinner")!;
-    // readonly background = this.contentView.getByRef("Background")!;
-    // readonly contentDataView = this.contentView.getByRef("ContentData")!;
-    // readonly thumbnail = this.contentDataView.getByRef("Thumbnail")!;
-    // readonly title = this.contentDataView.getByRef("Title")!;
-    // readonly description = this.contentDataView.getByRef("Description")!;
-    // readonly genre = this.contentDataView.getByRef("Genre")!;
-    // readonly info = this.contentDataView.getByRef("Info")!;
+    LngAndroid: JavaScriptInterface = {} as JavaScriptInterface;
 
 
     static override _template(): Lightning.Component.Template<ContentDetailsTemplateSpec> {
@@ -274,7 +266,8 @@ class ContentDetails
         } else {
             console.log(this.contentId);
 
-            Router.navigate(`player/${this.contentId}`)
+            this.LngAndroid.openActivity("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"); //for android
+            // Router.navigate(`player/${this.contentId}`)
         }
     }
 

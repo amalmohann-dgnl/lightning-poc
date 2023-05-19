@@ -1,6 +1,7 @@
 import { Lightning } from '@lightningjs/sdk';
 import { BackButton, Button, VideoSpecItem } from '../../../components';
 import { Content } from '../../api-request-response';
+import { JavaScriptInterface } from '../../JavaScriptInterface';
 interface ContentDetailsTemplateSpec extends Lightning.Component.TemplateSpec {
     /**
      * properties of the component
@@ -8,6 +9,8 @@ interface ContentDetailsTemplateSpec extends Lightning.Component.TemplateSpec {
     index: number;
     contentData: Content;
     contentId: string;
+    LngAndroid: JavaScriptInterface;
+
 
 
     /**
