@@ -12,7 +12,7 @@ export class POCVideoPlayer
     implements Lightning.Component.ImplementTemplateSpec<POCVideoPlayerTemplateSpec>
 {
 
-    videoUrl = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
+    videoUrl = 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
     index: number = 1;
     contentId: string = '';
     _isPlaying: boolean = true;

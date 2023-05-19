@@ -265,7 +265,7 @@ class ContentDetails
         } else {
             console.log(this.contentId);
 
-            (window as any).LngAndroid.openActivity("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"); //for android
+            (window as any).LngAndroid.openActivity("https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"); //for android
             // Router.navigate(`player/${this.contentId}`)
         }
     }
