@@ -6,6 +6,7 @@ import axios from 'axios';
 import { Content, Image } from "../../models/api-request-response";
 import { PAGETRANSITION } from "../../constants";
 import { JavaScriptInterface } from "../../models/JavaScriptInterface";
+import { UAParser } from "ua-parser-js";
 
 class ContentDetails
     extends Lightning.Component<ContentDetailsTemplateSpec>
@@ -15,6 +16,7 @@ class ContentDetails
     contentId: string = '';
     index: number = 1;
     from: string = '';
+
 
 
     static override _template(): Lightning.Component.Template<ContentDetailsTemplateSpec> {
@@ -158,7 +160,6 @@ class ContentDetails
         const { id, from, data } = args; this.from = from;
         let imgSrc = data.images.find((img: Image) => img.width === 828)?.url;
         this.contentId = id;
-        console.log(args);
         this.patch({
             ContentView: {
                 shader: { type: Lightning.shaders.RadialGradient, x: 300, y: 300, innerColor: 0xff000000, radius: 1500 },
@@ -253,8 +254,6 @@ class ContentDetails
 
     // overrides the default behavior when enter button is clicked
     override _handleEnter(): void {
-        console.log(this.from);
-
         if (this.index === 0) {
             if (this.from == 'gridItem' || this.from == 'Grid') {
                 Router.navigate('grid');
@@ -263,10 +262,13 @@ class ContentDetails
                 Router.navigate('home');
             }
         } else {
-            console.log(this.contentId);
-
-            (window as any).LngAndroid.openActivity("https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"); //for android
-            // Router.navigate(`player/${this.contentId}`)
+            let parser = new UAParser();
+            let parserResults = parser.getResult();
+            if (parserResults.os.name === 'Android') {
+                (window as any).LngAndroid.openActivity("https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4");
+            } else {
+                Router.navigate(`player/${this.contentId}`);
+            }
         }
     }
 
