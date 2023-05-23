@@ -1,5 +1,5 @@
 import { Router } from "@lightningjs/sdk";
-import { Home, Search, ContentDetails, POCVideoPlayer } from "../pages";
+import { Home, Search, ContentDetails, POCVideoPlayer, Playground } from "../pages";
 import GridLayout from '../components/organisms/grid/Grid';
 
 const routes = {
@@ -16,6 +16,10 @@ const routes = {
         {
             path: 'grid',
             component: GridLayout,
+        },
+        {
+            path: 'playground',
+            component: Playground
         },
         {
             path: 'settings',
