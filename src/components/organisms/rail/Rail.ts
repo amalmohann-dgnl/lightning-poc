@@ -1,4 +1,4 @@
-import { Lightning, Log, Storage } from '@lightningjs/sdk';
+import { Lightning, Colors, Storage } from '@lightningjs/sdk';
 import { RailTemplateSpec } from "../../../models/template-specs";
 import RailItem from '../../molecules/rail-item/RailItem';
 import { AxiosRequester } from '../../../services';
@@ -15,6 +15,8 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
     responseData: RailDataResponse = {} as RailDataResponse;
     data: Content[] = [];
 
+    readonly Wrapper = this.tag('Slider.Wrapper')!
+
     /**
    * This function is responsible for the creation and return of the UI template. This
    * function takes  no parameters and returns the template of the Rail component.
@@ -24,17 +26,30 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
    */
     static override _template() {
         return {
-            Header: {
-                x: 50,
-                y: 20,
-                color: theme.colors.white,
-                text: { text: "", fontSize: 35 }
+          Header: {
+            x: 50,
+            y: 20,
+            color: theme.colors.white,
+            text: {
+              text: "",
+              fontSize: 35,
+              fontFace: "Saira Regular",
+              fontStyle: "600",
             },
-            Slider: {
-                w: 800, h: 350, x: 480, y: 280, mount: 0.5,
-                Wrapper: {}
-            }
-        }
+          },
+          Slider: {
+            w: 1920,
+            h: 400,
+            y: 105,
+            mount: 0,
+            rect: true,
+            clipping: true,
+            color: Colors("transparent").get(),
+            Wrapper: {
+              x: 80,
+            },
+          },
+        };
     }
 
     /**
@@ -42,7 +57,7 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
     * attached for the first time. This function takes  no parameters and has no return.
     */
     override _init() {
-        const rail: { type: typeof RailItem; x: number; item: { label: string; src: string; data: Content, index: number, totalElements: number, cardSize: diamensions }; }[] = [];
+        const rail: { type: typeof RailItem; x: number; item: { label: string; src: string; data: Content, index: number, totalElements: number, cardSize: diamensions; railIndex: number }; }[] = [];
         if (this.railIndex < endp.length) {
             this.axiosRequester.fetch(endpoint[this.railIndex]!).then((response) => {
                 if (response) {
@@ -63,7 +78,7 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
                         rail.push({
                             type: RailItem,
                             x: i * cardWidthIncludingMargin,
-                            item: { label: label, src: img_src || "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/249/oyPcsfGWL5Se6RGW1JCVgpHlASH_288x432_13635141800.jpg", data: this.data[i]!, index: i, totalElements: this.dataLength, cardSize: cardSize }
+                            item: { label: label, src: img_src || "https://pmd205470tn-a.akamaihd.net/D2C_-_Content/191/249/oyPcsfGWL5Se6RGW1JCVgpHlASH_288x432_13635141800.jpg", data: this.data[i]!, index: i, totalElements: this.dataLength, cardSize: cardSize, railIndex: this.railIndex }
                         });
                     }
                 }
@@ -117,7 +132,7 @@ class Rail extends Lightning.Component<RailTemplateSpec> implements Lightning.Co
         const currentFocus = wrapper.children[this.index]
         const cardSize = currentFocus.cardSize
         if (this.index < this.dataLength - (cardSize.minimumCardsInViewport - 1)) {
-            wrapper.setSmooth("x", -(cardSize.w + cardSize.margin) * this.index, { duration: 0.3 });
+            wrapper.setSmooth("x", -(cardSize.w + cardSize.margin) * this.index + 80, { duration: 0.1 });
         }
     }
 

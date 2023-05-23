@@ -1,5 +1,5 @@
-import { Colors, Lightning, Storage } from '@lightningjs/sdk';
-import { PreviewComponent, Rail, FocusBox } from '../../components';
+import { Colors, Lightning, Storage, Registry } from '@lightningjs/sdk';
+import { PreviewComponent, Rail } from '../../components';
 import { endpoint, theme } from '../../configs';
 import { HomeTemplateSpec } from './../../models/template-specs';
 import AxiosRequester from '../../services/AxiosRequester';
@@ -16,7 +16,7 @@ export class Home
     hideNav: boolean = false;
     eventData: Content = {} as Content;
 
-    readonly Wrapper = this.getByRef('Background.Slider.Wrapper' as any)!
+    readonly Wrapper = this.tag('Background.Slider.Wrapper' as any)!
 
     /**
      * This function is responsible for the creation and return of the UI template. This function
@@ -32,13 +32,15 @@ export class Home
                 w: 1920, h: 1080,
                 color: theme.colors.black,
                 rect: true,
+                Version: {
+                  x: 50, y: 25, w: 100, h: 100, alpha: 0.3,
+                  text: { text: 'V: 0.0.1', fontSize: 20, }
+                },
                 Box: {
                     x: 80,
                     y: 665,
                     InnerBox: {
                         zIndex: 3,
-                        w: 100,
-                        h: 100,
                         rect: true,
                         shader: { type: Lightning.shaders.RoundedRectangle, radius: 20, stroke: 5, strokeColor: theme.colors.yellow },
                         color: Colors('transparent'),
@@ -50,14 +52,20 @@ export class Home
                 Slider: {
                     zIndex: 2,
                     clipping: true,
-                    w: 1920, h: (h: number) => h, x: 960, y: 1100, mount: 0.5,
+                    color: Colors('transparent').get(),
+                    w: 1920,
+                    h: 540,
+                    x: 1920, y: 0, mount: 1, rect: true,
                     Wrapper: {}
                 }
             },
         };
     }
 
-    $changeItemOnFocus(data: Content, cardData: { railTotalElements: number, cardIndex: number, cardHeight: number, cardWidth: number, cardSize: diamensions }) {
+    $changeItemOnFocus(data: Content, cardData: { railTotalElements: number, cardIndex: number, cardHeight: number, cardWidth: number, cardSize: diamensions; railIndex: number }) {
+        // console.log('debug: this.index', this.index);
+        // console.log('debug: railIndex', cardData.railIndex);
+
         let imgSrc = data.images.find((img: Image) => img.width === 828)?.url;
         let title = data.title;
         let description = data.description;
@@ -65,14 +73,34 @@ export class Home
         let directorsList = data.director.map((a: any) => a.personName).join(', ');
         let actorsList = data.actor.map((a: any) => a.personName).join(', ');
 
-        const { railTotalElements, cardIndex, cardSize } = cardData
-        const { minimumCardsInViewport, w, h, margin } = cardSize
 
-        const previewItem = {
-            type: PreviewComponent,
-            data: { imgSrc, title, description, genre, directorsList, actorsList }
-        }
-        this.tag('Background.ContentDetails' as any).patch(previewItem);
+        const { railTotalElements, cardIndex, cardSize, railIndex } = cardData;
+        const { minimumCardsInViewport, w, h, margin } = cardSize;
+
+        this.tag("Background.ContentDetails" as any).Thumbnail.setSmooth('alpha', 0, { duration: 0.5 })
+        this.tag("Background.ContentDetails" as any).ContentDetails.setSmooth('alpha', 0, { duration: 0.5 })
+
+        Registry.setTimeout(() => {
+          if (railIndex === this.index &&
+            this.Wrapper.children[this.index].Wrapper.children[
+              cardData.cardIndex
+            ].focused
+          ) {
+            // console.log(
+            //   'debug: child',
+            //   this.Wrapper.children[this.index].Wrapper.children[
+            //     cardData.cardIndex
+            //   ].focused
+            // );
+
+            const previewItem = {
+                type: PreviewComponent,
+                data: { imgSrc, title, description, genre, directorsList, actorsList }
+            }
+            this.tag('Background.ContentDetails' as any).patch(previewItem);
+          }
+        }, 500);
+
         this.tag('Box')?.patch({
             InnerBox: {
                 w: w,
@@ -82,8 +110,8 @@ export class Home
         })
         const focusBox = this.tag("Box" as any)
         if (cardIndex >= railTotalElements - (minimumCardsInViewport - 1)) {
-            focusBox.setSmooth("x", (w + margin) * (minimumCardsInViewport - (railTotalElements - cardIndex)) + 80, { duration: 0.3 });
-        } else focusBox.setSmooth("x", 80, { duration: 0.3 });
+            focusBox.setSmooth("x", (w + margin) * (minimumCardsInViewport - (railTotalElements - cardIndex)) + 80, { duration: 0.1 });
+        } else focusBox.setSmooth("x", 80, { duration: 0.1 });
 
     }
 
@@ -111,22 +139,9 @@ export class Home
         }
         await Storage.set('longData', longData);
     }
-
-
-    // repositioning the wrapper
     repositionWrapper() {
         const wrapper = this.tag('Background.Slider.Wrapper' as any);
-        const sliderH = this.tag('Background.Slider' as any).h;
-        const currentWrapperY = wrapper.transition('y').targetvalue || wrapper.y;
-        const currentFocus = wrapper.children[this.index];
-        const currentFocusY = currentFocus.y + currentWrapperY;
-        const currentFocusOuterHeight = currentFocus.y + currentFocus.h;
-        if (currentFocusY < 0) {
-            wrapper.setSmooth('y', -currentFocus.y);
-        }
-        else if (currentFocusOuterHeight > sliderH) {
-            wrapper.setSmooth('y', sliderH - (currentFocusOuterHeight));
-        }
+        wrapper.setSmooth('y', (-540 - 10) * this.index, { duration: 0.1 })
     }
 
     // adding animation on entering the page.
