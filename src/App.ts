@@ -16,12 +16,12 @@ export class App
     return [
       {
         family: "Saira Regular",
-        url: Utils.asset("fonts/Saira-VariableFont_wdth,wght.ttf"),
+        url: Utils.proxyUrl("fonts/Saira-VariableFont_wdth,wght.ttf"),
         descriptors: { weight: "1 1000" },
       },
       {
         family: "Saira Italics",
-        url: Utils.asset("fonts/Saira-Italic-VariableFont_wdth,wght.ttf"),
+        url: Utils.proxyUrl("fonts/Saira-Italic-VariableFont_wdth,wght.ttf"),
         descriptors: { weight: "1 1000" },
       },
     ];
