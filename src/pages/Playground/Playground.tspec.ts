@@ -9,6 +9,7 @@ interface PlaygroundTemplateSpec extends Lightning.Component.TemplateSpecLoose {
     /**
      * properties of the component
      */
+    Components: any
 
 
 

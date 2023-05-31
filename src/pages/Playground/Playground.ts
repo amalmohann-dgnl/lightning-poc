@@ -5,6 +5,7 @@ import AxiosRequester from '../../services/AxiosRequester';
 import { RailDataResponse, Content, Image } from '../../models/api-request-response/rail-data.response';
 import { diamensions } from '../utils/rail-utils/cardUtils';
 import PlaygroundTemplateSpec from './Playground.tspec';
+import BaseComponent from '../../components/organisms/BaseComponent/index';
 
 // Playground component
 export class Playground
@@ -27,7 +28,9 @@ export class Playground
      */
     static override _template(): Lightning.Component.Template<PlaygroundTemplateSpec> {
         return {
-
+            Components: {
+                BaseComponent: BaseComponent
+            }
         };
     }
 
