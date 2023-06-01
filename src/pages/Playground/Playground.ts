@@ -6,6 +6,7 @@ import { RailDataResponse, Content, Image } from '../../models/api-request-respo
 import { diamensions } from '../utils/rail-utils/cardUtils';
 import PlaygroundTemplateSpec from './Playground.tspec';
 import BaseComponent from '../../components/organisms/BaseComponent/index';
+import FocusableComponent from '../../components/organisms/FocusableComponent';
 
 // Playground component
 export class Playground
@@ -28,9 +29,7 @@ export class Playground
      */
     static override _template(): Lightning.Component.Template<PlaygroundTemplateSpec> {
         return {
-            Components: {
-                BaseComponent: BaseComponent
-            }
+            Components: { type: FocusableComponent }
         };
     }
 
