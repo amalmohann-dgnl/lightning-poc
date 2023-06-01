@@ -1,6 +1,6 @@
 import { Lightning } from '@lightningjs/sdk';
 import { theme } from '../../../configs';
-import { FocusableTemplateSpec, FocusableTypeConfig } from './focusable.tspec';
+import { FocusableTemplateSpec, FocusableTypeConfig } from './Focusable.tspec';
 
 class Focusable extends Lightning.Component<FocusableTemplateSpec, FocusableTypeConfig>
     implements Lightning.Component.ImplementTemplateSpec<FocusableTemplateSpec>
